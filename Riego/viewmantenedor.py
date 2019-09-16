@@ -1034,3 +1034,7 @@ def viewConvenioMan(request):
         'asociacion':viewName(),
     }
     return render(request,'mantenedor/convenio.html', data)
+
+
+def viewTramo1(request):
+    return render(request, 'mantenedor/tramo1.html', {})

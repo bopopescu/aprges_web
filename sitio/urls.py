@@ -30,6 +30,9 @@ urlpatterns = [
 
     path('mantenedor/asociacion/',viewDatos),
 
+
+    path('mantenedor/tramo1/', viewTramo1),
+
     #Antecedentes
     path('antecedentes/socios/',viewSocios),
     path('antecedentes/orden_trabajo/', viewOrden_trabajo),
