@@ -102,8 +102,7 @@
           }
           .cargo, .multas{
             width: 40%;
-          }
-          
+          }          
           .fijo, .solidario{
             display: flex;
           }
@@ -123,29 +122,51 @@
           .table{
             width: 100%;
           }
-          .etiqueta{
+          .etiqueta, .etiquetas_tablas{
             display: flex;
           }
-          .etiquetas{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;;
-            width: 41%;
-            margin-top: 2rem;
-          }
-          .etiqueta2{
-            display: flex;
-            visibility: hidden;
-          }
-          .etiqueta_label{
-            width: 5rem;
-          }
-          
-          .iconos{
-             justify-content: space-evenly;
-              width: 100%;
-          }
+          .etiquetass{
+          width: 25%;
+          justify-content: space-between;
+          padding-right: 1rem;
         }
+        .tabla{
+          width: 75%;
+          overflow-y: scroll;
+          overflow-x: hidden;
+        }
+        .etiqueta{
+          display: flex;
+          justify-content: space-between;
+        }
+        .etiqueta_input{
+          width: 9rem;
+        }
+        .boton2{
+          width: 10em;
+        }
+        .tabla_titulos{
+          position: absolute;
+        }
+        .tabla_titulo{
+          width: 12.2rem;
+        }        
+        .etiquetas{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;;
+          width: 41%;
+          margin-top: 2rem;
+        }          
+        .etiqueta2{
+          display: flex;
+          visibility: hidden;
+        }
+        .iconos{
+         justify-content: space-evenly;
+          width: 100%;
+        }
+      }
     </style>
   </head>
 
@@ -422,7 +443,7 @@
                       <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo1/">Tarifa x Tramo (1)</a></button>
                       <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo2/">Tarifa x Tramo (2)</a></button>
                       <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo3/" >Tarifa x Tramo (3)</a></button>
-                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button>
+                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button> 
                     </section>
   
                     <!-- cargos -->
@@ -468,110 +489,134 @@
                     </section>
   
                     <!-- Tabla -->
-                    <section class="container mt-2">
-                      <div class="card mb-2">
-                        <div class="card-body p-0">
-                          <div class="tabla">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr class="table-succes">
-                                  <th>Tramo</th>
-                                  <th>Desde</th>
-                                  <th>Hasta</th>
-                                  <th>Valor</th>
-                                  <th>Fecha</th>
+                    <section class="container">
+                      <div class="card">
+                        <div class="etiquetas_tablas card-body">
+                          <!-- etiquetas -->
+                          <section class="etiquetass">
+                            <p class="etiquetas_titulo">Ingreso de Tarifas:</p>
+                            <div class="etiqueta form-group">
+                              <label>Inicio Mts3:</label>
+                              <input type="text" class="etiqueta_input form-control">
+                            </div>
+                            <div class="etiqueta form-group">
+                              <label>Hasta Mts3:</label>
+                              <input type="text" class="etiqueta_input form-control">
+                            </div>
+                            <div class="etiqueta form-group">
+                              <label>Valor Inicial:</label>
+                              <input type="text" class="etiqueta_input form-control">
+                            </div>
+                            <div class="etiqueta form-group">
+                              <label>Intervalo:</label>
+                              <input type="text" class="etiqueta_input form-control">
+                            </div>
+                            <div class="boton2_div">                      
+                              <button type="button" class="btn btn-outline-success boton2">Generar Tarifa</button>
+                            </div>
+                          </section>
+
+                          <!-- tabla -->
+                          <section class="tabla">
+                            <div class="cuerpo_tabla">
+                              <table class="table table-bordered tabla_mt3">
+                                <thead>
+                                  <th class=" table-success tabla_titulo">Tramo</th>
+                                  <th class=" table-success tabla_titulo">Mt3</th>
+                                  <th class=" table-success tabla_titulo">Valor Mt3</th>
+                                  <th class=" table-success tabla_titulo">Valor</th>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
                                   </tr>
-                              </thead>
-                              <tbody >
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </section>
                         </div>
-                      </div>   
+                      </div>
                     </section>
    
                     <!-- Etiquetas -->

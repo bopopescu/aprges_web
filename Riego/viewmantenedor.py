@@ -1038,3 +1038,12 @@ def viewConvenioMan(request):
 
 def viewTramo1(request):
     return render(request, 'mantenedor/tramo1.html', {})
+
+def viewTramo2(request):
+    return render(request, 'mantenedor/tramo2.html', {})
+
+def viewTramo3(request):
+    return render(request, 'mantenedor/tramo3.html', {})
+
+def viewTramo4(request):
+    return render(request, 'mantenedor/tramo4.html', {})

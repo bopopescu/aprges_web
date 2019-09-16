@@ -651,10 +651,10 @@ kbd {
   padding-left: 0.9375rem;
   padding-right: 11.25px;
   padding-right: 0.9375rem; }
-  .container:after {
+  /* .container:after {
     content: "";
     display: table;
-    clear: both; }
+    clear: both; } */
   @media (min-width: 544px) {
     .container {
       max-width: 576px; } }
