@@ -1,0 +1,562 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Riego | 2019</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
+    <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
+    <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+    <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
+    <style>
+        #table-wrapper {
+            position:relative;
+        }
+        #table-scroll {
+            height:160px;
+            overflow:auto;
+        }
+        #table-wrapper table {
+            width:100%;
+        }
+        
+        #table-wrapper table thead th .text {
+            position:absolute;   
+            top:-20px;
+            z-index:2;
+            height:3000px;
+            width:60%;
+            border:1px solid red;
+        }
+        .search{
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        .div_boton{
+            display: flex;
+            justify-content: center;
+        }
+        .boton{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 15rem;
+            padding: 1rem 3rem;
+        } 
+        .tabla1{
+            overflow-x: scroll;
+        }
+        .tabla_titulos{
+            background-color: #4183D7;
+            color: white;
+        }  
+        .rebaja{
+            display: flex;
+            justify-content: flex-end;
+            margin: 1rem 3rem 2rem 0;
+        }
+        .medidor_label, .rebaja_label{
+            padding-right: 3rem;
+        }
+        .medidor_input, .rebaja_input{
+            width: 12rem;
+        }
+        .iconos1{
+        display: flex;
+        justify-content: center;
+        margin: 2rem 1rem 0 0;
+        }
+        .iconos2{
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 1rem 0 0;
+            }
+        .boton_iconos{
+            border: none;
+            background-color: transparent;
+        }
+        .icono{
+            color: black;
+            margin-left: 4rem;
+            }
+        @media (min-width: 768px){
+            .medidor{
+                display: flex;
+                margin-bottom: 2rem;
+            }
+            .tabla1{
+                overflow: hidden;
+                margin: 0;
+                margin-top: 2rem;
+            }         
+            .tabla2{
+                height: 10rem;
+                margin: 0;
+            }
+            .iconos1{
+                display: flex;
+                justify-content: flex-end;
+                margin: 2rem 1rem 0 0;
+            }
+            .iconos2{
+                display: flex;
+                justify-content: center;
+            }
+            .icono{
+                color: black;
+                margin-left: 4rem;
+            
+            }
+            .id, .cliente, .ubicacion, .contacto, .venta, .medidor {
+                display: flex;
+                margin-bottom: .5rem;
+            }
+            .cliente_label{
+                width: 15rem;
+            }
+            .cliente_input{
+                width: 20rem;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function habilitar(abono,valor)
+        {
+            var arr = document.getElementsByName('abono');
+
+            if( parseInt(valor) < parseInt(abono) ){
+                for(var i=0;i<arr.length;i++){
+                    arr[i].value="";
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+            function findTotal(){
+                var arr = document.getElementsByName('abono');
+                var tot=0;
+    
+                var j=0;
+    
+                for(var i=0;i<arr.length;i++){
+                    if(parseInt(arr[i].value))
+                        tot += parseInt(arr[i].value);
+                        j=j+1;
+                }
+                document.getElementById('total').value = tot;
+            }
+            
+    </script>
+  </head>
+
+  <body class="orchid  ">
+    <div class="mainmenu-block">
+        <!-- SITE MAINMENU-->
+        <nav class="menu-block">
+            <ul class="nav">
+            <img src="{% static 'assets/images/ico-2.png' %}" class="img-fluid" style="padding: 30px;"/>
+        
+            </ul>
+            <ul class="nav">
+              <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
+                  <div class="menu-block-label">Home</div></a></li>
+  
+              <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
+                  <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
+                <ul class="nav menu-block-sub">
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/tipoagua/">Tipo de Riego</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/valor/">Valor Hora<span class="label label-success">new</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/cargo/">Cargo y Ocupación</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/funcionarios/">Datos Funcionarios</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/proveedor/">Proveedor</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/asociacion/">Datos de Asociación</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/mantenedor/convenio/">Detalle de Convenio</a></li>
+                </ul>
+              </li>
+              <!--li.header GENERAL-->
+              <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
+                  <div class="menu-block-label">Antecedentes</div></a>
+                <ul class="nav menu-block-sub">
+                  <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
+                </ul>
+              </li>
+              <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
+                  <div class="menu-block-label">Procesos</div></a>
+                <ul class="nav menu-block-sub">
+                  <li class="nav-item"><a class="nav-link" href="/procesos/consumo/">Consumo de Socio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/procesos/generacion/">Generación de Docto Cobranza</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/procesos/pagos/">Ingreso de Pagos</a></li>
+                  <li class="nav-item"><a class="nav-linl" href="/procesos/historial_cliente/">Historial Cliente</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Facturas</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
+                  <div class="menu-block-label">Informes</div></a></li>
+  
+              <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
+                  <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
+                <ul class="nav menu-block-sub">
+                  <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/contabilidad/ingreso/">Comprobante de Ingresos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/contabilidad/saldofavor/">Saldo a Favor</a></li>    
+                </ul>
+              </li>
+              <!--li.header.nav-item APP-->
+              <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
+                  <div class="menu-block-label">Configuración</div></a>
+                <ul class="nav menu-block-sub">
+                  <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- END SITE MAINMENU-->
+        </nav>
+    </div>
+
+    <!-- #MAIN-->
+    <div class="main-wrapper">
+
+        <!-- VIEW WRAPPER-->
+        <div class="view-wrapper">
+
+            <!-- TOP WRAPPER-->
+            <div class="topbar-wrapper">
+
+            <!-- NAV FOR MOBILE-->
+            <div class="topbar-wrapper-mobile-nav"><a class="topbar-togger js-minibar-toggler" href="#"><i class="icon ion-ios-arrow-back hidden-md-down"></i><i class="icon ion-navicon-round hidden-lg-up"></i></a><a class="topbar-togger pull-xs-right hidden-lg-up js-nav-toggler" href="#"><i class="icon ion-android-person"></i></a>
+
+                <!-- ADD YOUR LOGO HEREText logo: a.topbar-wrapper-logo(href="#") AdminHero
+                --><a class="topbar-wrapper-logo demo-logo" href="index.html">AdminRiego</a>
+            </div>
+            <!-- END NAV FOR MOBILE-->
+
+            <!-- SEARCH-->
+            <div class="topbar-wrapper-search">
+                <form>
+                <input class="form-control" type="search" placeholder="Search"><a class="topbar-togger topbar-togger-search js-close-search" href="#"><i class="icon ion-close"></i></a>
+                </form>
+            </div>
+            <!-- END SEARCH-->
+
+            <!-- TOP RIGHT MENU-->
+            <ul class="nav navbar-nav topbar-wrapper-nav">
+                <li class="nav-item"><a class="nav-link js-search-togger" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+
+                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon fa fa-columns"></i><span class="badge badge-success status">4</span></a>
+
+                <!-- #RIGHT BLOCK-->
+                <!--
+                RIGHT PANEL
+                * same dropdown-menu markup, add '.dropdown-menu-side'
+                -->
+                <div class="dropdown-menu dropdown-menu-side">
+                    <ul class="nav nav-tabs nav-justified">
+                    <li class="nav-item"><a class="nav-link active" data-target="#demoright-1" aria-controls="demoright-1" role="tab" data-toggle="tab"><i class="ion-help-buoy icon"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" data-target="#demoright-2" aria-controls="demoright-2" role="tab" data-toggle="tab"><i class="ion-quote icon"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" data-target="#demoright-3" aria-controls="demoright-3" role="tab" data-toggle="tab"><i class="ion-gear-b icon"></i></a></li>
+                    </ul>
+                    <div class="tab-content">
+                    <div class="tab-pane active fade in" role="tabpanel" id="demoright-1"><a class="dropdown-item media circle-box" href="#">
+                        <div class="media-left media-middle"><img class="media-object circle-object" src="#" alt=""></div>
+                        <div class="media-body">
+                            <div class="media-heading">Ryan Sears</div>
+                            <p class="text-muted small">Rome; Hard there to deeply verbal page goals a accept into it pri</p>
+                        </div></a><a class="dropdown-item media circle-box" href="#">
+                        <div class="media-left media-middle">
+                            <div class="media-object circle-object bg-info"><i class="ion-calendar"></i></div>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">Event remind.</div>
+                            <p class="text-muted small">10 min ago</p>
+                        </div></a><a class="dropdown-item media circle-box" href="#">
+                        <div class="media-left media-middle">
+                            <div class="media-object circle-object bg-success">40%</div>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">Event remind.</div>
+                            <div class="progress">
+                            <progress class="progress progress-danger loader" value="46" max="100"></progress>
+                            </div>
+                            <p class="text-muted small">10 min ago</p>
+                        </div></a><a class="dropdown-item media circle-box" href="#">
+                        <div class="media-left media-middle">
+                            <div class="media-object circle-object bg-danger">2d</div>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">Project deadline.</div>
+                            <div class="progress">
+                            <progress class="progress progress-success loader" value="80" max="100"></progress>
+                            </div>
+                            <p class="text-muted small">80% completion</p>
+                        </div></a><a class="dropdown-item media circle-box" href="#">
+                        <div class="media-body">
+                            <div class="media-heading">Judith Sullivan</div>
+                            <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                        </div></a>
+                    </div>
+                    <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-2"></div>
+                    <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-3"></div>
+                    </div>
+                </div>
+                <!-- END RIGHt PANEL-->
+                </li>
+
+                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-android-notifications-none"></i><span class="badge badge-danger status">9+</span></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">Notifications (5)</div>
+                        <div class="dropdown-menu-inner">
+                            <a class="dropdown-item media circle-box" href="#">
+                                <div class="media-body">
+                                    <div class="media-heading">Ryan Sears</div>
+                                    <p class="text-muted small">Pink do well together specially name if design postage briefs big into in her working</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item media circle-box" href="#">
+                                <div class="media-left media-middle">
+                                    <div class="media-object circle-object bg-danger"><i class="fa fa-bug"></i></div>
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">Server Error</div>
+                                    <p class="text-muted small">3 minutes ago</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item media circle-box" href="#">
+                                <div class="media-left media-middle">
+                                    <div class="media-object circle-object bg-success"><i class="fa fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">Server Error Reports</div>
+                                    <p class="text-muted small">3 minutes ago</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item media circle-box" href="#">
+                                <div class="media-body">
+                                    <div class="media-heading">Judith Sullivan</div>
+                                    <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                                </div>
+                            </a>
+                        </div><a class="dropdown-item" href="#">
+                        <div class="text-xs-center"><i class="ion-more"></i></div></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-paintbucket"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                        <div class="js-color-switcher demo-color-switcher">
+                            <div class="dropdown-header">Flat</div>
+                            <div class="list-inline"><a class="list-inline-item" href="#" data-color="f-dark">
+                                <div class="demo-skin-grid f-dark"></div></a><a class="list-inline-item" href="#" data-color="f-dark-blue">
+                                <div class="demo-skin-grid f-dark-blue"></div></a><a class="list-inline-item" href="#" data-color="f-blue">
+                                <div class="demo-skin-grid f-blue"></div></a><a class="list-inline-item" href="#" data-color="f-green">
+                                <div class="demo-skin-grid f-green"></div></a><a class="list-inline-item" href="#" data-color="f-deep-taupe">
+                                <div class="demo-skin-grid f-deep-taupe"></div></a>
+                            </div>
+                            <div class="dropdown-header">Gradient</div>
+                            <div class="list-inline"><a class="list-inline-item" href="#" data-color="orchid">
+                                <div class="demo-skin-grid orchid"></div></a><a class="list-inline-item" href="#" data-color="cadetblue">
+                                <div class="demo-skin-grid cadetblue"></div></a><a class="list-inline-item" href="#" data-color="joomla">
+                                <div class="demo-skin-grid joomla"></div></a><a class="list-inline-item" href="#" data-color="influenza">
+                                <div class="demo-skin-grid influenza"></div></a><a class="list-inline-item" href="#" data-color="moss">
+                                <div class="demo-skin-grid moss"></div></a><a class="list-inline-item" href="#" data-color="mirage">
+                                <div class="demo-skin-grid mirage"></div></a><a class="list-inline-item" href="#" data-color="stellar">
+                                <div class="demo-skin-grid stellar"></div></a><a class="list-inline-item" href="#" data-color="servquick">
+                                <div class="demo-skin-grid servquick"></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-android-exit"></i></a></li>
+                <li class="nav-item"><a class="nav-link close-mobile-nav js-close-mobile-nav" href="#"><i class="icon ion-close"></i></a></li>
+                <!-- END TOP RIGHT MENU-->
+          </ul>
+            </div>
+            <!--END TOP WRAPPER-->
+
+
+            <!-- PAGE CONTENT HERE-->
+            <!-- #PAGE HEADER-->
+            <!-- PAGE HEADER-->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="display-6">Condonación de Deuda</div>
+                                <div class="small text-muted">para soporte llamar a 22 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+
+            <div class="container-fluid">
+                <div class="row js-grid-wrapper panel-wrapper">
+                    <!-- #SELECT2-->
+                    {% block content %}	
+                    <form class="col-sm-12" action="/configuracion/condonacion/" method="POST">
+                        {% csrf_token %}  
+                        <div class="panel panel-default">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body">
+                                {% block content1 %}	
+                                <form action="/configuracion/condonacion/historial/" method="POST">
+                                    {% csrf_token %}  
+                                    <div class="row m-b-3">
+                                        <div class="div_boton">
+                                            <a class="btn btn-block active m-b-2 btn-info boton" type="button" href="/configuracion/condonacion/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                {% endblock %}
+                                <div class="m-b-3">
+                                    <div class="">
+                                        <div class="search">
+                                            <input type="hidden" name="numero" id="numero">
+                                            <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
+                                            <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                                            <input type="hidden" id="identi" name="identi" class="form-control">
+                                            <input type="hidden" id="id_" name="id_" value="{{id_}}" class="form-control">
+                                            <input type="hidden" id="ano_" name="ano_" value="{{ano}}" class="form-control">
+                                            <input type="hidden" id="mes_" name="mes_" value="{{mes}}" class="form-control">
+                                        </div>
+                                        <div class="cliente">
+                                                <label for="" class="cliente_label">Cliente</label>
+                                                <input type="hidden" id="numero" name="numero" value="{{numero}}">
+                                                <input type="text" class="cliente_input form-control" id="rut" name="rut" value="{{rut}}" disabled>
+                                                <input type="text" class="cliente_select form-control" id="nombre" name="nombre" value="{{nombre}}" disabled>
+                                            </div>
+                                        <div class="tabla1 card">
+                                            <div class="card-body">
+                                                <div id="table-wrapper">
+                                                    <div id="table-scroll">
+                                                        <table class="table table-bordered m-b-0">
+                                                            <thead>
+                                                                <tr class="tabla_titulos">
+                                                                    <th scope="col">Boleta</th>
+                                                                    <th scope="col">Código</th>
+                                                                    <th scope="col">Descripción</th>
+                                                                    <th scope="col">Valor</th>
+                                                                    <th scope="col">Abono</th>
+                                                                    <th scope="col">Mes/Año</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for i in lista %}
+                                                                <tr>
+                                                                    <td>{{i.id}}
+                                                                        <input type="hidden" id="idaviso" name="idaviso" value="{{i.id}}" type="text">
+                                                                    </td>
+                                                                    <td>{{i.codigo}}
+                                                                            <input type="hidden" id="codigo" name="codigo" value="{{i.codigo}}" type="text">
+                                                                    </td>
+                                                                    <td>{{i.des}}
+                                                                            <input type="hidden" id="des" name="des" value="{{i.des}}" type="text">
+                                                                    </td>
+                                                                    <td>{{i.valor}}<input type="hidden" id="valor" name="valor" value="{{i.valor}}" type="text"> </td>
+                                                                    <td><input onchange="habilitar(this.value,'{{i.valor}}')" onblur="findTotal()" id="abono" name="abono" value="" type="text"></td>
+                                                                    <td>{{i.mes}}/{{i.ano}}</td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="rebaja">
+                                            <label for="" class="rebaja_label">Total a Rebajar</label>
+                                            <input class="modal_total_input" name="total" id="total" value="0" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="motivo">
+                                        <label for="" class="motivo_label">Motivo de la Condonación</label>
+                                        <div>
+                                            <textarea class="form-control" name="motivo" id="motivo" rows="5" placeholder="(Ninguno)" >?</textarea>
+                                        </div>
+                                    </div>
+                                    <label>{{mensaje}}</label>
+                                    <div class="iconos2">
+                                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                                                
+                                            <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                                        </button>
+                                    </div>                            
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {% endblock %}    
+                     <!-- #SELECT2-->           
+                </div>
+                <!-- ROW--> 
+            </div>
+        </div>
+        <!-- END VIEW WRAPPER-->                                
+    </div>
+     <!-- END MAIN WRAPPER-->
+            
+    <!-- WEB PERLOAD-->
+    <div id="preload">
+        <ul class="loading">
+            <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
+            $("#buscarsocio").autocomplete({
+            source: availableTags,
+            minLength: 2,
+            });
+        });
+        $("#buscarsocio").change(function () {
+          var countryId = $(this).val();
+          $.ajax({
+              url: '/procesos/consumo/id/',
+              data: {
+              'socio': countryId
+              },
+              success: function (data) {
+              $("#id_").val(
+                  data
+              );
+              
+              }
+              
+          });
+        });
+      </script>
+
+    <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/tether.min.js' %}"></script>
+    <script src="{% static 'assets/scripts/theme/theme-plugins.js' %}"></script>
+    <script src="{% static 'assets/scripts/theme/main.js' %}"></script>
+    <script src="{% static 'assets/scripts/demo/demo-skin.js' %}"></script>
+    <script src="{% static 'assets/scripts/demo/bar-chart-menublock.js' %}"></script>
+  </body>
+</html>

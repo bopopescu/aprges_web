@@ -1,0 +1,36 @@
+body{
+    background:white
+}
+h1{
+    width: 25%;
+    height:40px;
+    margin:2px 440px;
+    padding: 5px;
+    font-family: sans-serif
+    }
+h2 {width:44%;
+    height:20px;
+    margin:2px 290px;
+    padding:10px;
+    font-size:15px;
+    font-family: sans-serif
+    }
+
+table
+    {background-color: silver;
+    width:90%;
+    margin:3px 20px;
+    color:black;
+    font-family: sans-serif;
+    font-size: 12px;
+    border: black 3px solid;
+    }
+
+    td{
+        color:black;
+        background-color:white;
+        font-size: 11px;
+        margin: 10px;
+        padding: 10px;
+      }
+            

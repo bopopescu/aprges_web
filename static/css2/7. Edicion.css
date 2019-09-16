@@ -1,0 +1,43 @@
+body{
+    background:white
+    
+}
+h1{
+    position:relative;
+    top:0px;
+    bottom:8px;
+    right: 0px;
+    left: 410px;
+    font-family: sans-serif
+    }
+
+h2 {
+    position:relative;
+    top:-17px;
+    bottom:0px;
+    right: 0px;
+    left: 360px;
+    font-size:15px;
+    font-family: sans-serif
+    }
+
+h3{
+    position:relative;
+    top:-25px;
+    bottom:10px;
+    right: 0px;
+    left: 510px;
+    font-size:12px; 
+    font-family: sans-serif  
+}
+
+table{background-color: silver;
+    width:90%;
+    margin:-22px 20px;
+    color:black;
+    font-size: 12px;
+    border: black 3px solid;
+    }
+td{
+    background-color:white
+}

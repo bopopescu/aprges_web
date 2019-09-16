@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Libro de ventas diarias</title>
+    <style>
+            @page {
+            margin: 30;
+            margin-bottom: 100px;
+        }
+        body{
+            text-align: center;
+        }
+        h1{
+            font-size: 3em;
+            margin: 0;
+        }  
+        .table{
+            height: 40px;
+            border: black 2px solid;
+            }
+        th{
+            background-color:silver;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <table style="margin-top: 0;margin-bottom: 0;">
+        <td style="text-align: right; height: 70px;">
+            <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+        </td>
+    </table> -->
+    <h1>Libro de Ventas Diarias</h1>
+    <p>XX/XX/XXXX - XX/XX/XXXX</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FECHA</th>
+                <th width="50%">CLIENTES</th>
+                <th>NRO FACTURA</th>
+                <th>RUT</th>
+                <th>TOTAL FACTURA</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>  
+        <tbody> 
+            {% for i in list %} 
+            <tr>
+                <td>{{i.fecha}}</td>
+                <td>{{i.clientes}}</td>
+                <td>{{i.factura}}</td>
+                <td>{{i.rut}}</td>
+                <td>{{i.total}}</td>
+                <td>{{i.estado}}</td>
+            </tr>
+            {% endfor %} 
+        </tbody>  
+    </table>
+</body> 
+</html>

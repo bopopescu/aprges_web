@@ -1,0 +1,104 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+                <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                        <title>Listado de facturación</title>
+                        <style>
+                @media print{
+                        @page {
+                                size: legal landscape;
+                                margin: 30 50;
+                                margin-left: 100px;
+                        }
+                        h1{
+                                font-size: 3em;
+                                margin-top: 0;
+                                text-align: center;
+                        }
+                        table{
+                                height: 40px;     
+                                width: 100%;                 
+                        }                
+                        th{
+                                margin: 3;
+                        }
+                        h2{
+                                text-align: left;
+                                margin-left: 50px;
+                        }
+                        .pagina{
+                                margin-left: 1100px; 
+                                margin-top: 0px;
+                        }
+                        td{
+                                text-align: center;
+                        }
+                        .nombre{
+                                text-align: left;
+                        }
+                }
+        </style>
+        </head>
+        <body>
+                <table>
+                        <td style="text-align: right; height: 70px;">
+                                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                        </td>
+                </table>
+                <h1>Listado de facturacion</h1>
+                <h2>{{fecha}}</h2>
+                <table >
+                        <thead>
+                                <tr>
+                                        <th>DOCTO</th>
+                                        <th style="text-align: left" colspan="4">Nombre Cliente</th>
+                                        <th>Hora de Consumo</th>
+                                        <th>Valor</th>
+                                        <th>Convenio</th>
+                                        <th>Saldo</th>
+                                        <th>Multa Inasistencia</th>
+                                        <th>A favor</th>
+                                        <th>Intereses</th>
+                                        <th>Total Boleta</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for i in lista2 %}  
+                                <tr>
+                                        <td>{{i.boleta}}</td>
+                                        <td style="text-align: left;padding-left: 5px;" colspan="4">{{i.nombres}}</td>
+                                        <td>{{i.consumo}}</td>
+                                        <td>{{i.valorconsumo}}</td>
+                                        <td>{{i.convenio}}</td>
+                                        <td>{{i.saldo}}</td>
+                                        <td>{{i.inasistencia}}</td>
+                                        <td>{{i.favor}}</td>
+                                        <td>{{i.multa}}</td>
+                                        <td>{{i.total}}</td>
+                                </tr>
+                                {% endfor %} 
+                                <tr>
+                                        <td colspan="4"></td>
+                                        <td><b>Total Facturacion</b></td>
+                                        <td><input type="text" placeholder="suma.descuento">{{totalconsumo}}</td>
+                                        <td><input type="text" placeholder="suma.convenio">{{totalvalorconsumo}}</td>
+                                        <td><input type="text" placeholder="suma.santerior">{{totalconvenio}}</td>
+                                        <td><input type="text" placeholder="suma.inasistencia">{{totalsaldo}}</td>
+                                        <td><input type="text" placeholder="suma.afavor">{{totalinasistencia}}</td>
+                                        <td><input type="text" placeholder="suma.aant">{{totalafavor}}</td>
+                                        <td><input type="text" placeholder="suma.aact">{{totalmulta}}</td>
+                                        <td><input type="text" placeholder="suma.total"><b>{{totalfacturacion}}</b></td>
+                                </tr>
+                        </tbody> 
+                </table>
+
+                <script src="C:\Users\Kleinht\Desktop\TAREA 1\boots\jquery-3.4.1.min.js"></script>
+                <script src="C:\Users\Kleinht\Desktop\TAREA 1\js\bootstrap.min.js"></script>
+
+        </body>
+
+
+
+</html>

@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
+    <title>Listado de socio por ano de ingreso</title>
+    <style>
+                @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            body{
+                    text-align: center;
+            }
+        h1{
+                font-size: 3em;
+                margin: 0;
+        }
+        .table{
+                height: 40px;
+                border: black 2px solid;
+        }
+        th{
+                background-color:silver;
+        }         
+    </style>
+</head>
+
+<body >
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1><b> Nomina de socios</b></h1> 
+        <h2>COOPERATIVA AGUA POTABLE RURAL DOMINGO ORTIZ DE ROZAS LTDA.</h2>
+        <table class= "table">
+                <thead>
+                        <tr>
+                                <th width="50%">APELLIDO PATERNO</th>
+                                <th width="50%">APELLIDO MATERNO</th>
+                                <th width="50%">NOMBRES</th>
+                                <th width="30%">RUT</th>
+                                <th>DIRECCION</th>
+                                <th width="30%">FECHA</th>
+                                <th width="25%">MEDIDOR</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for i in list %} 
+                        <tr>
+                                <td>{{i.appaterno}}</td>
+                                <td>{{i.apmaterno}}</td>
+                                <td>{{i.nombres}}</td>
+                                <td>{{i.rut}}</td>
+                                <td>{{i.direccion}}</td>
+                                <td>{{i.fecha}}</td>
+                                <td>{{i.medidor}}</td>                
+                        </tr>
+                        {% endfor %} 
+                </tbody>
+        </table>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                    
+</body>
+</html>

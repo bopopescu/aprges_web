@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Listado de Facturas Emitidas</title>
+    <style>
+            @page{
+                    size: letter portrait;
+                    margin: 30 50;
+                }
+        h1{
+                font-size: 30px;
+                margin: 0;
+                text-align: center;
+        }
+        .nro {
+                text-align: center;
+                font-size: 15px;
+        }
+        .iden{
+                margin-top: 15px;
+                margin-bottom: 15px;
+        }
+        .tabla{
+                border: 1px solid silver;
+                padding: 3px;
+        }
+        
+        p{
+                border-top: 1px solid black;
+                margin-top: 100px;
+                margin-left: 500px;
+                padding-top: 5px;
+                text-align: center;
+            }
+        /* table{
+                border: 1px solid black;
+        } */
+    </style>
+</head>
+
+<body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+                <td style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+        </table>
+        <h1>Factura</h1>
+        
+        <div class="nro">
+                <label>Nro</label>
+                <input type="text" placeholder="Número">{{numero}}
+        </div>
+        <div class="fecha">
+                <input type="text" placeholder="día">
+                <input type="text" placeholder="mes">
+                <input type="text" placeholder="año">
+        </div>
+        <table class="iden">
+                <tbody>
+                        <tr>
+                                <td WIDTH="150"><b>CLIENTE</b></td>
+                                <td colspan="2"><input type="text" placeholder="señor">{{nombres}}</td>
+                                <td WIDTH="80"><b>GIRO</b></td>
+                                <td colspan="2"><input type="text" placeholder="giro">{{giro}}</td>
+                        </tr>
+                        <tr>
+                                <td><b>DIRECCION</b></td>
+                                <td colspan="7"><input type="text" placeholder="dirección">{{direccion}}</td>
+
+                        </tr>
+                        <tr>
+                                <td><b>RUT</b></td>
+                                <td colspan="2"><input type="text" placeholder="rut">{{rut}}</td>
+                                <td><b>FONO</b></td>
+                                <td colspan="2"><input type="text" placeholder="fono">{{telefono}}</td>
+                        </tr>
+                </tbody>
+        </table>
+
+        <table class="tabla">
+                <tbody>
+                        <tr>
+                                <td><b>Detalle</b></td>
+                                <td colspan="7"><input type="text" placeholder="detalle">{{detalle}}</td>
+                                <td><b>Total</b></td>
+                                <td colspan="2"><input type="text" placeholder="Subtotal">{{monto}}</td>
+                        </tr>
+                </tbody>
+        </table>
+        <p>Firma</p>
+</body>
+</html>   

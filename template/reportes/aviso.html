@@ -1,0 +1,132 @@
+{% load staticfiles %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Avisos</title>
+    <style rel="stylesheet" type="text/css" media="print">
+        @page {
+            size: letter ;
+            margin: 20;
+        }
+        .cuerpo{
+            margin-bottom: 30px;
+        }
+        .tabla{
+            margin-bottom: 50px;
+        }
+        .tabla-texto{
+            height: 25px;
+            background-color: silver;
+        }
+        .tabla-texto2{
+            height: 25px;
+            background-color: silver;
+        }
+        .tabla_cuerpo{
+            height: 25px;
+        }
+        .tabla_cuerpo2{
+            text-align: center;
+            height: 25px;
+        }
+        .saldo-pendiente, .saldo_anterior, .total{
+            text-align: right;
+        }
+        .identificacion{
+            margin-bottom: 2px;
+        }
+        .pagar{
+            text-align: right;
+            /* padding-left: 100px; */
+        }
+        .border{
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        }
+        .contenedor{
+            background-image: 'http://127.0.0.1:8000/static/assets/images/ico-2.png';
+        }
+        .texto-encima{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% for lis in lista %}
+    <div class="cuerpo">
+        <table class="identificacion" style="margin-top:20px">         
+            <tr>
+                <td width="150px">Nro Aviso</td>
+                <td><input class="correlativo" type="text" placeholder="CORRELATIVO">{{lis.boleta}}</td>
+                <td rowspan="6" style="text-align: right; height: 70px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td width="150px">Nombre</td>
+                <td><input class="input-nombre" type="text" placeholder="Name"> {{lis.nombre}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Direccion</td>
+                <td><input class="input-dirrecion" type="text" placeholder="calle"> {{lis.sector}} {{lis.direccion}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Fecha Emision</td>
+                <td><input class="input-pago" type="text" placeholder="@TPAGO">{{lis.emision}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Periodo</td>
+                <td><input class="input-pago" type="text" placeholder="@TPAGO">{{lis.mes}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Ano</td>
+                <td><input class="input-pago" type="text" placeholder="@TPAGO">{{lis.ano}}</td>
+            </tr>
+        </table>
+        <h1>Aviso Nro {{lis.boleta}}</h1>
+        
+        <table class="tabla">
+            <thead>
+                    <th class="tabla-texto">DESCRIPCION</th>
+                    <th class="tabla-texto">DETALLE</th>
+                    <th class="tabla-texto">VALOR</th>
+            </thead>
+            <tbody>
+                    {% for i in listadetalle %}
+                    {% if i.boleta == lis.boleta %}
+                <tr>
+                    <td class="tabla_cuerpo">{{i.des}}</td>
+                    <td class="tabla_cuerpo2">{{i.desdetalle}}</td>
+                    <td class="tabla_cuerpo2">{{i.valor}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+        <table class="pagar">            
+            <tr>
+                <td>Total Boleta $</td>
+                <td>{{lis.totalboleta}}</td>
+            </tr>
+            <tr>
+                <td >Saldo Anterior $</td>
+                <td>{{lis.saldo}}</td>
+            </tr>
+            <tr>
+                <td class="border">Total Pagar $</td>
+                <td width="50px" class="border">{{lis.totalpagar}}</td>
+            </tr>
+        </table>
+    </div>  
+    
+    {% endfor %}
+
+</body>
+</html>

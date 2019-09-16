@@ -1,0 +1,151 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Convenio de Pago</title>
+            <style>
+                @page{
+                    size: letter portrait;
+                    margin: 30 50;
+                }
+                h2{
+                    font-size: 30px;
+                    text-align: center;
+                    margin-top: 0;
+                }
+                .ident{
+                    margin: 5 0;
+                }
+                .interes{
+                    margin-bottom: 15px;;
+                }
+                .medidor{
+                    margin-bottom: 5;
+                }
+                .tabla{
+                    border: 1px solid silver;
+                    margin-bottom: 25px;
+                    height: 25;
+                }
+                td{
+                    padding-left: 5px;
+                }
+                .total{
+                    margin-left: 55;
+                }
+                .cumplimiento{
+                    padding-top: 15px;
+                    padding-bottom: 50px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+                .presidente{
+                    margin-right: 40;
+                    text-align: center;
+                    border-top: 1px solid black;
+                    font-size: 13px;
+                }
+                .socio{
+                    margin-left: 40;
+                    text-align: center;
+                    border-top: 1px solid black;
+                    font-size: 13px;
+                }
+            </style>
+        </head>
+        <body>
+                <table style="margin-top: 0;margin-bottom: 0;">
+                        <td style="text-align: right; height: 70px;">
+                            <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                        </td>
+                    </table>
+            <div class="correlativo">
+                <div>
+                    <label for="">Correlativo</label>
+                    <input type="text"><b>{{numero}}</b>
+                </div>
+                <div>
+                    <label for="">FECEMI</label>
+                    <input type="text">{{fecha}}
+                </div>
+            </div>
+
+
+            <h2>Convenio de Pago</h2>
+
+            <table class="ident">
+                <tbody>
+                    <tr>
+                        <td width="80"><b>NOMBRE</b></td>
+                        <td><input type="text">{{nombres}}</td>
+                    </tr>
+                    <tr>
+                        <td width="80"><b>C. IDENTIDAD</b></td>
+                        <td><input type="text">{{rut}}</td>
+                    </tr>
+                    <tr>
+                        <td width="80"><b>DOMICILIO</b></td>
+                        <td><input type="text">{{direccion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+           
+            <div class="interes">
+                <label for="">SOLICITO A UD. CONVENIO DE PAGO POR CONCEPTO DE </label>
+                <input type="text" placeholder="descripcion"><b>{{motivo}}</b>
+                <label for="">Y POR UN TOTAL DE $</label>
+                <input type="text" placeholder="pactado"><b>{{total}}</b>
+                <label for="">CON UN</label>
+                <input type="text" placeholder="interes"><b>{{interes}}</b>
+                <label for="">% DE INTERES</label>
+            </div>
+
+            <div class="medidor">
+                <label for=""></label>
+                <input type="text">
+            </div>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Nro Cuota</th>
+                        <th>Fecha</th>
+                        <th>Valor Cuota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in lista2 %}
+                    <tr>
+                        <td>{{i.nro}}</td>
+                        <td>{{i.mes}} {{i.ano}}</td>
+                        <td>{{i.valor}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="total">
+                <td><b>TOTAL CONVENIO</b></td>
+                <td>{{total}}</td>
+            </div>
+            <div class="cumplimiento">
+                <p>El no cumplimiento de este ocnvenio significara la suspension del suministro de agua potable de acuerdo al estatuto del comite de agua potable rural.</p>
+            </div>
+
+            <div class="presidente">
+                <label class="linea" href="">Presidente</label>
+            </div>
+
+            <div class="socio">
+                <label for="">Socio</label>
+            </div>
+
+            
+            
+            
+        </body>
+    </html>

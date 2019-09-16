@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Cuenta Individual</title>
+            <style>
+                @page{
+                    size: letter landscape;
+                    margin: 30 50;
+                }
+                
+                h2{
+                    font-size: 30px;
+                    text-align: center;
+                    margin: 0;
+                }
+                .ident{
+                    margin-bottom: 50px;
+                }
+                .tabla{
+                    border: 1px solid silver;
+                    text-align: center;
+                    height: 35px;
+                }
+                .number{
+                    margin-top: 50px;
+                    margin-left: 800px;
+                }
+                .tabla_titulo{
+            width: 15rem;
+        }
+            </style>
+        </head>
+        <body>
+
+                <table style="margin-top: 0;margin-bottom: 0;">
+                    <td style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                    </td>
+                </table>
+            <h2>Registro de Cuenta Individual</h2>
+
+            <div class="ident">
+                <table class="identificacion">    
+                        <tr>
+                                <td width="150px">Rut</td>
+                                <td><input class="input-nombre" type="text" placeholder="Name"> {{rut}}</td>
+                            </tr>        
+                    <tr>
+                        <td width="150px">Nombre</td>
+                        <td><input class="input-nombre" type="text" placeholder="Name"> {{nombres}}</td>
+                    </tr>
+                    <tr>
+                        <td width="150px">Direccion</td>
+                        <td><input class="input-dirrecion" type="text" placeholder="calle"> {{direccion}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tabla">
+                <table>
+                    <thead>
+                        <tr>
+                                <th style="background-color: silver;">Ano</th>
+                                <th style="background-color: silver;">Mes</th>
+                                <th style="background-color: silver;">Horas</th>
+                                <th style="background-color: silver;">Valor</th>
+                                <th style="background-color: silver;">Otras Deudas</th>
+                                <th style="background-color: silver;">A Favor</th>
+                                <th style="background-color: silver;">Saldo Anterior</th>
+                                <th style="background-color: silver;">Multas</th>
+                                <th style="background-color: silver;">Intereses</th>
+                                <th style="background-color: silver;">Total a Pagar</th>
+                                <th style="background-color: silver;"  colspan="2">Pagado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in mes %}
+                        <tr>
+                            <td>{{ano}}</td>
+                            <td>{{i.mes}}</td>
+                            {% for j in lista %}
+                            {% if i.mes == j.mes %}
+                            <td>{{j.horas}}</td>
+                            <td>{{j.vconsumo}}</td>
+                            <td>{{j.otras}}</td>
+                            <td>{{j.afavor}}</td>
+                            <td>{{j.saldo}}</td>
+                            <td>{{j.multas}}</td>
+                            <td>{{j.intereses}}</td>
+                            <td>{{j.total}}</td>
+                            <td  colspan="2">{{j.fechapago}}</td>
+                            {% endif %}
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </body>
+    </html>

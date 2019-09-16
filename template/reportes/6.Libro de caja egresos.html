@@ -1,0 +1,98 @@
+{% load staticfiles %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Libro de caja</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <style>
+        @page{
+                size: legal landscape;
+                margin: 30 50;
+                margin-left: 130px;
+        }
+        body{
+                text-align: center;
+        
+        }
+        .tabla{                
+                border: 2px solid black;
+        }
+        h1{
+                font-size: 3em;
+                margin:0;
+                font-weight: bold;
+        }
+        th{
+                background-color:silver;
+                height: 40px;
+                
+        }
+        h5{
+                text-align: left;
+        }
+        td{
+                height: 30px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+        <table>
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1 class="titulo">Libro de caja Egresos</h1>
+        <h3>{{asociacion}}</h3>
+        <p>Egresos desde: {{desde}} - hasta: {{hasta}}</p>
+        <br>
+        <table class="tabla">
+                <thead>
+                        <tr>
+                                <th>FECHA</th>
+                                <th>NRO DOCUMENTO</th>
+                                <th>GASTOS DE OPERACION</th>
+                                <th>GASTOS DE ADMINISTRACION</th>
+                                <th>GASTOS DE MANTENIMIENTO</th>
+                                <th>GASTOS DE MEJORAMIENTO</th>
+                                <th>GASTOS DE DEPOSITOS</th>
+                                <th>GASTOS OTROS</th>
+                                <th>TOTAL EGRESOS</th>
+                        </tr> 
+                </thead>
+                <tbody>
+                        {% for i in lista2 %}
+                        <tr>
+                                <td>{{i.fecha}}</td>
+                                <td>{{i.doc}}</td>
+                                <td>{{i.operacion}}</td>
+                                <td>{{i.administracion}}</td>
+                                <td>{{i.mantenimiento}}</td>
+                                <td>{{i.mejoramiento}}</td>
+                                <td>{{i.deposito}}</td>
+                                <td>{{i.otros}}</td>
+                                <td>{{i.total}}</td>  
+                        </tr>  
+                        {% endfor %}
+                </tbody> 
+        </table>
+        <br>
+        <h5>TOTAL GENERAL EGRESOS $ {{fulltotalegresos}}</h5>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

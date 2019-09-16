@@ -1,0 +1,55 @@
+body{
+    background:white
+    
+}
+h1{
+    width:46%;
+    height:36px;
+    margin:2px 340px;
+    padding: 5px;
+    font-family: sans-serif
+    }
+
+h2 {
+    width:44%;
+    height:10px;
+    margin:2px 350px;
+    padding:10px;
+    font-size:15px;
+    font-family: sans-serif
+    }
+
+h3{
+    width:13%;
+    height:25px;
+    margin:2px 512px;
+    padding:10px;
+    font-size:12px; 
+    font-family: sans-serif  
+}
+
+table{
+    background-color: silver;
+    color:black;
+    width:90%;
+    margin:5px 25px;
+    font-size: 12px;
+    border: black 3px solid;
+}
+td{
+    color:black;
+    background-color:white;
+    font-size: 11px;
+    margin: 10px;
+    padding: 10px;
+}
+
+h4{
+    position:relative;
+    top:0px;
+    bottom:1000px;
+    right: 0px;
+    left: 850px;
+    font-family: sans-serif;
+    font-size: 14px
+}

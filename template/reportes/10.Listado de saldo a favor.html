@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Convenio de Pago</title>
+            <style>
+                @page{
+                    size: letter portrait;
+                    margin: 30 50;
+                }
+                h2{
+                    font-size: 30px;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                .cliente{
+                    font-size: 13px;
+                }
+                .body_tabla{
+                    padding-top: 7px;
+                }
+            </style>
+        </head>
+        <body>
+            <table style="margin-top: 0;margin-bottom: 0;">
+                <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </table>
+            
+            <h2>Registro de Cuentas Corrientes Clientes</h2>
+            {% for i in lista2 %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="border: 1px solid #000003; padding-top: 3px;padding-left: 3px;">
+                        <td colspan="9" class="cliente"><b>Cliente: {{i.nombres}}</b></td>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="body_tabla">                        
+                        <td colspan="2"></td>
+                        <td style="border-bottom: .5px solid black;">Saldo</td>
+                        <td style="border-bottom: .5px solid black;"><input type="text" placeholder="saldo"></td>
+                        <td style="border-bottom: .5px solid black;" width="50px">ID</td>
+                        <td style="border-bottom: .5px solid black;">Ingresado</td>
+                        <td style="border-bottom: .5px solid black;">Ocupado</td>
+                        <td style="border-bottom: .5px solid black;" colspan="2">Motivo</td>
+                    </tr>
+                    <tr  style="padding-top: 5px;">
+                        <td colspan="4"></td>
+                        <td><input type="text" placeholder="id">{{i.id}}</td>
+                        <td><input type="text" placeholder="medidor">{{i.monto}}</td>
+                        <td><input type="text" placeholder="ingresado">{{i.saldo}}</td>
+                        <td colspan="2"><input type="text" placeholder="ocupado">{{i.motivo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endfor %}
+
+            
+           
+            
+
+            
+            
+            
+        </body>
+    </html>

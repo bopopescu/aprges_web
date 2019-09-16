@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Comprobante de Egreso</title>
+        <style>
+            @page{
+                size: letter portrait;
+                margin: 50;
+
+            }
+            h2{
+                text-align: center;
+                font-size: 20px;
+            }
+            .table{
+               border: 1px solid silver;
+               height: 20;
+               margin-top: 2px;
+               padding-left: 5px;
+               padding-right: 5px;
+            }
+            .entregue{
+                margin-bottom: 5px;
+            }
+            .titulo_tabla{
+                font-size: 12px;
+                background-color: silver;
+            }
+            .glosa{
+                margin-top: 20px;
+            }
+            .derecha{
+                text-align: right;
+            }
+            p{
+                border-top: 1px solid black;
+                margin-top: 100px;
+                margin-left: 500px;
+                padding-top: 5px;
+                text-align: center;
+            }
+            /* table{
+                border: 1px solid black;
+            } */
+        </style>
+    
+    </head>
+    <body> 
+            <table>
+                <tbody>
+                    {% for i in datos %}
+                        <tr>
+                            <td width="80">GIRO</td>
+                            <td><input type="text">{{i.giro}}</td>
+                            <td rowspan="6" style="text-align: right; height: 70px;">
+                                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80">NOMBRE</td>
+                            <td><input type="text">  {{i.nombre}}</td>
+                        </tr>
+                        <tr>
+                            <td width="80">RUT</td>
+                            <td><input type="text"> {{i.rut}}</td>
+                        </tr>
+                        <tr>
+                            <td width="80">DIRECCION</td>
+                            <td><input type="text"> {{i.direccion}}</td>
+                        </tr>
+                        <tr>
+                            <td width="80">FONO</td>
+                            <td><input type="text">{{i.fono}}</td>
+                        </tr>
+                        <tr>
+                            <td width="80">COMUNA</td>
+                            <td><input type="text">{{i.comuna}}</td>
+                            
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+    
+            
+            
+    
+            <h2>Comprobante de Egreso Nro {{numero}}</h2>
+    
+            <div class="entregue">
+                <label for=""><b>Entregue a: </b></label>
+                <input type="text"><b>  {{nombres}}</b>
+            </div>
+            <div>
+                <label for="">Por Concepto de</label>
+                <input type="text" name="" id="">
+            </div>
+    
+            <table class="table">
+                <tbody>
+                    <tr class="titulo_tabla">
+                        <td style="background-color: silver;" width="700p"><b>Detalle</b></td>
+                        <td style="background-color: silver;" class="derecha" width="200px"><b>Valor</b></td>
+                    </tr>
+                    {% for i in lista2 %}
+                    <tr>
+                        <td><input type="text" placeholder="Subnivel">{{i.detalle}}</td>
+                        <td class="derecha"><input type="text" placeholder="MONTO">{{i.monto}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td class="derecha">Total Comprobante</td>
+                        <td class="derecha"><input type="text" placeholder="antes.MONTO">{{total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="glosa">
+                <label for="">Glosa</label>
+                <textarea name="" id="" cols="30" rows="5"></textarea>
+            </div>
+
+            <p>Firma</p>
+
+
+       
+
+        
+    </body>
+    </html>

@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Listado de ingresos por items</title>
+    <style>
+            @page {
+            margin: 30;
+            margin-bottom: 100px;
+        }
+            body{
+                    text-align: center;
+            }
+        h1{
+                font-size: 3em;
+                margin: 0;
+        }
+
+        table{
+                height: 40px;
+                border: 2px solid black;
+        }
+        th{
+                background-color:silver;
+        }
+    </style>
+</head>
+
+<body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+                <td style="text-align: right; height: 70px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </table>
+        <h1>Listado de Ingresos por Items</h1> 
+        <p>Desde XX/XX/XXX hasta XX/XX/XXXX del SECTOR X</p>
+        <div class="container">
+                <table class="table">
+                        <thead>
+                                <tr>
+                                        <th>FECHA</th>
+                                        <th>1 CONSUM</th>
+                                        <th>4 CUOTAS</th>
+                                        <th>6 NO PAGO</th>
+                                        <th>92 AJ. ACTU</th>
+                                        <th>TOTAL</th>
+                                </tr>   
+                        </thead>    
+                        <tbody>                                 
+                                {% for i in list %} 
+                                <tr>
+                                        <td>{{i.fecha}}</td>
+                                        <td>{{i.consumo}}</td>
+                                        <td>{{i.cuota}}</td>
+                                        <td>{{i.nopago}}</td>
+                                        <td>{{i.ajactual}}</td>
+                                        <td>{{i.total}}</td>
+                                </tr> 
+                                {% endfor %} 
+                        </tbody>                 
+                </table>
+        </div>
+</body>
+</html>

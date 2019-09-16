@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>LISTADO DE MEDIDORES QUE NO REGISTRAN LECTURA</title>
+    <style>
+            @page {
+            margin: 30;
+            margin-bottom: 100px;
+        }
+            body{
+                    text-align: center;
+            }
+        h1 {
+                font-size: 25px;
+                margin-top: 10px;
+                margin-bottom: 0;
+        }       
+        h5{
+                margin-top: 0;
+        }
+        .tabla{
+                height: 40px;
+                border: 2px solid black;
+        } 
+        th{
+                background-color:silver;
+        }
+    </style>
+</head>
+
+<body>
+        <table>
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1>Listado de Parceleros que no registran hora de consumo</h1>
+        <h5>{{asociacion}}</h5>
+        <p>Correspondiente al mes de: {{mes}} Ano: {{ano}}</p>
+        <table class="tabla">
+                <thead>
+                        <tr>
+                                <th>SECTOR</th>
+                                <th>NOMBRE</th>
+                                <th>DIRECCION</th>
+                        </tr> 
+                </thead> 
+                <tbody>
+                        {% for i in lista2 %}    
+                        <tr>
+                                <td>{{i.sector}}</td>
+                                <td>{{i.nombre}}</td>
+                                <td>{{i.direccion}}</td>
+                        </tr>
+                        {% endfor %} 
+                </tbody>
+        </table>
+</body>
+</html>
+

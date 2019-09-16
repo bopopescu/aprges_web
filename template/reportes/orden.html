@@ -1,0 +1,137 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Orden de Trabajo</title>
+        <style>
+            
+            @page{
+                size: letter portrait;
+                margin: 50;
+            }
+            .titulo{
+                font-size: 25px;
+                text-align: center;
+                color: black;
+            }
+            .opo{
+                border: 1px solid black;
+                text-align: center;
+                padding: 5px;
+                height: 200px;
+            }
+            .croquis{
+                border: 1px solid black;
+
+                font-size: 13px;
+            }
+            table{
+                height: 30px;
+            }
+            .avance{
+                border: 1px solid silver;
+                margin-top: 30px;
+                margin-bottom: 120px;
+            }
+            .materiales{
+                border: 1px solid silver;
+                margin-top: 30px;
+                margin-bottom: 100px;
+                padding: 2px;
+            }
+            .firma{
+                border-top: 1px solid black;
+                margin-right: 35;
+                font-size: 13px;
+            }
+            .firma_label{
+                padding-top: 10px;
+                text-align: center;
+            }
+            .fecha{
+                padding-top: 15px;
+            }
+        </style>
+    
+    </head>
+    <body>
+            
+        <table>
+            <td><label for="">Numero de Orden</label>
+                <input type="text">{{numero}}
+            </td>
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+
+        <div class="titulo">
+            <label><b>Orden de Trabajo</b></label>
+            <input type="text">
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td><b>Fecha de Emision</b></td>
+                    <td><input type="text" value="">{{emision}}</td>
+                </tr>
+                <tr>
+                    <td><b>Fecha de ejecucion</b></td>
+                    <td colspan="2"><input type="text" value="">{{fecha_desde}}</td>
+                    <td><b>Responsable O.T.</b></td>
+                    <td colspan="3"><input type="text" value="">{{responsable}}</td>
+                </tr>
+                <tr>
+                    <td><b>Solitado Por</b></td>
+                    <td colspan="2"><input type="text">{{nombres}} {{apellido}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><b>Descripcion General del Trabajo</b></td>
+                    <td colspan="5"><input type="text" value="">{{des}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div  class="opo">
+            <p class="croquis">Trabajo a Realizar Croquis</p>
+            <input type="text">
+
+        </div>
+
+        <div class="avance">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operacion</th>
+                        <th>Observaciones</th>
+                        <th>Otros</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="OPERACION">{{operacion}}</td>
+                        <td><input type="text" placeholder="Observaciones" value="">{{observacion}}</td>
+                        <td><input type="text" placeholder="Observaciones" value="">{{otros}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="firma">
+            <p class="firma_label">Nombre y Firma Responsable O.T.</p>
+        </div>
+
+        <div class="fecha">
+            <label for="">Fecha de Cierre</label>
+            <input type="text" placeholder="F.Hasta" value="">{{fecha_hasta}}
+        </div>
+
+        <p class="firma2">Nombre y firma responsable ot</p>
+
+        
+    </body>
+    </html>

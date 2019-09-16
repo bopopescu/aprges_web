@@ -1,0 +1,748 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Riego | 2019</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Numans&display=swap" rel="stylesheet">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
+    <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+    <style>
+      .modalDialog {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity:0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+      }
+      .modalDialog:target {
+        opacity:1;
+        pointer-events: auto;
+        DISPLAY: FLEX;
+        align-items: center;
+        justify-content: center;
+      }
+      .modalDialog > div {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        margin: 20% auto;
+        padding: 2rem;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -webkit-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -o-linear-gradient(#F5FCFF, #B7E9F7);
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+      }
+      .modal1{
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        margin: 20% auto;
+        padding: 2rem 4rem;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -webkit-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -o-linear-gradient(#F5FCFF, #B7E9F7);
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+
+      }
+      .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: #4183D7;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -15px;
+        top: -20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        box-shadow: 1px 1px 3px #000;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+      }
+      .close:hover { background: #00d9ff; } 
+
+      .boton{
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .modal_p{
+        margin: 0;
+      }
+    </style>
+        <script>
+    
+          function printId(datos)
+          {
+            if(datos==1){
+              document.f1.nro.value=datos;
+              window.location.href = '#openModal1';
+            }
+            if(datos==2){
+              document.f1.nro.value=datos;
+              window.location.href = '#openModal1';
+            }
+            if(datos==3){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==4){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==5){
+              document.f1.nro.value=datos;
+              window.location.href = '#openModal1';
+            }
+            if(datos==6){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==20){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==7){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==8){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==21){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==9){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==10){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==11){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==12){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==13){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==14){
+              document.f2.nro.value=datos;
+              window.location.href = '#openModal2';
+            }
+            if(datos==15){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==16){
+              document.f3.nro.value=datos;
+              window.location.href = '#openModal3';
+            }
+            if(datos==17){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==18){
+              window.location.href = '/informes/'+datos+'/';
+            }
+            if(datos==19){
+              document.f5.nro.value=datos;
+              window.location.href = '#openModal5';
+            }
+          }
+    
+        </script>
+  </head>
+
+  <body class="orchid  ">
+
+    <div class="mainmenu-block">
+      <!-- SITE MAINMENU-->
+      <nav class="menu-block">
+        <ul class="nav">
+          <img src="{% static 'assets/images/ico-2.png' %}" class="img-fluid" style="padding: 30px;"/>   
+        </ul>
+
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
+              <div class="menu-block-label">Home</div></a>
+          </li>
+  
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
+              <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/tipoagua/">Tipo de Riego</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/valor/">Valor Hora<span class="label label-success">new</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/cargo/">Cargo y Ocupación</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/funcionarios/">Datos Funcionarios</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/proveedor/">Proveedor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/asociacion/">Datos de Asociación</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/convenio/">Detalle de Convenio</a></li>
+            </ul>
+          </li>
+
+          <!--li.header GENERAL-->
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
+              <div class="menu-block-label">Antecedentes</div></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
+              <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
+            </ul>
+          </li>
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
+              <div class="menu-block-label">Procesos</div></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/procesos/consumo/">Consumo de Socio</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/generacion/">Generación de Docto Cobranza</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/pagos/">Ingreso de Pagos</a></li>
+              <li class="nav-item"><a class="nav-linl" href="/procesos/historial_cliente/">Historial Cliente</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Facturas</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
+              <div class="menu-block-label">Informes</div></a>
+          </li>
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
+              <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/saldofavor/">Saldo a Favor</a></li>
+    
+            </ul>
+          </li>
+          <!--li.header.nav-item APP-->
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
+              <div class="menu-block-label">Configuración</div></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- END SITE MAINMENU-->
+    </div>
+
+    <!-- #MAIN-->
+    <div class="main-wrapper">
+
+      <!-- VIEW WRAPPER-->
+      <div class="view-wrapper">
+
+        <!-- TOP WRAPPER-->
+        <div class="topbar-wrapper">
+
+          <!-- NAV FOR MOBILE-->
+          <div class="topbar-wrapper-mobile-nav"><a class="topbar-togger js-minibar-toggler" href="#"><i class="icon ion-ios-arrow-back hidden-md-down"></i><i class="icon ion-navicon-round hidden-lg-up"></i></a><a class="topbar-togger pull-xs-right hidden-lg-up js-nav-toggler" href="#"><i class="icon ion-android-person"></i></a>
+
+            <!-- ADD YOUR LOGO HEREText logo: a.topbar-wrapper-logo(href="#") AdminHero
+            --><a class="topbar-wrapper-logo demo-logo" href="/home/">AdminRiego</a>
+          </div>
+          <!-- END NAV FOR MOBILE-->
+
+          <!-- SEARCH-->
+          <div class="topbar-wrapper-search">
+            <form>
+              <input class="form-control" type="search" placeholder="Search"><a class="topbar-togger topbar-togger-search js-close-search" href="#"><i class="icon ion-close"></i></a>
+            </form>
+          </div>
+          <!-- END SEARCH-->
+
+          <!-- TOP RIGHT MENU-->
+          <ul class="nav navbar-nav topbar-wrapper-nav">
+            <li class="nav-item"><a class="nav-link js-search-togger" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+
+            <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon fa fa-columns"></i><span class="badge badge-success status">4</span></a>
+
+              <!-- #RIGHT BLOCK-->
+              <!--
+              RIGHT PANEL
+              * same dropdown-menu markup, add '.dropdown-menu-side'
+              -->
+              <div class="dropdown-menu dropdown-menu-side">
+                <ul class="nav nav-tabs nav-justified">
+                  <li class="nav-item"><a class="nav-link active" data-target="#demoright-1" aria-controls="demoright-1" role="tab" data-toggle="tab"><i class="ion-help-buoy icon"></i></a></li>
+                  <li class="nav-item"><a class="nav-link" data-target="#demoright-2" aria-controls="demoright-2" role="tab" data-toggle="tab"><i class="ion-quote icon"></i></a></li>
+                  <li class="nav-item"><a class="nav-link" data-target="#demoright-3" aria-controls="demoright-3" role="tab" data-toggle="tab"><i class="ion-gear-b icon"></i></a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active fade in" role="tabpanel" id="demoright-1"><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Ryan Sears</div>
+                        <p class="text-muted small">Rome; Hard there to deeply verbal page goals a accept into it pri</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle">
+                        <div class="media-object circle-object bg-info"><i class="ion-calendar"></i></div>
+                      </div>
+                      <div class="media-body">
+                        <div class="media-heading">Event remind.</div>
+                        <p class="text-muted small">10 min ago</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle">
+                        <div class="media-object circle-object bg-success">40%</div>
+                      </div>
+                      <div class="media-body">
+                        <div class="media-heading">Event remind.</div>
+                        <div class="progress">
+                          <progress class="progress progress-danger loader" value="46" max="100"></progress>
+                        </div>
+                        <p class="text-muted small">10 min ago</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle">
+                        <div class="media-object circle-object bg-danger">2d</div>
+                      </div>
+                      <div class="media-body">
+                        <div class="media-heading">Project deadline.</div>
+                        <div class="progress">
+                          <progress class="progress progress-success loader" value="80" max="100"></progress>
+                        </div>
+                        <p class="text-muted small">80% completion</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/1.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/3.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/4.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/1.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/3.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/4.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/1.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/3.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/4.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/1.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/3.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a><a class="dropdown-item media circle-box" href="#">
+                      <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/4.jpg" alt=""></div>
+                      <div class="media-body">
+                        <div class="media-heading">Judith Sullivan</div>
+                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                      </div></a>
+                  </div>
+                  <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-2"></div>
+                  <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-3"></div>
+                </div>
+              </div>
+              <!-- END RIGHt PANEL-->
+            </li>
+
+            <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-android-notifications-none"></i><span class="badge badge-danger status">9+</span></a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header">Notifications (5)</div>
+                <div class="dropdown-menu-inner"><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                    <div class="media-body">
+                      <div class="media-heading">Ryan Sears</div>
+                      <p class="text-muted small">Pink do well together specially name if design postage briefs big into in her working</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle">
+                      <div class="media-object circle-object bg-danger"><i class="fa fa-bug"></i></div>
+                    </div>
+                    <div class="media-body">
+                      <div class="media-heading">Server Error</div>
+                      <p class="text-muted small">3 minutes ago</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle">
+                      <div class="media-object circle-object bg-success"><i class="fa fa-check"></i></div>
+                    </div>
+                    <div class="media-body">
+                      <div class="media-heading">Server Error Reports</div>
+                      <p class="text-muted small">3 minutes ago</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/1.jpg" alt=""></div>
+                    <div class="media-body">
+                      <div class="media-heading">Judith Sullivan</div>
+                      <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/2.jpg" alt=""></div>
+                    <div class="media-body">
+                      <div class="media-heading">Judith Sullivan</div>
+                      <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/3.jpg" alt=""></div>
+                    <div class="media-body">
+                      <div class="media-heading">Judith Sullivan</div>
+                      <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                    </div></a><a class="dropdown-item media circle-box" href="#">
+                    <div class="media-left media-middle"><img class="media-object circle-object" src="assets/images/face/4.jpg" alt=""></div>
+                    <div class="media-body">
+                      <div class="media-heading">Judith Sullivan</div>
+                      <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                    </div></a>
+                </div><a class="dropdown-item" href="#">
+                  <div class="text-xs-center"><i class="ion-more"></i></div></a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-paintbucket"></i></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                <div class="js-color-switcher demo-color-switcher">
+                  <div class="dropdown-header">Flat</div>
+                  <div class="list-inline"><a class="list-inline-item" href="#" data-color="f-dark">
+                      <div class="demo-skin-grid f-dark"></div></a><a class="list-inline-item" href="#" data-color="f-dark-blue">
+                      <div class="demo-skin-grid f-dark-blue"></div></a><a class="list-inline-item" href="#" data-color="f-blue">
+                      <div class="demo-skin-grid f-blue"></div></a><a class="list-inline-item" href="#" data-color="f-green">
+                      <div class="demo-skin-grid f-green"></div></a><a class="list-inline-item" href="#" data-color="f-deep-taupe">
+                      <div class="demo-skin-grid f-deep-taupe"></div></a>
+                  </div>
+                  <div class="dropdown-header">Gradient</div>
+                  <div class="list-inline"><a class="list-inline-item" href="#" data-color="orchid">
+                      <div class="demo-skin-grid orchid"></div></a><a class="list-inline-item" href="#" data-color="cadetblue">
+                      <div class="demo-skin-grid cadetblue"></div></a><a class="list-inline-item" href="#" data-color="joomla">
+                      <div class="demo-skin-grid joomla"></div></a><a class="list-inline-item" href="#" data-color="influenza">
+                      <div class="demo-skin-grid influenza"></div></a><a class="list-inline-item" href="#" data-color="moss">
+                      <div class="demo-skin-grid moss"></div></a><a class="list-inline-item" href="#" data-color="mirage">
+                      <div class="demo-skin-grid mirage"></div></a><a class="list-inline-item" href="#" data-color="stellar">
+                      <div class="demo-skin-grid stellar"></div></a><a class="list-inline-item" href="#" data-color="servquick">
+                      <div class="demo-skin-grid servquick"></div></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-android-exit"></i></a></li>
+            <li class="nav-item"><a class="nav-link close-mobile-nav js-close-mobile-nav" href="#"><i class="icon ion-close"></i></a></li>
+            <!-- END TOP RIGHT MENU-->
+          </ul>
+        </div>
+        <!--END TOP WRAPPER-->
+
+
+        <!-- PAGE CONTENT HERE-->
+        <!-- #PAGE HEADER-->
+        <!-- PAGE HEADER-->
+        <div class="page-header">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="media">
+                <div class="media-body">
+                  <div class="display-6">Informes</div>
+                  <div class="small text-muted">para soporte llamar a 22 </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
+                <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container-fluid">
+              <div class="row js-grid-wrapper panel-wrapper">
+                <!-- #SELECT2-->
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading">
+                        <h6 class="panel-title">Listado de Informes<a class="small" href="#" target="_blank"></a></h6>
+                      </div>
+                      <div class="panel-body">
+
+                          <div class="form-group col-sm-12">
+                          </div> 
+                          
+                          <table class="table" data-plugin="DataTable">
+                            <thead>
+                              <tr>
+                                <th>Número</th>
+                                <th>Nombre de Informe</th>
+                                <th>Acción</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for medidor in lista %}
+                              <tr>
+                                <td>{{medidor.id}}</td>
+                                <td>{{medidor.nombre}}</td>
+                                <td>
+                                  {% block content1 %}	
+                                  <form action="/informes/" method="POST">{% csrf_token %}  
+                                    <input type="hidden" value="{{medidor.nombre}}" id="nombres" name="nombres">
+                                    <a class="btn btn-info" onclick="printId('{{medidor.id}}')"> Imprimir</a>
+                                  </form>
+                                  {% endblock %}
+                                </td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                          <!-- #TABLE-->
+                      </div>
+
+                    </div>
+                </div>
+
+                <div id="openModal1" class="modalDialog">
+                    {% block content2 %}	
+                    <form class="modal1" id="f1" name="f1" action="/informes/" method="POST">{% csrf_token %} 
+                  <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                    <h2>Seleccione mes y año</h2>
+                    <input type="hidden" id="nro" name="nro">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <p class="modal_p">Mes</p>
+                        <select style="width: 9rem;height: 2rem;" class="" id="mes" name="mes" required>
+                            <option value="{{mes}}">{{mes}}</option>
+                            <option value="Enero">Enero</option>
+                            <option value="Febrero">Febrero</option>
+                            <option value="Marzo">Marzo</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Mayo">Mayo</option>
+                            <option value="Junio">Junio</option>
+                            <option value="Julio">Julio</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Septiembre">Septiembre</option>
+                            <option value="Octubre">Octubre</option>
+                            <option value="Noviembre">Noviembre</option>
+                            <option value="Diciembre">Diciembre</option>
+                          </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <p class="modal_p">Año</p>
+                        <input style="width: 9rem" type="number" name="ano" id="ano" value="{{ano}}" required>
+                      </div>
+
+                    </div>
+
+                    <div class="boton">
+                      <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                    </div>
+                  </div>
+                    </form>
+                  {% endblock %}
+                </div>
+        
+
+                <div id="openModal2" class="modalDialog">
+                    {% block content3 %}	
+                    <form class="modal1" id="f2" name="f2" action="/informes/" method="POST">{% csrf_token %} 
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Seleccione desde y hasta</h2>
+                    <input type="hidden" id="nro" name="nro">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <p class="modal_p">Fecha Desde</p>
+                        <input type="date" name="desde" id="desde" value="{{desde}}" required>
+                      </div>
+
+                      <div class="col-md-6">
+                        <p class="modal_p">Fecha Hasta</p>
+                        <input type="date" name="hasta" id="hasta" value="{{hoy}}" required>
+                      </div>
+
+                    </div>
+
+                    <div class="boton">
+                      <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                    </div>
+                  </div>
+                </form>
+                {% endblock %}
+                </div>
+        
+                <div id="openModal3" class="modalDialog">
+                    {% block content4 %}	
+                    <form class="modal1" id="f3" name="f3" action="/informes/" method="POST">{% csrf_token %} 
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Año a imprimir</h2>
+                    <input type="datetime" name="año"  value="{{año}}">
+                    <input type="hidden" id="nro" name="nro">
+                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                  </div>
+                </form>
+                {% endblock %}
+                </div>
+
+                <div id="openModal4" class="modalDialog">
+                    {% block content5 %}	
+                    <form class="modal1" id="f4" name="f4" action="/informes/" method="POST">{% csrf_token %} 
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Número de Parcelero</h2>
+                    <input type="number" name="parcelero"  value="{{parcelero}}">
+                    <input type="hidden" id="nro" name="nro">
+                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                  </div>
+                </form>
+                {% endblock %}
+                </div>
+
+                <div id="openModal5" class="modalDialog">
+                    {% block content6 %}	
+                    <form class="modal1" id="f5" name="f5" action="/informes/" method="POST">{% csrf_token %} 
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Número de Abono</h2>
+                    <input type="number" name="abono" id="abono" value="{{abono}}">
+                    <input type="hidden" id="nro" name="nro">
+                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                  </div>
+                </form>
+                {% endblock %}
+                </div>
+              </div>
+              <!-- ROW-->         
+        </div>
+        <!-- END CONTAINER FIUID-->
+
+      </div>
+      <!-- END VIEW WAPPER-->
+                  
+    </div>
+    <!-- END MAIN WRAPPER-->
+
+
+
+    <!-- WEB PERLOAD-->
+    <div id="preload">
+      <ul class="loading">
+        <li>asdfasdsa</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
+            $("#buscarsocio").autocomplete({
+            source: availableTags,
+            minLength: 2,
+            });
+        });
+
+        $("#buscarsocio").change(function () {
+          var countryId = $(this).val();
+
+          $.ajax({
+              url: '/procesos/consumo/id/',
+              data: {
+              'socio': countryId
+              },
+              success: function (data) {
+              $("#id_").val(
+                  data
+              );
+              
+              }
+              
+          });
+        });
+            </script>
+
+    <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/scripts/lib/tether.min.js' %}"></script>
+    <script src="{% static 'assets/scripts/theme/theme-plugins.js' %}"></script>
+    <script src="{% static 'assets/scripts/theme/main.js' %}"></script>
+    <script src="{% static 'assets/scripts/demo/demo-skin.js' %}"></script>
+    <script src="{% static 'assets/scripts/demo/bar-chart-menublock.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Plan de Cuentas</title>
+        <style>
+            @page{
+                size: letter portrait;
+                margin: 30 50;
+            }
+            h2{
+                font-size: 25px;
+                text-align: center;
+            }
+            .nombre{
+                font-size: 15px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            table{
+                height: 30px;
+                text-align: center; 
+                margin-bottom: 20px;
+            }
+            .pags{
+                width: 200px
+            }
+        </style>
+    
+    </head>
+    <body>
+            <table style="margin-top: 0;margin-bottom: 0;">
+                    <td style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                    </td>
+                </table>
+        <div style="margin-top: 0">
+            <label for="">Fecha de Impresion</label>
+            <input type="text">{{fecha}}
+        </div>
+        <div>
+            <label for="">Hora de Impresion</label>
+            <input type="text">
+        </div>
+
+        <h2>Plan de Cuentas</h2>
+       
+        <table class="tabla">
+            <thead>
+                    <th>Codigo</th>
+                    <th>Item</th>
+                    <th>Detalle</th>
+            </thead>
+            <tbody>
+                {% for i in nivel2 %}
+                <tr>
+                    <td width=150px>{{i.codigo}}</td>
+                    <td width=350px>{{i.d1}}</td>
+                    <td width=150px>{{i.d2}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+         
+
+        
+    </body>
+    </html>
