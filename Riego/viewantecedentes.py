@@ -66,8 +66,6 @@ def buscarTipos():
         pass
         print(e)
 
-
-
 def Id0000(nombre):
 
     sqlexiste="SELECT RUT FROM A_SOCIOS WHERE ID="+nombre+";"
@@ -691,5 +689,12 @@ def viewOrden_trabajo(request):
     }
     return render(request, 'antecedentes/orden_trabajo.html', data)
 
+def viewInstalacion(request):
+    return render(request, 'antecedentes/instalacion_medidor.html', {})
 
-
+def viewEstanque(request):
+    now = datetime.datetime.now()
+    data={
+        'fecha': str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'antecedentes/consumo_estanque.html', data)

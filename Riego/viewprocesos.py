@@ -646,7 +646,6 @@ def buscarSocios():
     
     return listaup
 
-
 def viewConvenio(request):
 
     now = datetime.datetime.now()
@@ -1281,6 +1280,7 @@ def viewConvenio(request):
     }
         
     return render(request, 'procesos/masivo.html', data)
+
 def convenio(request):
     pdf= render_to_pdf('reportes/convenio.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
@@ -2583,8 +2583,7 @@ def imprimiendoAbono(request,id_):
     print("exportandooo")
     pdf = render_to_pdf('reportes/19.abono1.html', data)
     return HttpResponse(pdf, content_type='application/pdf')
-        
-
+  
 def viewPagos(request):
     now = datetime.datetime.now()
     lista=[]
@@ -3288,3 +3287,24 @@ def historial_cliente(request,id_,ano_):
     }
 
     return render(request, 'procesos/historial_cliente.html', data)
+
+def viewBoletaLibre(request):
+    return render(request, 'procesos/boleta_libre.html', {})
+
+def viewCancelarBoleta(request):
+    return render(request, 'procesos/cancelar_boleta.html', {})
+
+def viewCierrePeriodo(request):
+    return render(request, 'procesos/cierre_periodo.html', {})
+
+def viewFacturaLibre(request):
+    return render(request, 'procesos/factura_libre.html', {})
+
+def viewIngresoLectura(request):
+    return render(request, 'procesos/ingreso_lectura.html', {})
+    
+def viewLectura_rapida(request):
+    return render(request, 'procesos/lectura_rapida.html', {})
+
+def viewSubsidio(request):
+    return render(request, 'procesos/subsidio.html', {})

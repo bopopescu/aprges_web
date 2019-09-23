@@ -204,8 +204,6 @@ def detalle2(tipo):
     except Exception as a:
         print(a)
 
-
-
 def viewPlanCuentaE(request):
     
     lista=detalle1('02')
@@ -515,7 +513,6 @@ def historialIngresos(request):
 
 
     return render(request,'contabilidad/historial_ingresos.html',data)
-
 
 def historialEgresos(request):
 
@@ -1044,3 +1041,15 @@ def viewSaldoFavor(request):
 def plan_de_cuenta(request):
     pdf= render_to_pdf('reportes/plan.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
+
+def viewLibroVenta(request):
+    return render(request, 'contabilidad/libro_venta.html', {})
+
+def viewArqueoCaja(request):
+    return render(request, 'contabilidad/arqueo_caja.html', {})
+
+def viewCuentaCorriente(request):
+    return render(request, 'contabilidad/cuenta_corriente.html', {})
+
+def viewConciliacionBancaria(request):
+    return render(request, 'contabilidad/conciliacion_bancaria.html', {})

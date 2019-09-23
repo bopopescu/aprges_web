@@ -170,7 +170,6 @@ def correlativocondonaciondet():
     
     return correlativo
 
-
 def viewCodonacion(request):
     lista=[]
     rut=""
@@ -310,8 +309,6 @@ def claveActual(user,actual):
         print(a)
     
     return estado
-
-
 
 def viewContraseña(request):
     mensaje=""
@@ -464,7 +461,7 @@ def viewRespaldo_info(request):
     return render(request, 'configuracion/respaldar_info.html', data)
 
 def viewBoletas_vigentes(request):
-
+    
     now = datetime.datetime.now()
     mensaje=""
 
@@ -569,3 +566,15 @@ def viewBoletas_vigentes(request):
     }
 
     return render(request, 'configuracion/boletas_vigentes.html', data)
+
+def viewArreglaDatos(request):
+    return render(request, 'configuracion/arregla_datos.html', {})
+    
+def viewAvisosVigentes(request):
+    return render(request, 'configuracion/avisos_vigentes.html', {})
+    
+def viewCrearUsuario(request):
+    return render(request, 'configuracion/crear_usuario.html', {})
+    
+def viewMensajeCobro(request):
+    return render(request, 'configuracion/mensaje_cobro.html', {})

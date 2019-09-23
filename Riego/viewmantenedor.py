@@ -81,9 +81,6 @@ def viewName():
 
     return nombre
 
-
-
-
 def existeTipo(nombre):
 
     sqlexiste="SELECT NOMBRE FROM A_TIPO_AGUA WHERE NOMBRE='"+nombre+"';"
@@ -215,7 +212,6 @@ def viewTipo(request):
 
     return render(request,'mantenedor/aguatipo.html', data)
 
-
 def existeTipoValor(id):
 
     sqlexiste="SELECT * FROM A_TARIFA_HORA WHERE TIPO_AGUA="+id+";"
@@ -228,7 +224,6 @@ def existeTipoValor(id):
         pass
 
     return 0
-
 
 def buscarTiposValor():
 
@@ -417,10 +412,6 @@ def viewTarifa(request):
 
 # FIN DE CARGAR TARIFA POR VALOR HORA
 
-
-
-
-
 def viewReportes(request):
     data={
         'asociacion':viewName(),
@@ -455,7 +446,6 @@ def existeSector(id):
         pass
 
     return 0
-
 
 def viewSectores(request):
 
@@ -816,7 +806,6 @@ def existeProveedor(rut):
 
     return existe
 
-
 def viewProveedor(request):
 
     mensaje=""
@@ -1035,7 +1024,6 @@ def viewConvenioMan(request):
     }
     return render(request,'mantenedor/convenio.html', data)
 
-
 def viewTramo1(request):
     return render(request, 'mantenedor/tramo1.html', {})
 
@@ -1047,3 +1035,6 @@ def viewTramo3(request):
 
 def viewTramo4(request):
     return render(request, 'mantenedor/tramo4.html', {})
+
+def viewMedidor(request):
+    return render(request, 'mantenedor/estado_medidor.html', {})

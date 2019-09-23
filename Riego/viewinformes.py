@@ -817,3 +817,21 @@ def ListaConvenios(request):
 def ListaSaldo(request):
     pdf= render_to_pdf('reportes/Listado de Saldo a Favor.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
+
+def viewConsultasMedidor(request):
+    return render(request, 'informes/consultas_medidor.html', {})
+
+def viewConsultasLectura(request):
+    return render(request, 'informes/consultas_lectura.html', {})
+
+def viewCuentasInd(request):
+    return render(request, 'informes/cuentas_ind.html', {})
+
+def viewTomaLectura(request):
+    return render(request, 'informes/toma_lectura.html', {})
+
+def viewRegistroFinanciero(request):
+    return render(request, 'informes/registro_financiero.html', {})
+
+def viewConsultasCorte(request):
+    return render(request, 'informes/consultas_corte.html', {})

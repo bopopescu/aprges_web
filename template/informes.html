@@ -191,39 +191,36 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>   
+          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
-
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
-              <div class="menu-block-label">Home</div></a>
-          </li>
-  
+            <div class="menu-block-label">Home</div></a></li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
-              <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
+            <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/tipoagua/">Tipo de Riego</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/valor/">Valor Hora<span class="label label-success">new</span></a></li>
+              
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/calle_area/">Calle y Área</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/cargo/">Cargo y Ocupación</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/funcionarios/">Datos Funcionarios</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mantenedor/medidor/">Estado del medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/proveedor/">Proveedor</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/asociacion/">Datos de Asociación</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/convenio/">Detalle de Convenio</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
             </ul>
           </li>
-
           <!--li.header GENERAL-->
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
-              <div class="menu-block-label">Antecedentes</div></a>
+            <div class="menu-block-label">Antecedentes</div></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
               <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
-              <div class="menu-block-label">Procesos</div></a>
+            <div class="menu-block-label">Procesos</div></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/procesos/consumo/">Consumo de Socio</a></li>
               <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
@@ -234,21 +231,31 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-              <div class="menu-block-label">Informes</div></a>
+            <div class="menu-block-label">Informes</div></a></li>  
+          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
+            <div class="menu-block-label">Informes</div></a>
+            <ul class="nav menu-block-sub">
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas_medidor/">Consultas Medidor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas_lectura/">Consultas Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/cuentas_ind/">Cuentas Individuales</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/toma_lectura/">Toma Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/registro_financiero/">Registro Financiero y Presupuesto</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas_corte/">Consultas de Corte y Reposición</a></li>
+            </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
-              <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
+            <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/ingreso/">Comprobante de Ingresos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/saldofavor/">Saldo a Favor</a></li>
-    
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/saldo_favor/">Saldo a Favor</a></li>    
             </ul>
           </li>
           <!--li.header.nav-item APP-->
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
-              <div class="menu-block-label">Configuración</div></a>
+            <div class="menu-block-label">Configuración</div></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
@@ -258,8 +265,8 @@
             </ul>
           </li>
         </ul>
-      </nav>
       <!-- END SITE MAINMENU-->
+      </nav>
     </div>
 
     <!-- #MAIN-->
