@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
+from Riego.viewsubsidio import *
 from Riego.viewhome import *
 from Riego.viewmantenedor import *
 from Riego.viewprocesos  import *
@@ -65,8 +66,8 @@ urlpatterns = [
     path('procesos/factura_libre/', viewFacturaLibre),
     path('procesos/ingreso_lectura/', viewIngresoLectura),
     path('procesos/lectura_rapida/', viewLectura_rapida),
-    path('procesos/subsidio/', viewSubsidio),
-
+    path('procesos/subsidio/', subsidio),
+    path('subsidio/carga/', Cargasubsidio),
 
     # Informes
     path('informes/',viewInformes),

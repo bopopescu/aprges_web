@@ -377,69 +377,80 @@
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
             
-            <!-- #SELECT2-->
-            {% block content %}	
-            <form class="col-sm-12">  
-              {% csrf_token %}  
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
                     <div class="container contenido">
                         <div class="izq">
-                            <button type="button" class="btn btn-info boton">Generar Nómina Subsidio</button>
-                            <button type="button" class="btn btn-info boton">Recuperar Nómina Subsidio</button>
-                            <button type="button" class="btn btn-info boton">Eliminar Nómina Subsidio</button>
+                                      <!-- #SELECT2-->
+                        {% block content %}	
+                        <form action="/procesos/subsidio/" method="POST">{% csrf_token %}  
+                            <button type="submit" class="btn btn-info boton" name="generar" id="generar">Generar Nómina Subsidio</button>
+                            <button type="submit" class="btn btn-info boton" name="imprimir" id="imprimir">Imprimir Nómina Subsidio</button>
+                            <button type="submit" class="btn btn-info boton" name="eliminar" id="eliminar">Eliminar Nómina Subsidio</button>
+                            <button type="submit" class="btn btn-info boton" name="macro" id="macro">Imprimir Macro Municipal</button>
+                            <input type="text" id="id_" name="id_" value="{{aviso}}" class="form-control" style="width:30em;margin-top: 5px;margin-bottom: 5px" disabled>
 
                             <div class="form-group fecha">
                                 <div class="mes">
                                     <label class="mes_label col-form-label">Mes de lectura</label>
-                                    <select class="form-control">
-                                        <option value="">Enero</option>
-                                        <option value="">Febrero</option>
-                                        <option value="">Marzo</option>
-                                        <option value="">Abril</option>
-                                        <option value="">Mayo</option>
-                                        <option value="">Junio</option>
-                                        <option value="">Julio</option>
-                                        <option value="">Agosto</option>
-                                        <option value="">Septiembre</option>
-                                        <option value="">Octubre</option>
-                                        <option value="">Noviembre</option>
-                                        <option value="">Diciembre</option>
+                                    <select class="form-control" id="mes" name="mes" style="width:15em; " required>
+                                        <option value="{{mes}}">{{mes}}</option>
+                                        <option value="Enero">Enero</option>
+                                        <option value="Febrero">Febrero</option>
+                                        <option value="Marzo">Marzo</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Mayo">Mayo</option>
+                                        <option value="Junio">Junio</option>
+                                        <option value="Julio">Julio</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Septiembre">Septiembre</option>
+                                        <option value="Octubre">Octubre</option>
+                                        <option value="Noviembre">Noviembre</option>
+                                        <option value="Diciembre">Diciembre</option>
                                     </select>
                                 </div>
                                 <div class="año">
                                     <label for="">Año</label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="number" id="ano" name="ano" value="{{ano}}" style="width:15em; " required>
                                 </div>
                             </div>
-
-                            <button type="button" class="btn btn-info boton">Carga Nómina de Subsidio</button>
+                          </form>
+                          {% endblock %}
+                                      <!-- #SELECT2-->
+                        {% block content1 %}	
+                        <form action="/procesos/subsidio/" method="POST">{% csrf_token %}  
+                            <button type="submit" class="btn btn-info boton" name="cargar" id="cargar">Carga Nómina de Subsidio</button>
 
                             <div class="form-group facturacion">
                                 <div class="mes">
                                     <label class="facturacion_label">Facturación de </label>
-                                    <select class="form-control">
-                                        <option value="">Enero</option>
-                                        <option value="">Febrero</option>
-                                        <option value="">Marzo</option>
-                                        <option value="">Abril</option>
-                                        <option value="">Mayo</option>
-                                        <option value="">Junio</option>
-                                        <option value="">Julio</option>
-                                        <option value="">Agosto</option>
-                                        <option value="">Septiembre</option>
-                                        <option value="">Octubre</option>
-                                        <option value="">Noviembre</option>
-                                        <option value="">Diciembre</option>
-                                    </select>
+                                    <input type="hidden" id="mesn" name="mesn">
+                                    <input type="hidden" id="anon" name="anon">
+                                    <select class="form-control" id="mescarga" name="mescarga" style="width:15em; " required>
+                                        <option value="">Seleccione mes</option>
+                                        <option value="Enero">Enero</option>
+                                        <option value="Febrero">Febrero</option>
+                                        <option value="Marzo">Marzo</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Mayo">Mayo</option>
+                                        <option value="Junio">Junio</option>
+                                        <option value="Julio">Julio</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Septiembre">Septiembre</option>
+                                        <option value="Octubre">Octubre</option>
+                                        <option value="Noviembre">Noviembre</option>
+                                        <option value="Diciembre">Diciembre</option>
+                                      </select>
                                 </div>
                                 <div class="año">
                                     <label for="">Año</label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="number" id="anocarga" name="anocarga" value="" style="width:15em; " required>
                                 </div>
                             </div>
+                          </form>
+                          {% endblock %}
                         </div>
                         <!-- iconos -->
                         <div class="dere">
@@ -453,8 +464,6 @@
                   </div>
                 </div>
               </div>
-            </form>
-            {% endblock %}
           </div>
           <!-- ROW-->         
         </div>
@@ -501,7 +510,34 @@
         });
         $(':checkbox').checkboxpicker();
       </script>
-
+ <script type="text/javascript">
+  $("#mes").change(function () {
+      var countryId = $(this).val();
+      var ano=$('#ano').val();
+      
+      $.ajax({
+          url: '/subsidio/carga/',
+          data: {
+          'concepto': countryId,
+          'ano': ano
+          },
+          success: function (data) {
+          $("#carga").val(
+              data
+          );
+          $("#id_").val(
+              data
+          );
+          $("#mesn").val(
+              countryId
+          );
+          $("#anon").val(
+              ano
+          );
+          }
+      });
+  });
+</script>
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/tether.min.js' %}"></script>
