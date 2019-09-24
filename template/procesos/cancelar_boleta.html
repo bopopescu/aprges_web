@@ -21,32 +21,112 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-        a {
-            color: #000;
+      a{
+        color: #000;
+      }    
+      a:hover{
+        color: #000033;
+      }
+      .card{
+        padding: 1.5rem;
+      }
+      .primary{
+        color: white;
+        background-color: #4183D7;
+      }
+      .iconos{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 20rem;
+        margin-bottom: 2rem;
+      }
+      .icono{
+        padding: .5rem;
+      }
+      @media(min-width:768px){
+        .contenido, .nombre, .direccion, .sector, .ri, .rut, .nro, .buscar, .consumo, .multa, .comprobante, .cobros, .total, .efectivo, .vuelto, .fecha{
+          display: flex;
+        }
+        .contenido{
+          margin: 0 3rem; 
+        }
+        .izq{
+          width: 66%;
+          margin-right: 1rem;
+        }
+        .ri{
+          justify-content: space-between;
+        }
+        .nombre_label, .direccion_label, .sector_label{
+          width: 8rem;
+        }
+        .rut_label{
+          width: 7.2rem;
+        }
+        .der{
+          width: 33%;
+        }
+        .medidor{
+          width: 33%;
+          margin: 0 1rem;
+        }
+        .socio{
+          text-align: center;
+        }
+        .boton_socio{
+          margin-top: .5rem;
+          padding: .5rem 3rem;
+        }
+        .fecha_input{
+          width: 15rem;
+          height: min-content;
+        }
+        .fecha{
+          justify-content: space-between;
+          align-items: center;  
+        }
+        .rut_input, .ri_input{
+          width: 10rem;
         }
         .iconos{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 16rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+          width: 100%;
+          justify-content: space-evenly;
         }
-        .icono{
-            color: black;
-            margin-top: 1rem;
+        .nro_label, .consumo_label, .multa_label, .comprobante_label, .cobros_label, .total_label, .efectivo_label, .vuelto_label{
+          width: 30rem;
         }
-        @media (min-width: 48em) { 
-            .iconos{
-                justify-content: space-evenly;
-                width: 100%;
-            }
+        .multa{
+          margin-bottom: .5rem;
         }
+        .tabla{
+          border: 1px solid #e5e5e5;
+          border-radius: 5px;
+          margin-bottom: 2rem;
+          height: 14rem;
+          overflow: auto;
+        }
+        .table-bordered{
+          margin: 0;
+        }
+        .secondary{
+          border-color: #b3b7bb;
+          background-color: #d6d8db;
+        }
+        .tamaño_tabla{
+          width: 75rem;
+        }
+        .descripcion{
+          width: 25rem;
+        }
+      }
     </style>
+
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -339,9 +419,314 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
-
-                
+                    <div class="contenido">            
+                      <div class="izq">
             
+                        <div class="nombre form-group ">
+                          <label class="nombre_label col-form-label">Nombre</label>
+                          <input class="nombre_input form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
+                        </div>
+            
+                        <div class="direccion form-group">
+                          <label class="direccion_label col-form-label">Dirección</label>
+                          <input class="direccion_input form-control" type="text">
+                        </div>
+            
+                        <div class="sector form-group">
+                          <label class="sector_label col-form-label">Sector</label>
+                          <input class="sector_input form-control" type="text">
+                        </div>
+            
+                        <div class="ri form-group">
+                          <div class="rut">
+                            <label class="rut_label col-form-label">Rut Cliente</label>
+                            <input class="rut_input form-control" type="text" id="rut" name="rut" value="{{rut}}">
+                          </div>
+                          <input class="ri_input form-control" type="text">
+                        </div>
+            
+                        <div class="tabla">
+                          <table class="table table-bordered tamaño_tabla">
+                            <thead>
+                              <tr class="primary">
+                                <th>Código</th>
+                                <th class="descripcion">Descripción</th>
+                                <th>Valor</th>
+                                <th>Pagado</th>
+                                <th>Año</th>
+                                <th>Mes</th>
+                                <th>id</th>
+                                <th>Boleta</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+            
+                        <div class="tabla">
+                          <table class="table table-bordered tamaño_tabla">
+                            <thead>
+                              <tr class="primary">
+                                <th>Boleta</th>
+                                <th>Código</th>
+                                <th class="descripcion">Descripción</th>
+                                <th>Valor Cuota</th>
+                                <th>Estado</th>
+                                <th>Año</th>
+                                <th>Mes</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+            
+            
+                
+                      </div>            
+                      <div class="der">    
+            
+                        <div class="form-group buscar">
+                          <div class="medidor">
+                            <h4>Nro Medidor</h4>
+                            <input type="text" class="form-control">
+                          </div>
+                          <div class="card">
+                            <div class="card-body socio">
+                              <h5 class="card-title">Buscar Por Nº Socio</h5>
+                              <input class="form-control" type="text">
+                              <button type="button" class="btn btn-primary boton_socio">Socio</button>
+                            </div>
+                          </div>
+                        </div>
+                            
+                        <div class="form-group fecha">
+                          <div class="">
+                            <h4 class="fecha_titulo">Fecha Actual</h4>
+                            <input class="form-control fecha_input" type="datetime" name="hoy" value="{{hoy}}">
+                          </div>
+                            <a href="#"><i class="fas fa-print fa-4x"></i></a>
+                        </div>
+            
+                        <div class="card ">
+                          <div class="card-body">
+                            <h5 class="card-title">Total a Pagar</h5>
+                            <div class="nro">
+                              <label class="nro_label">NRO BOLETA</label>
+                              <input class="nro_input form-control" type="text">
+                            </div>
+                            <div class="consumo">
+                              <label class="consumo_label">Consumo</label>
+                              <input class="consumo_input form-control" type="text">
+                            </div>
+                            <div class="multa">
+                              <label class="multa_label">Agregar Multa</label>
+                              <input class="multa_input form-control" type="text">
+                            </div>
+                            <div class="comprobante">
+                              <label class="comprobante_label">NRO COMPROBANTE</label>
+                              <input class="comprobante_input form-control" type="text">
+                            </div>
+                            <div class="cobros">
+                              <label class="cobros_label">Otros Cobros</label>
+                              <input class="cobros_input form-control" type="text">
+                            </div>
+                            <div class="total">
+                              <label class="total_label">TOTAL A PAGAR</label>
+                              <input class="total_input form-control" type="text">
+                            </div>
+                            <div class="efectivo">
+                              <label class="efectivo_label">EFECTIVO</label>
+                              <input class="efectivo_input form-control" type="text">
+                            </div>
+                            <div class="vuelto">
+                              <label class="vuelto_label">VUELTO</label>
+                              <input class="vuelto_input form-control" type="text">
+                            </div>
+                          </div>            
+                        </div>
+            
+                      </div>
+                    </div> 
+
+                    <!-- iconos -->
+                    <section class="container iconos">
+                      <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                    </section>
                   </div>
                 </div>
               </div>

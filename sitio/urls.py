@@ -72,7 +72,7 @@ urlpatterns = [
     path('informes/',viewInformes),
     path('informes/<id_>/',viewInformesSinModel),
     path('informes/consultas_medidor/',viewConsultasMedidor),
-    path('informes/consultas_lectura/',viewConsultasLectura),
+    path('informes/consultas/1/',viewConsultasLectura1),
     path('informes/cuentas_ind/',viewCuentasInd),
     path('informes/toma_lectura/',viewTomaLectura),
     path('informes/registro_financiero/',viewRegistroFinanciero),
@@ -94,6 +94,7 @@ urlpatterns = [
     path('contabilidad/arqueo_caja/', viewArqueoCaja),
     path('contabilidad/cuenta_corriente/', viewCuentaCorriente),
     path('contabilidad/conciliacion_bancaria/', viewConciliacionBancaria),
+    path('contabilidad/reporte/', BenSubsidio),
 
 
     #Configuración

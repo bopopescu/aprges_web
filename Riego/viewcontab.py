@@ -1053,3 +1053,8 @@ def viewCuentaCorriente(request):
 
 def viewConciliacionBancaria(request):
     return render(request, 'contabilidad/conciliacion_bancaria.html', {})
+
+
+def BenSubsidio(request):    
+    pdf= render_to_pdf('contabilidad/reporte.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')

@@ -38,6 +38,7 @@
         .contenido{
           display: flex;
           flex-wrap: wrap;
+          margin: 0 3rem;
         }
         .sector{
           width: 20%;
@@ -66,7 +67,7 @@
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -358,77 +359,78 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                    <div class="row m-b-3">
-                        <div class="contenido container">
+                  <div class="row m-b-3">
+                    <div class="contenido">
 
-                            <!-- nro sector -->
-                            <div class="sector">
-                                <div class="form-group">
-                                <label class="col-form-label">Nro Sector</label>
-                                <input type="text" class="form-control">
-                                </div>
-                            </div>
-
-                            <!-- nombre sector  -->
-                            <div class="nombre">
-                                <div class="form-group">
-                                <label class="col-form-label">Nombre del Sector</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                                <select multiple class="form-control">
-                                    <option></option>
-                                </select>
-                                </div>
-                            </div>
-
-                            <!-- etiquetas -->
-                            <div class="etiquetas">
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-label ">Tipo Tarifa</label>
-                                <select class="form-control"></select>
-                                </div>
-                        
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
-                                <input type="text" class="form-control">
-                                </div>
-                        
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
-                                <input type="text" class="form-control">
-                                </div>
-                        
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
-                                <input type="text" class="form-control">
-                                </div>
-                        
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-label">Alcantarillado</label>
-                                <input type="text" class="form-control">
-                                </div>
-                        
-                                <div class="etiqueta form-group">
-                                <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
-                                <input type="text" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label"">Marque aquí para cerrar todos los sectores</label>
-                            </div>
-
-                            <!-- iconos -->
-                            <div class="container iconos">
-                                <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                                <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
-                                <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>
-                            </div>                   
+                      <!-- nro sector -->
+                      <div class="sector">
+                        <div class="form-group">
+                          <label class="col-form-label">Nro Sector</label>
+                          <input type="text" class="form-control">
                         </div>
+                      </div>
+
+                      <!-- nombre sector  -->
+                      <div class="nombre">
+                        <div class="form-group">
+                          <label class="col-form-label">Nombre del Sector</label>
+                          <select class="form-control">
+                              <option></option>
+                          </select>
+                          <select multiple class="form-control">
+                              <option></option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- etiquetas -->
+                      <div class="etiquetas">
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label ">Tipo Tarifa</label>
+                          <select class="form-control"></select>
+                        </div>    
+
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Alcantarillado</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label"">Marque aquí para cerrar todos los sectores</label>
+                      </div>
+
+                      <!-- iconos -->
+                      <div class="container iconos">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>
+                      </div>                   
                     </div>
+                  </div>
                 </div>
+              </div>
             </form>
             {% endblock %}
           </div>

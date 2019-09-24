@@ -21,32 +21,113 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-        a {
-            color: #000;
+      a {
+        color: #000;
+      }
+      .iconos{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 16rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .icono{
+        color: black;
+        margin-top: 1rem;
+      }
+      @media (min-width: 48em) { 
+        .ident, .fecha, .factura, .emision, .cliente, .dc, .direccion, .comuna, .tg, .telefono, .giro, .venta, .mdt, .cancelacion{
+          display: flex;
+        }
+        .dc, .tg{
+          justify-content: space-between;
+        }
+        .contenido{
+          margin: 0 3rem;
+        }
+        .ident{
+          justify-content: space-between;
+          align-items: center;
+        }
+        .factura_titulo, .emision_titulo{
+          width: 12rem;
+        }
+        .mes, .año{
+          width: 7rem;
+        }
+        .factura_input, .emision_input, .cliente_input{
+          width: 10rem;
+        }
+        .fecha{
+          align-items: flex-end;
+        }
+        .año{
+          margin-left: 1rem;
+        }
+        .subsidio{
+          height: fit-content;
+          padding: .5rem 2rem;
+          margin-left: 1rem;
+        }
+        .outline-warning{
+          color: #ffc107;
+          background-color: transparent;
+          border-color: #ffc107;
+          border-radius: 5px;
+        }
+        .outline-warning:hover{
+          color: #212529;
+          background-color: #ffc107;
+        }
+        .boton{
+          width: 13rem;
+        }
+        .btn-warning{
+          padding: .5rem 2rem;
+          font-size: 1.1rem;
+          margin-bottom: .5rem;
+          width: 13rem;
         }
         .iconos{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 16rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+          justify-content: space-evenly;
+          width: 100%;
         }
-        .icono{
-            color: black;
-            margin-top: 1rem;
+        .cliente_label{
+          width: 15rem;;
         }
-        @media (min-width: 48em) { 
-            .iconos{
-                justify-content: space-evenly;
-                width: 100%;
-            }
+        .direccion_label{
+          width: 11.8rem;
         }
+        .venta_label, .telefono_label{
+          width: 11.8rem;
+        }
+        .comuna_label{
+          width: 5rem;
+        }
+        .direccion_input, .giro_input, .venta_input{
+          width: 70rem;
+        }
+        .comuna_input, .telefono_input{
+          width: 16rem;
+        }
+        .mt3, .total{
+          width: 14%;
+        }
+        .detalle{
+          width: 70%;
+          margin: 0 1rem;
+        }
+        .cancelacion_input{
+          width: 20rem;
+          margin-left: 2rem;
+        }
+      }
     </style>
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -338,9 +419,110 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
+                  <div class="row m-b-3">                    
+                    <div class="contenido">
 
-                
+                      <!-- nro factura-->
+                      <div class="ident form-group">
+                        <div class="ff">
+                          <div class="factura">
+                            <h6 class="factura_titulo">NRO FACTURA</h6>
+                            <input class="factura_input form-control" type="text">
+                          </div>
+                          <div class="emision">
+                            <h6 class="emision_titulo">FECHA EMISIÓN</h6>
+                            <input class="emision_input form-control" type="datetime" name="hoy" value="{{hoy}}">
+                          </div>
+                        </div>
+
+                        <div class="fecha">
+                          <div class="mes">
+                            <label class="mes_label">Mes</label>
+                            <input class="mes_input form-control" type="text">
+                          </div>
+                          <div class="año">
+                            <label class="año_label">Año</label>
+                            <input class="año_input form-control" type="text">
+                          </div>
+                          <button class="btn outline-warning subsidio" type="button">¿Subsidio?</button>
+                        </div>
+                        
+                        <div class="boton">
+                          <button type="button" class="btn btn-warning">Anular Factura</button>
+                          <button type="button" class="btn btn-warning">Eliminar Factura</button>
+                        </div>
+                      </div>          
+     
+                      <!-- cliente -->
+                      <div class="form-group cliente">
+                        <label class="cliente_label">Seleccionar Cliente</label>
+                        <input class="cliente_input form-control" type="text">
+                        <select class="cliente_select form-control">
+                          <option></option>
+                          <option></option>
+                        </select>
+                      </div>
+  
+                      <!-- direccion-->
+                      <div class="form-group dc">
+                        <div class="direccion">
+                          <label class="direccion_label col-form-label">Dirección</label>
+                          <input class="direccion_input form-control" type="text">
+                        </div>
+                        <div class="comuna">
+                          <label class="comuna_label col-form-label">Comuna</label>
+                          <input class="comuna_input form-control" type="text">
+                        </div>
+                      </div>
+  
+                      <!-- telefono-->
+                      <div class="form-group tg">
+                        <div class="telefono">
+                          <label class="telefono_label col-form-label">Teléfono</label>
+                          <input class="telefono_input form-control" type="text">
+                        </div>
+                        <div class="giro">
+                          <label class="giro_label col-form-label">Giro</label>
+                          <input class="giro_input form-control" type="text">
+                        </div>
+                      </div>
+      
+                      <!-- cond.venta -->
+                      <div class="form-group venta">
+                        <label class="venta_label col-form-label">Cond. de Venta</label>
+                        <input class="venta_input form-control" type="text">
+                      </div>
+      
+                      <!-- cond.venta -->
+                      <div class="form-group mdt">
+                        <div class="mt3">
+                          <label class="">Cant mt3</label>
+                          <input class="form-control" type="text">
+                        </div>
+                        <div class="detalle">
+                          <label class="">Detalle</label>
+                          <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="total">
+                          <label class="">Total</label>
+                          <input class="form-control" type="text">
+                        </div> 
+                      </div>
+      
+                      <!-- cancelación -->
+                      <div class="form-group cancelacion">
+                        <h6>FECHA CANCELACIÓN</h6>
+                        <input class="cancelacion_input form-control" type="text">
+                        </div> 
+                    </div>
+  
+                    <!-- iconos -->
+                    <section class="container iconos">
+                      <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                    </section>               
             
                   </div>
                 </div>

@@ -821,7 +821,8 @@ def ListaSaldo(request):
 def viewConsultasMedidor(request):
     return render(request, 'informes/consultas_medidor.html', {})
 
-def viewConsultasLectura(request):
+def viewConsultasLectura1(request):
+    print("aca")
     return render(request, 'informes/consultas_lectura.html', {})
 
 def viewCuentasInd(request):
