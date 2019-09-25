@@ -8468,6 +8468,7 @@ a.broadcard {
         right: 0; } }
 
 .menu-block {
+  overflow: auto;
   font-size: 12px;
   font-weight: 400;
   position: fixed;

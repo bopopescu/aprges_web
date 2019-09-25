@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy 2.css' %}">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
     <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
@@ -21,32 +21,72 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-        a {
-            color: #000;
+      a {
+        color: #000;
+      }      
+      .primary{
+        background-color: #4183D7;
+        color: white;
+      }
+      .tabla{
+        overflow: auto;
+        border: 1px solid #e5e5e5;
+      }
+      .iconos{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .icono{
+        color: black;
+        margin-top: 1rem;
+      }
+      @media (min-width: 48em) { 
+        .contenido{
+          margin: 0 3rem;
+        }
+        .nm, .da, .nombre, .medidor, .direccion, .año{
+          display: flex;
+        }
+        .nm, .da{
+          justify-content: space-between;
+        }
+        .nombre_label, .direccion_label, .medidor_label, .año_label{
+          width: 7rem;
+        }
+        .medidor_label{
+          width: 7rem;
+        }
+        .año_label{
+          width: 3rem;
+        }
+        .nombre_input, .direccion_input{
+          width: 85rem;
+        }
+        .medidor_input, .año_input{
+          width: 6rem;
+        }
+        .table{
+          width: 143rem;
+        }
+        .meses{
+          width: 8rem;
+        }
+        .etiquetas{
+          width: 7.6rem;
         }
         .iconos{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 16rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+          justify-content: space-evenly;
+          width: 100%;
         }
-        .icono{
-            color: black;
-            margin-top: 1rem;
-        }
-        @media (min-width: 48em) { 
-            .iconos{
-                justify-content: space-evenly;
-                width: 100%;
-            }
-        }
+      }
     </style>
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -100,13 +140,13 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_medidor/">Consultas Medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_lectura/">Consultas Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/cuentas_ind/">Cuentas Individuales</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/toma_lectura/">Toma Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/registro_financiero/">Registro Financiero y Presupuesto</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_corte/">Consultas de Corte y Reposición</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/toma/lectura/">Toma Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/registro/financiero/">Registro Financiero y Presupuesto</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/corte/">Consultas de Corte y Reposición</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
@@ -339,9 +379,287 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
+                    <div class="contenido">
 
+                      <!--identificación-->
+                      <div class="identificacion">              
+                        <div class="nm">
+                          <div class="nombre form-group">
+                            <label class="nombre_label col-form-label">Nombre</label>
+                            <input class="nombre_input form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
+                          </div>
                 
-            
+                          <div class="medidor form-group">
+                            <label class="medidor_label col-form-label">Nro Medidor</label>
+                            <input class="medidor_input form-control" type="text">
+                          </div>
+                        </div>
+              
+                        <div class="da">
+                          <div class="direccion form-group">
+                            <label class="direccion_label col-form-label">Dirección</label>
+                            <input class="direccion_input form-control" type="text">
+                          </div>
+                
+                          <div class="año form-group">
+                            <label class="año_label col-form-label">Año</label>
+                            <input class="año_input form-control" type="text">
+                          </div>
+                        </div>              
+                      </div>                  
+              
+                      <!--tabla-->
+                      <div class="tabla">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr class="primary">
+                              <th class="meses">Mes</th>
+                              <th class="etiquetas">Lectura</th>
+                              <th class="etiquetas">M3</th>
+                              <th class="etiquetas">$</th>
+                              <th class="etiquetas">Deudas Cons.</th>
+                              <th class="etiquetas">Otras Deudas</th>
+                              <th class="etiquetas">Saldo Anterior</th>
+                              <th class="etiquetas">Multas</th>
+                              <th class="etiquetas">Total a Pagar</th>
+                              <th class="etiquetas">Cancelado</th>
+                              <th class="etiquetas">Boleta</th>
+                              <th class="etiquetas">Abono</th>
+                              <th class="etiquetas">Factura</th>
+                              <th class="etiquetas">Aviso</th>
+                              <th class="etiquetas">Estado</th>
+                              <th class="etiquetas"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="enero">
+                              <th class="primary">Enero</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="febrero">
+                              <th class="primary">Febrero</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="marzo">
+                              <th class="primary">Marzo</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="abril">
+                              <th class="primary">Abril</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="mayo">
+                              <th class="primary">Mayo</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="junio">
+                              <th class="primary">Junio</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="julio">
+                              <th class="primary">Julio</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="agosto">
+                              <th class="primary">Agosto</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="septiembre">
+                              <th class="primary">Septiembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="octubre">
+                              <th class="primary">Octubre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="noviembre">
+                              <th class="primary">Noviembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr class="diciembre">
+                              <th class="primary">Diciembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+              
+                      <!-- iconos -->
+                      <div class="iconos">
+                        <a href="#"><i class="fas fa-search fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono" ></i></a>
+                      </div>
+
+                    </div>           
                   </div>
                 </div>
               </div>

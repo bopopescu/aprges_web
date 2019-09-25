@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy 2.css' %}">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
     <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
@@ -21,32 +21,100 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-        a {
-            color: #000;
+      a {
+        color: #000;
+      }
+      .primary{
+        background-color: #4183D7;
+        color: white;
+      }
+      .tabla1{
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        overflow: auto;
+        max-height: 12rem;
+        margin-bottom:1rem;
+      }
+      .etiquetas{
+        padding: 1rem;
+      }
+      .medidor, .etiqueta{
+        display: flex;
+      }
+      .medidor_label{
+        width: 7rem;
+      }
+      .medidor_input{
+        width: 5rem
+      }
+      .etiqueta_label{
+        width: 50%;
+      }.primer_tamaño{
+        width: 10%;
+      }
+      .segundo_tamaño{
+        width: 5%;
+      }
+      .tercer_tamaño{
+        width: 50%;
+      }
+      .tabla2{
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        overflow: auto;
+        max-height: 12rem;
+      }
+      .consumo_titulo, .otros_titulo{
+        text-align: center;
+      }
+      .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .icono{
+        color: black;
+        margin-top: 1rem;
+      }
+      @media (min-width: 48em) {
+        .contenido{
+          margin: 0 3rem;
+        }
+        .medidor, .te, .ti, .etiqueta{
+          display: flex;
+        }
+        .medidor_label{
+          width: 6.5rem;
+        }
+        .medidor_input{
+          width: 5rem;
+        }
+        .tabla1{
+          width: 75%;
+          max-height: 22.3rem;
+          margin: 0;
+        }
+        .etiquetas{
+          width: 24%;
+          margin-left: 1rem;
+        }
+        .etiqueta_label{
+          width: 10rem;
+        }
+        .tabla2{
+          width: 90%;
+          margin-right: 1rem;
+          max-height: 14rem;
         }
         .iconos{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 16rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+          width: 10%;
         }
-        .icono{
-            color: black;
-            margin-top: 1rem;
-        }
-        @media (min-width: 48em) { 
-            .iconos{
-                justify-content: space-evenly;
-                width: 100%;
-            }
-        }
+      }
     </style>
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -100,13 +168,13 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_medidor/">Consultas Medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_lectura/">Consultas Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/cuentas_ind/">Cuentas Individuales</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/toma_lectura/">Toma Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/registro_financiero/">Registro Financiero y Presupuesto</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_corte/">Consultas de Corte y Reposición</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/toma/lectura/">Toma Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/registro/financiero/">Registro Financiero y Presupuesto</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/corte/">Consultas de Corte y Reposición</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
@@ -338,10 +406,108 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
-
+                  <div class="row m-b-2">
+                    <div class="contenido">
                 
+                      <div class="form-group medidor">
+                        <label class="medidor_label">Nro Medidor</label>
+                        <input class="medidor_input form-control">
+                      </div>
+                
+                      <div class="form-group consumo">
+                        <h5 class="consumo_titulo">CONSUMO DE AGUA</h5>
+                        <div class="te">
+                          <div class="tabla1">               
+                              <table class="table table-bordered m-b-0">
+                                <thead>
+                                  <tr class="primary">
+                                    <th class="primer_tamaño">Aviso</th>
+                                    <th class="segundo_tamaño">Código</th>
+                                    <th class="tercer_tamaño">Descripción</th>
+                                    <th class="primer_tamaño">Valor</th>
+                                    <th class="primer_tamaño">Pagado</th>
+                                    <th class="segundo_tamaño">Año</th>
+                                    <th class="primer_tamaño">Mes</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>                
+                            </div>
             
+                          <div class="card etiquetas">
+                                  <h5 class="card-title">Resumen Cta Arranque</h5>
+                                  <div class="cancelado">
+                                    
+                                    <b>Totales Cancelados</b>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Consumo $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Crédito $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Total $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="sin_cancelar">
+                                    <b>Saldos Sin Cancelar</b>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Consumo $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Crédito $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                    <div class="etiqueta">
+                                      <label class="etiqueta_label col-form-label">Total $</label>
+                                      <input class="etiqueta_input form-control" type="text">
+                                    </div>
+                                  </div>
+                          </div>
+
+                        </div>
+                      </div>
+          
+                      <div class="OTROS">
+                        <h5 class="otros_titulo">OTROS COBROS</h5>
+                        <div class="ti">
+                          <div class="tabla2 90">                
+                            <table class="table table-bordered m-b-0">
+                              <thead>
+                                <tr class="primary">
+                                  <th class="primer_tamaño">Boleta</th>
+                                  <th class="segundo_tamaño">Código</th>
+                                  <th class="tercer_tamaño">Descripción</th>
+                                  <th class="primer_tamaño">Valor Cuota</th>
+                                  <th class="primer_tamaño">Estado</th>
+                                  <th class="segundo_tamaño">Año</th>
+                                  <th class="primer_tamaño">Mes</th>
+                                </tr>
+                              </thead>
+                              <tbody>                                        
+                              </tbody>
+                            </table>
+                          </div>                 
+                          <div class="iconos">
+                            <a href="#"><i class="fas fa-book fa-4x icono"></i></a>
+                          </div>
+                        </div>
+                      </div>              
+                    </div>        
                   </div>
                 </div>
               </div>
@@ -359,11 +525,11 @@
             
     <!-- WEB PERLOAD-->
     <div id="preload">
-        <ul class="loading">
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+      <ul class="loading">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
 

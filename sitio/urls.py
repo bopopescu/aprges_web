@@ -70,14 +70,14 @@ urlpatterns = [
     path('subsidio/carga/', Cargasubsidio),
 
     # Informes
-    path('informes/',viewInformes),
+    path('informes/informes/informes/',viewInformes),
     path('informes/<id_>/',viewInformesSinModel),
-    path('informes/consultas_medidor/',viewConsultasMedidor),
-    path('informes/consultas/1/',viewConsultasLectura1),
-    path('informes/cuentas_ind/',viewCuentasInd),
-    path('informes/toma_lectura/',viewTomaLectura),
-    path('informes/registro_financiero/',viewRegistroFinanciero),
-    path('informes/consultas_corte/',viewConsultasCorte), 
+    path('informes/consultas/medidor/',viewConsultasMedidor),
+    path('informes/consultas/lectura/',viewConsultasLectura1),
+    path('informes/cuentas/ind/',viewCuentasInd),
+    path('informes/toma/lectura/',viewTomaLectura),
+    path('informes/registro/financiero/',viewRegistroFinanciero),
+    path('informes/consultas/corte/',viewConsultasCorte), 
  
 
     #Contabilidad
@@ -108,6 +108,7 @@ urlpatterns = [
     path('configuracion/mensaje_cobro/', viewAvisosVigentes),
     path('configuracion/crear_usuario/', viewCrearUsuario),
     path('configuracion/avisos_vigentes/', viewMensajeCobro),
+    path('configuracion/boletas_vigentes/', viewBoletas_vigentes),
 
     #Reportes
     path('reportes/',viewReportes),

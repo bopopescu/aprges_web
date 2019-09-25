@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy.css' %}">
+    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy 2.css' %}">
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
     <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
@@ -28,11 +28,81 @@
         background-color: #4183D7;
         color: white;
       }
+ 
+      .fc{
+        display: flex;
+        justify-content: space-between;
+      }
+      .cerdo{
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .der{
+        overflow: auto;
+      }
+      .tabla_dinero{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .monedas{
+        margin-right: 1rem;
+      }
+      .monedas, .billetes{
+        width: 16rem;
+      }
+      .dinero {
+        padding: .5rem  !important;
+        text-align: right;
+      }
+      .dinero_label{
+        width: 6rem;
+        text-align: right;
+      }
+      .dinero input {
+        border: none;
+        width: 100%;
+        text-align: right;
+      }  
+      .total_monedas, .total_billetes{
+        display: flex;
+      }
+      .total_monedas{
+        margin-top: 3.8rem;
+      }  
+      .total_dinero_label{
+        width: 12rem;
+      }
+      .totalisimo{
+        display: flex;
+        margin: 0 auto 1rem;
+      }
+      .totalisimo h5 {
+        width: 8rem;
+        margin: 0;
+        padding-top: .2rem; 
+      }
+      .totalisimo input {
+        width: 10rem;
+      }
+      .tabla{
+        display: flex;
+      }
+      .tablas {
+        padding: .5rem  !important;
+      }
+      .tablas input {
+        border: none;
+        width: 100%;
+        text-align: right;
+      }
+      .tablas_label{
+        width: 11rem;
+      }
       .iconos{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        width: 16rem;
         margin-top: 2rem;
         margin-bottom: 1rem;
       }
@@ -40,13 +110,19 @@
         color: black;
         margin-top: 1rem;
       }
-      @media (min-width: 768px) { 
+      @media (min-width: 1100px) { 
         .contenido{
           margin: 0 3rem;
         }
-        .ec, .fc, .fecha, .correlativo, .oficina, .cajero, .cerdo, .et, .fijo, .ingreso, .total, .egreso, .saldo, .fijo, .neto, .mbt{
+        .ec, .fc, .fecha, .correlativo, .oficina, .cajero, .cerdo, .et, .fijo, .ingreso, .total, .egreso, .saldo, .fijo, .neto, .mbt, .tabla{
           display: flex;
           margin-bottom: .2rem;
+        }
+        .total_monedas, .total_billetes, .tabla_dinero{
+          display: flex;
+        }
+        .total_label{
+          width: 10rem;
         }
         .fc{
           justify-content: space-between;
@@ -95,15 +171,28 @@
           width: 100%;
         }
 
+        .mbt{
+          margin: 0 12rem;
+        }
+        .tabla_dinero{
+          width: 35%;
+          margin-right: 2rem;
+        }
         .monedas, .billetes{
-          width: 20%;
-          margin-right: 1rem;
+          width: 48%;
         }
         .tabla{
           width: 60%;
         }
         .monedas_titulos, .billetes_titulo{
           text-align: center;
+        }
+        .total_dinero_label{
+          width: 14.5rem;
+        }       
+
+        .tabla1, .tabla2{
+          width: 50%;
         }
       }
     </style>
@@ -164,13 +253,13 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_medidor/">Consultas Medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_lectura/">Consultas Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/cuentas_ind/">Cuentas Individuales</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/toma_lectura/">Toma Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/registro_financiero/">Registro Financiero y Presupuesto</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas_corte/">Consultas de Corte y Reposición</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/toma/lectura/">Toma Lectura</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/registro/financiero/">Registro Financiero y Presupuesto</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/consultas/corte/">Consultas de Corte y Reposición</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
@@ -495,145 +584,151 @@
                       </div> 
 
                       <div class="mbt">
+                        <div class="tabla_dinero">
+                          <div class="monedas">
+                            <h5 class="monedas_titulos">Detalle Metálico</h5>
+                            <div class="card-body">
+                              <table class="table table-bordered">
+                                <tbody>
+                                  <tr>
+                                    <th class="dinero_label primary">500</th>
+                                    <td class="dinero "><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">100</th>
+                                    <td class="dinero "><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">50</th>
+                                    <td class="dinero "><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">10</th>
+                                    <td class="dinero "><input type="number"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="form-group total_monedas">
+                              <label class="total_dinero_label">Total Metálico</label>
+                              <input class="form-control" type="email">
+                            </div>
+                          </div>
+                          
+                          <div class="billetes">
+                            <h5 class="billetes_titulo">Detalle Billetes</h5>
+                            <div class="card-body">
+                              <table class="table table-bordered">
+                                <tbody>
+                                  <tr>
+                                    <th class="dinero_label primary">20000</th>
+                                    <td class="dinero"><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">10000</th>
+                                    <td class="dinero"><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">5000</th>
+                                    <td class="dinero"><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">2000</th>
+                                    <td class="dinero"><input type="number"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="dinero primary">1000</th>
+                                    <td class="dinero"><input type="number"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="form-group total_billetes">
+                              <label class="total_dinero_label">Total Billetes</label>
+                              <input class="form-control" type="email">
+                            </div>
+                          </div>
 
-                        <div class="monedas">
-                          <h5 class="monedas_titulos">Detalle Metálico</h5>
-                          <div class="card-body">
-                            <table class="table table-bordered">
-                              <tbody>
-                                <tr>
-                                  <th class="table-success">500</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">100</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">50</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">10</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                              </tbody>
-                            </table>
+                          <div class="totalisimo">
+                            <h5 for="">Total Dinero</h5>
+                            <input class="form-control" type="text">
                           </div>
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1">Total Metálico</label>
-                            <input type="email" class="form-control">
-                          </div>
-                          <a href="/contabilidad/reporte/">reporte</a>
-                        </div>
-                        
-                        <div class="billetes">
-                          <h5 class="billetes_titulo">Detalle Billetes</h5>
-                          <div class="card-body">
-                            <table class="table table-bordered">
-                              <tbody>
-                                <tr>
-                                  <th class="table-success">20000</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">10000</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">5000</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">2000</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                                <tr>
-                                  <th class="table-success">1000</th>
-                                  <td class=""><input type="text"></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <div class="form-group">
-                            <label>Total Billetes</label>
-                            <input class="form-control" type="email">
-                          </div>
+
                         </div>
       
                         <div class="tabla">
                           <div class="tabla1">
                             <table class="table table-bordered">
-                                <tbody>
-                                      <tr>
-                                        <td style="width: 60%" class="">Consumo de Boletas</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Consumo de Facturas</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Multas</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Cuotas Sociales</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Otros Ingresos</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <th class="">TOTAL</th>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                              <tbody>
+                                <tr>
+                                  <td class="tablas_label">Consumo de Boletas</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Consumo de Facturas</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Multas</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Cuotas Sociales</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Otros Ingresos</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <th class="tablas">TOTAL</th>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
                           <div class="tabla2">
-                                  <table class="table table-bordered m-0">
-                                    <tbody>
-                                      <tr>
-                                        <td class="" style="width: 60%">Egresos</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Depósitos en Cta Cte.</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Depósitos en Billetes</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Depósitos en Cheque</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="">Monedas</td>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                      <tr>
-                                        <th class="">TOTAL</th>
-                                        <td class=""><input type="text"></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                            <table class="table table-bordered m-0">
+                              <tbody>
+                                <tr>
+                                  <td class="tablas_label">Egresos</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Depósitos en Cta Cte.</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Depósitos en Billetes</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Depósitos en Cheque</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <td class="tablas">Monedas</td>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                                <tr>
+                                  <th class="tablas">TOTAL</th>
+                                  <td class="tablas"><input type="text"></td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
-                          </div>
-                        </div>    
-                      
-                      <div class="10%">      
-                        <a href="#"><i class="far fa-save fa-4x"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x"></i></a>
-                        <a href="#"><i class="fas fa-times fa-4x"></i></a>
-                        <a href="#"><i class="fas fa-trash-alt fa-4x"></i></a>
-                        <a href="#"><i class="fas fa-undo-alt fa-4x"></i></a>
-                      </div>                               
-                    </div>    
+                        </div>
 
+                      </div>   
+
+                      <div class="iconos">      
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                      </div> 
+                    </div>
                   </div>
                 </div>
               </div>
