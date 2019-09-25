@@ -86,13 +86,12 @@
             <td>{{i.cod}}</td>
             <td>{{i.dvnum}}</td>
             <td>{{i.numdiv}}</td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>{{i.consumo}}</td>
+            <td>{{i.sub}}</td>
+            <td>{{i.ben}}</td>
+            <td>{{i.deu}}</td>
+            <td>{{i.mon}}</td>
+            <td>10</td>
         </tr>
         {% endfor %}
 
@@ -100,13 +99,13 @@
     </table>
     <table>
         <tr>
-            <td colspan="8"></td>
+            <td colspan="8">Total </td>
             <td width=660px></td>
-            <td><input type="text" name="" id="" placeholder="suma CONS"></td>
-            <td><input type="text" placeholder="suma SUBS"></td>
-            <td><input type="text" placeholder="suma BEN"></td>
-            <td><input type="text" placeholder="suma DEUD"></td>
-            <td><input type="text" placeholder="suma MON"></td>
+            <td><input type="text" name="" id="" placeholder="suma CONS"><b>{{totalcon}}</b></td>
+            <td><input type="text" placeholder="suma SUBS"><b>{{totalsub}}</b></td>
+            <td><input type="text" placeholder="suma BEN"><b>{{totalben}}</b></td>
+            <td><input type="text" placeholder="suma DEUD"><b>{{totaldeud}}</b></td>
+            <td><input type="text" placeholder="suma MON"><b>{{totalmon}}</b></td>
             <td colspan="1"></td>
         </tr>
     </table>
@@ -114,7 +113,7 @@
     <table class="beneficiario">
         <tr>
             <td>Numero de beneficiarios</td>
-            <td><input type="text"></td>
+            <td><input type="text">{{total}}</td>
         </tr>
     </table>
     

@@ -273,7 +273,8 @@ def subsidio(request):
                     
                     print("tipo subb " + str(tiposub))
 
-                    sql="SELECT Sum(OPER_DET_AVISO.VALOR) AS SumaDeVALOR, Sum(OPER_DET_AVISO.PAGADO) AS SumaDePAGADO FROM OPER_AVISO INNER JOIN OPER_DET_AVISO ON OPER_AVISO.CORRELATIVO = OPER_DET_AVISO.AVISO_CORRELATIVO GROUP BY OPER_AVISO.VIGENTE, OPER_DET_AVISO.CODIGO, OPER_AVISO.MEDIDOR_CORRELATIVO HAVING (((OPER_AVISO.VIGENTE)=0) AND ((OPER_DET_AVISO.CODIGO)<>5) AND ((OPER_AVISO.MEDIDOR_CORRELATIVO)="+str(i[0])+"));"
+                    sql="SELECT Sum(OPER_DET_AVISO.VALOR) AS SumaDeVALOR, Sum(OPER_DET_AVISO.PAGADO) AS SumaDePAGADO, OPER_AVISO.IDBOLETA FROM OPER_AVISO INNER JOIN OPER_DET_AVISO ON OPER_AVISO.CORRELATIVO = OPER_DET_AVISO.AVISO_CORRELATIVO GROUP BY OPER_AVISO.VIGENTE, OPER_DET_AVISO.CODIGO, OPER_AVISO.MEDIDOR_CORRELATIVO,OPER_AVISO.IDBOLETA HAVING (((OPER_AVISO.VIGENTE)=0) AND ((OPER_DET_AVISO.CODIGO)<>5) AND ((OPER_AVISO.MEDIDOR_CORRELATIVO)="+str(i[0])+"));"
+                    print("deudas " + str(sql))
                     try:
                         cursor.execute(sql)
                         for deu in cursor.fetchall():
@@ -401,11 +402,23 @@ def subsidio(request):
             print(a)
 
         sql="SELECT SUBSIDIO.*, OPER_CLIENTE.RUT, OPER_CLIENTE.VER_RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELL_PAT, OPER_CLIENTE.APELL_MAT, GLO_SECTOR.GLOSA, GLO_MEDIDOR.NUMDEC, GLO_MEDIDOR.FECDEC, GLO_MEDIDOR.FECENC, GLO_MEDIDOR.PUNTAJE, GLO_MEDIDOR.NUMSOCIO, GLO_MEDIDOR.DVNUM, GLO_MEDIDOR.NUMVIV FROM ((SUBSIDIO INNER JOIN GLO_MEDIDOR ON SUBSIDIO.MEDIDOR_CORRELATIVO = GLO_MEDIDOR.CORRELATIVO) INNER JOIN OPER_CLIENTE ON GLO_MEDIDOR.SOCIO = OPER_CLIENTE.RUT) INNER JOIN (GLO_SECTOR INNER JOIN GLO_CALLE ON GLO_SECTOR.SECTOR = GLO_CALLE.SECTOR) ON OPER_CLIENTE.CALLE_CORRELATIVO = GLO_CALLE.CORRELATIVO WHERE MES="+str(numeromes)+" AND ANO="+str(ano)+";"
+        contador=0
+        totalcon=0
+        totalsub=0
+        totalben=0
+        totaldeud=0
+        totalmon=0
 
         try:
             cursor.execute(sql)
             for i in cursor.fetchall():
-                lista.append({'rut':i[17],'dv':i[18],'nombre':str(i[19])+" "+str(i[20])+" "+str(i[21]),'direccion':i[22],'num':i[23],'fec':i[24],'fecen':i[25],'puntaje':i[26],'cod':cod,'dvnum':i[27],'numdiv':i[28]})
+                lista.append({'deu':xstr(i[14]),'mon':xstr(i[15]),'sub':xstr(i[8]),'ben':xstr(int(i[6])-int(i[8])),'consumo':xstr(i[3]),'rut':xstr(i[17]),'dv':xstr(i[18]),'nombre':xstr(i[19])+" "+xstr(i[20])+" "+xstr(i[21]),'direccion':xstr(i[22]),'num':xstr(i[23]),'fec':xstr(i[24]),'fecen':xstr(i[25]),'puntaje':xstr(i[26]),'cod':xstr(cod),'dvnum':xstr(i[27]),'numdiv':xstr(i[28])})
+                totalcon=totalcon+i[3]
+                totalsub=totalsub+i[8]
+                totalben=totalben+(int(i[6])-int(i[8]))
+                totaldeud=totaldeud+i[14]
+                totalmon=totalmon+i[15]
+                contador=contador+1
         except Exception as a:
             print(a)
         
@@ -415,7 +428,13 @@ def subsidio(request):
             'lista':lista,
             'ano':ano,
             'comuna':comuna,
-            'Titulo':titulo
+            'Titulo':titulo,
+            'total':contador,
+            'totalsub':totalsub,
+            'totalben':totalben,
+            'totaldeud':totaldeud,
+            'totalmon':totalmon,
+            'totalcon':totalcon
         }
 
         pdf = render_to_pdf('procesos/reporte.html', data)
