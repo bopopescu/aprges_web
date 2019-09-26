@@ -19,50 +19,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
     <script type="text/javascript">
       $(document).ready(function(){
-          // Activate tooltip
-          $('[data-toggle="tooltip"]').tooltip();
+        // Activate tooltip
+        $('[data-toggle="tooltip"]').tooltip();
           
-          // Select/Deselect checkboxes
-          var checkbox = $('table tbody input[type="checkbox"]');
-          $("#selectAll").click(function(){
-              if(this.checked){
-                  checkbox.each(function(){
-                      this.checked = true;                        
-                  });
-              } else{
-                  checkbox.each(function(){
-                      this.checked = false;                        
-                  });
-              } 
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function(){
+          if(this.checked){
+            checkbox.each(function(){
+              this.checked = true;                        
           });
-          checkbox.click(function(){
-              if(!this.checked){
-                  $("#selectAll").prop("checked", false);
-              }
-          });
+          } else{
+            checkbox.each(function(){
+              this.checked = false;                        
+            });
+          } 
+        });
+        checkbox.click(function(){
+          if(!this.checked){
+            $("#selectAll").prop("checked", false);
+          }
+        });
       });
   </script>
   <style>
-        .div_boton{
-          display: flex;
-          justify-content: center;
-        }
-        .boton{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 15rem;
-          padding: 1rem 3rem;
-        }
-        .botones_arriba{
-          width: fit-content;
-          padding: 1rem 2rem;
-        }
+    .div_boton{
+      display: flex;
+      justify-content: center;
+    }
+    .boton{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15rem;
+      padding: 1rem 3rem;
+    }
+    .botones_arriba{
+      width: fit-content;
+      padding: 1rem 2rem;
+    }
   </style>
   </head>
 
-  <body class="orchid  ">
-
+  <body class="orchid">
     <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
@@ -111,8 +110,6 @@
               <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a></li>  
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">

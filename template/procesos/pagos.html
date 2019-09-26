@@ -1,28 +1,27 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin AprGes | 2019</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy 2.css' %}">
-    <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
-    <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
-    <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
-    <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-    <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
-    <style>
-        
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin AprGes | 2019</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
+        <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/theme-libs-plugins.css' %}">
+        <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/skin copy 2.css' %}">
+        <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
+        <script src="{% static 'dist/js/bootstrap-checkbox.js' %}" defer></script>
+        <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
+        <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+        <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
+        <style>        
         /* inicio modal */
-        .modalDialog {
+            .modalDialog {
                 position: fixed;
                 top: 0;
                 right: 0;
@@ -39,7 +38,7 @@
             .modalDialog:target {
                 opacity:1;
                 pointer-events: auto;
-            }
+                }
             .modalDialog > div {
                 width: 90%;
                 height: 75%;
@@ -55,287 +54,276 @@
                 -moz-transition: opacity 400ms ease-in;
                 transition: opacity 400ms ease-in;
             }
-            /* inicio cerrar */
-                .close {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 40px;
-                    height: 40px;
-                    background: #4183D7;
-                    color: #FFFFFF;
-                    line-height: 25px;
-                    position: absolute;
-                    right: -15px;
-                    top: -20px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    border-radius: 50px;
-                    -webkit-border-radius: 50px;
-                    -moz-border-radius: 50px;
-                    box-shadow: 1px 1px 3px #000;
-                    -moz-box-shadow: 1px 1px 3px #000;
-                    -webkit-box-shadow: 1px 1px 3px #000;
-                }
+        /* inicio cerrar */
+            .close {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background: #4183D7;
+                color: #FFFFFF;
+                line-height: 25px;
+                position: absolute;
+                right: -15px;
+                top: -20px;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 50px;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                box-shadow: 1px 1px 3px #000;
+                -moz-box-shadow: 1px 1px 3px #000;
+                -webkit-box-shadow: 1px 1px 3px #000;
+            }
                 .close:hover { background: #4183D7; }
-            /* fin cerrar */
-            /* inicio aviso y nro boleta */
-                .modal_id_label, .modal_rut_1{
-                    width: 30%;
-                }
-                .modal_id_input, .modal_rut_2{
-                    width: 68%;
-                }
-                .modal_rut_3{
-                    width: 100%;
-                }
-            /* fin aviso y nro boleta */
-            /* inicio boton guardar */
-                .modal_div_guardar{
-                    text-align: center;
-                    margin-bottom: 1rem;
-                }
-                .modal_boton_guardar{
-                    background-color: transparent;
-                    border: none;
-                }
-                .modal_icono{
-                    color: black;
-                }
-            /* fin boton guardar */
-            /* inicio nro parcelero */
-                .modal_medidor_label{
-                    width: 25%;
-                }
-                .modal_medidor_input{
-                    width: 30%;
-                }
-            /* fin nro parcelero */
-            /* inicio fecha actual y nro abono */
-                .modal_fecha{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .modal_fecha_label{
-                    margin-top: .5rem;
-                    margin-right: 1.2rem;
-                }
-                .modal_fecha_input{
-                    width: 40%;
-                }
-                .modal_fecha_button{
-                    background-color: transparent;
-                    border: 2px solid #4183D7;
-                    border-radius: 5px;
-                    width: 45%;
-                }
-                .modal_fecha_button:hover{
-                    background-color: #4183D7;
-                }
-                .modal_fecha_button:focus{
-                    border: 2px solid blue;
-                }
-            /* fin fecha actual y nro abono */
-            /* inicio tabla e input */
-                .modal_tabla{
-                    overflow-y: scroll;
-                    margin-top: 1rem;
-                }
-                .tabla_titulos{
-                    background-color: #4183D7;
-                    color: white;
-                }
-                .modal_total{
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-                .modal_total_divs{
-                    width: 50%;
-                    margin-bottom: .7rem;
-                }
-                .modal_total_label{
-                    width: 100%;
-                }
-                .modal_total_input{
-                    width: 80%;
-                }
-                .modal_total_icono{
-                    text-align: center;
-                    width: 100%;
-                }
-                .modal_icono2{
-                    margin-top: 2rem;
-                    color: black;
-                }
-            /* fin tabla e input */
-            /* inicio forma de pago */
-                .modal_primera_parte{
-                    display: flex;
-                }
-                .modal_forma_de_pago{
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
-                .modal_pago{
-                    margin: 0;
-                }
-            /* fin forma de pago */        
+        /* fin cerrar */
+        /* inicio aviso y nro boleta */
+            .modal_id_label, .modal_rut_1{
+                width: 30%;
+            }
+            .modal_id_input, .modal_rut_2{
+                width: 68%;
+            }
+            .modal_rut_3{
+                width: 100%;
+            }
+        /* fin aviso y nro boleta */
+        /* inicio boton guardar */
+            .modal_div_guardar{
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .modal_boton_guardar{
+                background-color: transparent;
+                border: none;
+            }
+            .modal_icono{
+                color: black;
+            }
+        /* fin boton guardar */
+        /* inicio nro parcelero */
+            .modal_medidor_label{
+                width: 25%;
+            }
+            .modal_medidor_input{
+                width: 30%;
+            }
+        /* fin nro parcelero */
+        /* inicio fecha actual y nro abono */
+            .modal_fecha{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .modal_fecha_label{
+                margin-top: .5rem;
+                margin-right: 1.2rem;
+            }
+            .modal_fecha_input{
+                width: 40%;
+            }
+            .modal_fecha_button{
+                background-color: transparent;
+                border: 2px solid #4183D7;
+                border-radius: 5px;
+                width: 45%;
+            }
+            .modal_fecha_button:hover{
+                background-color: #4183D7;
+            }
+            .modal_fecha_button:focus{
+                border: 2px solid blue;
+            }
+        /* fin fecha actual y nro abono */
+        /* inicio tabla e input */
+            .modal_tabla{
+                overflow-y: scroll;
+                margin-top: 1rem;
+            }
+            .tabla_titulos{
+                background-color: #4183D7;
+                color: white;
+            }
+            .modal_total{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .modal_total_divs{
+                width: 50%;
+                margin-bottom: .7rem;
+            }
+            .modal_total_label{
+                width: 100%;
+            }
+            .modal_total_input{
+                width: 80%;
+            }
+            .modal_total_icono{
+                text-align: center;
+                width: 100%;
+            }
+            .modal_icono2{
+                margin-top: 2rem;
+                color: black;
+            }
+        /* fin tabla e input */
+        /* inicio forma de pago */
+            .modal_primera_parte{
+                display: flex;
+            }
+            .modal_forma_de_pago{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .modal_pago{
+                margin: 0;
+            }
+        /* fin forma de pago */        
         /* fin modal */
-        .search{
-            display: flex;
-            margin-bottom: 1rem;
-        }
-        .div__identificacion{
-            margin-bottom: 1rem;
-        }
-        .div__button{
-            margin-top: .5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .consulta_historial{
-            margin: 0 auto;
-            border-radius: 7px;
-            font-size: 1.2rem;
-            display: block;
-            color: white;
-            background-color: #4183D7;
-            padding: .5rem 3rem;
-            text-decoration: none;
-            width: 15rem;
-            box-sizing: border-box;
-        }
-        .consulta_historial:hover{
-            color: white;
-            background-color: rgb(22, 82, 161);
-            text-decoration: none;
-        }
-        .tabla__titulos1{
-            text-align: center;
-            background-color: #4183D7;
-            color: white;
-        }
-        .tabla__titulos2{
-            background-color: #4183D7;
-            color: white;
-        }
-        .tabla__titulos3{
-            text-align: right;
-            background-color: #4183D7;
-            color: white;
-        }
-        .iconos{
-            display: flex;
-            justify-content: space-around;
-            margin-top: 3rem;
-        }
-        .boton_iconos{
-            border: none;
-            background-color: transparent;
-        }
-        .icono{
-            color: black;
-            margin-bottom: .5rem;
-        }
+            .search{
+                display: flex;
+                margin-bottom: 1rem;
+            }
+            .div__identificacion{
+                margin-bottom: 1rem;
+            }
+            .div__button{
+                margin-top: .5rem;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            .consulta_historial{
+                margin: 0 auto;
+                border-radius: 7px;
+                font-size: 1.2rem;
+                display: block;
+                color: white;
+                background-color: #4183D7;
+                padding: .5rem 3rem;
+                text-decoration: none;
+                width: 15rem;
+                box-sizing: border-box;
+            }
+            .consulta_historial:hover{
+                color: white;
+                background-color: rgb(22, 82, 161);
+                text-decoration: none;
+            }
+            .tabla__titulos1{
+                text-align: center;
+                background-color: #4183D7;
+                color: white;
+            }
+            .tabla__titulos2{
+                background-color: #4183D7;
+                color: white;
+            }
+            .tabla__titulos3{
+                text-align: right;
+                background-color: #4183D7;
+                color: white;
+            }
+            .iconos{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 3rem;
+            }
+            .boton_iconos{
+                border: none;
+                background-color: transparent;
+            }
+            .icono{
+                color: black;
+                margin-bottom: .5rem;
+            }
 
 
 
-        @media (min-width: 768px){
+            @media (min-width: 768px){
         /* inicio search */
-        .search{
-            justify-content: space-evenly;
-            display: flex;
-            width: 90%;
-            margin: 0 auto 3rem auto;
-        }
-        .search_boton{
-            padding: .5rem 3rem;
-        }
-        /* fin search */
-        
+            .search{
+                justify-content: space-evenly;
+                display: flex;
+                width: 90%;
+                margin: 0 auto 3rem auto;
+            }
+            .search_boton{
+                padding: .5rem 3rem;
+            }
+        /* fin search */        
         /* inicio div__identificacion */
-        .div__identificacion{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .identificacion__boleta{
-            display: flex;
-            margin-bottom: .5rem;
-        }
-        .boleta__numero{
-            width: 40%;
-        }
-        .boleta__input{
-            text-align: right;
-            width: 60%;
-        }
-        .fecha__flex{
-            display: flex;
-            width: 50%;
-            align-items: flex-end;
-            margin-bottom: 1.5rem;
-        }
-        .fecha__etiquetas{
-            flex-grow: 1;
-            margin-right: .5rem;
-            text-align: center;
-        }
+            .div__identificacion{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .identificacion__boleta{
+                display: flex;
+                margin-bottom: .5rem;
+            }
+            .boleta__numero{
+                width: 40%;
+            }
+            .boleta__input{
+                text-align: right;
+                width: 60%;
+            }
+            .fecha__flex{
+                display: flex;
+                width: 50%;
+                align-items: flex-end;
+                margin-bottom: 1.5rem;
+            }
+            .fecha__etiquetas{
+                flex-grow: 1;
+                margin-right: .5rem;
+                text-align: center;
+            }
         /* fin div__identificacion */
-
         /* inicio cliente */
-        .cliente__identificacion{
-            display: flex;
-        }
-        .cliente__nombre{
-            width: 12.5%;
-        }
-        .cliente__input1{
-            width: 20%;
-        }
+            .cliente__identificacion{
+                display: flex;
+            }
+            .cliente__nombre{
+                width: 12.5%;
+            }
+            .cliente__input1{
+                width: 20%;
+            }
         /* fin cliente */
-
-
         /* inicio saldo */
-        .saldo__etiquetas{
-            display: flex;
-            margin-top: .5rem;
-        }
-        .div__button{
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-        .button{
-            padding: 1rem;
-            font-size: 1.2em;
-        }
+            .saldo__etiquetas{
+                display: flex;
+                margin-top: .5rem;
+            }
+            .div__button{
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+            .button{
+                padding: 1rem;
+                font-size: 1.2em;
+            }
         /* fin saldo */
-
-
         /* inicio tabla */
-        .tabla_normal{
-            height: 21rem;
-        }
+            .tabla_normal{
+                height: 21rem;
+            }
         /* fin tabla */
-
         /* inicio iconos */
-        .iconos{
-            margin-top: 2rem;
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-        }
-        .icono{
-            text-align: center;
-            color: black;
-        }
+            .iconos{
+                margin-top: 2rem;
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+            }
+            .icono{
+                text-align: center;
+                color: black;
+            }
         /* fin iconos */
-
-
-
-
         /* inicio modal */
             .modalDialog {
                 position: fixed;
@@ -370,758 +358,756 @@
                 -moz-transition: opacity 400ms ease-in;
                 transition: opacity 400ms ease-in;
             }
-            /* inicio cerrar */
-                .close {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 40px;
-                    height: 40px;
-                    background: #4183D7;
-                    color: #FFFFFF;
-                    line-height: 25px;
-                    position: absolute;
-                    right: -15px;
-                    top: -20px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    border-radius: 50px;
-                    -webkit-border-radius: 50px;
-                    -moz-border-radius: 50px;
-                    box-shadow: 1px 1px 3px #000;
-                    -moz-box-shadow: 1px 1px 3px #000;
-                    -webkit-box-shadow: 1px 1px 3px #000;
-                }
-                .close:hover { background: #4183D7; }
-            /* fin cerrar */
-            /* inicio aviso y nro boleta */
-                .modal_id{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .modal_rut{
-                    display: flex;
-                }
-                .modal_rut_1, .modal_rut_2{
-                    flex-grow: 1;
-                }
-                .modal_rut_3{
-                    flex-grow: 11;
-                }
-            /* fin aviso y nro boleta */
-            /* inicio boton guardar */
+        /* inicio cerrar */
+            .close {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background: #4183D7;
+                color: #FFFFFF;
+                line-height: 25px;
+                position: absolute;
+                right: -15px;
+                top: -20px;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 50px;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                box-shadow: 1px 1px 3px #000;
+                -moz-box-shadow: 1px 1px 3px #000;
+                -webkit-box-shadow: 1px 1px 3px #000;
+            }
+            .close:hover { background: #4183D7; }
+        /* fin cerrar */
+        /* inicio aviso y nro boleta */
+            .modal_id{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .modal_rut{
+                display: flex;
+            }
+            .modal_rut_1, .modal_rut_2{
+                flex-grow: 1;
+            }
+            .modal_rut_3{
+                flex-grow: 11;
+            }
+        /* fin aviso y nro boleta */
+        /* inicio boton guardar */
             .modal_div_guardar{
                 padding: 0;
             }
-                .modal_boton_guardar{
-                    background-color: transparent;
-                    border: none;
-                    padding: 0;
-                }
-                .modal_icono{
-                    color: black;
-                }
-            /* fin boton guardar */
-            /* inicio nro parcelero */
-                .modal_medidor_label{
-                    margin-top: .5rem;
-                    margin-right: 1.2rem;
-                    width: auto;
-                }
-                .modal_medidor_input{
-                    width: 10rem;
-                }
-            /* fin nro parcelero */
-            /* inicio fecha actual y nro abono */
-                .modal_fecha{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .modal_fecha_label{
-                    margin-top: .5rem;
-                    margin-right: 1.2rem;
-                }
-                .modal_fecha_input{
-                    width: 40%;
-                }
-                .modal_fecha_button{
-                    background-color: transparent;
-                    border: 2px solid #4183D7;
-                    border-radius: 5px;
-                    width: 45%;
-                }
-                .modal_fecha_button:hover{
-                    background-color: #4183D7;
-                }
-                .modal_fecha_button:focus{
-                    border: 2px solid blue;
-                }
-            /* fin fecha actual y nro abono */
-            /* inicio tabla e input */
-                .tabla{
-                    height: fit-content;
-                }
-                .tabla_titulos{
-                    background-color: #4183D7;
-                    color: white;
-                }
-                .modal_total{
-                    margin-top: 5%;
-                }
-                .modal_total_divs{
-                    width: 100%;
-                    display: flex;
-                    margin-bottom: .7rem;
-                    max-height: 2.5rem;
-                }
-                .modal_total_icono{
-                    text-align: center;
-                }
-                .modal_icono2{
-                    margin-top: 2rem;
-                    color: black;
-                }
-            /* fin tabla e input */
-            /* inicio forma de pago */
-                .modal_primera_parte{
-                    display: flex;
-                }
-                .modal_forma_de_pago{
-                    display: flex;
-                }
-                .modal_pago{
-                    margin: 0;
-                }
-            /* fin forma de pago */        
+            .modal_boton_guardar{
+                background-color: transparent;
+                border: none;
+                padding: 0;
+            }
+            .modal_icono{
+                color: black;
+            }
+        /* fin boton guardar */
+        /* inicio nro parcelero */
+            .modal_medidor_label{
+                margin-top: .5rem;
+                margin-right: 1.2rem;
+                width: auto;
+            }
+            .modal_medidor_input{
+                width: 10rem;
+            }
+        /* fin nro parcelero */
+        /* inicio fecha actual y nro abono */
+            .modal_fecha{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .modal_fecha_label{
+                margin-top: .5rem;
+                margin-right: 1.2rem;
+            }
+            .modal_fecha_input{
+                width: 40%;
+            }
+            .modal_fecha_button{
+                background-color: transparent;
+                border: 2px solid #4183D7;
+                border-radius: 5px;
+                width: 45%;
+            }
+            .modal_fecha_button:hover{
+                background-color: #4183D7;
+            }
+            .modal_fecha_button:focus{
+                border: 2px solid blue;
+            }
+        /* fin fecha actual y nro abono */
+        /* inicio tabla e input */
+            .tabla{
+                height: fit-content;
+            }
+            .tabla_titulos{
+                background-color: #4183D7;
+                color: white;
+            }
+            .modal_total{
+                margin-top: 5%;
+            }
+            .modal_total_divs{
+                width: 100%;
+                display: flex;
+                margin-bottom: .7rem;
+                max-height: 2.5rem;
+            }
+            .modal_total_icono{
+                text-align: center;
+            }
+            .modal_icono2{
+                margin-top: 2rem;
+                color: black;
+            }
+        /* fin tabla e input */
+        /* inicio forma de pago */
+            .modal_primera_parte{
+                display: flex;
+            }
+            .modal_forma_de_pago{
+                display: flex;
+            }
+            .modal_pago{
+                margin: 0;
+            }
+        /* fin forma de pago */        
         /* fin modal */
-         }
-    </style>
-     <script type="text/javascript">
-        function findTotal(){
-            var arr = document.getElementsByName('abono');
-            var valor = document.getElementById('valor');
-            var tot=0;
-
-            var lenvalor=valor.length;
-            var j=0;
-
-            for(var i=0;i<arr.length;i++){
-                if(parseInt(arr[i].value))
-                    tot += parseInt(arr[i].value);
-                    j=j+1;
             }
-            document.getElementById('total').value = tot;
-        }
-        
-    </script>
-     <script type="text/javascript">
-        function habilitar(abono,valor)
-        {
-            var arr = document.getElementsByName('abono');
+        </style>
+        <script type="text/javascript">
+            function findTotal(){
+                var arr = document.getElementsByName('abono');
+                var valor = document.getElementById('valor');
+                var tot=0;
 
-            if( parseInt(valor) < parseInt(abono) ){
+                var lenvalor=valor.length;
+                var j=0;
+
                 for(var i=0;i<arr.length;i++){
-                    arr[i].value="";
+                    if(parseInt(arr[i].value))
+                        tot += parseInt(arr[i].value);
+                        j=j+1;
+                }
+                document.getElementById('total').value = tot;
+            }
+            
+        </script>
+        <script type="text/javascript">
+            function habilitar(abono,valor)
+            {
+                var arr = document.getElementsByName('abono');
+
+                if( parseInt(valor) < parseInt(abono) ){
+                    for(var i=0;i<arr.length;i++){
+                        arr[i].value="";
+                    }
                 }
             }
-        }
-    </script>
-  </head>
+        </script>
+    </head>
 
-  <body class="orchid  ">
+    <body class="orchid">
         <div class="mainmenu-block">
-      <!-- SITE MAINMENU-->
-      <nav class="menu-block">
-        <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
-        </ul>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
-            <div class="menu-block-label">Home</div></a></li>
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
-            <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/calle_area/">Calle y Área</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/cargo/">Cargo y Ocupación</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/funcionarios/">Datos Funcionarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/medidor/">Estado del medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/proveedor/">Proveedor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/asociacion/">Datos de Asociación</a></li>
-              <li class="nav-item"><a class="nav-link" href="/mantenedor/convenio/">Detalle de Convenio</a></li>
-            </ul>
-          </li>
-          <!--li.header GENERAL-->
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
-            <div class="menu-block-label">Antecedentes</div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/antecedentes/instalacion_medidor/">Instalación de Medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/antecedentes/consumo_estanque/">Consumo Estanque</a></li>
-              <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
-            </ul>
-          </li>
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
-            <div class="menu-block-label">Procesos</div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/procesos/ingreso_lectura/">Ingreso de lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/subsidio/">Subsidio</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/cierre_periodo/">Cierre de periodo</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/generacion/">Generación de Docto Cobranza</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/pagos/">Ingreso de Pagos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/cancelar_boleta/">Cancelar Boletas y/o Avisos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/boleta_libre/">Boletas Libre</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Ingreso de facturas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/factura_libre/">Factura Libre</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a></li>  
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/toma/lectura/">Toma Lectura</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/registro/financiero/">Registro Financiero y Presupuesto</a></li>
-              <li class="nav-item"><a class="nav-link" href="/informes/consultas/corte/">Consultas de Corte y Reposición</a></li>
-            </ul>
-          </li>
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
-            <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/cuenta_corriente/">Cuenta Corriente</a></li>    
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/conciliacion_bancaria/">Conciliación Bancaria</a></li> 
-            </ul>
-          </li>
-          <!--li.header.nav-item APP-->
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
-            <div class="menu-block-label">Configuración</div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/configuracion/arregla_datos/">Arregla datos Manuales</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/avisos_vigentes/">Avisos Vigentes S/N</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
-            </ul>
-          </li>
-        </ul>
-      <!-- END SITE MAINMENU-->
-      </nav>
-    </div>
+            <!-- SITE MAINMENU-->
+            <nav class="menu-block">
+                <ul class="nav">
+                    <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
+                        <div class="menu-block-label">Home</div></a></li>
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
+                        <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/calle_area/">Calle y Área</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/cargo/">Cargo y Ocupación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/funcionarios/">Datos Funcionarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/medidor/">Estado del medidor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/proveedor/">Proveedor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/asociacion/">Datos de Asociación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mantenedor/convenio/">Detalle de Convenio</a></li>
+                        </ul>
+                    </li>
+                    <!--li.header GENERAL-->
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
+                        <div class="menu-block-label">Antecedentes</div></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/antecedentes/instalacion_medidor/">Instalación de Medidor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/antecedentes/consumo_estanque/">Consumo Estanque</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
+                        <div class="menu-block-label">Procesos</div></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/procesos/ingreso_lectura/">Ingreso de lectura</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/subsidio/">Subsidio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/cierre_periodo/">Cierre de periodo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/generacion/">Generación de Docto Cobranza</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/pagos/">Ingreso de Pagos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/cancelar_boleta/">Cancelar Boletas y/o Avisos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/boleta_libre/">Boletas Libre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Ingreso de facturas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/factura_libre/">Factura Libre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
+                        <div class="menu-block-label">Informes</div></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/toma/lectura/">Toma Lectura</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/registro/financiero/">Registro Financiero y Presupuesto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/consultas/corte/">Consultas de Corte y Reposición</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-cube"></i>
+                        <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/cuenta_corriente/">Cuenta Corriente</a></li>    
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/conciliacion_bancaria/">Conciliación Bancaria</a></li> 
+                        </ul>
+                    </li>
+                    <!--li.header.nav-item APP-->
+                    <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
+                        <div class="menu-block-label">Configuración</div></a>
+                        <ul class="nav menu-block-sub">
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/arregla_datos/">Arregla datos Manuales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/avisos_vigentes/">Avisos Vigentes S/N</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            <!-- END SITE MAINMENU-->
+            </nav>
+        </div>
 
-    <!-- #MAIN-->
-    <div class="main-wrapper">
+        <!-- #MAIN-->
+        <div class="main-wrapper">
 
-        <!-- VIEW WRAPPER-->
-        <div class="view-wrapper">
+            <!-- VIEW WRAPPER-->
+            <div class="view-wrapper">
 
-            <!-- TOP WRAPPER-->
-            <div class="topbar-wrapper">
+                <!-- TOP WRAPPER-->
+                <div class="topbar-wrapper">
 
-            <!-- NAV FOR MOBILE-->
-            <div class="topbar-wrapper-mobile-nav"><a class="topbar-togger js-minibar-toggler" href="#"><i class="icon ion-ios-arrow-back hidden-md-down"></i><i class="icon ion-navicon-round hidden-lg-up"></i></a><a class="topbar-togger pull-xs-right hidden-lg-up js-nav-toggler" href="#"><i class="icon ion-android-person"></i></a>
+                <!-- NAV FOR MOBILE-->
+                <div class="topbar-wrapper-mobile-nav"><a class="topbar-togger js-minibar-toggler" href="#"><i class="icon ion-ios-arrow-back hidden-md-down"></i><i class="icon ion-navicon-round hidden-lg-up"></i></a><a class="topbar-togger pull-xs-right hidden-lg-up js-nav-toggler" href="#"><i class="icon ion-android-person"></i></a>
 
-                <!-- ADD YOUR LOGO HEREText logo: a.topbar-wrapper-logo(href="#") AdminHero
-                --><a class="topbar-wrapper-logo demo-logo" href="index.html">AdminAprGes</a>
-            </div>
-            <!-- END NAV FOR MOBILE-->
-
-            <!-- SEARCH-->
-            <div class="topbar-wrapper-search">
-                <form>
-                <input class="form-control" type="search" placeholder="Search"><a class="topbar-togger topbar-togger-search js-close-search" href="#"><i class="icon ion-close"></i></a>
-                </form>
-            </div>
-            <!-- END SEARCH-->
-
-            <!-- TOP RIGHT MENU-->
-            <ul class="nav navbar-nav topbar-wrapper-nav">
-                <li class="nav-item"><a class="nav-link js-search-togger" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
-
-                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon fa fa-columns"></i><span class="badge badge-success status">4</span></a>
-
-                <!-- #RIGHT BLOCK-->
-                <!--
-                RIGHT PANEL
-                * same dropdown-menu markup, add '.dropdown-menu-side'
-                -->
-                <div class="dropdown-menu dropdown-menu-side">
-                    <ul class="nav nav-tabs nav-justified">
-                    <li class="nav-item"><a class="nav-link active" data-target="#demoright-1" aria-controls="demoright-1" role="tab" data-toggle="tab"><i class="ion-help-buoy icon"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" data-target="#demoright-2" aria-controls="demoright-2" role="tab" data-toggle="tab"><i class="ion-quote icon"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" data-target="#demoright-3" aria-controls="demoright-3" role="tab" data-toggle="tab"><i class="ion-gear-b icon"></i></a></li>
-                    </ul>
-                    <div class="tab-content">
-                    <div class="tab-pane active fade in" role="tabpanel" id="demoright-1"><a class="dropdown-item media circle-box" href="#">
-                        <div class="media-left media-middle"><img class="media-object circle-object" src="#" alt=""></div>
-                        <div class="media-body">
-                            <div class="media-heading">Ryan Sears</div>
-                            <p class="text-muted small">Rome; Hard there to deeply verbal page goals a accept into it pri</p>
-                        </div></a><a class="dropdown-item media circle-box" href="#">
-                        <div class="media-left media-middle">
-                            <div class="media-object circle-object bg-info"><i class="ion-calendar"></i></div>
-                        </div>
-                        <div class="media-body">
-                            <div class="media-heading">Event remind.</div>
-                            <p class="text-muted small">10 min ago</p>
-                        </div></a><a class="dropdown-item media circle-box" href="#">
-                        <div class="media-left media-middle">
-                            <div class="media-object circle-object bg-success">40%</div>
-                        </div>
-                        <div class="media-body">
-                            <div class="media-heading">Event remind.</div>
-                            <div class="progress">
-                            <progress class="progress progress-danger loader" value="46" max="100"></progress>
-                            </div>
-                            <p class="text-muted small">10 min ago</p>
-                        </div></a><a class="dropdown-item media circle-box" href="#">
-                        <div class="media-left media-middle">
-                            <div class="media-object circle-object bg-danger">2d</div>
-                        </div>
-                        <div class="media-body">
-                            <div class="media-heading">Project deadline.</div>
-                            <div class="progress">
-                            <progress class="progress progress-success loader" value="80" max="100"></progress>
-                            </div>
-                            <p class="text-muted small">80% completion</p>
-                        </div></a><a class="dropdown-item media circle-box" href="#">
-                        <div class="media-body">
-                            <div class="media-heading">Judith Sullivan</div>
-                            <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
-                        </div></a>
-                    </div>
-                    <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-2"></div>
-                    <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-3"></div>
-                    </div>
+                    <!-- ADD YOUR LOGO HEREText logo: a.topbar-wrapper-logo(href="#") AdminHero
+                    --><a class="topbar-wrapper-logo demo-logo" href="index.html">AdminAprGes</a>
                 </div>
-                <!-- END RIGHt PANEL-->
-                </li>
+                <!-- END NAV FOR MOBILE-->
 
-                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-android-notifications-none"></i><span class="badge badge-danger status">9+</span></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-header">Notifications (5)</div>
-                        <div class="dropdown-menu-inner">
-                            <a class="dropdown-item media circle-box" href="#">
-                                <div class="media-body">
-                                    <div class="media-heading">Ryan Sears</div>
-                                    <p class="text-muted small">Pink do well together specially name if design postage briefs big into in her working</p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item media circle-box" href="#">
-                                <div class="media-left media-middle">
-                                    <div class="media-object circle-object bg-danger"><i class="fa fa-bug"></i></div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-heading">Server Error</div>
-                                    <p class="text-muted small">3 minutes ago</p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item media circle-box" href="#">
-                                <div class="media-left media-middle">
-                                    <div class="media-object circle-object bg-success"><i class="fa fa-check"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-heading">Server Error Reports</div>
-                                    <p class="text-muted small">3 minutes ago</p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item media circle-box" href="#">
-                                <div class="media-body">
-                                    <div class="media-heading">Judith Sullivan</div>
-                                    <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
-                                </div>
-                            </a>
-                        </div><a class="dropdown-item" href="#">
-                        <div class="text-xs-center"><i class="ion-more"></i></div></a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-paintbucket"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-                        <div class="js-color-switcher demo-color-switcher">
-                            <div class="dropdown-header">Flat</div>
-                            <div class="list-inline"><a class="list-inline-item" href="#" data-color="f-dark">
-                                <div class="demo-skin-grid f-dark"></div></a><a class="list-inline-item" href="#" data-color="f-dark-blue">
-                                <div class="demo-skin-grid f-dark-blue"></div></a><a class="list-inline-item" href="#" data-color="f-blue">
-                                <div class="demo-skin-grid f-blue"></div></a><a class="list-inline-item" href="#" data-color="f-green">
-                                <div class="demo-skin-grid f-green"></div></a><a class="list-inline-item" href="#" data-color="f-deep-taupe">
-                                <div class="demo-skin-grid f-deep-taupe"></div></a>
-                            </div>
-                            <div class="dropdown-header">Gradient</div>
-                            <div class="list-inline"><a class="list-inline-item" href="#" data-color="orchid">
-                                <div class="demo-skin-grid orchid"></div></a><a class="list-inline-item" href="#" data-color="cadetblue">
-                                <div class="demo-skin-grid cadetblue"></div></a><a class="list-inline-item" href="#" data-color="joomla">
-                                <div class="demo-skin-grid joomla"></div></a><a class="list-inline-item" href="#" data-color="influenza">
-                                <div class="demo-skin-grid influenza"></div></a><a class="list-inline-item" href="#" data-color="moss">
-                                <div class="demo-skin-grid moss"></div></a><a class="list-inline-item" href="#" data-color="mirage">
-                                <div class="demo-skin-grid mirage"></div></a><a class="list-inline-item" href="#" data-color="stellar">
-                                <div class="demo-skin-grid stellar"></div></a><a class="list-inline-item" href="#" data-color="servquick">
-                                <div class="demo-skin-grid servquick"></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-android-exit"></i></a></li>
-                <li class="nav-item"><a class="nav-link close-mobile-nav js-close-mobile-nav" href="#"><i class="icon ion-close"></i></a></li>
-                <!-- END TOP RIGHT MENU-->
-          </ul>
-            </div>
-            <!--END TOP WRAPPER-->
+                <!-- SEARCH-->
+                <div class="topbar-wrapper-search">
+                    <form>
+                    <input class="form-control" type="search" placeholder="Search"><a class="topbar-togger topbar-togger-search js-close-search" href="#"><i class="icon ion-close"></i></a>
+                    </form>
+                </div>
+                <!-- END SEARCH-->
 
+                <!-- TOP RIGHT MENU-->
+                <ul class="nav navbar-nav topbar-wrapper-nav">
+                    <li class="nav-item"><a class="nav-link js-search-togger" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
 
-            <!-- PAGE CONTENT HERE-->
-            <!-- #PAGE HEADER-->
-            <!-- PAGE HEADER-->
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="media">
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon fa fa-columns"></i><span class="badge badge-success status">4</span></a>
+
+                    <!-- #RIGHT BLOCK-->
+                    <!--
+                    RIGHT PANEL
+                    * same dropdown-menu markup, add '.dropdown-menu-side'
+                    -->
+                    <div class="dropdown-menu dropdown-menu-side">
+                        <ul class="nav nav-tabs nav-justified">
+                        <li class="nav-item"><a class="nav-link active" data-target="#demoright-1" aria-controls="demoright-1" role="tab" data-toggle="tab"><i class="ion-help-buoy icon"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" data-target="#demoright-2" aria-controls="demoright-2" role="tab" data-toggle="tab"><i class="ion-quote icon"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" data-target="#demoright-3" aria-controls="demoright-3" role="tab" data-toggle="tab"><i class="ion-gear-b icon"></i></a></li>
+                        </ul>
+                        <div class="tab-content">
+                        <div class="tab-pane active fade in" role="tabpanel" id="demoright-1"><a class="dropdown-item media circle-box" href="#">
+                            <div class="media-left media-middle"><img class="media-object circle-object" src="#" alt=""></div>
                             <div class="media-body">
-                                <div class="display-6">Datos Boleta</div>
-                                <div class="small text-muted">para soporte llamar a 22 </div>
+                                <div class="media-heading">Ryan Sears</div>
+                                <p class="text-muted small">Rome; Hard there to deeply verbal page goals a accept into it pri</p>
+                            </div></a><a class="dropdown-item media circle-box" href="#">
+                            <div class="media-left media-middle">
+                                <div class="media-object circle-object bg-info"><i class="ion-calendar"></i></div>
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">Event remind.</div>
+                                <p class="text-muted small">10 min ago</p>
+                            </div></a><a class="dropdown-item media circle-box" href="#">
+                            <div class="media-left media-middle">
+                                <div class="media-object circle-object bg-success">40%</div>
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">Event remind.</div>
+                                <div class="progress">
+                                <progress class="progress progress-danger loader" value="46" max="100"></progress>
+                                </div>
+                                <p class="text-muted small">10 min ago</p>
+                            </div></a><a class="dropdown-item media circle-box" href="#">
+                            <div class="media-left media-middle">
+                                <div class="media-object circle-object bg-danger">2d</div>
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">Project deadline.</div>
+                                <div class="progress">
+                                <progress class="progress progress-success loader" value="80" max="100"></progress>
+                                </div>
+                                <p class="text-muted small">80% completion</p>
+                            </div></a><a class="dropdown-item media circle-box" href="#">
+                            <div class="media-body">
+                                <div class="media-heading">Judith Sullivan</div>
+                                <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                            </div></a>
+                        </div>
+                        <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-2"></div>
+                        <div class="tab-pane p-a-1 fade" role="tabpanel" id="demoright-3"></div>
+                        </div>
+                    </div>
+                    <!-- END RIGHt PANEL-->
+                    </li>
+
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-android-notifications-none"></i><span class="badge badge-danger status">9+</span></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-header">Notifications (5)</div>
+                            <div class="dropdown-menu-inner">
+                                <a class="dropdown-item media circle-box" href="#">
+                                    <div class="media-body">
+                                        <div class="media-heading">Ryan Sears</div>
+                                        <p class="text-muted small">Pink do well together specially name if design postage briefs big into in her working</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media circle-box" href="#">
+                                    <div class="media-left media-middle">
+                                        <div class="media-object circle-object bg-danger"><i class="fa fa-bug"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">Server Error</div>
+                                        <p class="text-muted small">3 minutes ago</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media circle-box" href="#">
+                                    <div class="media-left media-middle">
+                                        <div class="media-object circle-object bg-success"><i class="fa fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">Server Error Reports</div>
+                                        <p class="text-muted small">3 minutes ago</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media circle-box" href="#">
+                                    <div class="media-body">
+                                        <div class="media-heading">Judith Sullivan</div>
+                                        <p class="text-muted small">Option wouldn't small hardly of and more believe The fundamentals</p>
+                                    </div>
+                                </a>
+                            </div><a class="dropdown-item" href="#">
+                            <div class="text-xs-center"><i class="ion-more"></i></div></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon ion-paintbucket"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                            <div class="js-color-switcher demo-color-switcher">
+                                <div class="dropdown-header">Flat</div>
+                                <div class="list-inline"><a class="list-inline-item" href="#" data-color="f-dark">
+                                    <div class="demo-skin-grid f-dark"></div></a><a class="list-inline-item" href="#" data-color="f-dark-blue">
+                                    <div class="demo-skin-grid f-dark-blue"></div></a><a class="list-inline-item" href="#" data-color="f-blue">
+                                    <div class="demo-skin-grid f-blue"></div></a><a class="list-inline-item" href="#" data-color="f-green">
+                                    <div class="demo-skin-grid f-green"></div></a><a class="list-inline-item" href="#" data-color="f-deep-taupe">
+                                    <div class="demo-skin-grid f-deep-taupe"></div></a>
+                                </div>
+                                <div class="dropdown-header">Gradient</div>
+                                <div class="list-inline"><a class="list-inline-item" href="#" data-color="orchid">
+                                    <div class="demo-skin-grid orchid"></div></a><a class="list-inline-item" href="#" data-color="cadetblue">
+                                    <div class="demo-skin-grid cadetblue"></div></a><a class="list-inline-item" href="#" data-color="joomla">
+                                    <div class="demo-skin-grid joomla"></div></a><a class="list-inline-item" href="#" data-color="influenza">
+                                    <div class="demo-skin-grid influenza"></div></a><a class="list-inline-item" href="#" data-color="moss">
+                                    <div class="demo-skin-grid moss"></div></a><a class="list-inline-item" href="#" data-color="mirage">
+                                    <div class="demo-skin-grid mirage"></div></a><a class="list-inline-item" href="#" data-color="stellar">
+                                    <div class="demo-skin-grid stellar"></div></a><a class="list-inline-item" href="#" data-color="servquick">
+                                    <div class="demo-skin-grid servquick"></div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-android-exit"></i></a></li>
+                    <li class="nav-item"><a class="nav-link close-mobile-nav js-close-mobile-nav" href="#"><i class="icon ion-close"></i></a></li>
+                    <!-- END TOP RIGHT MENU-->
+            </ul>
+                </div>
+                <!--END TOP WRAPPER-->
+
+
+                <!-- PAGE CONTENT HERE-->
+                <!-- #PAGE HEADER-->
+                <!-- PAGE HEADER-->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="display-6">Datos Boleta</div>
+                                    <div class="small text-muted">para soporte llamar a 22 </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- END PAGE HEADER-->
+                <!-- END PAGE HEADER-->
 
-            <div class="container-fluid">
-                <div class="row js-grid-wrapper panel-wrapper">
-                    <!-- #SELECT2-->
-                    
-                    <div class="panel panel-default">
-                        <div class="panel-heading"></div>
-                        <div class="panel-body">
-                            <div class="row m-b-3">
-                                {% block conten1 %}	
-                                <form class="col-sm-12" action="/procesos/pagos/" method="POST">
-                                    {% csrf_token %}  
-                                    <h5>{{mensaje}}</h5>
-                                    <div class="search">
-                                        <input type="hidden" name="numero" id="numero">
-                                        <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por parcelero" aria-label="Search">
-                                        <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
-                                    </div>
-                                    <div class="div__identificacion">
-                                        <div class="form-group col-sm-3">
-                                            <div class="identificacion__boleta">
-                                                <label for="" class="boleta__numero col-form-label">Número Boleta</label>
-                                                <input type="text" class="boleta__input form-control" value="{{boleta}}">
-                                            </div>
-                                        </div> 
-                                        <div class="col-md-9 fecha__flex">
-                                                        
-                                            <div class="fecha__etiquetas">                                    
-                                                <label for="" class="col-form-label">Fecha Actual</label>
-                                                <input type="text" class="col-sm-12 form-control" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
-                                            </div>
-                
-                                            <div class="fecha__etiquetas">
-                                                <label class="col-form-label">Fecha Emisión</label>
-                                                <input type="text" id="" name="" class="form-control" value="{{emision}}" disabled>
-                                            </div>
-                
-                                            <div class="fecha__etiquetas">
-                                                <label class="col-form-label">Fecha Vencimiento</label>
-                                                <input type="text" id="" name="" class="form-control" value="{{vencimiento}}" disabled>
-                                            </div>
-                                        </div>                                                    
-                                    </div>    
-
-                                    <h5>{{fechafactu}}</h5>
-
-                                    <div class="col-sm-12">
-                                        <div class="form-group cliente__identificacion">
-                                            <label class="cliente__nombre">Nombre Cliente</label>
-                                            <input type="text" id="" name="" class="cliente__input1 form-control" value="{{rut}}" disabled>
-                                            <input type="text" id="" name="" class="cliente__input2 form-control" value="{{nombres}}" disabled>
+                <div class="container-fluid">
+                    <div class="row js-grid-wrapper panel-wrapper">
+                        <!-- #SELECT2-->
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body">
+                                <div class="row m-b-3">
+                                    {% block conten1 %}	
+                                    <form class="col-sm-12" action="/procesos/pagos/" method="POST">
+                                        {% csrf_token %}  
+                                        <h5>{{mensaje}}</h5>
+                                        <div class="search">
+                                            <input type="hidden" name="numero" id="numero">
+                                            <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por parcelero" aria-label="Search">
+                                            <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-4 saldo">
-                                        <div class="saldo__etiquetas">
-                                            <label class="col-sm-6 col-form-label">Total por Pagar</label>
-                                            <input type="text" id="" name="" class="form-control" value="{{pagado}}" disabled>
-                                        </div>
-                                        <div class="saldo__etiquetas">
-                                            <label class="col-sm-6 col-form-label">Total Boleta</label>
-                                            <input type="text" id="" name="" class="form-control" value="{{totalpagar}}"  disabled>
-                                        </div>
-                                        <div class="saldo__etiquetas">
-                                            <label class="col-sm-6 col-form-label">Multa</label>
-                                            <input type="text" id="" name="" class="form-control" value="0"  disabled>
-                                        </div>
-                                        <div class="saldo__etiquetas">
-                                            <label class="col-sm-6 col-form-label">Multa Corte</label>
-                                            <input type="text" id="" name="" class="form-control" value="0"  disabled>
-                                        </div>
-                                        <div class="saldo__etiquetas">
-                                            <label class="col-sm-6 col-form-label">T. con Multas</label>
-                                            <input type="text" id="" name="" class="form-control" value="0"  disabled>
-                                        </div>
-                                        <div class="div__button">
-                                            <a class="consulta_historial" href="/procesos/historial_cliente/{{numero}}/{{ano}}/">Consulta Historial Cliente</a>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-8">
-                                                    <div class="card tabla_normal">
-                                                        <div class="card-body">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="tabla__titulos1" scope="col">Items</th>
-                                                                        <th class="tabla__titulos2" scope="col">Descripción</th>
-                                                                        <th class="tabla__titulos1" scope="col">Cantidad</th>
-                                                                        <th class="tabla__titulos3" scope="col">Valor</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    {% for i in lista %}
-                                                                    <tr>
-                                                                        <td>{{i.codigo}}</td>
-                                                                        <td>{{i.desc}}</td>
-                                                                        <td>{{i.can}}</td>
-                                                                        <td>{{i.valor}}</td>
-                                                                    </tr>
-                                                                    {% endfor %}
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                    </div>
-                                    <div class="col-sm-12 iconos">
-                                        <a href="#openModal"><i class="fas fa-money-bill-wave fa-4x icono"></i></a>
-                                    </div>
-                                    <!-- MODAL  -->
-                                    <div id="openModal" class="modalDialog">
-                                                <div>
-                                                    <!-- cerrar -->
-                                                    <a href="#close" title="Close" class="close">X</a>
-                                                    <!-- titulo -->
-                                                    <h2>Ingreso de Abono por Concepto</h2>
-
-                                                    <!-- Aviso y nro de boleta -->
-                                                    <div class="col-md-11">
-                                                        <div class="modal_id">
-                                                            <div class="">
-                                                                <label class="modal_id_label col-form-label" for="">Aviso</label>
-                                                                <input class="modal_id_input" type="text" value="{{boleta}}">
-                                                            </div>
-                                                            <div class="">
-                                                                <label class="modal_id_label col-form-label" for="">Nro Boleta</label>
-                                                                <input class="modal_id_input" type="text" value="{{boleta}}" name="nroboleta" id="nroboleta">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal_rut">
-                                                            <label class="modal_rut_1 col-form-label" for="">Rut Cliente</label>
-                                                            <input class="modal_rut_2 " type="text" value="{{rut}}">
-                                                            <input class="modal_rut_3" type="text" value="{{nombres}}">
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- icono para guardar -->
-                                                    <div class="modal_div_guardar col-md-1">
-                                                        <button class="modal_boton_guardar" type="submit" id="abonar" name="abonar">
-                                                            <i class="far fa-save fa-4x modal_icono"></i>
-                                                        </button>
-                                                    </div>
-                                                        
-                                                    <!-- nro parcelero -->
-                                                    <div class="col-md-12  modal_medidor">
-                                                        <label class="modal_medidor_label col-form-label" for="">Nro Parcelero</label>
-                                                        <input class="modal_medidor_input" type="text" value="{{numero}}" id="id_" name="id_">
-                                                    </div>
-
-                                                    <!-- fecha ctual y nro de abono -->
-                                                    <div class="col-md-12  modal_fecha">
-                                                        <div class="modal_fecha_div">
-                                                            <label for="" class="col-form-label modal_fecha_label">Fecha Actual</label>
-                                                            <input class="modal_fecha_input" type="datetime" name="fechaabono" id="fechaabono" value="{{fecha_actual}}">
+                                        <div class="div__identificacion">
+                                            <div class="form-group col-sm-3">
+                                                <div class="identificacion__boleta">
+                                                    <label for="" class="boleta__numero col-form-label">Número Boleta</label>
+                                                    <input type="text" class="boleta__input form-control" value="{{boleta}}">
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-9 fecha__flex">
                                                             
-                                                        </div>
-                                                        <div class="modal_fecha_div">
-                                                            <button class="btn modal_fecha_button" type="button">Nro Abono</button>
-                                                            <input class="modal_fecha_input" type="text" value="{{abono}}">
-                                                        </div>
-                                                    </div>
+                                                <div class="fecha__etiquetas">                                    
+                                                    <label for="" class="col-form-label">Fecha Actual</label>
+                                                    <input type="text" class="col-sm-12 form-control" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                                                </div>
+                    
+                                                <div class="fecha__etiquetas">
+                                                    <label class="col-form-label">Fecha Emisión</label>
+                                                    <input type="text" id="" name="" class="form-control" value="{{emision}}" disabled>
+                                                </div>
+                    
+                                                <div class="fecha__etiquetas">
+                                                    <label class="col-form-label">Fecha Vencimiento</label>
+                                                    <input type="text" id="" name="" class="form-control" value="{{vencimiento}}" disabled>
+                                                </div>
+                                            </div>                                                    
+                                        </div>    
 
-                                                    <!-- tabla e input derechos -->
+                                        <h5>{{fechafactu}}</h5>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group cliente__identificacion">
+                                                <label class="cliente__nombre">Nombre Cliente</label>
+                                                <input type="text" id="" name="" class="cliente__input1 form-control" value="{{rut}}" disabled>
+                                                <input type="text" id="" name="" class="cliente__input2 form-control" value="{{nombres}}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 saldo">
+                                            <div class="saldo__etiquetas">
+                                                <label class="col-sm-6 col-form-label">Total por Pagar</label>
+                                                <input type="text" id="" name="" class="form-control" value="{{pagado}}" disabled>
+                                            </div>
+                                            <div class="saldo__etiquetas">
+                                                <label class="col-sm-6 col-form-label">Total Boleta</label>
+                                                <input type="text" id="" name="" class="form-control" value="{{totalpagar}}"  disabled>
+                                            </div>
+                                            <div class="saldo__etiquetas">
+                                                <label class="col-sm-6 col-form-label">Multa</label>
+                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            </div>
+                                            <div class="saldo__etiquetas">
+                                                <label class="col-sm-6 col-form-label">Multa Corte</label>
+                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            </div>
+                                            <div class="saldo__etiquetas">
+                                                <label class="col-sm-6 col-form-label">T. con Multas</label>
+                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            </div>
+                                            <div class="div__button">
+                                                <a class="consulta_historial" href="/procesos/historial_cliente/{{numero}}/{{ano}}/">Consulta Historial Cliente</a>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-8">
+                                                        <div class="card tabla_normal">
+                                                            <div class="card-body">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="tabla__titulos1" scope="col">Items</th>
+                                                                            <th class="tabla__titulos2" scope="col">Descripción</th>
+                                                                            <th class="tabla__titulos1" scope="col">Cantidad</th>
+                                                                            <th class="tabla__titulos3" scope="col">Valor</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        {% for i in lista %}
+                                                                        <tr>
+                                                                            <td>{{i.codigo}}</td>
+                                                                            <td>{{i.desc}}</td>
+                                                                            <td>{{i.can}}</td>
+                                                                            <td>{{i.valor}}</td>
+                                                                        </tr>
+                                                                        {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                        </div>
+                                        <div class="col-sm-12 iconos">
+                                            <a href="#openModal"><i class="fas fa-money-bill-wave fa-4x icono"></i></a>
+                                        </div>
+                                        <!-- MODAL  -->
+                                        <div id="openModal" class="modalDialog">
                                                     <div>
-                                                        <!-- tabla -->
-                                                        <div class="col-md-8">
-                                                            <div class="card modal_tabla">
-                                                                <div class="card-body">
-                                                                    <table class="table table-bordered">
-                                                                        <thead>
-                                                                            <tr class="tabla_titulos">
-                                                                                <th scope="col">Aviso</th>
-                                                                                <th scope="col">Código</th>
-                                                                                <th scope="col">Descripción</th>
-                                                                                <th scope="col">Valor</th>
-                                                                                <th scope="col">Abono</th>
-                                                                                <th scope="col">Mes/Año</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            {% for i in listadetalle %}
-                                                                            <tr>
-                                                                                <td>
-                                                                                    {{i.id}}
-                                                                                    <input type="hidden" id="idaviso" name="idaviso" value="{{i.id}}" type="text">
-                                                                                    <input type="hidden" id="idboleta" name="idboleta" value="{{i.idboleta}}" type="text">
-                                                                                </td>
-                                                                                <td>
-                                                                                    {{i.codigo}}
-                                                                                    <input type="hidden" id="codigo" name="codigo" value="{{i.codigo}}" type="text">  
-                                                                                </td>
-                                                                                <td>
-                                                                                    {{i.desc}}
-                                                                                    <input type="hidden" id="desc" name="desc" value="{{i.desc}}" type="text">  
-                                                                                </td>
-                                                                                <td>
-                                                                                    {{i.valor}}
-                                                                                    <input type="hidden" id="valor" name="valor" value="{{i.valor}}" type="text">    
-                                                                                </td>
-                                                                                <td><input input onchange="habilitar(this.value,'{{i.valor}}')" onblur="findTotal()" id="abono" name="abono" type="text"></td>
-                                                                                <td>
-                                                                                    {{i.fecha}}
-                                                                                    <input type="hidden" id="fecha" name="fecha" value="{{i.fecha}}" type="text"> 
-                                                                                </td>
-                                                                            </tr>
-                                                                            {% endfor %}
-                                                                        </tbody>
-                                                                    </table>
+                                                        <!-- cerrar -->
+                                                        <a href="#close" title="Close" class="close">X</a>
+                                                        <!-- titulo -->
+                                                        <h2>Ingreso de Abono por Concepto</h2>
+
+                                                        <!-- Aviso y nro de boleta -->
+                                                        <div class="col-md-11">
+                                                            <div class="modal_id">
+                                                                <div class="">
+                                                                    <label class="modal_id_label col-form-label" for="">Aviso</label>
+                                                                    <input class="modal_id_input" type="text" value="{{boleta}}">
+                                                                </div>
+                                                                <div class="">
+                                                                    <label class="modal_id_label col-form-label" for="">Nro Boleta</label>
+                                                                    <input class="modal_id_input" type="text" value="{{boleta}}" name="nroboleta" id="nroboleta">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal_rut">
+                                                                <label class="modal_rut_1 col-form-label" for="">Rut Cliente</label>
+                                                                <input class="modal_rut_2 " type="text" value="{{rut}}">
+                                                                <input class="modal_rut_3" type="text" value="{{nombres}}">
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- icono para guardar -->
+                                                        <div class="modal_div_guardar col-md-1">
+                                                            <button class="modal_boton_guardar" type="submit" id="abonar" name="abonar">
+                                                                <i class="far fa-save fa-4x modal_icono"></i>
+                                                            </button>
+                                                        </div>
+                                                            
+                                                        <!-- nro parcelero -->
+                                                        <div class="col-md-12  modal_medidor">
+                                                            <label class="modal_medidor_label col-form-label" for="">Nro Parcelero</label>
+                                                            <input class="modal_medidor_input" type="text" value="{{numero}}" id="id_" name="id_">
+                                                        </div>
+
+                                                        <!-- fecha ctual y nro de abono -->
+                                                        <div class="col-md-12  modal_fecha">
+                                                            <div class="modal_fecha_div">
+                                                                <label for="" class="col-form-label modal_fecha_label">Fecha Actual</label>
+                                                                <input class="modal_fecha_input" type="datetime" name="fechaabono" id="fechaabono" value="{{fecha_actual}}">
+                                                                
+                                                            </div>
+                                                            <div class="modal_fecha_div">
+                                                                <button class="btn modal_fecha_button" type="button">Nro Abono</button>
+                                                                <input class="modal_fecha_input" type="text" value="{{abono}}">
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- tabla e input derechos -->
+                                                        <div>
+                                                            <!-- tabla -->
+                                                            <div class="col-md-8">
+                                                                <div class="card modal_tabla">
+                                                                    <div class="card-body">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                                <tr class="tabla_titulos">
+                                                                                    <th scope="col">Aviso</th>
+                                                                                    <th scope="col">Código</th>
+                                                                                    <th scope="col">Descripción</th>
+                                                                                    <th scope="col">Valor</th>
+                                                                                    <th scope="col">Abono</th>
+                                                                                    <th scope="col">Mes/Año</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                {% for i in listadetalle %}
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        {{i.id}}
+                                                                                        <input type="hidden" id="idaviso" name="idaviso" value="{{i.id}}" type="text">
+                                                                                        <input type="hidden" id="idboleta" name="idboleta" value="{{i.idboleta}}" type="text">
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{i.codigo}}
+                                                                                        <input type="hidden" id="codigo" name="codigo" value="{{i.codigo}}" type="text">  
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{i.desc}}
+                                                                                        <input type="hidden" id="desc" name="desc" value="{{i.desc}}" type="text">  
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{i.valor}}
+                                                                                        <input type="hidden" id="valor" name="valor" value="{{i.valor}}" type="text">    
+                                                                                    </td>
+                                                                                    <td><input input onchange="habilitar(this.value,'{{i.valor}}')" onblur="findTotal()" id="abono" name="abono" type="text"></td>
+                                                                                    <td>
+                                                                                        {{i.fecha}}
+                                                                                        <input type="hidden" id="fecha" name="fecha" value="{{i.fecha}}" type="text"> 
+                                                                                    </td>
+                                                                                </tr>
+                                                                                {% endfor %}
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <input type="hidden" id="totalboleta" name="totalboleta" value="{{pagado}}">
+
+                                                            <!-- etiquetas -->
+                                                            <div class="col-md-4 modal_total">
+                                                                <div class="modal_total_divs">
+                                                                    <label class="modal_total_label" for="">Total Abono</label>
+                                                                    <input class="modal_total_input" name="total" id="total" value="0" type="text">
+                                                                </div>
+                                                                <div class="modal_total_divs">   
+                                                                    <label class="modal_total_label" for="">
+                                                                        <input style="margin-right: .5rem;" type="checkbox">IVA
+                                                                    </label>
+                                                                    <input class="modal_total_input"  type="text" value="0">
+                                                                </div>
+                                                                <div class="modal_total_divs">  
+                                                                    <label class="modal_total_label" for="">Total $</label>
+                                                                    <input class="modal_total_input"  type="text" value="0">
+                                                                </div>
+                                                                <div class="modal_total_divs">   
+                                                                    <label class="modal_total_label" for="">Adicional</label>
+                                                                    <input class="modal_total_input"  type="text" value="0">
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <input type="hidden" id="totalboleta" name="totalboleta" value="{{pagado}}">
-
-                                                        <!-- etiquetas -->
-                                                        <div class="col-md-4 modal_total">
-                                                            <div class="modal_total_divs">
-                                                                <label class="modal_total_label" for="">Total Abono</label>
-                                                                <input class="modal_total_input" name="total" id="total" value="0" type="text">
-                                                            </div>
-                                                            <div class="modal_total_divs">   
-                                                                <label class="modal_total_label" for="">
-                                                                    <input style="margin-right: .5rem;" type="checkbox">IVA
+                                                        <!-- forma de pago -->
+                                                        <div class="col-md-12 modal_primera_parte">
+                                                            <section class="modal_forma_de_pago">
+                                                                <label class="toggle-switch another-toggle-switch">
+                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
+                                                                    <label for="another-toggle-switch-input"></label>
+                                                                    <p class="modal_pago"> EFECTIVO</p>
+                                                                </label><br>
+                                                                <label class="toggle-switch another-toggle-switch">
+                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1"/>
+                                                                    <label for="another-toggle-switch-input2"></label>
+                                                                    <p class="modal_pago">CHEQUE</p>
+                                                                </label><br>
+                                                                <label class="toggle-switch another-toggle-switch3">
+                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2"/>
+                                                                    <label for="another-toggle-switch-input3"></label>
+                                                                    <p class="modal_pago">TRANSFERENCIA</p>
                                                                 </label>
-                                                                <input class="modal_total_input"  type="text" value="0">
-                                                            </div>
-                                                            <div class="modal_total_divs">  
-                                                                <label class="modal_total_label" for="">Total $</label>
-                                                                <input class="modal_total_input"  type="text" value="0">
-                                                            </div>
-                                                            <div class="modal_total_divs">   
-                                                                <label class="modal_total_label" for="">Adicional</label>
-                                                                <input class="modal_total_input"  type="text" value="0">
-                                                            </div>
+                                                            </section>
                                                         </div>
                                                     </div>
+                                        </div>
 
-                                                    <!-- forma de pago -->
-                                                    <div class="col-md-12 modal_primera_parte">
-                                                        <section class="modal_forma_de_pago">
-                                                            <label class="toggle-switch another-toggle-switch">
-                                                                <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
-                                                                <label for="another-toggle-switch-input"></label>
-                                                                <p class="modal_pago"> EFECTIVO</p>
-                                                            </label><br>
-                                                            <label class="toggle-switch another-toggle-switch">
-                                                                <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1"/>
-                                                                <label for="another-toggle-switch-input2"></label>
-                                                                <p class="modal_pago">CHEQUE</p>
-                                                            </label><br>
-                                                            <label class="toggle-switch another-toggle-switch3">
-                                                                <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2"/>
-                                                                <label for="another-toggle-switch-input3"></label>
-                                                                <p class="modal_pago">TRANSFERENCIA</p>
-                                                            </label>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                    </div>
-
-                                </form>
-                                {% endblock %}
+                                    </form>
+                                    {% endblock %}
+                                </div>
+                                <!-- ROW -->
                             </div>
-                            <!-- ROW -->
+                            <!-- PANEL BODY -->
                         </div>
-                        <!-- PANEL BODY -->
+                        <!-- #SELECT2-->   
                     </div>
-                    <!-- #SELECT2-->   
+                    <!-- ROW -->
                 </div>
-                <!-- ROW -->
+                <!-- CONTAINER-FLUID -->
             </div>
-            <!-- CONTAINER-FLUID -->
+            <!-- END VIEW WRAPPER -->
         </div>
-        <!-- END VIEW WRAPPER -->
-    </div>
-    <!-- END MAIN WRAPPER-->
-    
-                
-        <!-- WEB PERLOAD-->
-        <div id="preload">
-            <ul class="loading">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+        <!-- END MAIN WRAPPER-->
+        
+                    
+            <!-- WEB PERLOAD-->
+            <div id="preload">
+                <ul class="loading">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
 
 
-    <script type="text/javascript">
-      $(document).ready(function () {
-        var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
-            $("#buscarsocio").autocomplete({
-            source: availableTags,
-            minLength: 2,
+        <script type="text/javascript">
+        $(document).ready(function () {
+            var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
+                $("#buscarsocio").autocomplete({
+                source: availableTags,
+                minLength: 2,
+                });
             });
-        });
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-          $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
-              'socio': countryId
-              },
-              success: function (data) {
-              $("#numero").val(
-                  data
-              );
-              
-              }
-              
-          });
-        });
+            $("#buscarsocio").change(function () {
+            var countryId = $(this).val();
+            $.ajax({
+                url: '/procesos/consumo/id/',
+                data: {
+                'socio': countryId
+                },
+                success: function (data) {
+                $("#numero").val(
+                    data
+                );
+                
+                }
+                
+            });
+            });
 
-      </script>
+        </script>
 
-    <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>
-    <script src="{% static 'assets/scripts/lib/tether.min.js' %}"></script>
-    <script src="{% static 'assets/scripts/theme/theme-plugins.js' %}"></script>
-    <script src="{% static 'assets/scripts/theme/main.js' %}"></script>
-    <script src="{% static 'assets/scripts/demo/demo-skin.js' %}"></script>
-    <script src="{% static 'assets/scripts/demo/bar-chart-menublock.js' %}"></script>
-  </body>
+        <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
+        <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>
+        <script src="{% static 'assets/scripts/lib/tether.min.js' %}"></script>
+        <script src="{% static 'assets/scripts/theme/theme-plugins.js' %}"></script>
+        <script src="{% static 'assets/scripts/theme/main.js' %}"></script>
+        <script src="{% static 'assets/scripts/demo/demo-skin.js' %}"></script>
+        <script src="{% static 'assets/scripts/demo/bar-chart-menublock.js' %}"></script>
+    </body>
 </html>

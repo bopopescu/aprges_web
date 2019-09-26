@@ -46,111 +46,111 @@
       .table-succes{
         background-color: #c3e6cb;
       }
-        a {
-          color: #000;
-          }
-        .botones{
-          display: flex;
-          flex-wrap: wrap;
+      a {
+        color: #000;
         }
+      .botones{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .boton{
+        width: 50%;
+      }
+      .tabla{
+        overflow: scroll;
+        height: 10rem;
+      }
+      .table{
+        width: 30rem;
+        text-align: center;
+      }
+      .etiqueta2{
+        display: none;
+      }
+      .multas{
+        padding: 1.5rem;
+      }
+      .iconos{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 16rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .icono{
+        color: black;
+        margin-top: 1rem;
+      }
+      .pesos, .porc{
+        display: flex;
+        align-items: center;
+      }
+      @media (min-width: 48em) {           
         .boton{
-          width: 50%;
+          width: 25%;
         }
-        .tabla{
-          overflow: scroll;
-          height: 10rem;
-        }
-        .table{
-          width: 30rem;
-          text-align: center;
-        }
-        .etiqueta2{
-          display: none;
-        }
-        .multas{
-          padding: 1.5rem;
-        }
-        .iconos{
+        .cargos{
           display: flex;
           justify-content: space-around;
-          flex-wrap: wrap;
-          width: 16rem;
-          margin-top: 2rem;
+          align-items: center;
+          margin-top: 1rem;
           margin-bottom: 1rem;
         }
-        .icono{
-          color: black;
-          margin-top: 1rem;
+        .cargo{
+          border-color: #fff;
         }
-        .pesos, .porc{
+        .cargo, .multas{
+          width: 40%;
+        }
+        
+        .fijo, .solidario{
           display: flex;
-          align-items: center;
         }
-        @media (min-width: 48em) {           
-          .boton{
-            width: 25%;
-          }
-          .cargos{
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-          }
-          .cargo{
-            border-color: #fff;
-          }
-          .cargo, .multas{
-            width: 40%;
-          }
-          
-          .fijo, .solidario{
-            display: flex;
-          }
-          .solidario{
-            margin-top: .5rem;
-          }
-          .fijo_label, .solidario_label{
-            width: 18rem;
-            font-size: 1.25em;
-          }
-          .pesos{
-            margin-bottom: .5rem;
-          }
-          .tabla{
-            overflow-x: hidden;
-          }
-          .table{
-            width: 100%;
-          }
-          .etiqueta{
-            display: flex;
-          }
-          .etiquetas{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;;
-            width: 41%;
-            margin-top: 2rem;
-          }
-          .etiqueta2{
-            display: flex;
-            visibility: hidden;
-          }
-          .etiqueta_label{
-            width: 5rem;
-          }
-          
-          .iconos{
-             justify-content: space-evenly;
-              width: 100%;
-          }
+        .solidario{
+          margin-top: .5rem;
         }
+        .fijo_label, .solidario_label{
+          width: 18rem;
+          font-size: 1.25em;
+        }
+        .pesos{
+          margin-bottom: .5rem;
+        }
+        .tabla{
+          overflow-x: hidden;
+        }
+        .table{
+          width: 100%;
+        }
+        .etiqueta{
+          display: flex;
+        }
+        .etiquetas{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;;
+          width: 41%;
+          margin-top: 2rem;
+        }
+        .etiqueta2{
+          display: flex;
+          visibility: hidden;
+        }
+        .etiqueta_label{
+          width: 5rem;
+        }
+          
+        .iconos{
+          justify-content: space-evenly;
+          width: 100%;
+        }
+      }
     </style>
   </head>
 
   <body class="orchid">
-        <div class="mainmenu-block">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -199,8 +199,6 @@
               <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a></li>  
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">

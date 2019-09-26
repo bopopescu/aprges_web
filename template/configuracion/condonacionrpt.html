@@ -1,116 +1,114 @@
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style rel="stylesheet" type="text/css" media="print">
-     @page{
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style rel="stylesheet" type="text/css" media="print">
+            @page{
                 size: letter portrait;
                 margin: 50;
-
             }
-        .identificacion{
-            margin-bottom: 20px;
-        }
-        h2{
+            .identificacion{
+                margin-bottom: 20px;
+            }
+            h2{
                 text-align: center;
                 font-size: 20px;
             }
-        .tabla1{
-            margin-bottom: 20px;
-        }
-        .tabla-texto{
-            background-color: silver;
-            height: 25px;
-            text-align: center;
-        }
-        .tabla-texto2{
-            background-color: silver;
-            text-align: right;
-        }
-        .pagar{
-            margin-top: 150px;
-            text-align: right;
-            margin-left: 150px;
-        }
-        .table{
-               border: 1px solid silver;
-               height: 20;
-               margin-top: 2px;
-               padding-left: 5px;
-               padding-right: 5px;
+            .tabla1{
+                margin-bottom: 20px;
             }
-    </style>
-</head>
-<body>
+            .tabla-texto{
+                background-color: silver;
+                height: 25px;
+                text-align: center;
+            }
+            .tabla-texto2{
+                background-color: silver;
+                text-align: right;
+            }
+            .pagar{
+                margin-top: 150px;
+                text-align: right;
+                margin-left: 150px;
+            }
+            .table{
+                border: 1px solid silver;
+                height: 20;
+                margin-top: 2px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
         <table class="tabla1">
-                <tbody>
-                    {% for i in datos %}
-                    <tr>
-                        <td width="80">GIRO</td>
-                        <td><input type="text">{{i.giro}}</td>
-                        <td rowspan="6" style="text-align: right; height: 70px;">
-                                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>NOMBRE</td>
-                        <td><input type="text">  {{i.nombre}}</td>
-                    </tr>
-                    <tr>
-                        <td>RUT</td>
-                        <td><input type="text"> {{i.rut}}</td>
-                    </tr>
-                    <tr>
-                        <td>DIRECCION</td>
-                        <td><input type="text"> {{i.direccion}}</td>
-                    </tr>
-                    <tr>
-                        <td>FONO</td>
-                        <td><input type="text">{{i.fono}}</td>
-                    </tr>
-                    <tr>
-                        <td>COMUNA</td>
-                        <td><input type="text">{{i.comuna}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <tbody>
+                {% for i in datos %}
+                <tr>
+                    <td width="80">GIRO</td>
+                    <td><input type="text">{{i.giro}}</td>
+                    <td rowspan="6" style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>NOMBRE</td>
+                    <td><input type="text">  {{i.nombre}}</td>
+                </tr>
+                <tr>
+                    <td>RUT</td>
+                    <td><input type="text"> {{i.rut}}</td>
+                </tr>
+                <tr>
+                    <td>DIRECCION</td>
+                    <td><input type="text"> {{i.direccion}}</td>
+                </tr>
+                <tr>
+                    <td>FONO</td>
+                    <td><input type="text">{{i.fono}}</td>
+                </tr>
+                <tr>
+                    <td>COMUNA</td>
+                    <td><input type="text">{{i.comuna}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-            {% for i in listadetalle %}
+        {% for i in listadetalle %}
 
-    <table class="identificacion">            
-        <tr>
-            <td width="120">NOMBRE CLIENTE</td>
-            <td><input value="{{nombre}}">{{i.nombres}}</td>
-        </tr>
-        <tr>
-            <td>DIRECCION CLIENTE</td>
-            <td><input value="{{direccion}}">{{i.direccion}}</td>
-        </tr>
-        </tbody>
-    </table>
+        <table class="identificacion">  
+            <tbody>          
+                <tr>
+                    <td width="120">NOMBRE CLIENTE</td>
+                    <td><input value="{{nombre}}">{{i.nombres}}</td>
+                </tr>
+                <tr>
+                    <td>DIRECCION CLIENTE</td>
+                    <td><input value="{{direccion}}">{{i.direccion}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2>Comprobante Condonacion {{i.id}}</h2>
+        <h2>Comprobante Condonacion {{i.id}}</h2>
 
-    <table class="table">
-        <thead>
-            <th width="200px" class="tabla-texto">FECHA</th>
-            <th width="200px" class="tabla-texto">MONTO</th>
-            <th class="tabla-texto2">OBSERVACION</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input class="tabla-input" type="text" placeholder="fecha">{{i.fecha}}</td>
-                <td><input class="tabla-input" type="text" placeholder="MONTO">{{i.total}}</td>
-                <td><input class="tabla-input-izq" type="text" placeholder="MOTIVO">{{i.motivo}}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <thead>
+                <th width="200px" class="tabla-texto">FECHA</th>
+                <th width="200px" class="tabla-texto">MONTO</th>
+                <th class="tabla-texto2">OBSERVACION</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="tabla-input" type="text" placeholder="fecha">{{i.fecha}}</td>
+                    <td><input class="tabla-input" type="text" placeholder="MONTO">{{i.total}}</td>
+                    <td><input class="tabla-input-izq" type="text" placeholder="MOTIVO">{{i.motivo}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    {% endfor %}
-
-    
-</body>
+        {% endfor %}
+    </body>
 </html>

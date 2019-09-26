@@ -14,25 +14,60 @@
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
-    <style>
-        .boton_div{
-          display: flex;
-          justify-content: center;
+    <style>      
+      a {
+        color: #000;
+      }    
+      a:hover {
+        color: #000033;
+      }
+      .boton_div{
+        display: flex;
+        justify-content: center;
+      }
+      .boton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15rem;
+        padding: 1rem 3rem;
+      }    
+      @media(min-width: 48rem){
+        .contenido{
+          margin: 0 3rem;
         }
-        .boton{
+        .identificacion, .botones, .marcar{
+          display: flex;
+        }
+        .nombre_sector{
+          width: 80%;
+        }
+        .etiquetas{
+          width: 20%;
+        }
+        .marcar{
           display: flex;
           align-items: center;
-          justify-content: center;
-          width: 15rem;
-          padding: 1rem 3rem;
+          width: 20%;
         }
-    
+        .etiqueta{
+          display: flex;
+          justify-content: space-between;
+        }
+        .etiqueta_label{
+          width: 40rem;
+          text-align: right;
+          padding-right: 1rem;
+        }
+        .iconos{
+          text-align: center;
+        }
+      }
     </style>
   </head>
 
-  <body class="orchid  ">
-
-        <div class="mainmenu-block">
+  <body class="orchid">
+    <div class="mainmenu-block">
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
@@ -80,9 +115,7 @@
               <li class="nav-item"><a class="nav-link" href="/procesos/factura_libre/">Factura Libre</a></li>
               <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
             </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a></li>  
+          </li> 
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
@@ -397,23 +430,66 @@
             <form class="col-sm-12" action="/mantenedor/sector/" method="POST">
               {% csrf_token %}  
               <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h6 class="panel-title">Sector<a class="small" href="#" target="_blank">para nuevos sectores de la asociación</a></h6>
-                  </div>
-                  <div class="panel-body">
-                    <div class="row m-b-3">
-                     <input type="hidden" id="id_" name="id_" value="{{id}}"/>
-                      <div class="form-group col-xs-12 col-sm-12">
-                          <label>Nombre de Sector</label>
-                          <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" placeholder="Sector 1" required>
-                        </div>
-
-                          <div class="col-xs-12 col-sm-12 text-capitalize boton_div">
-                              <button class="btn btn-block active m-b-2 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
-                            </div>
+                <div class="panel-heading">
+                  <h6 class="panel-title">Sector<a class="small" href="#" target="_blank">para nuevos sectores de la asociación</a></h6>
+                </div>
+                <div class="panel-body">
+                  <div class="row m-r-0 m-l-0 contenido">
+                    <div class="identificacion">
+                      <input type="hidden" id="id_" name="id_" value="{{id}}"/>   
+                      <div class="nombre_sector">
+                         <div class="form-group col-xs-12 col-sm-12">
+                           <label>Nombre de Sector</label>
+                           <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" placeholder="Sector 1" required>
+                         </div>
+                         <div class="col-xs-12 col-sm-12 text-capitalize boton_div">
+                           <button class="btn btn-block active m-b-2 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
+                         </div>
+                       </div>   
+                       <!-- etiquetas -->
+                       <div class="etiquetas">
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-label ">Estanque</label>
+                           <select class="form-control"></select>
+                         </div>
+                 
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
+                           <input type="text" class="form-control">
+                         </div>
+                 
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
+                           <input type="text" class="form-control">
+                         </div>
+                 
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
+                           <input type="text" class="form-control">
+                         </div>
+                 
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-label">Alcantarillado</label>
+                           <input type="text" class="form-control">
+                         </div>
+                 
+                         <div class="etiqueta form-group">
+                           <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
+                           <input type="text" class="form-control">
+                         </div>
+                       </div>
+                    </div>
+                    
+                    <div class="form-check form-check-inline marcar">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <label class="form-check-label m-b-0 m-l-1">Marque aquí para cerrar todos los sectores</label>
+                    </div>
+                    <div class="iconos">
+                      <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>   
                     </div>
                   </div>
                 </div>
+              </div>
             </form>
             {% endblock %}
               <!-- #SELECT2-->       
@@ -423,48 +499,43 @@
         <!-- END CONTAINER FIUID-->
 
         <div class="container-fluid">
-            <div class="panel-wrapper">
-              <div class="panel">
-                <div class="panel-body">
-                  <table class="table" data-plugin="DataTable">
-                    <thead>
-                      <tr>
-                        <th>Correlativo</th>
-                        <th>Nombre de Sector</th>
-                        <th>Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {% for medidor in lista %}
-                      <tr>
-                        <td>{{medidor.id}}</td>
-                        <td>{{medidor.nombre}}</td>
-                        <td>
-
-                                {% block botones %}
-                                <form method="POST" action="/mantenedor/sector/">
-                                    {% csrf_token %}      
-                                    <input value="{{medidor.id}}" type="hidden" name="nombreid"> 
-                                    <button class="btn btn-info" type="submit" name="editar" id="editar"> Editar </button>
-                                    <button class="btn btn-danger" type="submit" name="borrar" id="borrar"> Borrar </button>
-                                  </td>
-                                </form>
-                                {% endblock %}
-
-                        </td>
-                      </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
+          <div class="panel-wrapper">
+            <div class="panel">
+              <div class="panel-body">
+                <table class="table" data-plugin="DataTable">
+                  <thead>
+                    <tr>
+                      <th>Correlativo</th>
+                      <th>Nombre de Sector</th>
+                      <th>Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for medidor in lista %}
+                    <tr>
+                      <td>{{medidor.id}}</td>
+                      <td>{{medidor.nombre}}</td>
+                      <td>
+                        {% block botones %}
+                        <form method="POST" action="/mantenedor/sector/">
+                          {% csrf_token %}      
+                          <input value="{{medidor.id}}" type="hidden" name="nombreid"> 
+                          <button class="btn btn-info" type="submit" name="editar" id="editar"> Editar </button>
+                          <button class="btn btn-danger" type="submit" name="borrar" id="borrar"> Borrar </button>
+                        </form>
+                        {% endblock %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
+        </div>
         <!-- END PAGE CONTENT-->
-
       </div>
       <!-- END VIEW WAPPER-->
-
     </div>
     <!-- END MAIN WRAPPER-->
 

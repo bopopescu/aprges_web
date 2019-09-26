@@ -21,51 +21,51 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-        a {
-            color: #000;
+      a {
+        color: #000;
+      }
+      .iconos{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 16rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .icono{
+        color: black;
+        margin-top: 1rem;
+      }
+      @media (min-width: 48em) { 
+        .contenido{
+          margin: 0 3rem;
+        }
+        .bb, .boleta, .cliente, .direccion, .mf, .medidor, .fecha, .detalle, .total, .nivel2, .nivel3{
+          display: flex;
+        }
+        .bb, .mf{
+          justify-content: space-between;
+        }
+        .direccion_label, .detalle_label, .total_label, .nivel2_label, .nivel3_label{
+          width: 10.7rem;
+        }
+        .cliente_label, .medidor_label, .fecha_label{
+          width: 12rem;
+        }
+        .medidor_label, .fecha_label{
+          width: 9.7rem;
+        }
+        .boleta_label, .cliente_input, .medidor_input, .fecha_input{
+          width: 10rem
+        }
+        .boleta_label{
+          width:15.5rem;
         }
         .iconos{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 16rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+          justify-content: space-evenly;
+          width: 100%;
         }
-        .icono{
-            color: black;
-            margin-top: 1rem;
-        }
-        @media (min-width: 48em) { 
-          .contenido{
-            margin: 0 3rem;
-          }
-          .bb, .boleta, .cliente, .direccion, .mf, .medidor, .fecha, .detalle, .total, .nivel2, .nivel3{
-            display: flex;
-          }
-          .bb, .mf{
-            justify-content: space-between;
-          }
-          .direccion_label, .detalle_label, .total_label, .nivel2_label, .nivel3_label{
-            width: 10.7rem;
-          }
-          .cliente_label, .medidor_label, .fecha_label{
-            width: 12rem;
-          }
-          .medidor_label, .fecha_label{
-            width: 9.7rem;
-          }
-          .boleta_label, .cliente_input, .medidor_input, .fecha_input{
-            width: 10rem
-          }
-          .boleta_label{
-            width:15.5rem;
-          }
-          .iconos{
-            justify-content: space-evenly;
-            width: 100%;
-          }
-        }
+      }
     </style>
   </head>
 
@@ -119,8 +119,6 @@
               <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/informes/"><i class="icon ion-toggle"></i>
-            <div class="menu-block-label">Informes</div></a></li>  
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
