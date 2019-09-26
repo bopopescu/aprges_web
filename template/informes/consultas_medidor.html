@@ -43,7 +43,7 @@
         color: black;
         margin-top: 1rem;
       }
-      @media (min-width: 48em) { 
+      @media (min-width: 768px) { 
         .contenido{
           margin: 0 3rem;
         }
@@ -53,20 +53,8 @@
         .nm, .da{
           justify-content: space-between;
         }
-        .nombre_label, .direccion_label, .medidor_label, .año_label{
-          width: 7rem;
-        }
-        .medidor_label{
-          width: 7rem;
-        }
-        .año_label{
-          width: 3rem;
-        }
-        .nombre_input, .direccion_input{
-          width: 85rem;
-        }
-        .medidor_input, .año_input{
-          width: 6rem;
+        .medidor_label, .año_label{
+          text-align: right;
         }
         .table{
           width: 143rem;
@@ -381,34 +369,34 @@
 
                       <!--identificación-->
                       <div class="identificacion">              
-                        <div class="nm">
-                          <div class="nombre form-group">
-                            <label class="nombre_label col-form-label">Nombre</label>
-                            <input class="nombre_input form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
+                        <div class="nm form-group">
+                          <div class="nombre col-md-10 p-l-0 p-r-0">
+                            <label class="col-md-1 col-form-label p-l-0">Nombre</label>
+                            <input class="col-md-11 form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
                           </div>
                 
-                          <div class="medidor form-group">
-                            <label class="medidor_label col-form-label">Nro Medidor</label>
-                            <input class="medidor_input form-control" type="text">
+                          <div class="medidor col-md-2 p-l-0 p-r-0">
+                            <label class="col-md-11 col-form-label p-l-0 medidor_label">Nro Medidor</label>
+                            <input class="col-md-1 form-control" type="text">
                           </div>
                         </div>
               
-                        <div class="da">
-                          <div class="direccion form-group">
-                            <label class="direccion_label col-form-label">Dirección</label>
-                            <input class="direccion_input form-control" type="text">
+                        <div class="da form-group">
+                          <div class="direccion col-md-10 p-l-0 p-r-0">
+                            <label class="col-md-1 col-form-label p-l-0">Dirección</label>
+                            <input class="col-md-11 form-control" type="text">
                           </div>
                 
-                          <div class="año form-group">
-                            <label class="año_label col-form-label">Año</label>
-                            <input class="año_input form-control" type="text">
+                          <div class="año col-md-2 p-l-0 p-r-0">
+                            <label class="col-md-10 col-form-label p-l-0 año_label">Año</label>
+                            <input class="col-md-2 form-control" type="text">
                           </div>
                         </div>              
                       </div>                  
               
                       <!--tabla-->
                       <div class="tabla">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered m-b-0">
                           <thead>
                             <tr class="primary">
                               <th class="meses">Mes</th>

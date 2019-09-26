@@ -24,22 +24,44 @@
       a {
         color: #000;
       }
-      .iconos{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 16rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+      a:hover {
+        color: #000033;
       }
-      .icono{
-        color: black;
-        margin-top: 1rem;
+
+      
+      .año{
+        display: flex;
+      }
+      .año_label{
+        margin: 0;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+      }
+      .año_input{
+        width: 6rem;
+      }
+      .form-check{
+        padding: .5rem 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+      }
+      .form-check-label{
+        margin: 0;
+      }
+      .iconos{
+        text-align: center;
       }
       @media (min-width: 48em) { 
-        .iconos{
-          justify-content: space-evenly;
-          width: 100%;
+        .contenido{
+          margin: 0 29rem;
+        }
+        .opciones{
+        display: flex;
+        }
+        .columna{
+          width: 50%;
         }
       }
     </style>
@@ -338,7 +360,84 @@
                 <div class="panel-body">
                   <div class="row m-b-3">
 
-                
+                    <div class="contenido">
+                  
+                        <div class="form-group año">
+                          <h6 class="año_label col-form-label">AÑO</h6>
+                          <input class="año_input form-control" type="datetime" name="año" value="{{año}}"> 
+                        </div>
+                        
+                        <div class="form-group opciones">
+                          <div class="columna">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Ingreso por Año Anexo Nº2</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Egresos por Año Anexo Nº3</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle de Gastos en energía Eléctrica Anexo nº4</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle de Gastos en Sueldos por Año Anexo Nº5</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle Gastos Clonación Anexo Nº6</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Administración por Año Anexo Nº7</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle Anexo Mantención Anexo Nº8</label>
+                            </div>
+                          </div>
+                    
+                          <div class="columna">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle Anexo Mejoramiento Año Anexo Nº9</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle Otros Gastos Fuera del Giro por Año Anexo Nº10</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Análisis Financiero por Año Anexo Nº11</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Análisis de Resultado por Año Anexo Nº12</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Análisis para el Año Anexo Nº13</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Reajuste Tarifario Anexo Nº14</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">Detalle Oficina por Año</label>
+                            </div>
+                          </div>
+                        </div>
+                            
+                        <!-- iconos -->
+                        <div class="iconos">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </div>   
+                  
+                    </div>
+                  
             
                   </div>
                 </div>

@@ -23,23 +23,109 @@
     <style>
       a {
         color: #000;
+      }    
+      .primary{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
       }
+      .boton_primary{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;   
+      }
+      .boton_primary:hover{
+        background-color: #388B92;
+      }
+      .fecha, .mes, .año, .tipo, .sector{
+        display: flex;
+        align-items: center;
+      }
+      .fecha{
+        justify-content: space-between;
+      }   
+      .mes_label{
+        width: 7rem;
+      }
+      .mes_select{
+        width: 9rem;
+      }
+      .año_label{
+        width: 3rem;
+      }
+      .año_input{
+        width: 5rem;
+      }
+      .tipo_label, .sector_label{
+        width: 8.8rem;
+      }
+      .tabla{
+       border: 1px solid #e5e5e5;
+        overflow: auto;
+        max-height: 25rem;
+      }
+      .tbl{
+        width: 65rem;
+      }
+      
+      .pequeño{
+        width: 8%;
+      }
+      .grande{
+        width: 28%;
+      }
+
+      .div_boton{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-left: 1rem
+      }
+      .boton{
+        height: fit-content;
+        padding: .3rem 3rem;
+        font-size: 1.2rem;
+      }
+
       .iconos{
         display: flex;
         justify-content: space-around;
-        flex-wrap: wrap;
-        width: 16rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
       }
       .icono{
         color: black;
         margin-top: 1rem;
       }
       @media (min-width: 48em) { 
-        .iconos{
-          justify-content: space-evenly;
+        .contenido{
+          margin: 0 3rem;
+        }
+        .buscar{
+          display: flex;
+          align-items: center;
+        }
+        .tipo_label, .sector_label{
+          width: 7.8rem;
+        }
+        .ident{
+          width: 60%;
+        }
+        .div_boton{
+          display: flex;
+          align-items: flex-end;
+          margin-left: 1rem;
+          height: 9rem;
+        }
+        .tabla{
+          max-height: 13rem;
+        }
+        .tbl{
           width: 100%;
+        }
+        .pequeño{
+          width: 8%;
+        }
+        .grande{
+          width: 28%;
         }
       }
     </style>
@@ -338,8 +424,192 @@
                 <div class="panel-body">
                   <div class="row m-b-3">
 
+                    <div class="contenido">
                 
-            
+                      <div class="buscar">
+                        <div class="form-group ident">
+
+                            <!-- mes y año -->
+                            <div class="form-group fecha">
+                              <div class="mes">
+                                <label class="mes_label col-form-label">Mes Proceso</label>
+                                <select class="mes_select form-control">
+                                  <option value="">Enero</option>
+                                  <option value="">Febrero</option>
+                                  <option value="">Marzo</option>
+                                  <option value="">Abril</option>
+                                  <option value="">Mayo</option>
+                                  <option value="">Junio</option>
+                                  <option value="">Julio</option>
+                                  <option value="">Agosto</option>
+                                  <option value="">Septiembre</option>
+                                  <option value="">Octubre</option>
+                                  <option value="">Noviembre</option>
+                                  <option value="">Diciembre</option>
+                                </select>
+                              </div>
+                  
+                              <div class="año">
+                                <label class="año_label col-form-label">Año</label>
+                                <input class="año_input form-control" type="datetime" name="año" value="{{año}}">
+                              </div>
+                            </div>
+                  
+                            <!-- tipo -->
+                            <div class="form-group tipo">
+                              <label class="tipo_label col-form-label">Tipo</label>
+                              <select class="tipo_select form-control">
+                                <option>CORTE Y REPOSICIÓN</option>
+                                <option>SUSPENDER SUMINISTRO</option>
+                              </select>
+                            </div>
+                  
+                            <!-- tipo -->
+                            <div class="sector">
+                              <label class="sector_label col-form-label">Sector</label>
+                              <select class="sector_select form-control">
+                                <option>SECTOR 1 ...</option>
+                                <option>SECTOR 2 ...</option>
+                                <option>SECTOR 3 ...</option>
+                                <option>SECTOR 4 ...</option>
+                                <option>SECTOR 5 ...</option>
+                                <option>SECTOR 6 ...</option>
+                                <option>SECTOR 7 ...</option>
+                              </select>
+                            </div>                                  
+                        </div>
+
+                        <div class="form-group div_boton">
+                          <button type="button" class="btn boton_primary boton">Buscar</button>
+                        </div>
+                      </div>
+
+                      <!-- <!-- tabla -->
+                      <div class="form-group tabla">
+                        <table class="table table-bordered tbl m-b-0">
+                          <thead>
+                            <tr class="primary">
+                              <th class="pequeño">Medidor</th>
+                              <th class="grande">Socio</th>
+                              <th class="pequeño">A Pagar</th>
+                              <th class="pequeño">Pagado</th>
+                              <th class="pequeño">Por Pagar</th>
+                              <th class="pequeño"></th>
+                              <th class="pequeño"></th>
+                              <th class="pequeño"></th>
+                              <th class="pequeño"></th>
+                              <th class="pequeño"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!--iconos-->
+                      <div class="iconos">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>        
+                      </div>  
+
+                    </div>
                   </div>
                 </div>
               </div>

@@ -23,12 +23,35 @@
     <style>
       a {
         color: #000;
+      }      
+      .primary{
+        background-color: #4183D7;
+        color: white;
+      }      
+      .tabla{
+        overflow: auto;
+      }
+      .tbl{
+        width: 60rem;
+      }
+      .mes{
+        width: 9rem;
+      }
+      .centro{
+        text-align: center;
+      }
+      .derecha{
+        text-align: right;
+      }
+      .centro, .derecha{
+        width: 15rem;
+      }
+      .obs{
+        width: 50rem;
       }
       .iconos{
         display: flex;
         justify-content: space-around;
-        flex-wrap: wrap;
-        width: 16rem;
         margin-top: 2rem;
         margin-bottom: 1rem;
       }
@@ -37,6 +60,27 @@
         margin-top: 1rem;
       }
       @media (min-width: 48em) { 
+        .contenido{
+          margin: 0 10rem;
+        }
+        .nombre, .direccion, .ma, .medidor, .año{
+          display: flex;
+        }
+        .ma{
+          justify-content: space-between;
+        }
+        .nombre_label, .direccion_label, .medidor_input, .año_input{
+          width: 7.5rem;
+        }
+        .medidor_label, .año_label{
+          width: 7rem;
+        }
+        .año_label{
+          width: 3rem;
+        }
+        .tbl{
+          width: 100%;
+        }
         .iconos{
           justify-content: space-evenly;
           width: 100%;
@@ -336,9 +380,138 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
+                  <div class="row m-b-1">
+                    <div class="contenido">
 
-                
+                      <div class="nombre form-group">
+                        <label class="nombre_label col-form-label">Nombre</label>
+                        <input class="nombre_input form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
+                      </div>
+                                    
+                      <div class="direccion form-group">
+                        <label class="direccion_label col-form-label">Dirección</label>
+                        <input class="direccion_input form-control" type="text">
+                      </div>
+                            
+                      <div class="ma form-group">
+                        <div class="medidor">
+                          <label class="medidor_label col-form-label">Nro Medidor</label>
+                          <input class="medidor_input form-control" type="text">
+                        </div>
+                        <div class="año">
+                          <label class="año_label col-form-label">Año</label>
+                          <input class="año_input form-control" type="text">
+                        </div>
+                      </div>
+              
+                      <!--tabla-->
+                      <div class="tabla">
+                        <table class="table table-bordered tbl m-b-0">
+                          <thead>
+                            <tr class="primary">
+                              <th class="mes">Mes</th>
+                              <th class="centro">Lectura</th>
+                              <th class="centro">Consumo</th>
+                              <th class="derecha">Valor $</th>
+                              <th class="centro obs">Observaciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th class="primary">Enero</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Febrero</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Marzo</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Abril</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Mayo</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Junio</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Julio</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Agosto</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Septiembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Octubre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Noviembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th class="primary">Diciembre</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+              
+                      <!-- iconos -->
+                      <div class="iconos" >
+                        <a href="#"><i class="fas fa-search fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono" ></i></a>
+                      </div>               
+                    </div>
             
                   </div>
                 </div>

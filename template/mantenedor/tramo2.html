@@ -21,6 +21,19 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
+      .primary{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
+      }
+      .boton_primary{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;   
+      }
+      .boton_primary:hover{
+        background-color: #388B92;
+      }
       .btn{
         display: inline-block;
         font-weight: 400;
@@ -40,8 +53,8 @@
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
       .btn-outline-success{
-        color: #28a745;
-        border-color: #28a745;
+        color: #17a2b8;
+        border-color: #17a2b8;
       }
       .table-succes{
         background-color: #c3e6cb;
@@ -499,7 +512,7 @@
                           <div class="tabla">
                             <table class="table table-bordered m-b-0">
                               <thead>
-                                <tr class="table-succes">
+                                <tr class="primary">
                                   <th>Tramo</th>
                                   <th>Desde</th>
                                   <th>Hasta</th>

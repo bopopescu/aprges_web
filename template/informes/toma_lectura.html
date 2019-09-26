@@ -24,19 +24,31 @@
       a {
         color: #000;
       }
+      .sector_select{
+        width: 10rem;
+      }
       .iconos{
         display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 16rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+        justify-content: center;
+        margin: 1rem 0;
       }
-      .icono{
+      /* .icono{
         color: black;
-        margin-top: 1rem;
-      }
+      } */
       @media (min-width: 48em) { 
+        .contenido{
+          margin: 0 40rem;
+        }
+        .sector_ingresar{
+          display: flex;
+        }
+        .div_boton{
+          text-align: right;
+        }
+        .boton{
+          padding: .3rem 4rem;
+          font-size: 1.2rem;
+        }
         .iconos{
           justify-content: space-evenly;
           width: 100%;
@@ -337,9 +349,34 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
-
+                    <div class="contenido">             
                 
-            
+                      <div class="form-group sector">
+                        <label class="col-form-label">Seleccionar Sector</label>
+                        <div class="sector_ingresar">                
+                          <select class="sector_select form-control">
+                            <option>[Todos]</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                          </select>                  
+                          <input class="form-control">
+                        </div>
+                      </div> 
+                
+                      <div class="div_boton">
+                        <button type="button" class="btn btn-info boton">Informe Casa</button>
+                      </div>
+              
+                      <!-- iconos -->
+                      <div class="iconos">
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      </div>  
+                    </div>     
                   </div>
                 </div>
               </div>

@@ -20,6 +20,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
         <style>
+            .primary{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;        
+            }
+            .boton_primary{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;   
+            }
+            .boton_primary:hover{
+                  background-color: #388B92;
+            }
             .table-succes{
                 background-color: #c3e6cb;
             }
@@ -359,7 +372,7 @@
                                                 <div class="div_tabla">
                                                     <table class="table table-bordered tabla m-b-0">
                                                         <thead class="tabla_titulo">
-                                                            <tr class="table-succes">
+                                                            <tr class="primary">
                                                                 <th class="titulo1">Código</th>
                                                                 <th class="titulo2">Descripción</th>
                                                             </tr>
