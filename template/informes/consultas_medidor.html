@@ -21,13 +21,14 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
+      .tabla_info{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
+      } 
       a {
         color: #000;
-      }      
-      .primary{
-        background-color: #4183D7;
-        color: white;
-      }
+      }    
       .tabla{
         overflow: auto;
         border: 1px solid #e5e5e5;
@@ -139,7 +140,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -398,7 +399,7 @@
                       <div class="tabla">
                         <table class="table table-bordered m-b-0">
                           <thead>
-                            <tr class="primary">
+                            <tr class="tabla_info">
                               <th class="meses">Mes</th>
                               <th class="etiquetas">Lectura</th>
                               <th class="etiquetas">M3</th>
@@ -419,7 +420,7 @@
                           </thead>
                           <tbody>
                             <tr class="enero">
-                              <th class="primary">Enero</th>
+                              <th class="tabla_info">Enero</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -437,7 +438,7 @@
                               <td></td>
                             </tr>
                             <tr class="febrero">
-                              <th class="primary">Febrero</th>
+                              <th class="tabla_info">Febrero</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -455,7 +456,7 @@
                               <td></td>
                             </tr>
                             <tr class="marzo">
-                              <th class="primary">Marzo</th>
+                              <th class="tabla_info">Marzo</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -473,7 +474,7 @@
                               <td></td>
                             </tr>
                             <tr class="abril">
-                              <th class="primary">Abril</th>
+                              <th class="tabla_info">Abril</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -491,7 +492,7 @@
                               <td></td>
                             </tr>
                             <tr class="mayo">
-                              <th class="primary">Mayo</th>
+                              <th class="tabla_info">Mayo</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -509,7 +510,7 @@
                               <td></td>
                             </tr>
                             <tr class="junio">
-                              <th class="primary">Junio</th>
+                              <th class="tabla_info">Junio</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -527,7 +528,7 @@
                               <td></td>
                             </tr>
                             <tr class="julio">
-                              <th class="primary">Julio</th>
+                              <th class="tabla_info">Julio</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -545,7 +546,7 @@
                               <td></td>
                             </tr>
                             <tr class="agosto">
-                              <th class="primary">Agosto</th>
+                              <th class="tabla_info">Agosto</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -563,7 +564,7 @@
                               <td></td>
                             </tr>
                             <tr class="septiembre">
-                              <th class="primary">Septiembre</th>
+                              <th class="tabla_info">Septiembre</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -581,7 +582,7 @@
                               <td></td>
                             </tr>
                             <tr class="octubre">
-                              <th class="primary">Octubre</th>
+                              <th class="tabla_info">Octubre</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -599,7 +600,7 @@
                               <td></td>
                             </tr>
                             <tr class="noviembre">
-                              <th class="primary">Noviembre</th>
+                              <th class="tabla_info">Noviembre</th>
                               <td></td>
                               <td></td>
                               <td></td>
@@ -617,7 +618,7 @@
                               <td></td>
                             </tr>
                             <tr class="diciembre">
-                              <th class="primary">Diciembre</th>
+                              <th class="tabla_info">Diciembre</th>
                               <td></td>
                               <td></td>
                               <td></td>

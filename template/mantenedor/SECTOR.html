@@ -14,7 +14,20 @@
     <link id="mainstyle" rel="stylesheet" href="{% static 'assets/stylesheets/demo.css' %}">
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
-    <style>      
+    <style>   
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      }   
       a {
         color: #000;
       }    
@@ -132,7 +145,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -443,7 +456,7 @@
                            <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" placeholder="Sector 1" required>
                          </div>
                          <div class="col-xs-12 col-sm-12 text-capitalize boton_div">
-                           <button class="btn btn-block active m-b-2 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
+                           <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
                          </div>
                        </div>   
                        <!-- etiquetas -->

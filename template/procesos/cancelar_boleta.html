@@ -21,6 +21,24 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
+      .tabla_info{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
+      } 
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      } 
       a{
         color: #000;
       }    
@@ -191,7 +209,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -446,7 +464,7 @@
                         <div class="tabla">
                           <table class="table table-bordered tamaño_tabla">
                             <thead>
-                              <tr class="primary">
+                              <tr class="tabla_info">
                                 <th>Código</th>
                                 <th class="descripcion">Descripción</th>
                                 <th>Valor</th>
@@ -545,7 +563,7 @@
                         <div class="tabla">
                           <table class="table table-bordered tamaño_tabla">
                             <thead>
-                              <tr class="primary">
+                              <tr class="tabla_info">
                                 <th>Boleta</th>
                                 <th>Código</th>
                                 <th class="descripcion">Descripción</th>
@@ -665,7 +683,7 @@
                             <div class="card-body socio">
                               <h5 class="card-title">Buscar Por Nº Socio</h5>
                               <input class="form-control" type="text">
-                              <button type="button" class="btn btn-primary boton_socio">Socio</button>
+                              <button type="button" class="btn boton_info boton_socio">Socio</button>
                             </div>
                           </div>
                         </div>

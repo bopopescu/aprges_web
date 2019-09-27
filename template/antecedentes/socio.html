@@ -53,6 +53,19 @@
     
     </script>
     <style>
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      } 
       .div_boton{
         display: flex;
         justify-content: center;
@@ -111,7 +124,7 @@
         
       /* When the radio button is checked, add a blue background */
       .container input:checked ~ .checkmark {
-        background-color: #2196F3;
+        background-color: #17a2b8;
       }
         
       /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -216,7 +229,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -519,12 +532,12 @@
                       {% block content1 %}	
                       <form action="/antecedentes/socios/" method="POST">{% csrf_token %}  
                         <div class="row m-b-3">
-                            <div class="search">
-                                <input type="hidden" name="numero" id="numero">
-                                <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
-                                <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
-                                <input type="hidden" id="identi" name="identi" class="form-control">
-                            </div>
+                          <div class="search">
+                            <input type="hidden" name="numero" id="numero">
+                            <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
+                            <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                            <input type="hidden" id="identi" name="identi" class="form-control">
+                          </div>
                         </div>
                       </form>
                       {% endblock %}
@@ -533,109 +546,107 @@
                       <form action="/antecedentes/socios/" method="POST">{% csrf_token %}  
                         <div class="row m-b-3">
                           <div class="form-group col-sm-4">
-                                <label>Identificador</label>
-                                <input type="text" id="id_" name="id_" value="{{correlativo}}" class="form-control" disabled>
-                                <input type="hidden" id="identi1" name="identi1" value="{{correlativo}}" class="form-control">
+                            <label>Identificador</label>
+                            <input type="text" id="id_" name="id_" value="{{correlativo}}" class="form-control" disabled>
+                            <input type="hidden" id="identi1" name="identi1" value="{{correlativo}}" class="form-control">
                           </div>
                           <div class="form-group col-sm-4">
-                              <label>R.u.t.</label>
-                              <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
-                                  var date = this.value;
-                                  if (date.match(/^\d{2}$/) !== null) {
-                                  this.value = date + '.';
-                                  } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
-                                  this.value = date + '.';
-                                  }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
-                                  this.value = date + '-';
-                                  }" maxlength="12" required>
+                            <label>R.u.t.</label>
+                            <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
+                              var date = this.value;
+                              if (date.match(/^\d{2}$/) !== null) {
+                              this.value = date + '.';
+                              } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
+                              this.value = date + '.';
+                              }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
+                              this.value = date + '-';
+                              }" maxlength="12" required>
                           </div>
     
                           <div class="form-group col-sm-4">
-                              <label>Nombres</label>
-                              <input type="text" id="nombres" name="nombres" value="{{nombres}}" class="form-control" required>
-                            </div>
-    
-                            <div class="form-group col-sm-4">
-                                <label>Apellidos</label>
-                                <input type="text" id="apellidos" name="apellidos" value="{{apellidos}}" class="form-control" required>
-                              </div>
+                            <label>Nombres</label>
+                            <input type="text" id="nombres" name="nombres" value="{{nombres}}" class="form-control" required>
+                          </div>
     
                           <div class="form-group col-sm-4">
-                              <label>Dirección</label>
-                              <input type="text" id="direccion" name="direccion" value="{{direccion}}" class="form-control" required>
-                            </div>
+                            <label>Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" value="{{apellidos}}" class="form-control" required>
+                          </div>
     
-                            <div class="form-group col-sm-4">
-                                <label>Fecha de Ingreso</label>
-                                <input type="text" class="form-control" name="fecha" id="fecha" value="{{fecha}}" placeholder="dd-mm-yyyy" onkeyup="
-                                  var date = this.value;
-                                  if (date.match(/^\d{2}$/) !== null) {
-                                  this.value = date + '/';
-                                  } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                                  this.value = date + '/';
-                                  }" maxlength="10" required>
-                              </div>
-                              <div class="form-group col-sm-8">
-                                <label>Sector</label>
-                                <select class="form-control" id="sector" name="sector" required>
-                                    <option value="{{idsector}}">{{nombresector}}</option>
-                                      {% for tipo in sector %}
-                                      <option value="{{tipo.id}}" selected>{{tipo.nombre}}</option>
-                                      {% endfor %}
-                                </select>
+                          <div class="form-group col-sm-4">
+                            <label>Dirección</label>
+                            <input type="text" id="direccion" name="direccion" value="{{direccion}}" class="form-control" required>
+                          </div>
+    
+                          <div class="form-group col-sm-4">
+                            <label>Fecha de Ingreso</label>
+                            <input type="text" class="form-control" name="fecha" id="fecha" value="{{fecha}}" placeholder="dd-mm-yyyy" onkeyup="
+                              var date = this.value;
+                              if (date.match(/^\d{2}$/) !== null) {
+                              this.value = date + '/';
+                              } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                              this.value = date + '/';
+                              }" maxlength="10" required>
+                          </div>
+                          <div class="form-group col-sm-8">
+                            <label>Sector</label>
+                            <select class="form-control" id="sector" name="sector" required>
+                              <option value="{{idsector}}">{{nombresector}}</option>
+                                {% for tipo in sector %}
+                              <option value="{{tipo.id}}" selected>{{tipo.nombre}}</option>
+                                {% endfor %}
+                            </select>
                           </div>
                           <div class="form-group col-sm-4">
                             <label>Nro Rol</label>
                             <input type="text" class="form-control" id="rol" name="rol" value="{{rol}}" required>
-                        </div>
-                      <div class="form-group col-sm-4">
-                        <label>Superficie</label>
-                        <input type="text" class="form-control" id="hec" name="hec" value="{{hec}}" required>
-                    </div>
-                      <div class="form-group col-sm-8">
-                          <label>Ruta</label>
-                          <input type="number" id="ruta" name="ruta" class="form-control" value="{{ruta}}" required>
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label>Tenencia</label>
-                          <select class="form-control" id="idtenencia" name="idtenencia" required>
+                          </div>
+                          <div class="form-group col-sm-4">
+                            <label>Superficie</label>
+                            <input type="text" class="form-control" id="hec" name="hec" value="{{hec}}" required>
+                          </div>
+                          <div class="form-group col-sm-8">
+                            <label>Ruta</label>
+                            <input type="number" id="ruta" name="ruta" class="form-control" value="{{ruta}}" required>
+                          </div>
+                          <div class="form-group col-sm-4">
+                            <label>Tenencia</label>
+                            <select class="form-control" id="idtenencia" name="idtenencia" required>
                               <option value="{{tenenciaid}}">{{nombretenencia}}</option>
-                            {% for tipo in tenencia %}
-                            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
-                            {% endfor %}
-                      </select>
-                      </div>
-    
-      
-                            <div class="form-group col-sm-8">
-                                <label>Correo</label>
-                                <input type="text" class="form-control" id="correo" name="correo" value="{{correo}}">
-                              </div>
-                              <div class="form-group col-sm-6 col-md-6">
-                                <label>Nombre Agricultor</label>
-                                <input type="text" class="form-control" id="agricultor" name="agricultor" value="{{agricultor}}" required>
-                            </div>
-                            <div class="form-group col-sm-6 col-md-6">
-                              <p></p>
-                                <h5>Seleccione Opción de Vigencia</h5>
-                                <p></p>
-                                    <label class="container">Vigente<input type="radio" checked="checked" name="radio" id="vig0" value="0"><span class="checkmark"></span></label>
-                                    <label class="container">No Vigente<input type="radio" name="radio" id="vig1" value="1"><span class="checkmark"></span></label>
-                            </div>
-                            <div class="form-group col-sm-6 col-md-6">
-                              <p></p>
-                                <h5>Multa por no pago</h5>
-                                <p></p>
-                                    <label class="container">Aplicar<input type="radio" checked="checked" name="radio1" id="mul0" value="1"><span class="checkmark"></span></label>
-                                    <label class="container">No aplicar<input type="radio" name="radio1" id="mul1" value="0"><span class="checkmark"></span></label>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <h5>{{mensaje}}</h5>
-                            </div>
-                            <div class="form-group col-sm-12 div_boton">
-                                <button class="btn btn-block active m-b-5 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
-                                <button class="btn btn-block active m-b-5 btn-danger boton" type="submit" name="eliminar" id="eliminar"><i class="fas fa-trash-alt fa-3x m-r-1"></i> Eliminar </button>
-                            </div>
+                              {% for tipo in tenencia %}
+                              <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-8">
+                            <label>Correo</label>
+                            <input type="text" class="form-control" id="correo" name="correo" value="{{correo}}">
+                          </div>
+                          <div class="form-group col-sm-6 col-md-6">
+                            <label>Nombre Agricultor</label>
+                            <input type="text" class="form-control" id="agricultor" name="agricultor" value="{{agricultor}}" required>
+                          </div>
+                          <div class="form-group col-sm-6 col-md-6">
+                            <p></p>
+                            <h5>Seleccione Opción de Vigencia</h5>
+                            <p></p>
+                            <label class="container">Vigente<input type="radio" checked="checked" name="radio" id="vig0" value="0"><span class="checkmark"></span></label>
+                            <label class="container">No Vigente<input type="radio" name="radio" id="vig1" value="1"><span class="checkmark"></span></label>
+                          </div>
+                          <div class="form-group col-sm-6 col-md-6">
+                            <p></p>
+                            <h5>Multa por no pago</h5>
+                            <p></p>
+                            <label class="container">Aplicar<input type="radio" checked="checked" name="radio1" id="mul0" value="1"><span class="checkmark"></span></label>
+                            <label class="container">No aplicar<input type="radio" name="radio1" id="mul1" value="0"><span class="checkmark"></span></label>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <h5>{{mensaje}}</h5>
+                          </div>
+                          <div class="form-group col-sm-12 div_boton">
+                            <button class="btn btn-block active m-b-5 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
+                            <button class="btn btn-block active m-b-5 btn-danger boton" type="submit" name="eliminar" id="eliminar"><i class="fas fa-trash-alt fa-3x m-r-1"></i> Eliminar </button>
+                          </div>
                         </div>
                       </form>
                       {% endblock %}

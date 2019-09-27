@@ -88,7 +88,7 @@ urlpatterns = [
     path('egresos/lista/',listarDetalleE),
 
     path('contabilidad/comprobante/egresos/',viewEgresos),
-    path('contabilidad/ingreso/', viewIngresos), 
+    path('contabilidad/comprobante/ingreso/', viewIngresos), 
     path('contabilidad/saldofavor/', viewSaldoFavor),
     path('contabilidad/saldofavor/historial/', viewSaldoFavorH),
     path('contabilidad/libro_venta/', viewLibroVenta),
@@ -105,9 +105,9 @@ urlpatterns = [
     path('configuracion/contraseña/', viewContraseña), 
     path('configuracion/respaldar_info/', viewRespaldo_info),
     path('configuracion/arregla_datos/', viewArreglaDatos),
-    path('configuracion/mensaje_cobro/', viewAvisosVigentes),
+    path('configuracion/mensaje_cobro/', viewMensajeCobro),
     path('configuracion/crear_usuario/', viewCrearUsuario),
-    path('configuracion/avisos_vigentes/', viewMensajeCobro),
+    path('configuracion/avisos_vigentes/', viewAvisosVigentes),
     path('configuracion/boletas_vigentes/', viewBoletas_vigentes),
 
     #Reportes

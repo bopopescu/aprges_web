@@ -24,21 +24,64 @@
       a {
         color: #000;
       }
-      .iconos{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 16rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+      .tabla_info{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
       }
-      .icono{
-        color: black;
-        margin-top: 1rem;
+
+      .carta{
+        border: 1px solid #17a2b8;
+        border-radius: 10px;
+        height: 5rem;
+
+      }
+
+      .div_tabla{
+        overflow: auto;
+      }
+      .tabla{
+        width: 50rem;
+      }
+      .categorias{
+        width: 24%;
+      }
+      .texto{
+        width: 30%;
+      }
+      .th_valor, .multa{
+        width: 15%;
+      }
+      .th_valor{
+        text-align: right;
+      }
+      .valor{
+        text-align: right;
+        width: 100%;
+      }
+      td input{
+        border: none;
+        width: 100%;
+        height: 3rem;
+      }
+      td{
+        padding: 0 .5rem !important;
       }
       @media (min-width: 48em) { 
         .contenido{
-          margin: 0 3rem;
+          margin: 0 15rem;
+        }
+        .tabla{
+          width: 100%;
+        }
+        .categorias{
+          width: 13%;
+        }
+        .th_valor{
+          width: 10%;
+        }
+        .multa{
+          width: 5%;
         }
         .iconos{
           justify-content: space-evenly;
@@ -114,7 +157,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -341,6 +384,103 @@
                 <div class="panel-body">
                   <div class="row m-b-3">
                     <div class="contenido">
+                      
+                        <div class="subsidio form-group">
+                          <h6>Subsidio</h6>
+                          <div>
+                            <button type="button" class="btn btn-warning">Subsidio en Mts3</button>
+                            <button type="button" class="btn btn-warning">Subsidio en $</button>
+                          </div>
+                        </div>
+
+                        <div class="carta form-group"></div>
+
+                        <div class="div_tabla form-group">
+                          <table class="table table-bordered tabla m-b-0">
+                            <thead>
+                              <tr class="tabla_info">
+                                <th class="categorias"></th>
+                                <th class="texto">Texto (Aparece en el Aviso)</th>
+                                <th class="th_valor">Valor</th>
+                                <th class="multa">Multa</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th class="tabla_info">Multa Por No Pago en %(Porc)</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Multa por Inasistencia a Reuniones</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Alcantarilado</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Cuota Mortuoria</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Multa Por Pago fuera de Plazo</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Ajuste de Sencillo</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Convenios</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Multa por Alcantarillado</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">% de Consumo para Tratamiento</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Corte desde Medidor</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Corte desde Matriz</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                              <tr>
+                                <th class="tabla_info">Valor Remanente</th>
+                                <td><input type="text"></td>
+                                <td><input class="valor" type="text"></td>
+                                <td><input type="text"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>              
 
                     </div>
             

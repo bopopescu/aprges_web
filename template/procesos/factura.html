@@ -20,6 +20,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
         <style>
+            .boton_info{
+                background-color: #17a2b8;
+                border-color: #17a2b8; 
+                color: white;
+            }
+            .boton_info:hover{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;  
+                color: white;            
+            }   
+            .boton_info:focus{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;               
+            } 
             .panel-body {
                 padding: 1.6rem 1.875rem;
                 padding-bottom: 0;
@@ -246,7 +260,7 @@
                         <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
                         <ul class="nav menu-block-sub">
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -460,7 +474,7 @@
                         <form class="col-sm-12" action="/antecedentes/orden_trabajo/" method="POST">
                             {% csrf_token %}  
                             <div class="panel-heading div_boton">
-                                <a class="btn btn-block active m-b-2 btn-info boton_historial" type="button" name="historial" href="/procesos/factura/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                                <a class="btn btn-block active m-b-2 boton_info boton_historial" type="button" name="historial" href="/procesos/factura/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
                             </div>
                         </form>
                         {% endblock %}    
@@ -480,7 +494,7 @@
                                 <div class="id_factura_numero">
                                     <label for="" class="id_factura_label col-form-label">NRO FACTURA</label>
                                     <input type="text" class="id_factura_input form-control" id="nrofactura" name="nrofactura" value="{{nrofactura}}">
-                                    <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                                    <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
                                     <p></p>
                                     <button type="submit" style="margin-left: 10px" class="id_button_btn btn btn-warning" name="anular" id="anular">Anular Factura</button>
                                     <input type="hidden" name="nro" id="nro" value="{{nrofactura}}">
@@ -544,7 +558,7 @@
                                                 } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
                                                 this.value = date + '/';
                                                 }" maxlength="10" required>
-                                            <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="pagar" id="pagar">Pagar</button>
+                                            <button class="btn btn-outline-success boton_info search_boton" type="submit" name="pagar" id="pagar">Pagar</button>
                                         </div>
                                         <div class="cancelacion_total">
                                             <p class="cancelacion_total_label">Total a Pagar</p>

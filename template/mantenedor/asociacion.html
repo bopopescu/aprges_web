@@ -15,6 +15,19 @@
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
     <style>
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      } 
       .div_boton{
         display: flex;
         justify-content: center;
@@ -95,7 +108,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -445,7 +458,7 @@
 
 
                           <div class="col-xs-6 col-sm-12 col-md-12 text-capitalize div_boton">
-                              <button class="btn btn-block active m-b-2 btn-info boton" type="submit" name="guardar" id="guardar"><i class="fas fa-edit fa-3x m-r-1"></i> Modificar </button>
+                              <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar"><i class="fas fa-edit fa-3x m-r-1"></i> Modificar </button>
                             </div>
                     </div>
                   </div>

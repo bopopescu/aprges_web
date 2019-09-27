@@ -21,19 +21,6 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-      .primary{
-        color: #fff;
-        background-color: #17a2b8;
-        border-color: #17a2b8;        
-      }
-      .boton_primary{
-        color: #fff;
-        background-color: #17a2b8;
-        border-color: #17a2b8;   
-      }
-      .boton_primary:hover{
-        background-color: #388B92;
-      }
       .btn{
         display: inline-block;
         font-weight: 400;
@@ -52,12 +39,25 @@
         border-radius: .25rem;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
-      .btn-outline-success{
+      .tabla_info{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
+      }   
+      .boton-outline-info{
         color: #17a2b8;
         border-color: #17a2b8;
+      }     
+      .boton-outline-info:hover{
+        color: white;
+        background-color: #17a2b8;
       }
-      .table-succes{
-        background-color: #c3e6cb;
+      .boton-outline-info a{
+        color: #17a2b8;
+        display: block;
+      }    
+      .boton-outline-info a:hover{
+        color: white;
       }
       a {
         color: #000;
@@ -228,7 +228,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -457,10 +457,10 @@
 
                     <!-- botones -->
                     <section class="container botones">
-                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo1/">Tarifa x Tramo (1)</a></button>
-                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo2/">Tarifa x Tramo (2)</a></button>
-                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo3/" >Tarifa x Tramo (3)</a></button>
-                      <button type="button" class="btn btn-outline-success boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button>                    
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo1/">Tarifa x Tramo (1)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo2/">Tarifa x Tramo (2)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo3/" >Tarifa x Tramo (3)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button>                    
                     </section>
   
                     <!-- cargos -->
@@ -512,7 +512,7 @@
                           <div class="tabla">
                             <table class="table table-bordered m-b-0">
                               <thead>
-                                <tr class="primary">
+                                <tr class="tabla_info">
                                   <th>Tramo</th>
                                   <th>Desde</th>
                                   <th>Hasta</th>

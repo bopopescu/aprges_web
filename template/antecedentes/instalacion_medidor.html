@@ -21,21 +21,27 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-      .outline-info{
-        border-color: #17a2b8;
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      } 
+      .boton-outline-info{
         color: #17a2b8;
+        border-color: #17a2b8;
         background-color: transparent;
-      }
-      .outline-info:hover{
-        background-color: #17a2b8;
+      }     
+      .boton-outline-info:hover{
         color: white;
-      }
-      .outline-info:focus{
-        color: rgba(255, 255, 255, 1) !important;
-        box-shadow: 0 4px 16px #17a2b8;
-        transition: all 0.2s ease;
         background-color: #17a2b8;
-        color: white;
       }
       .outline-primary{
         border-color: #007bff;
@@ -280,7 +286,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -515,7 +521,7 @@
                           <!-- icono inicial, boton -->
                           <div class="inicio form-group">
                             <a href=""><i class="fas fa-search fa-3x inicio_icono"></i></a>
-                            <button type="button" class="btn outline-info inicio_botton">Cliente con Trato Especial</button>
+                            <button type="button" class="btn boton-outline-info inicio_botton">Cliente con Trato Especial</button>
                           </div>
                             
                           <!-- medidor, diametro, marca -->
@@ -615,9 +621,9 @@
               
                           <!--botones pantalla grande -->
                           <div class="btn-group btn-group-lg botones2" role="group" aria-label="Basic example">
-                            <button type="button" class="btn outline-info boton">Medidor</button>
-                            <button type="button" class="btn outline-info boton">Usuario</button>
-                            <button type="button" class="btn outline-info boton">Socio</button>
+                            <button type="button" class="btn boton-outline-info boton">Medidor</button>
+                            <button type="button" class="btn boton-outline-info boton">Usuario</button>
+                            <button type="button" class="btn boton-outline-info boton">Socio</button>
                           </div>
               
                           <!--botones pantalla pequeña -->
@@ -750,8 +756,8 @@
               
                       <!-- botones 2 -->
                       <div class=" botones2">
-                        <button type="button" class="btn btn-info boton2">Desmarcar Remanente</button>
-                        <button type="button" class="btn btn-info boton2" >Desmarcar Inasistencia</button>
+                        <button type="button" class="btn boton_info boton2">Desmarcar Remanente</button>
+                        <button type="button" class="btn boton_info boton2" >Desmarcar Inasistencia</button>
                       </div>
                       
                       <!-- iconos -->

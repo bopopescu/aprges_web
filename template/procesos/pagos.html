@@ -19,7 +19,25 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
-        <style>        
+        <style> 
+        .tabla_info{
+            color: #fff;
+            background-color: #17a2b8;
+            border-color: #17a2b8;        
+        }     
+        .boton_info{
+            background-color: #17a2b8;
+            border-color: #17a2b8; 
+            color: white;
+        }
+        .boton_info:hover{
+            background-color: #0a8a9e;
+            border-color: #0a8a9e;              
+        }   
+        .boton_info:focus{
+            background-color: #0a8a9e;
+            border-color: #0a8a9e;               
+        }    
         /* inicio modal */
             .modalDialog {
                 position: fixed;
@@ -200,30 +218,21 @@
                 font-size: 1.2rem;
                 display: block;
                 color: white;
-                background-color: #4183D7;
+                background-color: #17a2b8;
                 padding: .5rem 3rem;
                 text-decoration: none;
                 width: 15rem;
                 box-sizing: border-box;
             }
             .consulta_historial:hover{
+                background-color: #0a8a9e;
                 color: white;
-                background-color: rgb(22, 82, 161);
-                text-decoration: none;
             }
             .tabla__titulos1{
                 text-align: center;
-                background-color: #4183D7;
-                color: white;
-            }
-            .tabla__titulos2{
-                background-color: #4183D7;
-                color: white;
             }
             .tabla__titulos3{
                 text-align: right;
-                background-color: #4183D7;
-                color: white;
             }
             .iconos{
                 display: flex;
@@ -584,7 +593,7 @@
                         <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
                         <ul class="nav menu-block-sub">
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
                         <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -804,7 +813,7 @@
                                         <div class="search">
                                             <input type="hidden" name="numero" id="numero">
                                             <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por parcelero" aria-label="Search">
-                                            <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                                            <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
                                         </div>
                                         <div class="div__identificacion">
                                             <div class="form-group col-sm-3">
@@ -868,30 +877,30 @@
 
                                         </div>
                                         <div class="col-sm-8">
-                                                        <div class="card tabla_normal">
-                                                            <div class="card-body">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="tabla__titulos1" scope="col">Items</th>
-                                                                            <th class="tabla__titulos2" scope="col">Descripción</th>
-                                                                            <th class="tabla__titulos1" scope="col">Cantidad</th>
-                                                                            <th class="tabla__titulos3" scope="col">Valor</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        {% for i in lista %}
-                                                                        <tr>
-                                                                            <td>{{i.codigo}}</td>
-                                                                            <td>{{i.desc}}</td>
-                                                                            <td>{{i.can}}</td>
-                                                                            <td>{{i.valor}}</td>
-                                                                        </tr>
-                                                                        {% endfor %}
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
+                                            <div class="card tabla_normal">
+                                                <div class="card-body">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr class="tabla_info">
+                                                                <th class="tabla__titulos1" scope="col">Items</th>
+                                                                <th class="tabla__titulos2" scope="col">Descripción</th>
+                                                                <th class="tabla__titulos1" scope="col">Cantidad</th>
+                                                                <th class="tabla__titulos3" scope="col">Valor</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for i in lista %}
+                                                            <tr>
+                                                                <td>{{i.codigo}}</td>
+                                                                <td>{{i.desc}}</td>
+                                                                <td>{{i.can}}</td>
+                                                                <td>{{i.valor}}</td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-sm-12 iconos">
                                             <a href="#openModal"><i class="fas fa-money-bill-wave fa-4x icono"></i></a>

@@ -20,22 +20,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
         <style>
-            .primary{
+            .tabla_info{
                 color: #fff;
                 background-color: #17a2b8;
                 border-color: #17a2b8;        
-            }
-            .boton_primary{
-                color: #fff;
-                background-color: #17a2b8;
-                border-color: #17a2b8;   
-            }
-            .boton_primary:hover{
-                  background-color: #388B92;
-            }
-            .table-succes{
-                background-color: #c3e6cb;
-            }
+            } 
             .div_tabla{
                 border: 1px solid #e5e5e5;
                 border-radius: 5px;
@@ -161,7 +150,7 @@
                     <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
                     <ul class="nav menu-block-sub">
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -372,7 +361,7 @@
                                                 <div class="div_tabla">
                                                     <table class="table table-bordered tabla m-b-0">
                                                         <thead class="tabla_titulo">
-                                                            <tr class="primary">
+                                                            <tr class="tabla_info">
                                                                 <th class="titulo1">Código</th>
                                                                 <th class="titulo2">Descripción</th>
                                                             </tr>

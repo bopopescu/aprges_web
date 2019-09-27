@@ -20,6 +20,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <style>
+      .boton_info{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18rem;
+        padding: 1rem 3rem;
+      }
+      .boton_info:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      } 
       .div_boton{
         display: flex;
         justify-content: space-evenly;
@@ -128,7 +146,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -464,7 +482,7 @@
                             </div>
 
                             <div class="col-sm-12 m-b-3 div_boton">
-                              <button class="btn btn-block active m-b-5 btn-info boton" type="submit" name="aceptar" id="aceptar"><i class="far fa-save fa-3x m-r-1"></i> Aceptar</button>
+                              <button class="btn btn-block active m-b-5 boton_info " type="submit" name="aceptar" id="aceptar"><i class="far fa-save fa-3x m-r-1"></i> Aceptar</button>
                               <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-capitalize">

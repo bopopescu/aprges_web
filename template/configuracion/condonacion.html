@@ -40,6 +40,24 @@
                 width:60%;
                 border:1px solid red;
             }
+            .tabla_info{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;        
+            } 
+            .boton_info{
+                background-color: #17a2b8;
+                border-color: #17a2b8; 
+                color: white;
+            }
+            .boton_info:hover{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;              
+            }   
+            .boton_info:focus{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;               
+            }
             .search{
                 display: flex;
                 margin-bottom: 1rem;
@@ -227,7 +245,7 @@
                     <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
                     <ul class="nav menu-block-sub">
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
                     <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -447,7 +465,7 @@
                                         {% csrf_token %}  
                                         <div class="row m-b-3">
                                             <div class="div_boton">
-                                                <a class="btn btn-block active m-b-2 btn-info boton" type="button" href="/configuracion/condonacion/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                                                <a class="btn btn-block active m-b-2 boton_info boton" type="button" href="/configuracion/condonacion/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
                                             </div>
                                         </div>
                                     </form>
@@ -457,7 +475,7 @@
                                             <div class="search">
                                                 <input type="hidden" name="numero" id="numero">
                                                 <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
-                                                <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                                                <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
                                                 <input type="hidden" id="identi" name="identi" class="form-control">
                                                 <input type="hidden" id="id_" name="id_" value="{{id_}}" class="form-control">
                                                 <input type="hidden" id="ano_" name="ano_" value="{{ano}}" class="form-control">
@@ -475,7 +493,7 @@
                                                         <div id="table-scroll">
                                                             <table class="table table-bordered m-b-0">
                                                                 <thead>
-                                                                    <tr class="tabla_titulos">
+                                                                    <tr class="tabla_info">
                                                                         <th scope="col">Boleta</th>
                                                                         <th scope="col">Código</th>
                                                                         <th scope="col">Descripción</th>

@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <style>
-      .outline-info{
-        border-color: #17a2b8;
+      .boton-outline-info{
         color: #17a2b8;
+        border-color: #17a2b8;
         background-color: transparent;
-      }
-      .outline-info:hover{
-        background-color: #17a2b8;
+      }     
+      .boton-outline-info:hover{
         color: white;
+        background-color: #17a2b8;
       }
       a{
         color: black;
@@ -155,7 +155,7 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/ingreso/">Comprobante de Ingresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
               <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
@@ -423,7 +423,7 @@
                           <option></option>
                           <option></option>
                         </select>
-                        <button class="btn outline-info estanque_boton" type="button">Grabar Estanque</button>
+                        <button class="btn boton-outline-info estanque_boton" type="button">Grabar Estanque</button>
                       </div>
                     </div>
               
