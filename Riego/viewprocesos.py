@@ -3289,22 +3289,100 @@ def historial_cliente(request,id_,ano_):
     return render(request, 'procesos/historial_cliente.html', data)
 
 def viewBoletaLibre(request):
-    return render(request, 'procesos/boleta_libre.html', {})
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        nro_boleta=request.POST['nro_boleta']
+        rut_cliente=request.POST['rut_cliente']
+        nombre_cliente=request.POST['nombre_cliente']
+        direccion=request.POST['direccion']
+        serie_medidor=request.POST['serie_medidor']
+        hoy=request.POST['hoy']
+        detalle=request.POST['detalle']
+        total_pagar=request.POST['total_pagar']
+        nivel2=request.POST['nivel2']
+        nivel3=request.POST['nivel3']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'procesos/boleta_libre.html', data)
 
 def viewCancelarBoleta(request):
-    return render(request, 'procesos/cancelar_boleta.html', {})
+
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        nombre=request.POST['nombre']
+        direccion=request.POST['direccion']
+        sector=request.POST['sector']
+        rut=request.POST['rut']
+        nro_medidor=request.POST['nro_medidor']
+        nro_socio=request.POST['nro_socio']
+        hoy=request.POST['hoy']
+        nro_boleta=request.POST['nro_boleta']
+        consumo=request.POST['consumo']
+        multa=request.POST['multa']
+        nro_comprobante=request.POST['nro_comprobante']
+        otros_cobros=request.POST['otros_cobros']
+        total_pagar=request.POST['total_pagar']
+        efectivo=request.POST['efectivo']
+        vuelto=request.POST['vuelto']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'procesos/cancelar_boleta.html', data)
 
 def viewCierrePeriodo(request):
+
     return render(request, 'procesos/cierre_periodo.html', {})
 
 def viewFacturaLibre(request):
-    return render(request, 'procesos/factura_libre.html', {})
+
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        nro_factura=request.POST['nro_factura']
+        hoy=request.POST['hoy']
+        mes=request.POST['mes']
+        año=request.POST['año']
+        rut_cliente=request.POST['rut_cliente']
+        direccion=request.POST['direccion']
+        comuna=request.POST['comuna']
+        telefono=request.POST['telefono']
+        giro=request.POST['giro']
+        cond_venta=request.POST['cond_venta']
+        cant_mt3=request.POST['cant_mt3']
+        detalle=request.POST['detalle']
+        total=request.POST['total']
+        cancelacion=request.POST['cancelacion']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'procesos/factura_libre.html', data)
 
 def viewIngresoLectura(request):
     return render(request, 'procesos/ingreso_lectura.html', {})
     
 def viewLectura_rapida(request):
-    return render(request, 'procesos/lectura_rapida.html', {})
+
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        mes=request.POST['mes']
+        año=request.POST['año']
+        hoy=request.POST['hoy']
+        medidor=request.POST['medidor']
+        lect_actual=request.POST['lect_actual']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'procesos/lectura_rapida.html', data)
 
 def viewSubsidio(request):
     return render(request, 'procesos/subsidio.html', {})

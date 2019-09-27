@@ -211,7 +211,6 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/avisos_vigentes/">Avisos Vigentes S/N</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
             </ul>
           </li>
@@ -425,7 +424,7 @@
                         <div class="ff">
                           <div class="factura">
                             <h6 class="factura_titulo">NRO FACTURA</h6>
-                            <input class="factura_input form-control" type="text">
+                            <input class="factura_input form-control" type="text" name="nro_factura" id="nro_factura" value="{{nro_factura}}">
                           </div>
                           <div class="emision">
                             <h6 class="emision_titulo">FECHA EMISIÓN</h6>
@@ -436,11 +435,11 @@
                         <div class="fecha">
                           <div class="mes">
                             <label class="mes_label">Mes</label>
-                            <input class="mes_input form-control" type="text">
+                            <input class="mes_input form-control" type="text" name="mes" id="mes" value="{{mes}}">
                           </div>
                           <div class="año">
                             <label class="año_label">Año</label>
-                            <input class="año_input form-control" type="text">
+                            <input class="año_input form-control" type="text" name="año" id="año" value="{{año}}">
                           </div>
                           <button class="btn outline-warning subsidio" type="button">¿Subsidio?</button>
                         </div>
@@ -454,8 +453,8 @@
                       <!-- cliente -->
                       <div class="form-group cliente">
                         <label class="cliente_label">Seleccionar Cliente</label>
-                        <input class="cliente_input form-control" type="text">
-                        <select class="cliente_select form-control">
+                        <input class="cliente_input form-control" type="text" name="rut_cliente" id="rut_cliente" value="{{rut_cliente}}">
+                        <select class="cliente_select form-control" name="nombre_cliente" id="nombre_cliente" value="{{nombre_cliente}}">
                           <option></option>
                           <option></option>
                         </select>
@@ -465,11 +464,11 @@
                       <div class="form-group dc">
                         <div class="direccion">
                           <label class="direccion_label col-form-label">Dirección</label>
-                          <input class="direccion_input form-control" type="text">
+                          <input class="direccion_input form-control" type="text" name="direccion" id="direccion" value="{{direccion}}">
                         </div>
                         <div class="comuna">
                           <label class="comuna_label col-form-label">Comuna</label>
-                          <input class="comuna_input form-control" type="text">
+                          <input class="comuna_input form-control" type="text" name="comuna" id="comuna" value="{{comuna}}">
                         </div>
                       </div>
   
@@ -477,40 +476,40 @@
                       <div class="form-group tg">
                         <div class="telefono">
                           <label class="telefono_label col-form-label">Teléfono</label>
-                          <input class="telefono_input form-control" type="text">
+                          <input class="telefono_input form-control" type="text" name="telefono" id="telefono" value="{{telefono}}">
                         </div>
                         <div class="giro">
                           <label class="giro_label col-form-label">Giro</label>
-                          <input class="giro_input form-control" type="text">
+                          <input class="giro_input form-control" type="text" name="giro" id="giro" value="{{giro}}">
                         </div>
                       </div>
       
                       <!-- cond.venta -->
                       <div class="form-group venta">
                         <label class="venta_label col-form-label">Cond. de Venta</label>
-                        <input class="venta_input form-control" type="text">
+                        <input class="venta_input form-control" type="text" name="cond_venta" id="cond_venta" value="{{cond_venta}}">
                       </div>
       
                       <!-- cond.venta -->
                       <div class="form-group mdt">
                         <div class="mt3">
                           <label class="">Cant mt3</label>
-                          <input class="form-control" type="text">
+                          <input class="form-control" type="text" name="cant_mt3" id="cant_mt3" value="{{cant_mt3}}">
                         </div>
                         <div class="detalle">
                           <label class="">Detalle</label>
-                          <textarea class="form-control" rows="3"></textarea>
+                          <textarea class="form-control" rows="3" name="detalle" id="detalle" value="{{detalle}}"></textarea>
                         </div>
                         <div class="total">
                           <label class="">Total</label>
-                          <input class="form-control" type="text">
+                          <input class="form-control" type="text" name="total" id="total" value="{{total}}">
                         </div> 
                       </div>
       
                       <!-- cancelación -->
                       <div class="form-group cancelacion">
                         <h6>FECHA CANCELACIÓN</h6>
-                        <input class="cancelacion_input form-control" type="text">
+                        <input class="cancelacion_input form-control" type="text" name="cancelacion" id="cancelacion" value="{{cancelacion}}">
                         </div> 
                     </div>
   

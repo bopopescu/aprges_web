@@ -100,6 +100,7 @@
         .fecha_input{
           width: 15rem;
           height: min-content;
+          font-size: 1.5rem;
         }
         .fecha{
           justify-content: space-between;
@@ -228,7 +229,6 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/avisos_vigentes/">Avisos Vigentes S/N</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
             </ul>
           </li>
@@ -445,12 +445,12 @@
             
                         <div class="direccion form-group">
                           <label class="direccion_label col-form-label">Dirección</label>
-                          <input class="direccion_input form-control" type="text">
+                          <input class="direccion_input form-control" type="text" name="direccion" id="direccion" value="{{direccion}}">
                         </div>
             
                         <div class="sector form-group">
                           <label class="sector_label col-form-label">Sector</label>
-                          <input class="sector_input form-control" type="text">
+                          <input class="sector_input form-control" type="text" name="sector" id="sector" value="{{sector}}">
                         </div>
             
                         <div class="ri form-group">
@@ -458,7 +458,7 @@
                             <label class="rut_label col-form-label">Rut Cliente</label>
                             <input class="rut_input form-control" type="text" id="rut" name="rut" value="{{rut}}">
                           </div>
-                          <input class="ri_input form-control" type="text">
+                          <input class="ri_input form-control" type="text" >
                         </div>
             
                         <div class="tabla">
@@ -677,12 +677,12 @@
                         <div class="form-group buscar">
                           <div class="medidor">
                             <h4>Nro Medidor</h4>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="nro_medidor" id="nro_medidor" value="{{nro_medidor}}">
                           </div>
                           <div class="card">
                             <div class="card-body socio">
                               <h5 class="card-title">Buscar Por Nº Socio</h5>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="nro_socio" id="nro_socio" value="{{nro_socio}}">
                               <button type="button" class="btn boton_info boton_socio">Socio</button>
                             </div>
                           </div>
@@ -701,35 +701,35 @@
                             <h5 class="card-title">Total a Pagar</h5>
                             <div class="nro">
                               <label class="nro_label">NRO BOLETA</label>
-                              <input class="nro_input form-control" type="text">
+                              <input class="nro_input form-control" type="text" name="nro_boleta" id="nro_boleta" value="{{nro_boleta}}">
                             </div>
                             <div class="consumo">
                               <label class="consumo_label">Consumo</label>
-                              <input class="consumo_input form-control" type="text">
+                              <input class="consumo_input form-control" type="text" name="consumo" id="consumo" value="{{consumo}}">
                             </div>
                             <div class="multa">
                               <label class="multa_label">Agregar Multa</label>
-                              <input class="multa_input form-control" type="text">
+                              <input class="multa_input form-control" type="text" name="multa" id="multa" value="{{multa}}">
                             </div>
                             <div class="comprobante">
                               <label class="comprobante_label">NRO COMPROBANTE</label>
-                              <input class="comprobante_input form-control" type="text">
+                              <input class="comprobante_input form-control" type="text" name="nro_comprobante" id="nro_comprobante" value="{{nro_comprobante}}">
                             </div>
                             <div class="cobros">
                               <label class="cobros_label">Otros Cobros</label>
-                              <input class="cobros_input form-control" type="text">
+                              <input class="cobros_input form-control" type="text" name="otros_cobros" id="otros_cobros" value="{{otros_cobros}}">
                             </div>
                             <div class="total">
                               <label class="total_label">TOTAL A PAGAR</label>
-                              <input class="total_input form-control" type="text">
+                              <input class="total_input form-control" type="text" name="total_pagar" id="total_pagar" value="{{total_pagar}}">
                             </div>
                             <div class="efectivo">
                               <label class="efectivo_label">EFECTIVO</label>
-                              <input class="efectivo_input form-control" type="text">
+                              <input class="efectivo_input form-control" type="text" name="efectivo" id="efectivo" value="{{efectivo}}">
                             </div>
                             <div class="vuelto">
                               <label class="vuelto_label">VUELTO</label>
-                              <input class="vuelto_input form-control" type="text">
+                              <input class="vuelto_input form-control" type="text" name="vuelto" id="vuelto" value="{{vuelto}}">
                             </div>
                           </div>            
                         </div>

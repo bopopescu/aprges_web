@@ -836,3 +836,104 @@ def viewRegistroFinanciero(request):
 
 def viewConsultasCorte(request):
     return render(request, 'informes/consultas_corte.html', {})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def informe1(request):
+    pdf= render_to_pdf('reportes/1.Listado de parceleros sin ingreso de consumo.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe2(request):
+    pdf= render_to_pdf('reportes/2.Listado de facturación copy.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe3(request):
+    pdf= render_to_pdf('reportes/3.Listado de recaudación por rango de fecha.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe4(request):
+    pdf= render_to_pdf('reportes/4.Nomina de parceleros activos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe5(request):
+    pdf= render_to_pdf('reportes/5.Listado de consumo hora por mes.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe6(request):
+    pdf= render_to_pdf('reportes/6.Libro de caja egresos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe7(request):
+    pdf= render_to_pdf('reportes/7.Listado de facturas emitidas.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe8(request):
+    pdf= render_to_pdf('reportes/8.Listado de facturas pendientes.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe9(request):
+    pdf= render_to_pdf('reportes/9.Listado de convenios.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe10(request):
+    pdf= render_to_pdf('reportes/10.Listado de saldo a favor.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe11(request):
+    pdf= render_to_pdf('reportes/11.Nomina de parceleros para asamblea.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe12(request):
+    pdf= render_to_pdf('reportes/12.Nomina de parceleros eliminados.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe12(request):
+    pdf= render_to_pdf('reportes/13.Listado de compobantes de ingresos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe14(request):
+    pdf= render_to_pdf('reportes/14.Listado de comprobantes de egresos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe15(request):
+    pdf= render_to_pdf('reportes/15.Nomina de parceleros con pagos al dia.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe16(request):
+    pdf= render_to_pdf('reportes/16.Listado de parceleros por año de ingreso.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe17(request):
+    pdf= render_to_pdf('reportes/17.Listado de parceleros alfabetico.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe18(request):
+    pdf= render_to_pdf('reportes/18.Nomina de parceleros inactivos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe19(request):
+    pdf= render_to_pdf('reportes/19.abono1.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe20(request):
+    pdf= render_to_pdf('reportes/20.Libro de caja ingresos.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe21(request):
+    pdf= render_to_pdf('reportes/21.Listado de facturas anuladas1.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informe43(request):
+    pdf= render_to_pdf('reportes/43.listado_de_ingresos_por_item.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')

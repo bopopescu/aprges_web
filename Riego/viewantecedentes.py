@@ -690,10 +690,46 @@ def viewOrden_trabajo(request):
     return render(request, 'antecedentes/orden_trabajo.html', data)
 
 def viewInstalacion(request):
-    return render(request, 'antecedentes/instalacion_medidor.html', {})
+    now = datetime.datetime.now()
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        medidor=request.POST['medidor']
+        diametro=request.POST['diametro']
+        marca=request.POST['marca']
+        sector=request.POST['sector']
+        calle=request.POST['calle']
+        area=request.POST['area']
+        sitio=request.POST['sitio']
+        ruta=request.POST['ruta']
+        hoy=request.POST['hoy']
+        referencia=request.POST['referencia']
+        nro_serie=request.POST['nro_serie']
+        mts_distancia=request.POST['mts_distancia']
+        diametro_red=request.POST['diametro_red']
+        digitos_medidor=request.POST['digitos_medidor']
+        email=request.POST['email']
+        rut_usuario=request.POST['rut_usuario']
+        nombre_usuario=request.POST['nombre_usuario']
+        rut_socio=request.POST['rut_socio']
+        nombre_socio=request.POST['nombre_socio']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'antecedentes/instalacion_medidor.html', data)
 
 def viewEstanque(request):
+
     now = datetime.datetime.now()
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        serie=request.POST['serie']
+        marca=request.POST['marca']
+        diametro=request.POST['diametro']
+        nombre=request.POST['nombre']
+        informe=request.POST['informe']
+
     data={
         'fecha': str(now.month)+"/"+str(now.year)
     }

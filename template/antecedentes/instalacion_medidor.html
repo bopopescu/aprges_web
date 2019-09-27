@@ -305,7 +305,6 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/avisos_vigentes/">Avisos Vigentes S/N</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
             </ul>
           </li>
@@ -528,15 +527,15 @@
                           <div class="mdm form-group">
                             <div class="medidor">
                               <label class="col-form-label">Nro Medidor</label>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="medidor" id="medidor" value="{{medidor}}">
                             </div>
                             <div class="diametro">
                               <label class="col-form-label">Diámetro</label>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="diametro" id="diametro" value="{{diametro}}">
                             </div>
                             <div class="marca">
                               <label class="col-form-label">Marca</label>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="marca" id="marca" value="{{marca}}">
                             </div>
                           </div>
                                 
@@ -544,15 +543,15 @@
                           <div class="sca form-group">
                             <div class="sector">
                               <label class="col-form-label">Sector</label>
-                              <select class="form-control"></select>
+                              <select class="form-control" name="sector" id="sector" value="{{sector}}"></select>
                             </div>
                             <div class="calle">
                               <label class="col-form-label">Calle</label>                
-                              <select class="form-control "></select>
+                              <select class="form-control" name="calle" id="calle" value="{{calle}}"></select>
                             </div>
                             <div class="area">
                               <label class="col-form-label">Área</label>
-                              <select class="form-control"></select>
+                              <select class="form-control" name="area" id="area" value="{{area}}"></select>
                             </div>
                           </div>
               
@@ -560,11 +559,11 @@
                           <div class="srf form-group">
                             <div class="sitio">
                               <label class="col-form-label">Sitio/Parcela</label>
-                              <input class="form-control" type="text" >
+                              <input class="form-control" type="text" name="sitio" id="sitio" value="{{sitio}}">
                             </div>
                             <div class="ruta">
                               <label class="col-form-label">Ruta</label>
-                              <input class="form-control" type="text" disabled>
+                              <input class="form-control" type="text" name="ruta" id="ruta" value="{{ruta}}" disabled>
                             </div>
                             <div class="fecha">
                               <label class="col-form-label">Fecha Inst.</label>
@@ -575,22 +574,22 @@
                           <!-- observacion -->
                           <div class="observacion form-group">
                             <label class="col-form-label">Referencia/Observación</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name="referencia" id="referencia" value="{{referencia}}">
                           </div>
               
                           <!-- serie, distancia, red -->
                           <div class="sdr form-group">
                             <div class="serie">
                               <label class="col-form-label">Nro Serie</label>
-                              <input class="form-control" type="text" >
+                              <input class="form-control" type="text" name="nro_serie" id="nro_serie" value="{{nro_serie}}">
                             </div>
                             <div class="distancia">
                               <label class="col-form-label">Mts Distancia Red</label>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="mts_distancia" id="mts_distancia" value="{{mts_distancia}}">
                             </div>
                             <div class="red">
                               <label class="col-form-label">Diámetro Red</label>
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" name="diametro_red" id="diametro_red" value="{{diametro_red}}">
                             </div> 
                           </div>
               
@@ -599,7 +598,7 @@
               
                             <div class="nro">
                               <label class="nro_label col-form-label">Nº Dígitos Medidor</label>
-                              <input class="nro_input form-control" type="number">
+                              <input class="nro_input form-control" type="number" name="digitos_medidor" id="digitos_medidor" value="{{digitos_medidor}}">
                             </div>
                 
                             <div class="btn-group botones" role="group" aria-label="Basic example">
@@ -611,7 +610,7 @@
 
                           <div class="correo form-group">
                             <label class="correo_label col-form-label">Enviar al correo electrónico:</label>
-                            <input class="correo_input form-control" type="text">
+                            <input class="correo_input form-control" type="text" name="email" id="email" value="{{email}}">
                         </div>
               
                         </div>
@@ -733,15 +732,15 @@
                           <!-- usuario -->
                           <div class="usuario form-group">
                             <label class="usuario_label col-form-label">C. Identidad Usuario</label>
-                            <input class="usuario_input1 form-control" type="tetx">
-                            <input class="usuario_input2 form-control" type="tetx">
+                            <input class="usuario_input1 form-control" type="text" name="rut_usuario" id="rut_usuario" value="{{rut_usuario}}">
+                            <input class="usuario_input2 form-control" type="text" name="nombre_usuario" id="nombre_usuario" value="{{nombre_usuario}}">
                           </div>
               
                           <!-- socio -->
                           <div class="socio form-group">
                             <label class="socio_label col-form-label">C. Identidad Socio</label>
-                            <input class="socio_input1 form-control" type="tetx">
-                            <input class="socio_input2 form-control" type="tetx">
+                            <input class="socio_input1 form-control" type="text" name="rut_socio" id="rut_socio" value="{{rut_socio}}">
+                            <input class="socio_input2 form-control" type="text" name="nombre_socio" id="nombre_socio" value="{{nombre_socio}}">
                           </div>
               
                         </div>

@@ -70,7 +70,7 @@ urlpatterns = [
     path('subsidio/carga/', Cargasubsidio),
 
     # Informes
-    path('informes/informes/informes/',viewInformes),
+    path('informes/informes/',viewInformes),
     path('informes/<id_>/',viewInformesSinModel),
     path('informes/consultas/medidor/',viewConsultasMedidor),
     path('informes/consultas/lectura/',viewConsultasLectura1),
@@ -121,4 +121,29 @@ urlpatterns = [
     path('contabilidad/plancuenta/ingresos/historial/',historialIngresos),
     path('configuracion/condonacion/historial/', historialCondonacion),
 
+
+
+    path('reportes/1/', informe1),
+    path('reportes/2/', informe2),
+    path('reportes/3/', informe3),
+    path('reportes/4/', informe4),
+    path('reportes/5/', informe5),
+    path('reportes/5/', informe5),
+    path('reportes/6/', informe6),
+    path('reportes/7/', informe7),
+    path('reportes/8/', informe8),
+    path('reportes/9/', informe9),
+    path('reportes/10/', informe10),
+    path('reportes/11/', informe11),
+    path('reportes/12/', informe12),
+    # path('reportes/13/', informe13),
+    path('reportes/14/', informe14),
+    path('reportes/15/', informe15),
+    path('reportes/16/', informe16),
+    path('reportes/17/', informe17),
+    path('reportes/18/', informe18),
+    path('reportes/19/', informe19),
+    path('reportes/20/', informe20),
+    path('reportes/21/', informe21),
+    path('reportes/43/', informe43),
 ]
