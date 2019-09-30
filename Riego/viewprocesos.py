@@ -3314,7 +3314,6 @@ def viewCancelarBoleta(request):
     now = datetime.datetime.now()
 
     if request.method=='POST' and 'guardar' in request.POST:
-        nombre=request.POST['nombre']
         direccion=request.POST['direccion']
         sector=request.POST['sector']
         rut=request.POST['rut']
@@ -3337,6 +3336,16 @@ def viewCancelarBoleta(request):
     return render(request, 'procesos/cancelar_boleta.html', data)
 
 def viewCierrePeriodo(request):
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        nombre=request.POST['nombre']
+        nombre_sector=request.POST['nombre_sector']
+        tarifa=requst.POST['tarifa']
+        tratamiento=request.POST['tratamiento']
+        multa=request.POST['multa']
+        consumo=request.POST['consumo']
+        # =request.POST['']
+        # =request.POST['']
 
     return render(request, 'procesos/cierre_periodo.html', {})
 

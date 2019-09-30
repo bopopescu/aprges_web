@@ -712,6 +712,9 @@ def viewInstalacion(request):
         nombre_usuario=request.POST['nombre_usuario']
         rut_socio=request.POST['rut_socio']
         nombre_socio=request.POST['nombre_socio']
+        cod_beneficiario=request.POST['cod_beneficiario']
+        solidario=request.POST['solidario']
+        descuento=request.POST['descuento']
 
     data={
         'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)

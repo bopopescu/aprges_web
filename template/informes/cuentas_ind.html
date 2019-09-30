@@ -101,7 +101,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -393,24 +393,23 @@
                         <div class="nombre">
                           <label class="nombre_label col-form-label">Nombre</label>
                           <input class="nombre_input form-control" type="text" id="nombre" name="nombre" value="{{nombre}}">
-                          <input class="nombre_input2 form-control" type="text">
                         </div>
                         
                         <div class="medidor">
                           <label class="medidor_label col-form-label">Nro Medidor</label>
-                          <input class="medidor_input form-control" type="text">
+                          <input class="medidor_input form-control" type="text" id="medidor" name="medidor" value="{{medidor}}">
                         </div>
                       </div>
 
                       <div class="da form-group">
                         <div class="direccion">
                           <label class="direccion_label col-form-label">Dirección</label>
-                          <input class="direccion_input form-control" type="text">
+                          <input class="direccion_input form-control" type="text" id="direccion" name="direccion" value="{{direccion}}">
                         </div>
                         
                         <div class="año">
                           <label class="año_label col-form-label">Año</label>
-                          <input class="año_input form-control" type="text">
+                          <input class="año_input form-control" type="text" id="año" name="año" value="{{año}}">
                         </div>                        
                       </div>
                             
@@ -484,7 +483,7 @@
                         </div>
                         <div class="deuda">
                           <h5>Cliente Registra $0 de deuda</h5>
-                          <input class="form-control" type="text">
+                          <input class="form-control" type="text" name="deuda" id="deuda" value="{{deuda}}">
                         </div>
                         <div class="iconos">
                           <a href="#"><i class="fas fa-trash-alt fa-4x icono" ></i></a>

@@ -819,23 +819,62 @@ def ListaSaldo(request):
     return HttpResponse(pdf, content_type='application/pdf')
 
 def viewConsultasMedidor(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        nombre=request.POST['nombre']
+        medidor=request.POST['medidor']
+        direccion=request.POST['direccion']
+        año=request.POST['año']
+
     return render(request, 'informes/consultas_medidor.html', {})
 
-def viewConsultasLectura1(request):
-    print("aca")
+def viewConsultasLectura(request):
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        nombre=request.POST['nombre']
+        direccion=request.POST['direccion']
+        medidor=request.POST['medidor']
+        año=request.POST['año']
+
     return render(request, 'informes/consultas_lectura.html', {})
 
 def viewCuentasInd(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        nombre=request.POST['nombre']
+        direccion=request.POST['direccion']
+        medidor=request.POST['medidor']
+        año=request.POST['año']
+        deuda=request.POST['deuda']
+
     return render(request, 'informes/cuentas_ind.html', {})
 
 def viewTomaLectura(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        nro_sector=request.POST['nro_sector']
+        nombre_sector=request.POST['nombre_sector']
+
     return render(request, 'informes/toma_lectura.html', {})
 
 def viewRegistroFinanciero(request):
     return render(request, 'informes/registro_financiero.html', {})
 
 def viewConsultasCorte(request):
-    return render(request, 'informes/consultas_corte.html', {})
+        
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        mes=request.POST['mes']
+        año=request.POST['año']
+        tipo=request.POST['tipo']
+        sector=request.POST['sector']
+    
+    data={
+        'año': now.year
+    }
+
+    return render(request, 'informes/consultas_corte.html', data)
 
 
 
@@ -855,7 +894,7 @@ def informe1(request):
     return HttpResponse(pdf, content_type='application/pdf')
 
 def informe2(request):
-    pdf= render_to_pdf('reportes/2.Listado de facturación copy.html', {})
+    pdf= render_to_pdf('reportes/2.Listado de facturación.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
 def informe3(request):
@@ -898,12 +937,12 @@ def informe12(request):
     pdf= render_to_pdf('reportes/12.Nomina de parceleros eliminados.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
-def informe12(request):
-    pdf= render_to_pdf('reportes/13.Listado de compobantes de ingresos.html', {})
+def informe13(request):
+    pdf= render_to_pdf('reportes/13.cpy.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
 def informe14(request):
-    pdf= render_to_pdf('reportes/14.Listado de comprobantes de egresos.html', {})
+    pdf= render_to_pdf('reportes/14.cpy.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
 def informe15(request):
@@ -936,4 +975,48 @@ def informe21(request):
 
 def informe43(request):
     pdf= render_to_pdf('reportes/43.listado_de_ingresos_por_item.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeAviso(request):
+    pdf= render_to_pdf('reportes/aviso.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeConvenio(request):
+    pdf= render_to_pdf('reportes/convenio.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeCuenta_ind(request):
+    pdf= render_to_pdf('reportes/cuenta_individual.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeEgreso(request):
+    pdf= render_to_pdf('reportes/egreso.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeFactura(request):
+    pdf= render_to_pdf('reportes/factura.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeIngreso(request):
+    pdf= render_to_pdf('reportes/ingreso.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeOrden(request):
+    pdf= render_to_pdf('reportes/orden.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informePlan(request):
+    pdf= render_to_pdf('reportes/plan.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeCondonacionrpt(request):
+    pdf= render_to_pdf('configuracion/condonacionrpt.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeSaldo(request):
+    pdf= render_to_pdf('contabilidad/saldo.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def informeReporte(request):
+    pdf= render_to_pdf('procesos/reporte.html', {})
     return HttpResponse(pdf, content_type='application/pdf')

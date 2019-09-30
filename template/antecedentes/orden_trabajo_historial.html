@@ -34,7 +34,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -295,62 +295,58 @@
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
             <!-- #SELECT2-->
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                        <div class="row m-b-3 col-sm-3">
-
-                            <input type="hidden" id="identificador" name="identificador" value="{{identificador}}" class="form-control">
-                          </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="row m-b-3 col-sm-3">
+                  <input type="hidden" id="identificador" name="identificador" value="{{identificador}}" class="form-control">
+                </div>
   
-                          <div class="form-group col-sm-12">
-                                  <div class="form-group col-sm-12">
-                                  <table class="table" data-plugin="DataTable">
-                                      <thead class="thead-inverse">
-                                        <tr>
-                                          <th>Acciones</th>
-                                          <th>Nro Orden</th>
-                                          <th>Rut</th>
-                                          <th>Nombre</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {% for medidor in lista %}
-                                        <tr>
-                                          <td>
-                                                {% block content1 %}	
-                                                <form action="/antecedentes/orden_trabajo/historial/" method="POST">
-                                                  {% csrf_token %} 
-                                                    <input type="hidden" id="nro" name="nro" value="{{medidor.id}}">
-                                                      <button class="btn btn-secondary btn-info" type="submit" name="ver" id="ver">Ver</button>
-                                                      <button class="btn btn-secondary btn-danger" type="submit" name="eliminar" id="eliminar">Eliminar</button>
-                                                </form>
-                                                {% endblock %}
-                                                </td>
-                                                <td>{{medidor.id}}</td>
-                                                <td>{{medidor.rut}}</td>
-                                                <td>{{medidor.nombres}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                      </tbody>
-                                    </table>
-                                  </div>
+                <div class="form-group col-sm-12">
+                  <div class="form-group col-sm-12">
+                    <table class="table" data-plugin="DataTable">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>Acciones</th>
+                          <th>Nro Orden</th>
+                          <th>Rut</th>
+                          <th>Nombre</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for medidor in lista %}
+                        <tr>
+                          <td>
+                            {% block content1 %}	
+                            <form action="/antecedentes/orden_trabajo/historial/" method="POST">
+                              {% csrf_token %} 
+                              <input type="hidden" id="nro" name="nro" value="{{medidor.id}}">
+                              <button class="btn btn-secondary btn-info" type="submit" name="ver" id="ver">Ver</button>
+                              <button class="btn btn-secondary btn-danger" type="submit" name="eliminar" id="eliminar">Eliminar</button>
+                            </form>
+                            {% endblock %}
+                          </td>
+                          <td>{{medidor.id}}</td>
+                          <td>{{medidor.rut}}</td>
+                          <td>{{medidor.nombres}}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
                   </div>
+                </div>
 
-                  <div class="panel-body">
-                                  
-                    </div>
-                    <!-- #SELECT2-->        
-                  </div>
-          </div>
+                <div class="panel-body"></div>
+              </div>
+            </div>
+            <!-- #SELECT2-->        
+          </div> 
           <!-- ROW-->         
-        </div> 
+        </div>
         <!-- END CONTAINER FIUID-->
-
       </div>
       <!-- END VIEW WAPPER-->
     </div>
     <!-- END MAIN WRAPPER-->
-
 
     <!-- WEB PERLOAD-->
     <div id="preload">

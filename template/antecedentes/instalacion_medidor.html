@@ -42,6 +42,13 @@
       .boton-outline-info:hover{
         color: white;
         background-color: #17a2b8;
+      }  
+      .boton-outline-info:focus{
+        background-color: #17a2b8;
+        color: white;
+        -webkit-box-shadow: 0px 0px 50px 0px rgba(23,162,184,1);
+        -moz-box-shadow: 0px 0px 50px 0px rgba(23,162,184,1);
+        box-shadow: 0px 0px 50px 0px rgba(23,162,184,1);
       }
       .outline-primary{
         border-color: #007bff;
@@ -225,7 +232,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -543,15 +550,30 @@
                           <div class="sca form-group">
                             <div class="sector">
                               <label class="col-form-label">Sector</label>
-                              <select class="form-control" name="sector" id="sector" value="{{sector}}"></select>
+                              <select class="form-control" name="sector" id="sector">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                              </select>
                             </div>
                             <div class="calle">
                               <label class="col-form-label">Calle</label>                
-                              <select class="form-control" name="calle" id="calle" value="{{calle}}"></select>
+                              <select class="form-control" name="calle" id="calle">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                              </select>
                             </div>
                             <div class="area">
                               <label class="col-form-label">Área</label>
-                              <select class="form-control" name="area" id="area" value="{{area}}"></select>
+                              <select class="form-control" name="area" id="area">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                              </select>
                             </div>
                           </div>
               
@@ -625,13 +647,6 @@
                             <button type="button" class="btn boton-outline-info boton">Socio</button>
                           </div>
               
-                          <!--botones pantalla pequeña -->
-                          <!-- <div class="btn-group btn-group botones2_1" role="group" aria-label="Basic example">
-                            <button type="button" class="btn outline-info boton">Medidor</button>
-                            <button type="button" class="btn outline-info boton">Usuario</button>
-                            <button type="button" class="btn outline-info boton">Socio</button>
-                          </div> -->
-              
                           <!-- check y subsidio -->
                           <div class="check_subsidio">
               
@@ -680,12 +695,12 @@
                               </div>
                               <div class="beneficiario">
                                 <label class="beneficiario_label col-form-label">Cod.Beneficiario</label>
-                                <input class="beneficiario_input form-control" type="text">
+                                <input class="beneficiario_input form-control" type="text" name="cod_beneficiario" id="cod_benedic">
                                 <a style="text-decoration: none;" href="#"><i class="fas fa-check"></i></a>
                               </div>
                               <div class="solidario">
                                 <label class="solidario_label col-form-label">Ch. Solidario 100%</label>
-                                <input class="form-control" type="text">
+                                <input class="form-control"  type="text" name="solidario" id="solidario">
                               </div>
                             </div>
                             
@@ -714,7 +729,7 @@
                           <!-- descuento -->
                           <div class="descuento">
                             <label class="descuento_label col-form-label">Descuento en MT3</label>
-                            <input class="descuento_input form-control" type="text">
+                            <input class="descuento_input form-control" type="text" name="descuento" id="descuento">
                           </div>
               
                         </div>

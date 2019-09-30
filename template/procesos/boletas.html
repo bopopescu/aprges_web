@@ -85,7 +85,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -345,155 +345,149 @@
           <div class="row js-grid-wrapper panel-wrapper">
 
             <!-- #SELECT2-->
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                  </div>
-                  <div class="panel-body">
-                    <div class="row">
-                        {% block content1 %}	
-                        <form class="col-sm-12" action="/procesos/generacion/" method="POST">{% csrf_token %}  
-                        <div class="cerrar-listo form-group col-sm-12">
-                            <div class="form-group col-sm-3">
-                                <label>Cerrar Periodo</label>
-                              </div>
-                              <div class="form-group col-sm-5 col-xs-12 div_boton">
-                                <button class="btn btn-block active m-b-6 boton" type="submit" id="cerrar" name="cerrar" ><i class="fas fa-check fa-3x m-r-1"></i> Clic para cerrar periodo anterior</button>
-                              </div>                  
-                        </div>
-                        </form>
-                        {% endblock %}
-
-                        {% block content %}	
-                        <form class="col-sm-12" action="/procesos/generacion/" method="POST">
-                          {% csrf_token %}  
-                          <div class="clear form-group col-sm-3">
-                                <h4 class="demo-sub-title">¿Qué desea hacer?</h4>
-                                <section class="que-desea-hacer">
-                                    <label class="toggle-switch another-toggle-switch">
-                                        <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
-                                        <label for="another-toggle-switch-input"></label>
-                                        <p>Generar</p>
-                                    </label><br>
-                                    <label class="toggle-switch another-toggle-switch">
-                                        <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1" />
-                                        <label for="another-toggle-switch-input2"></label>
-                                        <p>Imprimir</p>
-                                    </label><br>
-                                    <label class="toggle-switch another-toggle-switch3">
-                                        <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2" />
-                                        <label for="another-toggle-switch-input3"></label>
-                                        <p class="m-0">Eliminar</p>
-                                    </label>
-                                </section>
-                                <p></p>
-                          </div>
-
-                          <div class="form-group col-sm-3">
-                                  <h4 class="demo-sub-title">Seleccione Opción</h4>
-                                    <label class="toggle-switch another-toggle-switch">
-                                      <input type="radio" onclick='handleClick(0);' name="demo-radio-la1" id="another-toggle-switch-input" value="0" checked/>
-                                      <label for="another-toggle-switch-input6"></label>
-                                      <p>Por Sector</p>
-                                  </label><br>
-                                  
-                                  <br>
-                                    <label class="toggle-switch another-toggle-switch">
-                                      <input type="radio" onclick='handleClick(1);' name="demo-radio-la1" id="another-toggle-switch-input" value="1" />
-                                      <label for="another-toggle-switch-input6"></label>
-                                      <p>Por Parcelero</p>
-                                  </label><br>
-                          </div>
-
-                          <div class="form-group col-sm-4">
-                                    <label>Identificador</label>
-                                    <input type="hidden" id="id_1" name="id_1" value="{{id_}}" class="form-control">
-                                    <input type="text" id="id_" name="id_" value="{{id_}}" class="form-control" disabled>
-                                    <label>Nombre Parcelero</label>
-                                      <input type="text" id="buscarsocio" name="buscarsocio" class="form-control" disabled>
-                          </div>
-
-                          <div class="row">                                  
-                            <div class="col-sm-12 tipo__documento">
-                              <div class="col-sm-12">
-                                <div class="col-sm-3 documento">
-                                    <h4 class="demo-sub-title">Seleccionar Documento</h4>
-                                  <div class="documento__primer-bloque">             
-                                    <section class="">
-                                      <label class="toggle-switch another-toggle-switch">
-                                      <input type="radio" name="toggle-switch1" id="another-toggle-switch-input" value="0"/>
-                                      <label for="another-toggle-switch-input6"></label>
-                                      <p>Boleta Exenta</p>
-                                      </label><br>
-                                      <label class="toggle-switch another-toggle-switch">
-                                      <input type="radio" name="toggle-switch1" id="another-toggle-switch-input2" value="1" checked/>
-                                      <label for="another-toggle-switch-input7"></label>
-                                      <p>Aviso de Cobranza</p>
-                                      </label><br>
-                                    </section>                    
-                                  </div>
-                                </div>
-                              </div>
-                              
-                              <div class="form-group col-sm-4">
-                                <label>Mes</label>
-                                <select class="form-control" id="mes" name="mes" required>
-                                  <option value="{{mes}}">{{mes}}</option>
-                                  <option value="Enero">Enero</option>
-                                  <option value="Febrero">Febrero</option>
-                                  <option value="Marzo">Marzo</option>
-                                  <option value="Abril">Abril</option>
-                                  <option value="Mayo">Mayo</option>
-                                  <option value="Junio">Junio</option>
-                                  <option value="Julio">Julio</option>
-                                  <option value="Agosto">Agosto</option>
-                                  <option value="Septiembre">Septiembre</option>
-                                  <option value="Octubre">Octubre</option>
-                                  <option value="Noviembre">Noviembre</option>
-                                  <option value="Diciembre">Diciembre</option>
-                                </select>
-                              </div>
-
-                              <div class="form-group col-sm-4">
-                                <label>Año</label>
-                                <input type="text" id="ano" name="ano" value="{{ano}}" class="form-control">
-                              </div>
-
-                              <div class="form-group col-sm-4">
-                                <label>Numero Boleta</label>
-                                <input type="text" id="boleta" name="boleta" value="{{boleta}}" class="form-control" required disabled>
-                              </div>
-
-                              <div class="form-group col-sm-4">
-                                <label>Fecha de Emisión</label>
-                                <input type="text" class="form-control" name="emision" id="emision" value="{{emision}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
-                              </div>
-
-                              <div class="form-group col-sm-4">
-                                <label>Fecha de Vencimiento</label>
-                                <input type="text" class="form-control" name="vencimiento" id="vencimiento" value="{{vencimiento}}" placeholder="dd-mm-yyyy" onkeyup="
-                                  var date = this.value;
-                                  if (date.match(/^\d{2}$/) !== null) {
-                                  this.value = date + '/';
-                                  } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                                  this.value = date + '/';
-                                  }" maxlength="10" required>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-12 m-b-3 div_boton">
-                              <button class="btn btn-block active m-b-5 boton_info " type="submit" name="aceptar" id="aceptar"><i class="far fa-save fa-3x m-r-1"></i> Aceptar</button>
-                              <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-capitalize">
-                              <label style="color: tomato">{{mensaje}}</label>
-                            </div>
-                          </div>
-                        </form>
-                        {% endblock %}      
+            <div class="panel panel-default">
+              <div class="panel-heading"></div>
+              <div class="panel-body">
+                <div class="row">
+                  {% block content1 %}	
+                  <form class="col-sm-12" action="/procesos/generacion/" method="POST">{% csrf_token %}  
+                    <div class="cerrar-listo form-group col-sm-12">
+                      <div class="form-group col-sm-3">
+                        <label>Cerrar Periodo</label>
+                      </div>
+                      <div class="form-group col-sm-5 col-xs-12 div_boton">
+                        <button class="btn btn-block active m-b-6 boton" type="submit" id="cerrar" name="cerrar" ><i class="fas fa-check fa-3x m-r-1"></i> Clic para cerrar periodo anterior</button>
+                      </div>                  
                     </div>
-                  </div> 
-              </div>     
-              <!-- #SELECT2-->       
+                  </form>
+                  {% endblock %}
+
+                  {% block content %}	
+                  <form class="col-sm-12" action="/procesos/generacion/" method="POST">
+                    {% csrf_token %}  
+                    <div class="clear form-group col-sm-3">
+                      <h4 class="demo-sub-title">¿Qué desea hacer?</h4>
+                      <section class="que-desea-hacer">
+                        <label class="toggle-switch another-toggle-switch">
+                          <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
+                          <label for="another-toggle-switch-input"></label>
+                          <p>Generar</p>
+                        </label><br>
+                        <label class="toggle-switch another-toggle-switch">
+                          <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1" />
+                          <label for="another-toggle-switch-input2"></label>
+                          <p>Imprimir</p>
+                        </label><br>
+                        <label class="toggle-switch another-toggle-switch3">
+                          <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2" />
+                          <label for="another-toggle-switch-input3"></label>
+                          <p class="m-0">Eliminar</p>
+                        </label>
+                      </section>
+                      <p></p>
+                    </div>
+                    <div class="form-group col-sm-3">
+                      <h4 class="demo-sub-title">Seleccione Opción</h4>
+                      <label class="toggle-switch another-toggle-switch">
+                        <input type="radio" onclick='handleClick(0);' name="demo-radio-la1" id="another-toggle-switch-input" value="0" checked/>
+                        <label for="another-toggle-switch-input6"></label>
+                        <p>Por Sector</p>
+                      </label><br>
+                      <br>
+                      <label class="toggle-switch another-toggle-switch">
+                        <input type="radio" onclick='handleClick(1);' name="demo-radio-la1" id="another-toggle-switch-input" value="1" />
+                        <label for="another-toggle-switch-input6"></label>
+                        <p>Por Parcelero</p>
+                      </label><br>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label>Identificador</label>
+                      <input type="hidden" id="id_1" name="id_1" value="{{id_}}" class="form-control">
+                      <input type="text" id="id_" name="id_" value="{{id_}}" class="form-control" disabled>
+                      <label>Nombre Parcelero</label>
+                      <input type="text" id="buscarsocio" name="buscarsocio" class="form-control" disabled>
+                    </div>
+                    <div class="row">                                  
+                      <div class="col-sm-12 tipo__documento">
+                        <div class="col-sm-12">
+                          <div class="col-sm-3 documento">
+                            <h4 class="demo-sub-title">Seleccionar Documento</h4>
+                            <div class="documento__primer-bloque">             
+                              <section class="">
+                                <label class="toggle-switch another-toggle-switch">
+                                <input type="radio" name="toggle-switch1" id="another-toggle-switch-input" value="0"/>
+                                <label for="another-toggle-switch-input6"></label>
+                                <p>Boleta Exenta</p>
+                                </label><br>
+                                <label class="toggle-switch another-toggle-switch">
+                                <input type="radio" name="toggle-switch1" id="another-toggle-switch-input2" value="1" checked/>
+                                <label for="another-toggle-switch-input7"></label>
+                                <p>Aviso de Cobranza</p>
+                                </label><br>
+                              </section>                    
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                          <label>Mes</label>
+                          <select class="form-control" id="mes" name="mes" required>
+                            <option value="{{mes}}">{{mes}}</option>
+                            <option value="Enero">Enero</option>
+                            <option value="Febrero">Febrero</option>
+                            <option value="Marzo">Marzo</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Mayo">Mayo</option>
+                            <option value="Junio">Junio</option>
+                            <option value="Julio">Julio</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Septiembre">Septiembre</option>
+                            <option value="Octubre">Octubre</option>
+                            <option value="Noviembre">Noviembre</option>
+                            <option value="Diciembre">Diciembre</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                          <label>Año</label>
+                          <input type="text" id="ano" name="ano" value="{{ano}}" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                          <label>Numero Boleta</label>
+                          <input type="text" id="boleta" name="boleta" value="{{boleta}}" class="form-control" required disabled>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                          <label>Fecha de Emisión</label>
+                          <input type="text" class="form-control" name="emision" id="emision" value="{{emision}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                          <label>Fecha de Vencimiento</label>
+                          <input type="text" class="form-control" name="vencimiento" id="vencimiento" value="{{vencimiento}}" placeholder="dd-mm-yyyy" onkeyup="
+                            var date = this.value;
+                            if (date.match(/^\d{2}$/) !== null) {
+                            this.value = date + '/';
+                            } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                            this.value = date + '/';
+                            }" maxlength="10" required>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-12 m-b-3 div_boton">
+                        <button class="btn btn-block active m-b-5 boton_info " type="submit" name="aceptar" id="aceptar"><i class="far fa-save fa-3x m-r-1"></i> Aceptar</button>
+                        <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12 text-capitalize">
+                        <label style="color: tomato">{{mensaje}}</label>
+                      </div>
+                    </div>
+                  </form>
+                  {% endblock %}      
+                </div>
+              </div> 
+            </div>     
+            <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
         </div>

@@ -203,7 +203,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -501,17 +501,17 @@
                             </div>
                             <div class="correlativo">
                               <label class="correlativo_label col-form-label">Correlativo</label>
-                              <input class="correlativo_input form-control" type="number">
+                              <input class="correlativo_input form-control" type="text" name="correlativo" id="correlativo" value="{{correlativo}}">
                             </div>
                           </div>
 
                           <div class="oficina">
                             <label class="oficina_label col-form-label">Oficina</label>
-                            <input class="oficina_input form-control" type="text">
+                            <input class="oficina_input form-control" type="text" name="oficina" id="oficina" value="{{oficina}}">
                           </div>
                           <div class="cajero">
                             <label class="cajero_label col-form-label">Cajero</label>
-                            <input class="cajero_input form-control" type="text">
+                            <input class="cajero_input form-control" type="text" name="cajero" id="cajero" value="{{cajero}}">
                           </div>
                         </div>
                         <a href="" class="cerdo"><i class="fas fa-piggy-bank fa-4x"></i></a>
@@ -521,31 +521,31 @@
                         <div class="izq">
                           <div class="fijo">
                             <label class="fijo_label col-form-label">F. Fijo</label>
-                            <input class="fijo_input form-control" type="text">     
+                            <input class="fijo_input form-control" type="text" name="fijo" id="fijo" value="{{fijo}}"> 
                           </div>
                           <div class="ingreso">
                             <label class="ingreso_label col-form-label">Ingresos</label>
-                            <input class="ingreso_input form-control" type="text">     
+                            <input class="ingreso_input form-control" type="text" name="ingreso" id="ingreso" value="{{ingreso}}">
                           </div>
                           <div class="total">
                             <label class="total_label col-form-label">Total Caja</label>
-                            <input class="total_input form-control" type="text">     
+                            <input class="total_input form-control" type="text" name="total_caja" id="total_caja" value="{{total_caja}}">
                           </div>
                           <div class="egreso">
                             <label class="egreso_label col-form-label">Egresos</label>
-                            <input class="egreso_input form-control" type="text">     
+                            <input class="egreso_input form-control" type="text" name="egresos" id="egresos" value="{{egresos}}">
                           </div>
                           <div class="saldo">
                             <label class="saldo_label col-form-label">Saldo</label>
-                            <input class="saldo_input form-control" type="text">     
+                            <input class="saldo_input form-control" type="text" name="saldo" id="saldo" value="{{saldo}}">
                           </div>
                           <div class="fijo">
                             <label class="fijo_label col-form-label">F. Fijo</label>
-                            <input class="fijo_input form-control" type="text">     
+                            <input class="fijo_input form-control" type="text" name="fijo" id="fijo" value="{{fijo}}">
                           </div>
                           <div class="neto">
                             <label class="neto_label col-form-label">Total Neto</label>
-                            <input class="neto_input form-control" type="text">     
+                            <input class="neto_input form-control" type="text" name="total_neto" id="total_neto" value="{{total_neto}}">  
                           </div>
                         </div>
                         
@@ -589,26 +589,26 @@
                                 <tbody>
                                   <tr>
                                     <th class="dinero_label tabla_info">500</th>
-                                    <td class="dinero "><input type="number"></td>
+                                    <td class="dinero "><input type="text" name="500" id="500"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">100</th>
-                                    <td class="dinero "><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="100" id="100"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">50</th>
-                                    <td class="dinero "><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="50" id="50"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">10</th>
-                                    <td class="dinero "><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="10" id="10"></td>
                                   </tr>
                                 </tbody>
                               </table>
                             </div>
                             <div class="form-group total_monedas">
                               <label class="total_dinero_label">Total Metálico</label>
-                              <input class="form-control" type="email">
+                              <input class="form-control" type="email" name="total_metalico" id="total_metalico">
                             </div>
                           </div>
                           
@@ -619,36 +619,36 @@
                                 <tbody>
                                   <tr>
                                     <th class="dinero_label tabla_info">20000</th>
-                                    <td class="dinero"><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="20000" id="20000"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">10000</th>
-                                    <td class="dinero"><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="10000" id="10000"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">5000</th>
-                                    <td class="dinero"><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="5000" id="5000"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">2000</th>
-                                    <td class="dinero"><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="2000" id="2000"></td>
                                   </tr>
                                   <tr>
                                     <th class="dinero tabla_info">1000</th>
-                                    <td class="dinero"><input type="number"></td>
+                                    <td class="dinero"><input type="text" name="1000" id="1000"></td>
                                   </tr>
                                 </tbody>
                               </table>
                             </div>
                             <div class="form-group total_billetes">
                               <label class="total_dinero_label">Total Billetes</label>
-                              <input class="form-control" type="email">
+                              <input class="form-control" type="text" name="total_billetes" id="total_billetes">
                             </div>
                           </div>
 
                           <div class="totalisimo">
                             <h5 for="">Total Dinero</h5>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name="total_dinero" id="total_dinero">
                           </div>
 
                         </div>
@@ -659,27 +659,27 @@
                               <tbody>
                                 <tr>
                                   <td class="tablas_label">Consumo de Boletas</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="cons_boletas" id="cons_boletas"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Consumo de Facturas</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="cons_facturas" id="cons_facturas"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Multas</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="multas" id="multas"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Cuotas Sociales</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="cuotas_sociales" id="cuotas_sociales"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Otros Ingresos</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="otros_ingresos" id="otros_ingresos"></td>
                                 </tr>
                                 <tr>
                                   <th class="tablas">TOTAL</th>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="total" id="total"></td>
                                 </tr>
                               </tbody>
                             </table>
@@ -689,27 +689,27 @@
                               <tbody>
                                 <tr>
                                   <td class="tablas_label">Egresos</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="" id=""></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Depósitos en Cta Cte.</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="dep_cta_cte" id="dep_cta_cte"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Depósitos en Billetes</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="dep_billetes" id="dep_billetes"></td>
                                 </tr>
                                 <tr>
-                                  <td class="tablas">Depósitos en Cheque</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas">Depósitos en Cheques</td>
+                                  <td class="tablas"><input type="text" name="dep_cheques" id="dep_cheques"></td>
                                 </tr>
                                 <tr>
                                   <td class="tablas">Monedas</td>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="monedas" id="monedas"></td>
                                 </tr>
                                 <tr>
                                   <th class="tablas">TOTAL</th>
-                                  <td class="tablas"><input type="text"></td>
+                                  <td class="tablas"><input type="text" name="total2" id="total2"></td>
                                 </tr>
                               </tbody>
                             </table>

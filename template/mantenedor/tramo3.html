@@ -54,7 +54,10 @@
       }
       .boton-outline-info a{
         color: #17a2b8;
-        display: block;
+        display: flex;
+        height: 2.2rem;
+        justify-content: center;
+        align-items: center;
       }    
       .boton-outline-info a:hover{
         color: white;
@@ -68,6 +71,7 @@
       }
       .boton{
         width: 50%;
+        padding: 0;
       }
       .tabla{
         overflow: scroll;
@@ -153,7 +157,7 @@
         .etiqueta_label{
           width: 5rem;
         }
-        
+          
         .iconos{
           justify-content: space-evenly;
           width: 100%;
@@ -167,7 +171,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -470,11 +474,11 @@
                         <div class="card-body">
                           <div class="fijo">
                             <label class="fijo_label">Cargo Fijo:</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="fijo" id="fijo" value="{{fijo}}">
                           </div>
                           <div class="solidario">
                             <label class="solidario_label">Fondo Solidario:</label>
-                            <input type="text" class="form-control ">
+                            <input type="text" class="form-control" name="solidario" id="solidario" value="{{solidario}}">
                           </div>
                         </div>
                       </div>
@@ -615,7 +619,7 @@
                     <section class="container etiquetas">
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Tramo</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="tramo" id="tramo" value="{{tramo}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Fecha</label>
@@ -623,19 +627,19 @@
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Desde</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="desde" id="desde" value="{{desde}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Hasta</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="hasta" id="hasta" value="{{hasta}}">
                       </div>
-                      <div class="etiqueta2 form-group">
+                      <div class="etiqueta2 form-group oculto">
                         <label class="etiqueta_label">Valor</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Valor</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="valor" id="valor" value="{{valor}}">
                       </div>                    
                     </section>
   

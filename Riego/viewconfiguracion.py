@@ -568,6 +568,16 @@ def viewBoletas_vigentes(request):
     return render(request, 'configuracion/boletas_vigentes.html', data)
 
 def viewArreglaDatos(request):
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        medidor=request.POST['medidor']
+        cancelados_consumo=request.POST['cancelados_consumo']
+        cancelados_credito=request.POST['cancelados_credito']
+        cancelados_total=request.POST['cancelados_total']
+        sin.cancelar_consumo=request.POST['sin-cancelar_consumo']
+        sin.cancelar_credito=request.POST['sin-cancelar_credito']
+        sin.cancelar_total=request.POST['sin-cancelar_total']
+
     return render(request, 'configuracion/arregla_datos.html', {})
     
 def viewAvisosVigentes(request):

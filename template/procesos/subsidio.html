@@ -388,47 +388,47 @@
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
             
-              <div class="panel panel-default">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                  <div class="row m-b-3">
-                    <div class="container contenido">
-                        <div class="izq">
-                                      <!-- #SELECT2-->
-                        {% block content %}	
-                        <form action="/procesos/subsidio/" method="POST">{% csrf_token %}  
-                            <button type="submit" class="btn boton_info boton" name="generar" id="generar">Generar Nómina Subsidio</button>
-                            <button type="submit" class="btn boton_info boton" name="imprimir" id="imprimir">Imprimir Nómina Subsidio</button>
-                            <button type="submit" class="btn boton_info boton" name="eliminar" id="eliminar">Eliminar Nómina Subsidio</button>
-                            <button type="submit" class="btn boton_info boton" name="macro" id="macro">Imprimir Macro Municipal</button>
-                            <input type="text" id="id_" name="id_" value="{{aviso}}" class="form-control" style="width:30em;margin-top: 5px;margin-bottom: 5px" disabled>
+            <div class="panel panel-default">
+              <div class="panel-heading"></div>
+              <div class="panel-body">
+                <div class="row m-b-3">
+                  <div class="container contenido">
+                    <div class="izq">
+                      <!-- #SELECT2-->
+                      {% block content %}	
+                      <form action="/procesos/subsidio/" method="POST">{% csrf_token %}  
+                        <button type="submit" class="btn boton_info boton" name="generar" id="generar">Generar Nómina Subsidio</button>
+                        <button type="submit" class="btn boton_info boton" name="imprimir" id="imprimir">Imprimir Nómina Subsidio</button>
+                        <button type="submit" class="btn boton_info boton" name="eliminar" id="eliminar">Eliminar Nómina Subsidio</button>
+                        <button type="submit" class="btn boton_info boton" name="macro" id="macro">Imprimir Macro Municipal</button>
+                        <input type="text" id="id_" name="id_" value="{{aviso}}" class="form-control" style="width:30em;margin-top: 5px;margin-bottom: 5px" disabled>
 
-                            <div class="form-group fecha">
-                                <div class="mes">
-                                    <label class="mes_label col-form-label">Mes de lectura</label>
-                                    <select class="form-control" id="mes" name="mes" style="width:15em; " required>
-                                        <option value="{{mes}}">{{mes}}</option>
-                                        <option value="Enero">Enero</option>
-                                        <option value="Febrero">Febrero</option>
-                                        <option value="Marzo">Marzo</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Mayo">Mayo</option>
-                                        <option value="Junio">Junio</option>
-                                        <option value="Julio">Julio</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Septiembre">Septiembre</option>
-                                        <option value="Octubre">Octubre</option>
-                                        <option value="Noviembre">Noviembre</option>
-                                        <option value="Diciembre">Diciembre</option>
-                                    </select>
-                                </div>
-                                <div class="año">
-                                    <label for="">Año</label>
-                                    <input class="form-control" type="number" id="ano" name="ano" value="{{ano}}" style="width:15em; " required>
-                                </div>
-                            </div>
-                          </form>
-                          {% endblock %}
+                        <div class="form-group fecha">
+                          <div class="mes">
+                            <label class="mes_label col-form-label">Mes de lectura</label>
+                              <select class="form-control" id="mes" name="mes" style="width:15em; " required>
+                                <option value="{{mes}}">{{mes}}</option>
+                                <option value="Enero">Enero</option>
+                                <option value="Febrero">Febrero</option>
+                                <option value="Marzo">Marzo</option>
+                                <option value="Abril">Abril</option>
+                                <option value="Mayo">Mayo</option>
+                                <option value="Junio">Junio</option>
+                                <option value="Julio">Julio</option>
+                                <option value="Agosto">Agosto</option>
+                                <option value="Septiembre">Septiembre</option>
+                                <option value="Octubre">Octubre</option>
+                                <option value="Noviembre">Noviembre</option>
+                                <option value="Diciembre">Diciembre</option>
+                              </select>
+                          </div>
+                          <div class="año">
+                            <label for="">Año</label>
+                            <input class="form-control" type="number" id="ano" name="ano" value="{{ano}}" style="width:15em; " required>
+                          </div>
+                        </div>
+                      </form>
+                      {% endblock %}
                                       <!-- #SELECT2-->
                         {% block content1 %}	
                         <form action="/procesos/subsidio/" method="POST">{% csrf_token %}  
@@ -462,19 +462,19 @@
                             </div>
                           </form>
                           {% endblock %}
-                        </div>
-                        <!-- iconos -->
-                        <div class="dere">
-                            <a href="#"><i class="far fa-file-excel fa-4x icono"></i></a>
-                            <a href="#"><i class="fas fa-sync-alt fa-4x icono"></i></a>
-                            <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                            <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
-                            <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
-                        </div>
+                    </div>
+                    <!-- iconos -->
+                    <div class="dere">
+                      <a href="#"><i class="far fa-file-excel fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-sync-alt fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                      <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
           <!-- ROW-->         
         </div>

@@ -496,6 +496,12 @@ def viewSectores(request):
         correlativo=""
         nombre=request.POST['nombre']
         mensaje=""
+        estanque=request.POST['estanque']
+        tratamiento=request.POST['tratamiento']
+        multa=request.POST['multa']
+        consumo=request.POST['consumo']
+        alcantarillado=request.POST['alcantarillado']
+        sin_consumo=request.POST['sin_consumo']
 
         #sql="SELECT COUNT(ID) FROM A_SECTOR"
         sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) AS ValorMaximo FROM a_sector"
@@ -570,6 +576,13 @@ def viewSectores(request):
     return render(request,'mantenedor/SECTOR.html', data)
 
 def viewCallesArea(request):
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        sector=request.POST['sector']
+        calle=request.POST['calle']
+        area=request.POST['area']
+        estanque=request.POST['estanque']
+
     return render(request, 'mantenedor/calle_area.html', {})
 
 def listarOcupacion():
@@ -979,6 +992,7 @@ def buscarConvenio():
     return lista
 
 def viewConvenioMan(request):
+    
     if request.method=='POST' and 'borrar' in request.POST:
         tipo2=request.POST['tipo2']
 
@@ -1025,16 +1039,76 @@ def viewConvenioMan(request):
     return render(request,'mantenedor/convenio.html', data)
 
 def viewTramo1(request):
-    return render(request, 'mantenedor/tramo1.html', {})
+    
+    now = datetime.datetime.now()
+ 
+    if request.method=='POST' and 'guardar' in request.POST:        
+        fijo=request.POST['fijo']      
+        solidario=request.POST['solidario']      
+        tramo=request.POST['tramo']      
+        hoy=request.POST['hoy']
+        desde=request.POST['desde']      
+        hasta=request.POST['hasta']      
+        valor=request.POST['valor']      
+    
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'mantenedor/tramo1.html', data)
 
 def viewTramo2(request):
-    return render(request, 'mantenedor/tramo2.html', {})
+    
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:        
+        fijo=request.POST['fijo']      
+        solidario=request.POST['solidario']      
+        tramo=request.POST['tramo']      
+        hoy=request.POST['hoy']
+        desde=request.POST['desde']      
+        hasta=request.POST['hasta']      
+        valor=request.POST['valor']      
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'mantenedor/tramo2.html', data)
 
 def viewTramo3(request):
-    return render(request, 'mantenedor/tramo3.html', {})
+    
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:        
+        fijo=request.POST['fijo']      
+        solidario=request.POST['solidario']      
+        tramo=request.POST['tramo']      
+        hoy=request.POST['hoy']
+        desde=request.POST['desde']      
+        hasta=request.POST['hasta']      
+        valor=request.POST['valor']      
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'mantenedor/tramo3.html', data)
 
 def viewTramo4(request):
+    if request.method=='POST' and 'guardar' in request.POST:        
+        fijo=request.POST['fijo']      
+        solidario=request.POST['solidario']      
+        inicio=request.POST['inicio']      
+        hasta=request.POST['hasta']
+        valor_inicial=request.POST['valor_inicial']      
+        intervalo=request.POST['intervalo']
+    
     return render(request, 'mantenedor/tramo4.html', {})
 
 def viewMedidor(request):
+
+    
+    if request.method=='POST' and 'guardar' in request.POST:                
+        codigo=request.POST['codigo']              
+        descripcion=request.POST['descripcion']     
+
     return render(request, 'mantenedor/estado_medidor.html', {})

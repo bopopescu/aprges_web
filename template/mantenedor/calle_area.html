@@ -49,15 +49,15 @@
           text-align: right;
           margin-bottom: 1rem;
         }
-        .calle_label, .area_label{
+        .calle_label{
           width: 10rem;
           margin-right: 1rem;
         }
-        .estanque_label{
+        .estanque_label, .area_label{
           width:8.9rem;
           margin-right: 1rem;
         }
-        .sector_label{
+        .sector_label, .area_select{
           width: 8.8rem;
           margin-right: 1rem;
         }
@@ -90,7 +90,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -359,38 +359,38 @@
                         <div class="cuerpo">
                             <div class="sector">
                                 <label class="sector_label" for="">Seleccionar Sector</label>
-                                <select class="sector_select form-control" name="" id="">
+                                <select class="sector_select form-control" name="sector" id="sector">
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
                             </div>
                             <div class="calle">
-                                <label class="calle_label" >Nombre Calle</label>
-                                <div class="calle_div">
-                                    <input class="calle_input form-control" type="text">
-                                    <select multiple class="calle_select form-control">
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
-                                </div>
+                              <label class="calle_label">Nombre Calle</label>
+                              <div class="calle_div">
+                                <input class="calle_input form-control" type="text" name="calle" id="calle">
+                                <select multiple class="calle_select form-control">
+                                  <option></option>
+                                  <option></option>
+                                  <option></option>
+                                  <option></option>
+                                  <option></option>
+                                </select>
+                              </div>
                             </div>
                             <div class="area">
-                                <label class="area_label" for="">Área</label>
-                                <select class="area_select form-control" name="" id="">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
+                              <label class="area_label" for="">Área</label>
+                              <select class="area_select form-control" name="area" id="area">
+                                <option value=""></option>
+                                <option value=""></option>
+                              </select>
                             </div>
                             <div class="estanque">
-                                <label class="estanque_label" for="">Estanque</label>
-                                <select class="estanque_select form-control" name="" id="">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                                <a href="#" class="estanque_check"><img src="{% static 'assets/images/check.svg' %}" alt=""></a>
+                              <label class="estanque_label" for="">Estanque</label>
+                              <select class="estanque_select form-control" name="estanque" id="estanque">
+                                <option value=""></option>
+                                <option value=""></option>
+                              </select>
+                              <a href="#" class="estanque_check"><img src="{% static 'assets/images/check.svg' %}" alt=""></a>
                             </div>
                             <div class="iconos">   
                               <button class="boton_iconos" type="submit" id="abonar" name="abonar">

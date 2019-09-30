@@ -75,7 +75,7 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -365,8 +365,8 @@
                 
                       <div class="form-group sector">
                         <label class="col-form-label">Seleccionar Sector</label>
-                        <div class="sector_ingresar">                
-                          <select class="sector_select form-control">
+                        <div class="sector_ingresar">           
+                          <select class="sector_select form-control" name="nro_sector" id="nro_sector">
                             <option>[Todos]</option>
                             <option>1</option>
                             <option>2</option>
@@ -376,7 +376,7 @@
                             <option>6</option>
                             <option>7</option>
                           </select>                  
-                          <input class="form-control">
+                          <input class="form-control" type="text" name="nombre_sector" id="nombre_sector">
                         </div>
                       </div> 
                 

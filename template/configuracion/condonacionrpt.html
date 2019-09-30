@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -50,7 +51,40 @@
                     <td width="80">GIRO</td>
                     <td><input type="text">{{i.giro}}</td>
                     <td rowspan="6" style="text-align: right; height: 70px;">
-                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/gota3.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>NOMBRE</td>
+                    <td><input type="text">  {{i.nombre}}</td>
+                </tr>
+                <tr>
+                    <td>RUT</td>
+                    <td><input type="text"> {{i.rut}}</td>
+                </tr>
+                <tr>
+                    <td>DIRECCION</td>
+                    <td><input type="text"> {{i.direccion}}</td>
+                </tr>
+                <tr>
+                    <td>FONO</td>
+                    <td><input type="text">{{i.fono}}</td>
+                </tr>
+                <tr>
+                    <td>COMUNA</td>
+                    <td><input type="text">{{i.comuna}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table class="tabla1">
+            <tbody>
+                {% for i in datos %}
+                <tr>
+                    <td width="80">GIRO</td>
+                    <td><input type="text">{{i.giro}}</td>
+                    <td rowspan="6" style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/gota3.png" alt="">
                     </td>
                 </tr>
                 <tr>

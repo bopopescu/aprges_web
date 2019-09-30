@@ -1046,10 +1046,69 @@ def viewLibroVenta(request):
     return render(request, 'contabilidad/libro_venta.html', {})
 
 def viewArqueoCaja(request):
-    return render(request, 'contabilidad/arqueo_caja.html', {})
+
+    now = datetime.datetime.now()
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        hoy=request.POST['hoy']
+        correlativo=request.POST['correlativo']
+        oficina=request.POST['oficina']
+        cajero=request.POST['cajero']
+        fijo=request.POST['fijo']
+        ingreso=request.POST['ingreso']
+        total_caja=request.POST['total_caja']
+        egresos=request.POST['egresos']
+        saldo=request.POST['saldo']
+        fijo=request.POST['fijo']
+        total_neto=request.POST['total_neto']
+        # 500=request.POST['500']
+        # 100=request.POST['100']
+        # 50=request.POST['50']
+        # 10=request.POST['10']
+        # 20000=request.POST['20000']
+        # 10000=request.POST['10000']
+        # 5000=request.POST['5000']
+        # 2000=request.POST['2000']
+        # 1000=request.POST['1000']
+        total_metalico=request.POST['total_metalico']
+        total_billetes=request.POST['total_billetes']
+        total_dinero=request.POST['total_dinero']
+        cons_boletas=request.POST['cons_boletas']
+        cons_facturas=request.POST['cons_facturas']
+        multas=request.POST['multas']
+        cuotas_sociales=request.POST['cuotas_sociales']
+        otros_ingresos=request.POST['otros_ingresos']
+        total=request.POST['total']
+        # =request.POST['']
+        dep_cta_cte=request.POST['dep_cta_cte']
+        dep_billetes=request.POST['dep_billetes']
+        dep_cheques=request.POST['dep_cheques']
+        monedas=request.POST['monedas']
+        total2=request.POST['total2']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'contabilidad/arqueo_caja.html', data)
 
 def viewCuentaCorriente(request):
-    return render(request, 'contabilidad/cuenta_corriente.html', {})
+
+    now = datetime.datetime.now()
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        rut=request.POST['rut']
+        nombre=request.POST['nombre']
+        monto=request.POST['monto']
+        hoy=request.POST['hoy']
+        motivo=request.POST['motivo']
+        medidor=request.POST['medidor']
+        
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+
+    return render(request, 'contabilidad/cuenta_corriente.html', data)
 
 def viewConciliacionBancaria(request):
     return render(request, 'contabilidad/conciliacion_bancaria.html', {})
