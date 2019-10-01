@@ -34,8 +34,8 @@
                 border-color: #0a8a9e;               
             } 
             .cuerpo{        
-            width: 98.5%;
-            margin: 0 auto;
+                width: 98.5%;
+                margin: 0 auto;
             }
             .search{
                 display: flex;
@@ -163,7 +163,9 @@
             <!-- SITE MAINMENU-->
             <nav class="menu-block">
                 <ul class="nav">
-                <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    <a href="/home/">
+                        <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    </a>
                 </ul>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -211,7 +213,7 @@
                     <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
                         <div class="menu-block-label">Informes</div></a>
                         <ul class="nav menu-block-sub">
-                        <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -455,18 +457,18 @@
                                                     <input type="hidden" id="identi" name="identi" value="{{numero}}">
                                                     <label for="" class="col-form-label identificacion_label">Rut Funcionario</label>
                                                     <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
-                                                    var date = this.value;
-                                                    if (date.match(/^\d{2}$/) !== null) {
-                                                    this.value = date + '.';
-                                                    } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
-                                                    this.value = date + '.';
-                                                    }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
-                                                    this.value = date + '-';
-                                                    }" maxlength="12" required>
+                                                        var date = this.value;
+                                                        if (date.match(/^\d{2}$/) !== null) {
+                                                        this.value = date + '.';
+                                                        } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
+                                                        this.value = date + '.';
+                                                        }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
+                                                        this.value = date + '-';
+                                                        }" maxlength="12" required>
                                                 </div>
                                                 <div class="identificacion_div">
                                                     <label for="" class="col-form-label identificacion_label2">Fecha Ingreso</label>
-                                                    <input type="datetime" class="form-control identicacion_input" name="fecha" id="fecha" value="{{fecha}}" required>
+                                                    <input type="datetime" class="form-control identicacion_input" name="fecha" id="fecha_actual" value="{{fecha_actual}}" required>
                                                 </div>
                                             </div>
                                             <div class="nombre row">

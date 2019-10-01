@@ -98,7 +98,11 @@
       }
       .tablas_label{
         width: 11rem;
-      }
+      }      
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }         
       .iconos{
         display: flex;
         justify-content: space-around;
@@ -203,7 +207,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -251,7 +257,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -514,7 +520,9 @@
                             <input class="cajero_input form-control" type="text" name="cajero" id="cajero" value="{{cajero}}">
                           </div>
                         </div>
-                        <a href="" class="cerdo"><i class="fas fa-piggy-bank fa-4x"></i></a>
+                        <button class="boton_iconos cerdo" type="submit" id="guardar" name="guardar">
+                          <a href=""><i class="fas fa-piggy-bank fa-4x"></i></a>
+                        </button>
                       </div>
                             
                       <div class="et">
@@ -614,6 +622,7 @@
                           
                           <div class="billetes">
                             <h5 class="billetes_titulo">Detalle Billetes</h5>
+
                             <div class="card-body">
                               <table class="table table-bordered">
                                 <tbody>
@@ -640,6 +649,7 @@
                                 </tbody>
                               </table>
                             </div>
+
                             <div class="form-group total_billetes">
                               <label class="total_dinero_label">Total Billetes</label>
                               <input class="form-control" type="text" name="total_billetes" id="total_billetes">
@@ -716,15 +726,25 @@
                           </div>
                         </div>
 
-                      </div>   
+                      </div>  
 
-                      <div class="iconos">      
-                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
-                      </div> 
+                      <div class="iconos">    
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                          
+                          <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        </button> 
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                          
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button> 
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                          
+                          <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                        </button> 
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                          
+                          <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                        </button> 
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                          
+                          <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                        </button>
+                      </div>                       
                     </div>
                   </div>
                 </div>

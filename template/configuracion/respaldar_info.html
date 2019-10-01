@@ -60,7 +60,9 @@
             <!-- SITE MAINMENU-->
             <nav class="menu-block">
                 <ul class="nav">
-                <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    <a href="/home/">
+                        <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    </a>
                 </ul>
                 <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -108,7 +110,7 @@
                 <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
                     <div class="menu-block-label">Informes</div></a>
                     <ul class="nav menu-block-sub">
-                    <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -346,16 +348,12 @@
                                                 this.value = date + '/';
                                                 }" maxlength="10" required>
                                         </div>
-                                            <div class="iconos">
-                                                <button class="boton_iconos" type="submit" id="respaldar" name="respaldar">                                                
-                                                    <a href="#"><i class="fas fa-cloud-upload-alt fa-4x icono"></i></a>
-                                                </button>
-                                            </div>
-
-
-                                            <label>{{mensaje}}</label>
-
-
+                                        <div class="iconos">
+                                            <button class="boton_iconos" type="submit" id="respaldar" name="respaldar">                                                
+                                                <a href="#"><i class="fas fa-cloud-upload-alt fa-4x icono"></i></a>
+                                            </button>
+                                        </div>
+                                        <label>{{mensaje}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -374,8 +372,8 @@
         <div id="preload">
             <ul class="loading">
                 <li></li>
-            <li></li>
-            <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </div>
 

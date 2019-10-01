@@ -852,12 +852,15 @@ def viewCuentasInd(request):
 def viewTomaLectura(request):
     
     if request.method=='POST' and 'guardar' in request.POST:
-        nro_sector=request.POST['nro_sector']
-        nombre_sector=request.POST['nombre_sector']
+        año=request.POST['año']
 
     return render(request, 'informes/toma_lectura.html', {})
 
 def viewRegistroFinanciero(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        nro_sector=request.POST['nro_sector']
+
     return render(request, 'informes/registro_financiero.html', {})
 
 def viewConsultasCorte(request):

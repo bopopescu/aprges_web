@@ -96,7 +96,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -144,7 +146,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -183,7 +185,6 @@
       <!-- END SITE MAINMENU-->
       </nav>
     </div>
-
 
     <!-- #MAIN-->
     <div class="main-wrapper">
@@ -442,13 +443,11 @@
                 </div>
               </div>
             </div>
-
             <div class="col-md-8">
-                <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
-                  <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
-                </div>
+              <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
+                <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
+              </div>
             </div>
-
           </div>
         </div>
         
@@ -458,59 +457,55 @@
             <!-- #SELECT2-->
             <div class="col-sm-12">
               <div class="panel panel-default">
-                  <div class="panel-heading">
-                  </div>
-                  <div class="panel-body">
-                      {% block content2 %}	
-                      <form action="/contabilidad/ingreso/" method="POST">
-                        {% csrf_token %}  
-                      <div class="row m-b-3">
-                          <div class="div_boton">
-                              <a class="btn btn-block active m-b-2 btn-info boton" type="button" href="/contabilidad/saldofavor/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
-                          </div>
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                  {% block content2 %}	
+                  <form action="/contabilidad/ingreso/" method="POST">
+                    {% csrf_token %}  
+                    <div class="row m-b-3">
+                      <div class="div_boton">
+                        <a class="btn btn-block active m-b-2 btn-info boton" type="button" href="/contabilidad/saldofavor/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                      </div>
+                    </div>
+                  </form>
+                  {% endblock %}
+                  {% block content1 %}	
+                  <form action="/contabilidad/saldofavor/" method="POST">{% csrf_token %}  
+                    <div class=" m-b-3">
+                      <div class="search">
+                        <input type="hidden" name="numero" id="numero" value="{{numero}}">
+                        <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Seleccione socio para ingresar saldo a favor.." aria-label="Search" required>
+                        <input type="hidden" id="identi" name="identi" class="form-control">
+                      </div>
+
+                      <div class="monto-fecha">
+                        <div class="monto">
+                          <label class="monto_label" for="">Monto</label>
+                          <input type="text" class="monto_input form-control" name="monto" id="monto" required>
                         </div>
-                      </form>
-                      {% endblock %}
-                      {% block content1 %}	
-                      <form action="/contabilidad/saldofavor/" method="POST">{% csrf_token %}  
-                      <div class=" m-b-3">
-                          <div class="search">
-                              <input type="hidden" name="numero" id="numero" value="{{numero}}">
-                              <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Seleccione socio para ingresar saldo a favor.." aria-label="Search" required>
-                              <input type="hidden" id="identi" name="identi" class="form-control">
-                          </div>
-
-                         <div class="monto-fecha">
-                             <div class="monto">
-                                 <label class="monto_label" for="">Monto</label>
-                                 <input type="text" class="monto_input form-control" name="monto" id="monto" required>
-                             </div>
-                             <div class="fecha">
-                                 <label class="fecha_label" for="">Fecha Ingreso</label>
-                                 <input type="text" class="fecha_input form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}">
-                             </div>
-                         </div>
-
-                         <div class="motivo">
-                             <label class="motivo_label" for="">Motivo del Ingreso</label>
-                             <input type="text" class="motivo_input form-control" name="motivo" id="motivo" required>
-                         </div>
-                        <div class="iconos">
-                          <button class="boton_iconos" type="submit" id="guardar" name="guardar">                             
-                            <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                          </button>
-                          <label>{{mensaje}}</label>
+                        <div class="fecha">
+                          <label class="fecha_label" for="">Fecha Ingreso</label>
+                          <input type="text" class="fecha_input form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}">
                         </div>
                       </div>
-                      </form>
 
-                   
-  
-                  </div>
+                      <div class="motivo">
+                        <label class="motivo_label" for="">Motivo del Ingreso</label>
+                        <input type="text" class="motivo_input form-control" name="motivo" id="motivo" required>
+                      </div>
+                      <div class="iconos">
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                             
+                          <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        </button>
+                        <label>{{mensaje}}</label>
+                      </div>
+                    </div>
+                  </form>
                 </div>
+              </div>
             </div>
             {% endblock %}
-              <!-- #SELECT2-->       
+            <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
         </div>

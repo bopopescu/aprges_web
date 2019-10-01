@@ -68,35 +68,34 @@
         margin-bottom: .5rem;
       }
     </style>
-    <script>
-      
-        function agregarConcepto(){
-            var select = document.getElementById("detalle"), //El <select>
-            value = select.value, //El valor seleccionado
-            text = select.options[select.selectedIndex].innerText; //El texto de la opción seleccionada
-            var fila="<tr><td><input type='hidden' value="+value+" id='ide' name='ide'><input type='hidden' id='detalle1' name='detalle1' value='"+text+"'>"+text+"</td><td><input onblur='findTotal()' class='form-control' type='number' id='valor' name='valor' value='0'></td></tr>";
+    <script>      
+      function agregarConcepto(){
+        var select = document.getElementById("detalle"), //El <select>
+        value = select.value, //El valor seleccionado
+        text = select.options[select.selectedIndex].innerText; //El texto de la opción seleccionada
+        var fila="<tr><td><input type='hidden' value="+value+" id='ide' name='ide'><input type='hidden' id='detalle1' name='detalle1' value='"+text+"'>"+text+"</td><td><input onblur='findTotal()' class='form-control' type='number' id='valor' name='valor' value='0'></td></tr>";
   
-            var btn = document.createElement("TR");
-            btn.innerHTML=fila;
-            document.getElementById("tablita").appendChild(btn);
+        var btn = document.createElement("TR");
+        btn.innerHTML=fila;
+        document.getElementById("tablita").appendChild(btn);
+      }
+  
+      function findTotal(){
+        var arr = document.getElementsByName('valor');
+        var tot=0;
+  
+        var lenvalor=valor.length;
+        var j=0;
+  
+        for(var i=0;i<arr.length;i++){
+          if(parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+            j=j+1;
+          }
+          document.getElementById('total').value = tot;
         }
   
-        function findTotal(){
-              var arr = document.getElementsByName('valor');
-              var tot=0;
-  
-              var lenvalor=valor.length;
-              var j=0;
-  
-              for(var i=0;i<arr.length;i++){
-                  if(parseInt(arr[i].value))
-                      tot += parseInt(arr[i].value);
-                      j=j+1;
-              }
-              document.getElementById('total').value = tot;
-          }
-  
-      </script>
+    </script>
   </head>
 
   <body class="orchid  ">
@@ -105,7 +104,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -153,7 +154,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -451,13 +452,11 @@
                 </div>
               </div>
             </div>
-
             <div class="col-md-8">
-                <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
-                  <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
-                </div>
+              <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
+                <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
               </div>
-
+            </div>
           </div>
         </div>
         <!-- END PAGE HEADER-->
@@ -468,104 +467,105 @@
             <!-- #SELECT2-->
             <div class="col-sm-12">
               <div class="panel panel-default">
-                  <div class="panel-heading"></div>
-                  <div class="panel-body">
-                      {% block content1 %}	
-                      <form action="/contabilidad/ingreso/" method="POST">
-                        {% csrf_token %}  
-                      <div class="row m-b-3">
-                          <div class="div_boton">
-                              <a class="btn btn-block active m-b-2 boton_info boton" type="button" href="/contabilidad/plancuenta/ingresos/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
-                          </div>
-                          <div class="form-group col-sm-12">
-                            <label class="col-form-label">Nombre completo</label>
-                          </div>
-                          <div class="form-group col-sm-12 search">
-                            <input class="form-control"  type="text" id="buscarsocio" name="buscarsocio" placeholder="Buscar por nombre..." required>
-                          </div>
-                        </div>
-                      </form>
-                      {% endblock %}
-
-                      {% block content %}	
-                    <form action="/contabilidad/ingreso/" method="POST">
-                      {% csrf_token %}  
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                  {% block content1 %}	
+                  <form action="/contabilidad/ingreso/" method="POST">
+                    {% csrf_token %}  
                     <div class="row m-b-3">
-                        <div class="form-group col-sm-3">
-                            <label>Fecha de Ingreso</label>
-                            <input type="text" class="form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup="
-                              var date = this.value;
-                              if (date.match(/^\d{2}$/) !== null) {
-                              this.value = date + '/';
-                              } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                              this.value = date + '/';
-                               }" maxlength="10" required>
-                          </div>
+                      <div class="div_boton">
+                        <a class="btn btn-block active m-b-2 boton_info boton" type="button" href="/contabilidad/plancuenta/ingresos/historial/" name="historial" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label class="col-form-label">Nombre completo</label>
+                      </div>
+                      <div class="form-group col-sm-12 search">
+                        <input class="form-control"  type="text" id="buscarsocio" name="buscarsocio" placeholder="Buscar por nombre..." required>
+                      </div>
+                    </div>
+                  </form>
+                  {% endblock %}
 
-                          <div class="form-group col-sm-2">
-                              <label for="">Nro Egreso</label>
-                              <input type="text" class="form-control" id="numero" name="numero" value="{{numero}}" required>
-  
-                            </div>
-                          <div class="form-group col-sm-7">
-                              <label>Identificador</label>
-                              <input type="text" id="id_" name="id_" class="form-control" disabled>
-                              <input type="hidden" id="id_1" name="id_1" class="form-control">
-                              <input type="hidden" id="tipo" name="tipo" class="form-control">
-                        </div>
+                  {% block content %}	
+                  <form action="/contabilidad/ingreso/" method="POST">
+                    {% csrf_token %}  
+                    <div class="row m-b-3">
+                      <div class="form-group col-sm-3">
+                        <label>Fecha de Ingreso</label>
+                        <input type="text" class="form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup="
+                          var date = this.value;
+                          if (date.match(/^\d{2}$/) !== null) {
+                          this.value = date + '/';
+                          } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                          this.value = date + '/';
+                          }" maxlength="10" required>
+                      </div>
+
+                      <div class="form-group col-sm-2">
+                        <label for="">Nro Egreso</label>
+                        <input type="text" class="form-control" id="numero" name="numero" value="{{numero}}" required>
+                      </div>
+
+                      <div class="form-group col-sm-7">
+                        <label>Identificador</label>
+                        <input type="text" id="id_" name="id_" class="form-control" disabled>
+                        <input type="hidden" id="id_1" name="id_1" class="form-control">
+                        <input type="hidden" id="tipo" name="tipo" class="form-control">
+                      </div>
  
-                        <div class="form-group col-sm-12">
-                          <label>Por concepto</label>
-                          <select class="form-control" id="concepto" name="concepto" required>
-                              <option value="0" selected>Selección concepto</option> 
-                                {% for tipo in listar_ingresos %}
-                                <option value="{{tipo.id}}">{{tipo.nombre}}</option>
-                                {% endfor %}
-                          </select>
-                    </div>
+                      <div class="form-group col-sm-12">
+                        <label>Por concepto</label>
+                        <select class="form-control" id="concepto" name="concepto" required>
+                          <option value="0" selected>Selección concepto</option> 
+                          {% for tipo in listar_ingresos %}
+                          <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
 
-                    <div class="form-group col-sm-12">
-                      <label>Detalle</label>
-                      <select class="form-control" id="detalle" name="detalle" required>
+                      <div class="form-group col-sm-12">
+                        <label>Detalle</label>
+                        <select class="form-control" id="detalle" name="detalle" required>
                           <option value="0" selected>Selección detalle</option>
-                      </select>
-                </div>
+                        </select>
+                      </div>
 
-                <<div class="form-group col-sm-12 div_boton">
-                      <button class="btn btn-block active m-b-5 boton_info boton" type="button" onclick="agregarConcepto()" name="guardar" id="guardar"><i class="fas fa-plus fa-3x m-r-1"></i> Agregar Concepto</button>
+                      <div class="form-group col-sm-12 div_boton">
+                        <button class="btn btn-block active m-b-5 boton_info boton" type="button" onclick="agregarConcepto()" name="guardar" id="guardar"><i class="fas fa-plus fa-3x m-r-1"></i> Agregar Concepto</button>
+                      </div>
                     </div>
-                    </div>
-                    <table  class="table table-bordered">
-                        <thead class="thead-inverse">
-                          <tr>
-                            <th>Descripción</th>
-                            <th>Valor</th>
-                          </tr>
-                        </thead>
-                        <tbody id="tablita">
 
-                        </tbody>
-                      </table>
-                       <!-- #TABLE-->
-                       <div class="total">
-                          <label for="" class="total_label">Total Egreso</label>
-                          <input type="text" class="total_input form-control" id="total" name="total" required>
-                        </div>
-                        <div>
-                          <label for="">Glosa</label>
-                          <textarea class="form-control" name="glosa" id="glosa" cols="30" rows="5" placeholder="(Ninguno)"></textarea>
-                        </div>
-                        <label>{{mensaje}}</label>
-                        <div class="div_boton">
-                            <button class="btn btn-block active m-b-5 boton_info boton" type="submit" id="guardar" name="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar</button>
-                          </div>  
-  
-                  </div>
+                    <table class="table table-bordered">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>Descripción</th>
+                          <th>Valor</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tablita">
+                      </tbody>
+                    </table>
+                    <!-- #TABLE-->
+
+                    <div class="total">
+                      <label for="" class="total_label">Total Egreso</label>
+                      <input type="text" class="total_input form-control" id="total" name="total" required>
+                    </div>
+                    <div>
+                      <label for="">Glosa</label>
+                      <textarea class="form-control" name="glosa" id="glosa" cols="30" rows="5" placeholder="(Ninguno)"></textarea>
+                    </div>
+                    <label>{{mensaje}}</label>
+                    <div class="div_boton">
+                      <button class="btn btn-block active m-b-5 boton_info boton" type="submit" id="guardar" name="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar</button>
+                    </div> 
+                  </form>
+                  {% endblock %}
+                  
                 </div>
-              </form>
+              </div>
             </div>
-            {% endblock %}
-              <!-- #SELECT2-->       
+            <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
         </div>

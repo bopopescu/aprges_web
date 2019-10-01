@@ -111,7 +111,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -159,7 +161,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -399,105 +401,103 @@
                   <div class="row m-b-3">
                     <div class="contenido">
                       
-                        <div class="subsidio form-group">
-                          <h6 class="subsidio_titulo">Subsidio</h6>
-                          <div class="botones">
-                            <button class="btn btn-warning boton" type="button">Subsidio en Mts3</button>
-                            <button class="btn btn-warning boton" type="button">Subsidio en $</button>
-                          </div>
+                      <div class="subsidio form-group">
+                        <h6 class="subsidio_titulo">Subsidio</h6>
+                        <div class="botones">
+                          <button class="btn btn-warning boton" type="button">Subsidio en Mts3</button>
+                          <button class="btn btn-warning boton" type="button">Subsidio en $</button>
                         </div>
+                      </div>
 
-                        <div class="carta form-group"></div>
+                      <div class="carta form-group"></div>
 
-                        <div class="div_tabla form-group">
-                          <table class="table table-bordered tabla m-b-0">
-                            <thead>
-                              <tr class="tabla_info">
-                                <th class="categorias"></th>
-                                <th class="texto">Texto (Aparece en el Aviso)</th>
-                                <th class="th_valor">Valor</th>
-                                <th class="multa">Multa</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th class="tabla_info">Multa Por No Pago en %(Porc)</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Multa por Inasistencia a Reuniones</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Alcantarilado</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Cuota Mortuoria</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Multa Por Pago fuera de Plazo</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Ajuste de Sencillo</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Convenios</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Multa por Alcantarillado</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">% de Consumo para Tratamiento</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Corte desde Medidor</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Corte desde Matriz</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                              <tr>
-                                <th class="tabla_info">Valor Remanente</th>
-                                <td><input type="text"></td>
-                                <td><input class="valor" type="text"></td>
-                                <td><input type="text"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>              
-
-                    </div>
-            
+                      <div class="div_tabla form-group">
+                        <table class="table table-bordered tabla m-b-0">
+                          <thead>
+                            <tr class="tabla_info">
+                              <th class="categorias"></th>
+                              <th class="texto">Texto (Aparece en el Aviso)</th>
+                              <th class="th_valor">Valor</th>
+                              <th class="multa">Multa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th class="tabla_info">Multa Por No Pago en %(Porc)</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                            <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Multa por Inasistencia a Reuniones</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Alcantarilado</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Cuota Mortuoria</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Multa Por Pago fuera de Plazo</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Ajuste de Sencillo</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Convenios</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Multa por Alcantarillado</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">% de Consumo para Tratamiento</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Corte desde Medidor</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Corte desde Matriz</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                              <th class="tabla_info">Valor Remanente</th>
+                              <td><input type="text"></td>
+                              <td><input class="valor" type="text"></td>
+                              <td><input type="text"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>              
+                    </div>            
                   </div>
                 </div>
               </div>
@@ -515,11 +515,11 @@
             
     <!-- WEB PERLOAD-->
     <div id="preload">
-        <ul class="loading">
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+      <ul class="loading">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
 

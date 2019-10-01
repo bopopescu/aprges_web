@@ -85,7 +85,11 @@
         border-radius: 5px;
         padding: 2rem;
         height: fit-content;
-      }
+      }    
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }   
       .iconos{
         display: flex;
         flex-wrap: wrap;
@@ -232,7 +236,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -280,7 +286,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -522,14 +528,14 @@
                       <div class="lados">
               
                         <!-- izquierda -->
-                        <div class="container izq">
-              
+                        <div class="container izq">    
+
                           <!-- icono inicial, boton -->
                           <div class="inicio form-group">
                             <a href=""><i class="fas fa-search fa-3x inicio_icono"></i></a>
                             <button type="button" class="btn boton-outline-info inicio_botton">Cliente con Trato Especial</button>
-                          </div>
-                            
+                          </div> 
+
                           <!-- medidor, diametro, marca -->
                           <div class="mdm form-group">
                             <div class="medidor">
@@ -544,8 +550,8 @@
                               <label class="col-form-label">Marca</label>
                               <input class="form-control" type="text" name="marca" id="marca" value="{{marca}}">
                             </div>
-                          </div>
-                                
+                          </div>  
+
                           <!-- sector, calle, area -->
                           <div class="sca form-group">
                             <div class="sector">
@@ -575,8 +581,8 @@
                                 <option value=""></option>
                               </select>
                             </div>
-                          </div>
-              
+                          </div>      
+
                           <!-- sitio, ruta, fecha -->
                           <div class="srf form-group">
                             <div class="sitio">
@@ -591,14 +597,14 @@
                               <label class="col-form-label">Fecha Inst.</label>
                               <input class="form-control" type="datetime"  name="hoy" value="{{hoy}}">
                             </div>
-                          </div>
-              
+                          </div>   
+
                           <!-- observacion -->
                           <div class="observacion form-group">
                             <label class="col-form-label">Referencia/Observación</label>
                             <input class="form-control" type="text" name="referencia" id="referencia" value="{{referencia}}">
-                          </div>
-              
+                          </div>  
+
                           <!-- serie, distancia, red -->
                           <div class="sdr form-group">
                             <div class="serie">
@@ -613,11 +619,10 @@
                               <label class="col-form-label">Diámetro Red</label>
                               <input class="form-control" type="text" name="diametro_red" id="diametro_red" value="{{diametro_red}}">
                             </div> 
-                          </div>
-              
+                          </div>  
+
                           <!-- nro, botones -->
-                          <div class="nb form-group">
-              
+                          <div class="nb form-group">              
                             <div class="nro">
                               <label class="nro_label col-form-label">Nº Dígitos Medidor</label>
                               <input class="nro_input form-control" type="number" name="digitos_medidor" id="digitos_medidor" value="{{digitos_medidor}}">
@@ -626,14 +631,13 @@
                             <div class="btn-group botones" role="group" aria-label="Basic example">
                               <button type="button" class="btn outline-primary">Disponible</button>
                               <button type="button" class="btn outline-primary">No Disponible</button>
-                            </div>
-              
+                            </div>              
                           </div>
 
                           <div class="correo form-group">
                             <label class="correo_label col-form-label">Enviar al correo electrónico:</label>
                             <input class="correo_input form-control" type="text" name="email" id="email" value="{{email}}">
-                        </div>
+                          </div>
               
                         </div>
               
@@ -683,8 +687,7 @@
                               <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="">
                                 <label class="form-check-label" for="">Descontar Consumo</label>
-                              </div>
-                  
+                              </div>                  
                             </div>
                             
                             <!-- subsidio -->
@@ -732,18 +735,15 @@
                             <input class="descuento_input form-control" type="text" name="descuento" id="descuento">
                           </div>
               
-                        </div>
-              
-                      </div>
-              
+                        </div>              
+                      </div>              
                       <!-- correo -->
                       
                         
                       <!-- identidad, persona -->
                       <div class=" iden_perso">
               
-                        <div class="iden">
-              
+                        <div class="iden">              
                           <!-- usuario -->
                           <div class="usuario form-group">
                             <label class="usuario_label col-form-label">C. Identidad Usuario</label>
@@ -756,13 +756,14 @@
                             <label class="socio_label col-form-label">C. Identidad Socio</label>
                             <input class="socio_input1 form-control" type="text" name="rut_socio" id="rut_socio" value="{{rut_socio}}">
                             <input class="socio_input2 form-control" type="text" name="nombre_socio" id="nombre_socio" value="{{nombre_socio}}">
-                          </div>
-              
+                          </div>              
                         </div>
               
                         <!-- icono persona -->
                         <div class="persona">
-                          <a href=""><i class="fas fa-user-friends fa-5x icono "></i></a>
+                          <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                            <a href=""><i class="fas fa-user-friends fa-5x icono "></i></a>
+                          </button>
                         </div>
               
                       </div>
@@ -775,15 +776,29 @@
                       </div>
                       
                       <!-- iconos -->
-                      <section class="   iconos">
-                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
-                      </section>  
+                      <div class="iconos">
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                          <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                        </button>
+                      </div>  
                     </div>
                   </div>
                 </div>

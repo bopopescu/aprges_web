@@ -20,24 +20,24 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
         <style> 
-        .tabla_info{
-            color: #fff;
-            background-color: #17a2b8;
-            border-color: #17a2b8;        
-        }     
-        .boton_info{
-            background-color: #17a2b8;
-            border-color: #17a2b8; 
-            color: white;
-        }
-        .boton_info:hover{
-            background-color: #0a8a9e;
-            border-color: #0a8a9e;              
-        }   
-        .boton_info:focus{
-            background-color: #0a8a9e;
-            border-color: #0a8a9e;               
-        }    
+            .tabla_info{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;        
+            }     
+            .boton_info{
+                background-color: #17a2b8;
+                border-color: #17a2b8; 
+                color: white;
+            }
+            .boton_info:hover{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;              
+            }   
+            .boton_info:focus{
+                background-color: #0a8a9e;
+                border-color: #0a8a9e;               
+            }    
         /* inicio modal */
             .modalDialog {
                 position: fixed;
@@ -94,7 +94,7 @@
                 -moz-box-shadow: 1px 1px 3px #000;
                 -webkit-box-shadow: 1px 1px 3px #000;
             }
-                .close:hover { background: #4183D7; }
+            .close:hover { background: #4183D7; }
         /* fin cerrar */
         /* inicio aviso y nro boleta */
             .modal_id_label, .modal_rut_1{
@@ -532,7 +532,9 @@
             <!-- SITE MAINMENU-->
             <nav class="menu-block">
                 <ul class="nav">
-                    <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    <a href="/home/">
+                        <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    </a>
                 </ul>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -580,7 +582,7 @@
                     <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
                         <div class="menu-block-label">Informes</div></a>
                         <ul class="nav menu-block-sub">
-                        <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
                         <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>

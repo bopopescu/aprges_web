@@ -191,15 +191,17 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
+
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
             <div class="menu-block-label">Home</div></a></li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
             <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
             <ul class="nav menu-block-sub">
-              
               <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/calle_area/">Calle y Área</a></li>
@@ -216,24 +218,31 @@
             <div class="menu-block-label">Antecedentes</div></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/antecedentes/socios/">Incorporación de Socios</a></li>
+              <li class="nav-item"><a class="nav-link" href="/antecedentes/instalacion_medidor/">Instalación de Medidor</a></li>
+              <li class="nav-item"><a class="nav-link" href="/antecedentes/consumo_estanque/">Consumo Estanque</a></li>
               <li class="nav-item"><a class="nav-link" href="/antecedentes/orden_trabajo/">Ordenes de Trabajo</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-grid"></i>
             <div class="menu-block-label">Procesos</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/procesos/consumo/">Consumo de Socio</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/ingreso_lectura/">Ingreso de lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/procesos/convenios/">Convenio y Pactación</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/subsidio/">Subsidio</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/cierre_periodo/">Cierre de periodo</a></li>
               <li class="nav-item"><a class="nav-link" href="/procesos/generacion/">Generación de Docto Cobranza</a></li>
               <li class="nav-item"><a class="nav-link" href="/procesos/pagos/">Ingreso de Pagos</a></li>
-              <li class="nav-item"><a class="nav-linl" href="/procesos/historial_cliente/">Historial Cliente</a></li>
-              <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Facturas</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/cancelar_boleta/">Cancelar Boletas y/o Avisos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/boleta_libre/">Boletas Libre</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/factura/">Ingreso de facturas</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/factura_libre/">Factura Libre</a></li>
+              <li class="nav-item"><a class="nav-link" href="/procesos/lectura_rapida/">Lectura rápida</a></li>
             </ul>
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -246,19 +255,25 @@
             <div class="menu-block-label">Contabilidad</div><span class="label label-success">new</span></a>
             <ul class="nav menu-block-sub">
               <li class="nav-item"><a class="nav-link" href="/contabilidad/plancuenta/egreso/">Plan de Cuentas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
               <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/ingreso/">Comprobante de Ingresos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contabilidad/saldo_favor/">Saldo a Favor</a></li>    
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/comprobante/egresos/">Comprobante de Egresos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/libro_venta/">Libro Venta</a></li>    
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/arqueo_caja/">Arqueo Caja</a></li>    
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/cuenta_corriente/">Cuenta Corriente</a></li>    
+              <li class="nav-item"><a class="nav-link" href="/contabilidad/conciliacion_bancaria/">Conciliación Bancaria</a></li> 
             </ul>
           </li>
           <!--li.header.nav-item APP-->
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
             <div class="menu-block-label">Configuración</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/arregla_datos/">Arregla datos Manuales</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/eliminar_abono/">Eliminar o Anular Abono</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
             </ul>
           </li>

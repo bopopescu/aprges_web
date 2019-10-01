@@ -33,8 +33,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                padding-bottom: 2rem;
-                border-bottom: 2px solid #0a8a9e;
             }
             .aviso_vigencia{
                 width: 50%;
@@ -94,7 +92,6 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    padding-top: 2rem;
                 }
                 .sector_form{
                     display: flex;
@@ -124,7 +121,7 @@
                     width: fit-content;
                 }
                 .sector_boton_iconos{
-                clear: both;
+                    clear: both;
                 }
             }
         </style>
@@ -135,7 +132,9 @@
             <!-- SITE MAINMENU-->
             <nav class="menu-block">
                 <ul class="nav">
-                <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    <a href="/home/">
+                        <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+                    </a>
                 </ul>
                 <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -183,7 +182,7 @@
                 <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
                     <div class="menu-block-label">Informes</div></a>
                     <ul class="nav menu-block-sub">
-                    <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
                     <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -408,9 +407,8 @@
                         <form class="col-sm-12" action="/configuracion/boletas_vigentes/" method="POST">
                             {% csrf_token %}  
                             <div class="panel panel-default">
-                                <div class="panel-heading"></div>
                                 <div class="panel-body">
-                                    <div class="row m-b-3 cuerpo">
+                                    <div class="row cuerpo">
                                         <div class="aviso">
                                             <div class="aviso_form">
                                                 <p class="aviso_label" for=""><b>Habilitar por Número de Aviso</b></p>
@@ -436,31 +434,37 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        {% endblock %}    
-                                    </form>
-                                                    <!-- #SELECT2-->
+                                    </div>
+                                </div>
+                            </div>
+                            {% endblock %}    
+                        </form>
+                        <!-- #SELECT2-->
                         {% block content %}	
                         <form class="col-sm-12" action="/configuracion/boletas_vigentes/" method="POST">
-                            {% csrf_token %}  
+                            {% csrf_token %} 
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row cuerpo">                            
                                         <div class="sector">
                                             <div class="sector_form">
                                                 <p class="sector_titulo" for=""><b>Habilitar Aviso por Mes/Año</b></p>
                                                 <label class="sector_label" for="">Mes</label>
                                                 <select class="sector_select form-control" id="mes" name="mes" required>
-                                                        <option value="{{mes}}">{{mes}}</option>
-                                                        <option value="Enero">Enero</option>
-                                                        <option value="Febrero">Febrero</option>
-                                                        <option value="Marzo">Marzo</option>
-                                                        <option value="Abril">Abril</option>
-                                                        <option value="Mayo">Mayo</option>
-                                                        <option value="Junio">Junio</option>
-                                                        <option value="Julio">Julio</option>
-                                                        <option value="Agosto">Agosto</option>
-                                                        <option value="Septiembre">Septiembre</option>
-                                                        <option value="Octubre">Octubre</option>
-                                                        <option value="Noviembre">Noviembre</option>
-                                                        <option value="Diciembre">Diciembre</option>
-                                                    </select>
+                                                    <option value="{{mes}}">{{mes}}</option>
+                                                    <option value="Enero">Enero</option>
+                                                    <option value="Febrero">Febrero</option>
+                                                    <option value="Marzo">Marzo</option>
+                                                    <option value="Abril">Abril</option>
+                                                    <option value="Mayo">Mayo</option>
+                                                    <option value="Junio">Junio</option>
+                                                    <option value="Julio">Julio</option>
+                                                    <option value="Agosto">Agosto</option>
+                                                    <option value="Septiembre">Septiembre</option>
+                                                    <option value="Octubre">Octubre</option>
+                                                    <option value="Noviembre">Noviembre</option>
+                                                    <option value="Diciembre">Diciembre</option>
+                                                </select>
                                                 <label class="sector_label" for="">Año</label>
                                                 <input class="sector_input form-control" type="text" value="{{ano}}" id="ano" name="ano">
                                             </div>
@@ -483,14 +487,12 @@
                                                 </button>
                                             </div>
                                         </div>
-                                                                
                                     </div>
                                 </div>
                             </div>
                         </form>
                         {% endblock %}    
                         <label>{{mensaje}}</label>
-
                         <!-- #SELECT2-->           
                     </div>
                     <!-- ROW--> 

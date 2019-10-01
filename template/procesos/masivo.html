@@ -66,15 +66,16 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
             <div class="menu-block-label">Home</div></a></li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
             <div class="menu-block-label">Mantenedor<span class="label label-success">new</span></div></a>
-            <ul class="nav menu-block-sub">
-              
+            <ul class="nav menu-block-sub">              
               <li class="nav-item"><a class="nav-link" href="/mantenedor/tramo1/">Tramo Tarifario</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/sector/">Sector</a></li>
               <li class="nav-item"><a class="nav-link" href="/mantenedor/calle_area/">Calle y Área</a></li>
@@ -113,7 +114,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>

@@ -3393,5 +3393,5 @@ def viewLectura_rapida(request):
     }
     return render(request, 'procesos/lectura_rapida.html', data)
 
-def viewSubsidio(request):
-    return render(request, 'procesos/subsidio.html', {})
+# def viewSubsidio(request):
+#     return render(request, 'procesos/subsidio.html', {})

@@ -45,6 +45,12 @@
         width: 15rem;
         padding: 1rem 3rem;
       }    
+      .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+      }
       @media(min-width: 48rem){
         .contenido{
           margin: 0 3rem;
@@ -84,7 +90,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -132,7 +140,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -450,48 +458,48 @@
                     <div class="identificacion">
                       <input type="hidden" id="id_" name="id_" value="{{id}}"/>   
                       <div class="nombre_sector">
-                         <div class="form-group col-xs-12 col-sm-12">
-                           <label>Nombre de Sector</label>
-                           <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" placeholder="Sector 1" required>
-                         </div>
-                         <div class="col-xs-12 col-sm-12 text-capitalize boton_div">
-                           <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
-                         </div>
-                       </div>   
-                       <!-- etiquetas -->
-                       <div class="etiquetas">
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-label ">Estanque</label>
-                           <select class="form-control" name="estanque" id="estanque"></select>
-                         </div>
-                 
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
-                           <input type="text" class="form-control" name="tratamiento" id="tratamiento" value="{{tratamiento}}">
-                         </div>
-                 
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
-                           <input type="text" class="form-control" name="multa" id="multa" value="{{multa}}">
-                         </div>
-                 
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
-                           <input type="text" class="form-control" name="consumo" id="consumo" value="{{consumo}}">
-                         </div>
-                 
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-label">Alcantarillado</label>
-                           <input type="text" class="form-control" name="alcantarillado" id="alcantarillado" value="{{alcantarillado}}">
-                         </div>
-                 
-                         <div class="etiqueta form-group">
-                           <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
-                           <input type="text" class="form-control" name="sin_consumo" id="sin_consumo" value="{{sin_consumo}}">
-                         </div>
+                        <div class="form-group col-xs-12 col-sm-12">
+                         <label>Nombre de Sector</label>
+                         <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" placeholder="Sector 1" required>
                        </div>
-                    </div>
+                       <div class="col-xs-12 col-sm-12 text-capitalize boton_div">
+                         <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
+                       </div>
+                      </div>   
+                      <!-- etiquetas -->
+                      <div class="etiquetas">
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label ">Estanque</label>
+                          <select class="form-control" name="estanque" id="estanque"></select>
+                        </div>
                     
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
+                          <input type="text" class="form-control" name="tratamiento" id="tratamiento" value="{{tratamiento}}">
+                        </div>
+                    
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
+                          <input type="text" class="form-control" name="multa" id="multa" value="{{multa}}">
+                        </div>
+                  
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
+                          <input type="text" class="form-control" name="consumo" id="consumo" value="{{consumo}}">
+                        </div>
+                    
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Alcantarillado</label>
+                          <input type="text" class="form-control" name="alcantarillado" id="alcantarillado" value="{{alcantarillado}}">
+                        </div>
+                  
+                        <div class="etiqueta form-group">
+                          <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
+                          <input type="text" class="form-control" name="sin_consumo" id="sin_consumo" value="{{sin_consumo}}">
+                        </div>
+                      </div>
+                    </div>
+                      
                     <div class="form-check form-check-inline marcar">
                       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                       <label class="form-check-label m-b-0 m-l-1">Marque aquí para cerrar todos los sectores</label>
@@ -504,7 +512,7 @@
               </div>
             </form>
             {% endblock %}
-              <!-- #SELECT2-->       
+            <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
         </div>

@@ -26,9 +26,7 @@
       }
       a:hover {
         color: #000033;
-      }
-
-      
+      }      
       .año{
         display: flex;
       }
@@ -49,7 +47,11 @@
       }
       .form-check-label{
         margin: 0;
-      }
+      }      
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }   
       .iconos{
         text-align: center;
       }
@@ -72,7 +74,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -120,7 +124,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -358,82 +362,83 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
-
                     <div class="contenido">
                   
-                        <div class="form-group año">
-                          <h6 class="año_label col-form-label">AÑO</h6>
-                          <input class="año_input form-control" type="datetime" name="año" value="{{año}}"> 
-                        </div>
+                      <div class="form-group año">
+                        <h6 class="año_label col-form-label">AÑO</h6>
+                        <input class="año_input form-control" type="datetime" name="año" value="{{año}}"> 
+                      </div>
                         
-                        <div class="form-group opciones">
-                          <div class="columna">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Ingreso por Año Anexo Nº2</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Egresos por Año Anexo Nº3</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle de Gastos en energía Eléctrica Anexo nº4</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle de Gastos en Sueldos por Año Anexo Nº5</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle Gastos Clonación Anexo Nº6</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Administración por Año Anexo Nº7</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle Anexo Mantención Anexo Nº8</label>
-                            </div>
+                      <div class="form-group opciones">
+                        <div class="columna">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Ingreso por Año Anexo Nº2</label>
                           </div>
-                    
-                          <div class="columna">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle Anexo Mejoramiento Año Anexo Nº9</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle Otros Gastos Fuera del Giro por Año Anexo Nº10</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Análisis Financiero por Año Anexo Nº11</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Análisis de Resultado por Año Anexo Nº12</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Análisis para el Año Anexo Nº13</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Reajuste Tarifario Anexo Nº14</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label">Detalle Oficina por Año</label>
-                            </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Egresos por Año Anexo Nº3</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle de Gastos en energía Eléctrica Anexo nº4</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle de Gastos en Sueldos por Año Anexo Nº5</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle Gastos Clonación Anexo Nº6</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Administración por Año Anexo Nº7</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle Anexo Mantención Anexo Nº8</label>
                           </div>
                         </div>
+                    
+                        <div class="columna">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle Anexo Mejoramiento Año Anexo Nº9</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle Otros Gastos Fuera del Giro por Año Anexo Nº10</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Análisis Financiero por Año Anexo Nº11</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Análisis de Resultado por Año Anexo Nº12</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Análisis para el Año Anexo Nº13</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Reajuste Tarifario Anexo Nº14</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Detalle Oficina por Año</label>
+                          </div>
+                        </div>
+                      </div>
                             
-                        <!-- iconos -->
-                        <div class="iconos">
+                      <!-- iconos -->
+                      <div class="iconos">
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">
                           <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        </div>   
+                        </button>
+                      </div>   
                   
                     </div>
                   
@@ -455,11 +460,11 @@
             
     <!-- WEB PERLOAD-->
     <div id="preload">
-        <ul class="loading">
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+      <ul class="loading">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
 

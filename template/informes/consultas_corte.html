@@ -85,8 +85,11 @@
         height: fit-content;
         padding: .3rem 3rem;
         font-size: 1.2rem;
-      }
-
+      }            
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }   
       .iconos{
         display: flex;
         justify-content: space-around;
@@ -136,7 +139,9 @@
       <!-- SITE MAINMENU-->
       <nav class="menu-block">
         <ul class="nav">
-          <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          <a href="/home/">
+            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+          </a>
         </ul>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="/home/"><i class="icon ion-home"></i>
@@ -184,7 +189,7 @@
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-toggle"></i>
             <div class="menu-block-label">Informes</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="/informes/informes/informes/">Informes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/informes/informes/">Informes</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/medidor/">Consultas Medidor</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/consultas/lectura/">Consultas Lectura</a></li>
               <li class="nav-item"><a class="nav-link" href="/informes/cuentas/ind/">Cuentas Individuales</a></li>
@@ -422,60 +427,58 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-3">
-
                     <div class="contenido">
-                
+
                       <div class="buscar">
                         <div class="form-group ident">
-
-                            <!-- mes y año -->
-                            <div class="form-group fecha">
-                              <div class="mes">
-                                <label class="mes_label col-form-label">Mes Proceso</label>
-                                <select class="mes_select form-control" name="mes" id="mes">
-                                  <option value="">Enero</option>
-                                  <option value="">Febrero</option>
-                                  <option value="">Marzo</option>
-                                  <option value="">Abril</option>
-                                  <option value="">Mayo</option>
-                                  <option value="">Junio</option>
-                                  <option value="">Julio</option>
-                                  <option value="">Agosto</option>
-                                  <option value="">Septiembre</option>
-                                  <option value="">Octubre</option>
-                                  <option value="">Noviembre</option>
-                                  <option value="">Diciembre</option>
-                                </select>
-                              </div>
-                  
-                              <div class="año">
-                                <label class="año_label col-form-label">Año</label>
-                                <input class="año_input form-control" type="datetime" name="año" id="año" value="{{año}}">
-                              </div>
-                            </div>
-                  
-                            <!-- tipo -->
-                            <div class="form-group tipo">
-                              <label class="tipo_label col-form-label">Tipo</label>
-                              <select class="tipo_select form-control" name="tipo" id="tipo">
-                                <option>CORTE Y REPOSICIÓN</option>
-                                <option>SUSPENDER SUMINISTRO</option>
+                          <!-- mes y año -->
+                          <div class="form-group fecha">
+                            <div class="mes">
+                              <label class="mes_label col-form-label">Mes Proceso</label>
+                              <select class="mes_select form-control" name="mes" id="mes">
+                                <option value="">Enero</option>
+                                <option value="">Febrero</option>
+                                <option value="">Marzo</option>
+                                <option value="">Abril</option>
+                                <option value="">Mayo</option>
+                                <option value="">Junio</option>
+                                <option value="">Julio</option>
+                                <option value="">Agosto</option>
+                                <option value="">Septiembre</option>
+                                <option value="">Octubre</option>
+                                <option value="">Noviembre</option>
+                                <option value="">Diciembre</option>
                               </select>
                             </div>
                   
-                            <!-- tipo -->
-                            <div class="sector">
-                              <label class="sector_label col-form-label">Sector</label>
-                              <select class="sector_select form-control" name="sector" id="sector">
-                                <option>SECTOR 1 ...</option>
-                                <option>SECTOR 2 ...</option>
-                                <option>SECTOR 3 ...</option>
-                                <option>SECTOR 4 ...</option>
-                                <option>SECTOR 5 ...</option>
-                                <option>SECTOR 6 ...</option>
-                                <option>SECTOR 7 ...</option>
-                              </select>
-                            </div>                                  
+                            <div class="año">
+                              <label class="año_label col-form-label">Año</label>
+                              <input class="año_input form-control" type="datetime" name="año" id="año" value="{{año}}">
+                            </div>
+                          </div>
+                  
+                          <!-- tipo -->
+                          <div class="form-group tipo">
+                            <label class="tipo_label col-form-label">Tipo</label>
+                            <select class="tipo_select form-control" name="tipo" id="tipo">
+                              <option>CORTE Y REPOSICIÓN</option>
+                              <option>SUSPENDER SUMINISTRO</option>
+                            </select>
+                          </div>
+                  
+                          <!-- tipo -->
+                          <div class="sector">
+                            <label class="sector_label col-form-label">Sector</label>
+                            <select class="sector_select form-control" name="sector" id="sector">
+                              <option>SECTOR 1 ...</option>
+                              <option>SECTOR 2 ...</option>
+                              <option>SECTOR 3 ...</option>
+                              <option>SECTOR 4 ...</option>
+                              <option>SECTOR 5 ...</option>
+                              <option>SECTOR 6 ...</option>
+                              <option>SECTOR 7 ...</option>
+                            </select>
+                          </div>                                  
                         </div>
 
                         <div class="form-group div_boton">
@@ -603,11 +606,16 @@
 
                       <!--iconos-->
                       <div class="iconos">
-                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>        
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                        
+                          <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                        
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                        <button class="boton_iconos" type="submit" id="guardar" name="guardar">                        
+                          <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>        
+                        </button>
                       </div>  
-
                     </div>
                   </div>
                 </div>
