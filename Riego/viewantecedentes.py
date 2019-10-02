@@ -37,7 +37,7 @@ except pyodbc.Error as ex:
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATO_COMITE"
 
     try:
         cursor.execute(sql)
@@ -398,7 +398,7 @@ def viewSocios(request):
 
 def numero_orden():
 
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_ordentrabajo"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_ORDENTRABAJO"
     correlativo=0
 
     try:
@@ -486,7 +486,7 @@ def historialOrden(request):
         responsable=""
         tipo=""
 
-        sql="SELECT TIPO FROM A_ORDENTRABAJO WHERE ID="+nro
+        sql="SELECT TIPO FROM OPER_ORDENTRABAJO WHERE CORRELATIVO="+nro
 
         try:
             cursor.execute(sql)
@@ -555,7 +555,7 @@ def historialOrden(request):
 
         nro=request.POST['nro']
 
-        sql="DELETE FROM A_ORDENTRABAJO WHERE ID="+nro
+        sql="DELETE FROM OPER_ORDENTRABAJO WHERE CORRELATIVO="+nro
 
         try:
             cursor.execute(sql)

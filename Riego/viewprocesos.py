@@ -42,13 +42,13 @@ def viewAsociacion():
 
     nombre=""
     lista=[]
-    sql="SELECT * FROM A_DATOS"
+    sql="SELECT * FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
 
         for i in cursor.fetchall():
-            lista.append({'rut':i[1],'giro':i[2],'nombre':i[3],'direccion':i[4],'telefono':i[5],'comuna':i[7]})
+            lista.append({'rut':i[1],'giro':i[2],'nombre':i[3],'direccion':i[4],'fono':i[5],'comuna':i[7]})
             
     except Exception as e:
         print(e)
@@ -58,7 +58,7 @@ def viewAsociacion():
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -108,7 +108,7 @@ def buscarId(nombre):
 
     print(nombre)
 
-    sql="SELECT ID FROM A_SOCIOS WHERE NOMBRES='"+nombre+"'"
+    sql="SELECT RUT FROM OPER_CLIENTE WHERE NOMBRES='"+nombre+"'"
 
     lista=[]
 
@@ -153,7 +153,7 @@ def viewID(request):
 def buscarlista(mes,ano):
 
     lista=[]
-    sql="SELECT A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_CONSUMO_DIARIO.CONSUMO, A_CONSUMO_DIARIO.VALOR_CONSUMO, A_CONSUMO_DIARIO.ID FROM A_SOCIOS INNER JOIN A_CONSUMO_DIARIO ON A_SOCIOS.ID = A_CONSUMO_DIARIO.ID_PARCELERO WHERE (((A_CONSUMO_DIARIO.MES)='"+mes+"') AND ((A_CONSUMO_DIARIO.ANO)="+ano+"));"
+    sql="SELECT OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, A_CONSUMO_DIARIO.CONSUMO, A_CONSUMO_DIARIO.VALOR_CONSUMO, A_CONSUMO_DIARIO.ID FROM OPER_CLIENTE INNER JOIN A_CONSUMO_DIARIO ON OPER_CLIENTE.RUT = A_CONSUMO_DIARIO.ID_PARCELERO WHERE (((A_CONSUMO_DIARIO.MES)='"+mes+"') AND ((A_CONSUMO_DIARIO.ANO)="+ano+"));"
 
     try:
         cursor.execute(sql)
@@ -182,14 +182,14 @@ def buscarTurno(id_):
 
 def buscarSector():
 
-    sql="SELECT ID,NOMBRE FROM A_SECTOR"
+    sql="SELECT ID,NOMBRE FROM GLO_SECTOR"
     lista=[]
 
     try:
         cursor.execute(sql)
 
         for i in cursor.fetchall():
-            lista.append({'id':i[0], 'nombre':i[1]})
+            lista.append({'sector':i[0], 'glosa':i[1]})
 
     except Exception as a:
         print(a)
@@ -256,7 +256,7 @@ def buscarInfoRiegoPor(tipo):
     return turno
 
 def correaltivoConvenioDet():
-    sql="SELECT IIf(IsNull(MAX(nrocom)), 0, Max(nrocom)) FROM a_det_convenio"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_DET_CONVENIO"
             
     try:
         cursor.execute(sql)
@@ -359,7 +359,7 @@ def viewConsumo(request):
             except Exception as a:
                     print(a)
             
-            sql="SELECT A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_SOCIOS.TOTAL_HEC FROM A_SOCIOS WHERE (((A_SOCIOS.ID)="+id_+"));"
+            sql="SELECT OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CLIENTE.TOTAL_HEC FROM OPER_CLIENTE WHERE (((OPER_CLIENTE.RUT)="+id_+"));"
 
             try:
                 cursor.execute(sql)
@@ -779,7 +779,7 @@ def viewConvenio(request):
         
         fecha=str(now.day)+"/"+str(mesnum)+"/"+str(ano)
 
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_convenio"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONVENIO"
     
         try:
             cursor.execute(sql)
@@ -892,7 +892,7 @@ def viewConvenio(request):
         lista=[]
         lista2=[]
 
-        sql="SELECT A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_SOCIOS.DIRECCION, A_COBROS.DESCRIPCION, A_CONVENIO.TOTAL_CUOTAS, A_CONVENIO.MONTO_PACTADO, A_CONVENIO.INTERES, A_CONVENIO.FECHA,A_CONVENIO.ID FROM (A_CONVENIO INNER JOIN A_SOCIOS ON A_CONVENIO.ID_PARCELERO = A_SOCIOS.ID) INNER JOIN A_COBROS ON A_CONVENIO.TIPO_CONVENIO = A_COBROS.ID WHERE (((A_CONVENIO.ID)="+convenio+"));"
+        sql="SELECT OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CLIENTE.DIRECCION, A_COBROS.DESCRIPCION, OPER_CONVENIO.TOTAL_CUOTAS, OPER_CONVENIO.MONTO_PACTADO, OPER_CONVENIO.INTERES, OPER_CONVENIO.FECHA,OPER_CONVENIO.CORRELATIVO FROM (OPER_CONVENIO INNER JOIN OPER_CLIENTE ON OPER_CONVENIO.CLIENTE_RUT = OPER_CLIENTE.RUT) INNER JOIN A_COBROS ON OPER_CONVENIO.TIPO_CONVENIO = A_COBROS.ID WHERE (((OPER_CONVENIO.CORRELATIVO)="+convenio+"));"
 
         try:
             cursor.execute(sql)
@@ -965,7 +965,7 @@ def viewConvenio(request):
 
         if boleta=='0':
 
-            sql="DELETE FROM A_DET_CONVENIO WHERE ID="+nro
+            sql="DELETE FROM OPER_DET_CONVENIO WHERE CORRELATIVO="+nro
 
             try:
                 cursor.execute(sql)
@@ -1099,7 +1099,7 @@ def viewConvenio(request):
         mesmasivo=mesnum
 
         #sql="SELECT COUNT(ID) FROM A_CONVENIO"
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_convenio"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONVENIO"
         ch=request.POST.getlist('options[]')
         j=0
 
@@ -1108,7 +1108,7 @@ def viewConvenio(request):
         else:
             for i in ch:
                 #sql="SELECT COUNT(ID) FROM A_CONVENIO"
-                sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_convenio"
+                sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONVENIO"
             
                 try:
                     cursor.execute(sql)
@@ -1120,7 +1120,7 @@ def viewConvenio(request):
                     pass
                     print(e)
 
-                sql="INSERT INTO A_CONVENIO(ID,TIPO_CONVENIO,ID_PARCELERO,TOTAL_CUOTAS,MONTO_PACTADO,INTERES,VALOR_CUOTA,FECHA,MES,ANO) VALUES("+str(correlativo)+","+tipo+","+str(i)+","+cuotas+","+total+","+interes+","+valorcuota+",'"+fechaahora+"','"+str(mes)+"',"+str(ano)+")"
+                sql="INSERT INTO OPER_CONVENIO(CORRELATIVO,TIPO_CONVENIO,CLINTE_RUT,TOTAL_CUOTAS,MONTO_PACTADO,INTERES,VALOR_CUOTA,FECHA,MES,ANO) VALUES("+str(correlativo)+","+tipo+","+str(i)+","+cuotas+","+total+","+interes+","+valorcuota+",'"+fechaahora+"','"+str(mes)+"',"+str(ano)+")"
 
                 try:
                         cursor.execute(sql)
@@ -1131,7 +1131,7 @@ def viewConvenio(request):
                         while i<=int(cuotas):
                             cuot=str(i)+"/"+str(cuotas)
                             
-                            sql="INSERT INTO A_DET_CONVENIO(ID_CONVENIO,FECHA_PROPUESTA,NRO_CUOTA,VALOR_CUOTA,MES,ANO) VALUES("+str(correlativo)+",'"+fechamasiva+"','"+cuot+"',"+valorcuota+",'"+str(mesmasivo)+"',"+str(anomasivo)+")"
+                            sql="INSERT INTO OPER_DET_CONVENIO(CORRELATIVO,FECHA_PROPUESTA,NRO_CUOTA,VALOR_CUOTA,MES,ANO) VALUES("+str(correlativo)+",'"+fechamasiva+"','"+cuot+"',"+valorcuota+",'"+str(mesmasivo)+"',"+str(anomasivo)+")"
                             print(sql)
 
                             i=i+1
@@ -1208,7 +1208,7 @@ def viewConvenio(request):
         fecha=str(now.day)+"/"+str(mesnum)+"/"+str(ano)
 
         #sql="SELECT COUNT(ID) FROM A_CONVENIO"
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_convenio"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONVENIO"
     
         try:
             cursor.execute(sql)
@@ -1222,7 +1222,7 @@ def viewConvenio(request):
 
         if identificador!=None and identificador!=0:
                 
-            sql="INSERT INTO A_CONVENIO(ID,TIPO_CONVENIO,ID_PARCELERO,TOTAL_CUOTAS,MONTO_PACTADO,INTERES,VALOR_CUOTA,FECHA,MES,ANO) VALUES("+str(correlativo)+","+tipo+","+str(identificador)+","+cuotas+","+total+","+interes+","+valorcuota+",'"+fecha+"','"+mes+"',"+ano+")"
+            sql="INSERT INTO OPER_CONVENIO(CORRELATIVO,TIPO_CONVENIO,CLIENTE_RUT,TOTAL_CUOTAS,MONTO_PACTADO,INTERES,VALOR_CUOTA,FECHA,MES,ANO) VALUES("+str(correlativo)+","+tipo+","+str(identificador)+","+cuotas+","+total+","+interes+","+valorcuota+",'"+fecha+"','"+mes+"',"+ano+")"
 
             try:
                 cursor.execute(sql)
@@ -1233,7 +1233,7 @@ def viewConvenio(request):
                 while i<=int(cuotas):
                     cuot=str(i)+"/"+str(cuotas)
                     
-                    sql="INSERT INTO A_DET_CONVENIO(ID_CONVENIO,FECHA_PROPUESTA,NRO_CUOTA,VALOR_CUOTA,MES,ANO) VALUES("+str(correlativo)+",'"+fecha+"','"+cuot+"',"+valorcuota+","+str(mesnum)+","+str(ano)+")"
+                    sql="INSERT INTO A_DET_CONVENIO(CONVENIO_CORRELATIVO,FECHA_PROPUESTA,NRO_CUOTA,VALOR_CUOTA,MES,ANO) VALUES("+str(correlativo)+",'"+fecha+"','"+cuot+"',"+valorcuota+","+str(mesnum)+","+str(ano)+")"
                     i=i+1
 
                     mesnum=mesnum+1
@@ -1289,7 +1289,7 @@ def buscarCorrelativoBoleta():
 
     correlativo2=0
     #sql="SELECT COUNT(ID) FROM A_DET_BOLETA"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_det_boleta"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_DET_BOLETA"
     
     try:
         cursor.execute(sql)
@@ -1304,7 +1304,7 @@ def buscarCorrelativoBoleta():
 
 def buscarBoleta(id_,year,month):
 
-    sql="SELECT * FROM A_BOLETA WHERE ANO="+str(year)+" AND MES='"+str(month)+"' AND ID_PARCELERO="+str(id_)
+    sql="SELECT * FROM OPER_BOLETA WHERE ANO="+str(year)+" AND PERIODO='"+str(month)+"' AND ID_PARCELERO="+str(id_)
     print(sql)
     existe=0
 
@@ -1348,7 +1348,7 @@ def mesNombre(mes):
 
 def buscarCierre(mes,ano):
 
-    sql="SELECT VIGENTE FROM A_BOLETA WHERE MES='"+str(mes)+"' AND ANO="+str(ano)
+    sql="SELECT VIGENTE FROM OPER_BOLETA WHERE PERIODO='"+str(mes)+"' AND ANO="+str(ano)
     print(sql)
     estado=0
 
@@ -1366,7 +1366,7 @@ def buscarCierre(mes,ano):
 
 def buscarNumeroAbono():
     #sql="SELECT COUNT(ID) FROM A_ABONO"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_abono"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_ABONO"
     abono=0
 
     try:
@@ -1395,7 +1395,7 @@ def buscarPagos(id_):
 
 def numeroBoleta():
     #sql="SELECT COUNT(IDBOLETA) FROM A_BOLETA"
-    sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM a_boleta"
+    sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM OPER_BOLETA"
     correlativo=1
     try:
         cursor.execute(sql)
@@ -1441,7 +1441,7 @@ def viewGeneracion(request):
         mes='Diciembre'
 
     #sql="SELECT COUNT(IDBOLETA) FROM A_BOLETA"
-    sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM a_boleta"
+    sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM OPER_BOLETA"
     
     correlativo=numeroBoleta()
 
@@ -1455,7 +1455,7 @@ def viewGeneracion(request):
 
     if request.method=='POST' and 'cerrar' in request.POST:
 
-        sql="UPDATE A_BOLETA SET VIGENTE=1"
+        sql="UPDATE OPER_BOLETA SET VIGENTE=1"
 
         try:
             cursor.execute(sql)
@@ -1562,7 +1562,7 @@ def viewGeneracion(request):
                             if existe==0:
 
                                 #sql="SELECT COUNT(IDBOLETA) FROM A_BOLETA"
-                                sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM a_boleta"
+                                sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM OPER_BOLETA"
                     
                                 try:
                                     cursor.execute(sql)
@@ -1607,7 +1607,7 @@ def viewGeneracion(request):
                                             print("Insertar detalle de convenio...")
 
                                             #ACTUALIZAR BOLETA EN CONVENIO
-                                            sql="UPDATE A_DET_CONVENIO SET ID_BOLETA="+str(correlativo)+" WHERE ID="+str(idconvenio)
+                                            sql="UPDATE A_DET_CONVENIO SET CORRELATIVO="+str(correlativo)+" WHERE ID="+str(idconvenio)
                                             print(sql)
                                             try:
                                                 cursor.execute(sql)
@@ -1651,7 +1651,7 @@ def viewGeneracion(request):
                                     print(a)
 
                                 #BUSCAR MENSAJE PARA LOS AVISOS
-                                sql="SELECT DESCRIPCION FROM A_MENSAJE"
+                                sql="SELECT DESCRIPCION FROM GLO_MENSAJE"
                                 
                                 try:
                                     cursor.execute(sql)
@@ -1798,7 +1798,7 @@ def viewGeneracion(request):
                             if existe==0:
 
                                 #sql="SELECT COUNT(IDBOLETA) FROM A_BOLETA"
-                                sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM a_boleta"
+                                sql="SELECT IIf(IsNull(MAX(idboleta)), 0, Max(idboleta)) FROM OPER_BOLETA"
                     
                                 try:
                                     cursor.execute(sql)
@@ -1890,7 +1890,7 @@ def viewGeneracion(request):
                                     print("Error: "+sql)
                                 
                                 #BUSCAR MENSAJE PARA LOS AVISOS
-                                sql="SELECT DESCRIPCION FROM A_MENSAJE"
+                                sql="SELECT DESCRIPCION FROM GLO_MENSAJE"
                                 
                                 try:
                                     cursor.execute(sql)
@@ -2178,24 +2178,24 @@ def viewGeneracion(request):
                     except Exception as a:
                         print(a)
 
-    data={
-        'asociacion':viewName(),
-        'ano':str(now.year),
-        'mes':mes,
-        'boleta':numeroBoleta(),
-        'emision':str(now.day)+"/"+str(now.month)+"/"+str(now.year),
-        'vencimiento':str(now.day+20)+"/"+str(now.month)+"/"+str(now.year),
-        'all_socios':buscarporNombre,
-        'lista_sector':buscarSector(),
-        'mensaje':mensaje,
-        'cierre':botoncierre
-    }
+        data={
+            'asociacion':viewName(),
+            'ano':str(now.year),
+            'mes':mes,
+            'boleta':numeroBoleta(),
+            'emision':str(now.day)+"/"+str(now.month)+"/"+str(now.year),
+            'vencimiento':str(now.day+20)+"/"+str(now.month)+"/"+str(now.year),
+            'all_socios':buscarporNombre,
+            'lista_sector':buscarSector(),
+            'mensaje':mensaje,
+            'cierre':botoncierre
+        }
     return render(request, 'procesos/boletas.html', data)
 
 def correlativoFactura():
 
     #sql="SELECT COUNT(ID) FROM A_ABONO"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_factura"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_FACTURA"
     correlativo=1
 
     try:
@@ -2282,7 +2282,7 @@ def historialFactura(request):
 
         nro=request.POST['nro']
 
-        sql="DELETE FROM A_ORDENTRABAJO WHERE ID="+nro
+        sql="DELETE FROM OPER_ORDENTRABAJO WHERE CORRELATIVO="+nro
 
         try:
             cursor.execute(sql)
@@ -2324,7 +2324,7 @@ def viewFactura(request):
 
         if nrofactura != None :
 
-            sql="UPDATE A_FACTURA SET FECHA_CANCELACION='"+now.date().strftime('%d-%m-%Y')+"' WHERE ID="+nrofactura
+            sql="UPDATE OPER_FACTURA SET FECHA_CANC='"+now.date().strftime('%d-%m-%Y')+"' WHERE CORRELATIVO="+nrofactura
             print(sql)
 
             try:
@@ -2341,7 +2341,7 @@ def viewFactura(request):
 
         if nrofactura != None :
 
-            sql="DELETE FROM A_FACTURA WHERE ID="+nrofactura+";"
+            sql="DELETE FROM OPER_FACTURA WHERE CORRELATIVO="+nrofactura+";"
             print(sql)
 
             try:
@@ -2356,7 +2356,7 @@ def viewFactura(request):
         
         nrofactura=request.POST['nrofactura']
 
-        sql="SELECT ANULAR FROM A_FACTURA WHERE ID="+nrofactura
+        sql="SELECT ANULAR FROM OPER_FACTURA WHERE CORRELATIVO="+nrofactura
         
         try:
             cursor.execute(sql)
@@ -2396,7 +2396,7 @@ def viewFactura(request):
 
         if nrofactura != None :
 
-            sql="UPDATE A_FACTURA SET ANULAR=1 WHERE ID="+nrofactura
+            sql="UPDATE OPER_FACTURA SET ANULAR=1 WHERE CORRELATIVO="+nrofactura
 
             try:
                 cursor.execute(sql)
@@ -2447,7 +2447,7 @@ def viewFactura(request):
         if periodo=='12':
             mes='Diciembre'
 
-        sql="SELECT * FROM A_FACTURA WHERE ID="+nrofactura
+        sql="SELECT * FROM OPER_FACTURA WHERE CORRELATIVO="+nrofactura
 
         existe=0
         try:
@@ -2505,7 +2505,7 @@ def viewFactura(request):
 def buscarAbono():
 
     #sql="SELECT COUNT(ID) FROM A_ABONO"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_abono"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_ABONO"
     correlativo=1
 
     try:
@@ -2520,7 +2520,7 @@ def buscarAbono():
 def buscarDetAbono():
 
     #sql="SELECT COUNT(ID) FROM A_DET_ABONO"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_det_abono"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_DET_ABONO"
     correlativodet=1
 
     try:

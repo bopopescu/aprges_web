@@ -28,7 +28,11 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-      }
+      }      
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
       .iconos{
         display: flex;
         justify-content: space-around;
@@ -79,7 +83,7 @@
       <nav class="menu-block">
         <ul class="nav">
           <a href="/home/">
-            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+            <img src="{% static 'assets/images/ico-2.png' %}" class="img-fluid" style="padding: 30px;"/>
           </a>
         </ul>
         <ul class="nav">
@@ -437,11 +441,19 @@
                       </div>            
                     </section>     
                     <!-- iconos -->
-                    <section class="container iconos" style="text-align: center;">
-                      <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                    <section class="container iconos">
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-undo-alt fa-4x icono"></i></a>
+                      </button>
                     </section>
                   </div>
                 </div>

@@ -37,7 +37,7 @@ def viewAsociacion():
 
     nombre=""
     lista=[]
-    sql="SELECT * FROM A_DATOS"
+    sql="SELECT * FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -68,7 +68,7 @@ def buscarpor():
 
 def buscarSector():
 
-    sql="SELECT ID,NOMBRE FROM A_SECTOR"
+    sql="SELECT SECTOR,GLOSA FROM GLO_SECTOR"
     lista=[]
 
     try:
@@ -143,7 +143,7 @@ def historialCondonacion(request):
     return render(request, 'configuracion/historialcondonacion.html', data)
 
 def correlativocondonacion():
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_condonacion"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONDONACION"
     print(sql)
     correlativo=0
 
@@ -157,7 +157,7 @@ def correlativocondonacion():
     return correlativo
 
 def correlativocondonaciondet():
-    sql="SELECT IIf(IsNull(MAX(correlativo)), 0, Max(correlativo)) FROM a_det_condonacion"
+    sql="SELECT IIf(IsNull(MAX(correlativo)), 0, Max(correlativo)) FROM OPER_DET_CONDONACION"
     print(sql)
     correlativo=0
 
@@ -232,7 +232,7 @@ def viewCodonacion(request):
         for i in nroaviso:
             listaaviso.append(i)
 
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_condonacion"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CONDONACION"
         correlativo=0
 
         try:
@@ -355,7 +355,7 @@ def viewEliminar_abono(request):
 
         existe=0
 
-        sql="SELECT * FROM A_ABONO WHERE ID="+numero
+        sql="SELECT * FROM OPER_ABONO WHERE CORRELATIVO="+numero
         
         try:
             cursor.execute(sql)
@@ -379,7 +379,7 @@ def viewEliminar_abono(request):
                     except Exception as a:
                         print(a)
                 
-                sql="DELETE FROM A_ABONO WHERE ID="+numero
+                sql="DELETE FROM OPER_ABONO WHERE CORRELATIVO="+numero
 
                 try:
                     cursor.execute(sql)
@@ -414,7 +414,7 @@ def viewMensaje(request):
 
     mensajeaviso=""
 
-    sql="SELECT DESCRIPCION FROM A_MENSAJE"
+    sql="SELECT DESCRIPCION FROM GLO_MENSAJE"
 
     try:
         cursor.execute(sql)
@@ -427,7 +427,7 @@ def viewMensaje(request):
 
         mensaje=request.POST['mensaje']
 
-        sql="UPDATE A_MENSAJE SET DESCRIPCION='"+mensaje+"' WHERE ID=1;"
+        sql="UPDATE GLO_MENSAJE SET DESCRIPCION='"+mensaje+"' WHERE CORRELATIVO=1;"
 
         try:
             cursor.execute(sql)
@@ -501,7 +501,7 @@ def viewBoletas_vigentes(request):
             
         existe=0
 
-        sql="SELECT * FROM A_BOLETA WHERE IDBOLETA="+numero
+        sql="SELECT * FROM OPER_BOLETA WHERE IDBOLETA="+numero
 
         try:
             cursor.execute(sql)
@@ -544,10 +544,10 @@ def viewBoletas_vigentes(request):
         
         if modoopcion=='1':
 
-            sql="UPDATE A_BOLETA SET VIGENTE=1 WHERE MES='"+mes+"' AND ANO ="+ano
+            sql="UPDATE OPER_BOLETA SET VIGENTE=1 WHERE PERIODO='"+mes+"' AND ANO ="+ano
         
         else:
-            sql="UPDATE A_BOLETA SET VIGENTE=0 WHERE MES='"+mes+"' AND ANO ="+ano
+            sql="UPDATE OPER_BOLETA SET VIGENTE=0 WHERE PERIODO='"+mes+"' AND ANO ="+ano
         
         print(sql)
         try:

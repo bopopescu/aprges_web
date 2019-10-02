@@ -57,7 +57,7 @@ def viewAsociacion():
 
     nombre=""
     lista=[]
-    sql="SELECT * FROM A_DATOS"
+    sql="SELECT * FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -73,7 +73,7 @@ def viewAsociacion():
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -575,7 +575,7 @@ def historialEgresos(request):
         
         elif tipo==3:
 
-            sql="SELECT A_COMPROBANTE.CORRELATIVO, A_COMPROBANTE.TOTAL, A_PROVEEDORES.RUT, A_PROVEEDORES.GIRO, A_PROVEEDORES.RAZON_SOCIAL FROM A_COMPROBANTE INNER JOIN A_PROVEEDORES ON A_COMPROBANTE.ID_PARCELERO = A_PROVEEDORES.ID WHERE (((A_COMPROBANTE.TIPO)=3) AND A_COMPROBANTE.ID_PARCELERO="+str(id_1)+");"
+            sql="SELECT A_COMPROBANTE.CORRELATIVO, A_COMPROBANTE.TOTAL, GLO_PROVEEDOR.RUT, GLO_PROVEEDOR.GIRO, GLO_PROVEEDOR.RAZON_SOCIAL FROM A_COMPROBANTE INNER JOIN GLO_PROVEEDOR ON A_COMPROBANTE.ID_PARCELERO = GLO_PROVEEDOR.ID WHERE (((A_COMPROBANTE.TIPO)=3) AND A_COMPROBANTE.ID_PARCELERO="+str(id_1)+");"
         
         try:
             cursor.execute(sql)

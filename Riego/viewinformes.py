@@ -40,7 +40,7 @@ def viewAsociacion():
 
     nombre=""
     lista=[]
-    sql="SELECT * FROM A_DATOS"
+    sql="SELECT * FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -56,7 +56,7 @@ def viewAsociacion():
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -72,7 +72,7 @@ def viewName():
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)

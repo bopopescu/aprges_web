@@ -44,7 +44,11 @@
         justify-content: center;
         width: 15rem;
         padding: 1rem 3rem;
-      }    
+      }          
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
       .iconos{
         display: flex;
         justify-content: center;
@@ -91,7 +95,7 @@
       <nav class="menu-block">
         <ul class="nav">
           <a href="/home/">
-            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+            <img src="{% static 'assets/images/ico-2.png' %}" class="img-fluid" style="padding: 30px;"/>
           </a>
         </ul>
         <ul class="nav">
@@ -505,7 +509,9 @@
                       <label class="form-check-label m-b-0 m-l-1">Marque aquí para cerrar todos los sectores</label>
                     </div>
                     <div class="iconos">
-                      <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>   
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">                        
+                        <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>   
+                      </button>
                     </div>
                   </div>
                 </div>

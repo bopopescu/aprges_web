@@ -68,7 +68,7 @@ def buscarporNombreProveedores():
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM A_DATOS"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -455,7 +455,7 @@ def viewSectores(request):
 
         nombre=request.POST['nombreid']
 
-        sql="DELETE FROM A_SECTOR WHERE ID="+nombre+""
+        sql="DELETE FROM GLO_SECTOR WHERE CORRELATIVO="+nombre+""
 
         try:
             cursor.execute(sql)
@@ -468,7 +468,7 @@ def viewSectores(request):
         nombre=request.POST['nombreid']
         id_=""
 
-        sql="SELECT * FROM A_SECTOR WHERE ID="+nombre+""
+        sql="SELECT * FROM GLO_SECTOR WHERE CORRELATIVO="+nombre+""
         print(sql)
         try:
             cursor.execute(sql)
@@ -504,7 +504,7 @@ def viewSectores(request):
         sin_consumo=request.POST['sin_consumo']
 
         #sql="SELECT COUNT(ID) FROM A_SECTOR"
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) AS ValorMaximo FROM a_sector"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) AS ValorMaximo FROM GLO_SECTOR"
     
         try:
             cursor.execute(sql)
@@ -548,7 +548,7 @@ def viewSectores(request):
             return render(request,'mantenedor/SECTOR.html', data)
 
         else:
-            sql="UPDATE A_SECTOR SET NOMBRE='"+nombre+"' WHERE ID="+id_
+            sql="UPDATE GLO_SECTOR SET GLOSA='"+nombre+"' WHERE CORRELATIVO="+id_
 
             try:
                 cursor.execute(sql)
@@ -912,7 +912,7 @@ def viewProveedor(request):
 
 def viewDatos(request):
 
-    sql="SELECT * FROM A_DATOS"
+    sql="SELECT * FROM DATOS_COMITE"
     rut=""
     giro=""
     nombre=""
@@ -952,7 +952,7 @@ def viewDatos(request):
         provincia=request.POST['provincia']
         email=request.POST['email']
 
-        sql="UPDATE A_DATOS SET RUT='"+rut+"',GIRO='"+giro+"',NOMBRE='"+nombre+"',DIRECCION='"+direccion+"',FONO='"+fono+"',REGION='"+region+"',COMUNA='"+comuna+"',PROVINCIA='"+provincia+"',EMAIL='"+email+"' WHERE CORRELATIVO=1"
+        sql="UPDATE DATOS_COMITE SET RUT='"+rut+"',GIRO='"+giro+"',NOMBRE='"+nombre+"',DIRECCION='"+direccion+"',FONO='"+fono+"',REGION='"+region+"',COMUNA='"+comuna+"',PROVINCIA='"+provincia+"',EMAIL='"+email+"' WHERE CORRELATIVO=1"
         
         try:
             cursor.execute(sql)

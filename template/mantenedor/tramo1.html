@@ -65,8 +65,9 @@
       a {
         color: #000;
       }
-      .cargos{
+      .cargo{
         margin-top: 1rem;
+        border: none;
       }
       .botones{
         display: flex;
@@ -89,7 +90,11 @@
       }
       .multas{
         padding: 1.5rem;
-      }
+      }      
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
       .iconos{
         display: flex;
         justify-content: space-around;
@@ -116,9 +121,6 @@
           align-items: center;
           margin-top: 1rem;
           margin-bottom: 1rem;
-        }
-        .cargo{
-          border-color: #fff;
         }
         .cargo, .multas{
           width: 40%;
@@ -175,7 +177,7 @@
       <nav class="menu-block">
         <ul class="nav">
           <a href="/home/">
-            <img src="{% static 'assets/images/gota3.png' %}" class="img-fluid" style="padding: 30px;"/>
+            <img src="{% static 'assets/images/ico-2.png' %}" class="img-fluid" style="padding: 30px;"/>
           </a>
         </ul>
         <ul class="nav">
@@ -498,7 +500,7 @@
                                 <input type="radio" aria-label="Radio button for following text input">
                               </div>
                             </div>
-                            <input type="text" class="form-control" aria-label="Text input with radio button"  placeholder="en Pesos $">
+                            <input type="text" class="form-control m-l-1" aria-label="Text input with radio button"  placeholder="en Pesos $">
                           </div>
                           <div class="porc input-group">
                             <div class="input-group-prepend">
@@ -506,7 +508,7 @@
                                 <input type="radio" aria-label="Radio button for following text input">
                               </div>
                             </div>
-                            <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="en Porc">
+                            <input type="text" class="form-control m-l-1" aria-label="Text input with radio button" placeholder="en Porc">
                           </div>
                         </div>
                       </div>
@@ -649,12 +651,22 @@
                     </section>
   
                     <!-- iconos -->
-                    <section class="container iconos" style="text-align: center;">
-                      <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
-                      <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                    <section class="container iconos">
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      </button>
                     </section>
             
                   </div>
