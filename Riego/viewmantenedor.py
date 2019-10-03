@@ -859,7 +859,7 @@ def viewProveedor(request):
         except Exception as a:
             print(a)
 
-    if request.method=='POST' and 'guFUNCIONARIO.HMTLardar' in request.POST:
+    if request.method=='POST' and 'guardar' in request.POST:
 
         id_=request.POST['numero']
         
