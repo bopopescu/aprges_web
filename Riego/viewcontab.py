@@ -876,7 +876,7 @@ def ingreso(request):
     
 def correlativoSaldo():
 
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_saldos"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM INGRESO_CUENTA"
     correlativo=1
     try:
         cursor.execute(sql)
@@ -898,7 +898,7 @@ def viewSaldoFavorH(request):
 
         id_=request.POST['id_'].replace(' ','')
 
-        sql="SELECT A_SALDOS.ID, A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_SALDOS.MONTO, A_SALDOS.SALDO FROM A_SALDOS INNER JOIN A_SOCIOS ON A_SALDOS.ID_PARCELERO = A_SOCIOS.ID WHERE (((A_SOCIOS.ID)="+str(id_)+"));"
+        sql="SELECT INGRESO_CUENTA.CORRELATIVO, OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, INGRESO_CUENTA.MONTO, INGRESO_CUENTA.SALDO FROM INGRESO_CUENTA INNER JOIN OPER_CLIENTE ON INGRESO_CUENTA.RUT = OPER_CLIENTE.RUT WHERE (((OPER_CLIENTE.RUT)="+str(id_)+"));"
         print(sql)
         try:
             cursor.execute(sql)
@@ -914,7 +914,7 @@ def viewSaldoFavorH(request):
         nro=request.POST['nro']
         lista=[]
 
-        sql="SELECT A_SALDOS.ID, A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_SALDOS.FECHA, A_SALDOS.MONTO, A_SALDOS.SALDO, A_SALDOS.FECHA, A_SALDOS.MOTIVO, A_SOCIOS.DIRECCION FROM A_SALDOS INNER JOIN A_SOCIOS ON A_SALDOS.ID_PARCELERO = A_SOCIOS.ID WHERE ((A_SALDOS.ID)="+nro+");"
+        sql="SELECT INGRESO_CUENTA.CORRELATIVO, OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, INGRESO_CUENTA.FECHA, INGRESO_CUENTA.MONTO, INGRESO_CUENTA.SALDO, INGRESO_CUENTA.FECHA, A_SALDOS.MOTIVO, OPER_CLIENTE.SITIO FROM INGRESO_CUENTA INNER JOIN OPER_CLIENTE ON INGRESO_CUENTA.RUT = OPER_CLIENTE.RUT WHERE ((INGRESO_CUENTA.CORRELATIVO)="+nro+");"
         print(sql)
         try:
             cursor.execute(sql)
@@ -935,7 +935,7 @@ def viewSaldoFavorH(request):
 
         id_=request.POST['nro'].replace(' ','')
 
-        sql="DELETE FROM A_SALDOS WHERE ID="+id_
+        sql="DELETE FROM INGRESO_CUENTA WHERE CORRELATIVO="+id_
 
         try:
             cursor.execute(sql)
@@ -1018,7 +1018,7 @@ def viewSaldoFavor(request):
         
         print(periodo)
 
-        sql="INSERT INTO A_SALDOS(ID,ID_PARCELERO,FECHA,MONTO,MOTIVO,SALDO,MES,PERIODO,ANO) VALUES("+str(correlativoSaldo())+","+identi+",'"+fecha+"',"+monto+",'"+motivo+"',"+monto+",'"+mes+"',"+periodo+","+ano+")" 
+        sql="INSERT INTO INGRESO_CUENTA(CORRELATIVO,RUT,FECHA,MONTO,MOTIVO,SALDO,MES,PERIODO,ANO) VALUES("+str(correlativoSaldo())+","+identi+",'"+fecha+"',"+monto+",'"+motivo+"',"+monto+",'"+mes+"',"+periodo+","+ano+")" 
         print(sql)
 
         try:

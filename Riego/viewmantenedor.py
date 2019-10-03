@@ -586,7 +586,7 @@ def viewCallesArea(request):
     return render(request, 'mantenedor/calle_area.html', {})
 
 def listarOcupacion():
-    sql="SELECT * FROM A_OCUPACION"
+    sql="SELECT * FROM GLO_CARGO"
     lista=[]
 
     try:
@@ -602,7 +602,7 @@ def listarOcupacion():
 
 def buscarCorrelativoCargo():
 
-    sql="SELECT IIf(IsNull(MAX(codigo)), 0, Max(codigo)) AS ValorMaximo FROM a_ocupacion"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) AS ValorMaximo FROM GLO_CARGO"
 
     try:
         cursor.execute(sql)
@@ -622,7 +622,7 @@ def viewCargo(request):
         correlativo=request.POST['correlativo']
         desc=request.POST['desc']
 
-        sql="INSERT INTO A_OCUPACION(CODIGO,CARGO) VALUES("+correlativo+",'"+desc+"')"
+        sql="INSERT INTO GLO_CARGO(CORRELATIVO,CARGO) VALUES("+correlativo+",'"+desc+"')"
 
         try:
             cursor.execute(sql)
@@ -635,7 +635,7 @@ def viewCargo(request):
 
         correlativo=request.POST['tipo2']
 
-        sql="DELETE FROM A_OCUPACION WHERE CODIGO="+correlativo
+        sql="DELETE FROM GLO_CARGO WHERE CORRELATIVO="+correlativo
 
         try:
             cursor.execute(sql)
@@ -717,7 +717,7 @@ def viewFuncionarios(request):
     if now.month==12:
         mes='Diciembre'
     
-    sql="SELECT CODIGO,CARGO FROM A_OCUPACION"
+    sql="SELECT CORRELATIVO,CARGO FROM GLO_CARGO"
     lista=[]
     try:
         cursor.execute(sql)
@@ -729,7 +729,7 @@ def viewFuncionarios(request):
     if request.method=='POST' and 'buscar' in request.POST:
 
         numero=request.POST['numero'].replace(' ','')
-        sql="SELECT A_OCUPACION.CARGO, * FROM A_FUNCIONARIOS INNER JOIN A_OCUPACION ON A_FUNCIONARIOS.ID_OCUPACION = A_OCUPACION.CODIGO WHERE (((A_FUNCIONARIOS.[ID])="+numero+"));"
+        sql="SELECT GLO_CARGO.CARGO, * FROM A_FUNCIONARIOS INNER JOIN GLO_CARGO ON A_FUNCIONARIOS.ID_OCUPACION = GLO_CARGO.CORRELATIVO WHERE (((A_FUNCIONARIOS.[ID])="+numero+"));"
         print(sql)
 
         try:
