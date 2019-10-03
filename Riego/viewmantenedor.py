@@ -436,7 +436,7 @@ def buscarTiposSector():
 
 def existeSector(id):
 
-    sqlexiste="SELECT * FROM A_SECTOR WHERE NOMBRE='"+id+"';"
+    sqlexiste="SELECT * FROM GLO_SECTOR WHERE GLOSA='"+id+"';"
     print(sqlexiste)
     try:
         cursor.execute(sqlexiste)
@@ -455,7 +455,7 @@ def viewSectores(request):
 
         nombre=request.POST['nombreid']
 
-        sql="DELETE FROM GLO_SECTOR WHERE CORRELATIVO="+nombre+""
+        sql="DELETE FROM GLO_SECTOR WHERE SECTOR="+nombre+""
 
         try:
             cursor.execute(sql)
@@ -468,7 +468,7 @@ def viewSectores(request):
         nombre=request.POST['nombreid']
         id_=""
 
-        sql="SELECT * FROM GLO_SECTOR WHERE CORRELATIVO="+nombre+""
+        sql="SELECT * FROM GLO_SECTOR WHERE SECTOR="+nombre+""
         print(sql)
         try:
             cursor.execute(sql)
@@ -504,7 +504,7 @@ def viewSectores(request):
         sin_consumo=request.POST['sin_consumo']
 
         #sql="SELECT COUNT(ID) FROM A_SECTOR"
-        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) AS ValorMaximo FROM GLO_SECTOR"
+        sql="SELECT IIf(IsNull(MAX(SECTOR)), 0, Max(SECTOR)) AS ValorMaximo FROM GLO_SECTOR"
     
         try:
             cursor.execute(sql)
@@ -523,7 +523,7 @@ def viewSectores(request):
             #Inertar
             if(existe==0):
             
-                sql1="INSERT INTO A_SECTOR(ID,NOMBRE) VALUES ("+str(correlativo)+",'"+nombre+"')"
+                sql1="INSERT INTO GLO_SECTOR(SECTOR, GLOSA) VALUES ("+str(correlativo)+",'"+nombre+"')"
                 
                 try:
                     
@@ -548,7 +548,7 @@ def viewSectores(request):
             return render(request,'mantenedor/SECTOR.html', data)
 
         else:
-            sql="UPDATE GLO_SECTOR SET GLOSA='"+nombre+"' WHERE CORRELATIVO="+id_
+            sql="UPDATE GLO_SECTOR SET GLOSA='"+nombre+"' WHERE SECTOR="+id_
 
             try:
                 cursor.execute(sql)
@@ -652,7 +652,7 @@ def viewCargo(request):
     return render(request, 'mantenedor/cargo.html', data)
 
 def corrProvedores():
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) AS ValorMaximo FROM a_proveedores"
+    sql="SELECT IIf(IsNull(MAX(RUT)), 0, Max(RUT)) AS ValorMaximo FROM GLO_PROVEEDOR"
 
     try:
         cursor.execute(sql)
@@ -666,7 +666,7 @@ def corrProvedores():
     return correlativo
 
 def corrFuncionarios():
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) AS ValorMaximo FROM a_FUNCIONARIOS"
+    sql="SELECT IIf(IsNull(MAX(RUT)), 0, Max(RUT)) AS ValorMaximo FROM FUNCIONARIO"
 
     try:
         cursor.execute(sql)
@@ -806,7 +806,7 @@ def viewFuncionarios(request):
 
 def existeProveedor(rut):
 
-    sql="SELECT * FROM A_PROVEEDORES WHERE RUT='"+rut+"';"
+    sql="SELECT * FROM GLO_PROVEEDOR WHERE RUT='"+rut+"';"
     existe=0
 
     try:
@@ -833,7 +833,7 @@ def viewProveedor(request):
     if request.method=='POST' and 'buscar' in request.POST:
         numero=request.POST['id_']
 
-        sql="SELECT * FROM A_PROVEEDORES WHERE ID="+numero
+        sql="SELECT * FROM GLO_PROVEEDOR WHERE RUT="+numero
         try:
             cursor.execute(sql)
             for i in cursor.fetchall():
@@ -850,7 +850,7 @@ def viewProveedor(request):
 
         id_=request.POST['numero']
 
-        sql="DELETE FROM A_PROVEEDORES WHERE ID="+id_
+        sql="DELETE FROM GLO_PROVEEDOR WHERE RUT="+id_
         try:
             cursor.execute(sql)
             cursor.commit()
@@ -888,7 +888,7 @@ def viewProveedor(request):
             else:
                 mensaje="No se pudo guardar, proveedor ya existe"
         else:
-            sql="UPDATE A_PROVEEDORES SET RUT='"+rut+"', GIRO='"+giro+"', RAZON_SOCIAL='"+razon+"', DIRECCION='"+direccion+"', TELEFONO="+telefono+", CONTACTO_VENDEDOR='"+contacto+"' WHERE ID="+id_
+            sql="UPDATE GLO_PROVEEDOR SET RUT='"+rut+"', GIRO='"+giro+"', RAZON='"+razon+"', DIRECCION='"+direccion+"', TELEFONO="+telefono+", CONTACTO='"+contacto+"' WHERE ID="+id_
             try:
                 cursor.execute(sql)
                 cursor.commit()
@@ -978,7 +978,7 @@ def viewDatos(request):
 
 def buscarConvenio():
 
-    sql="SELECT * FROM A_COBROS"
+    sql="SELECT * FROM GLO_COBRO"
     lista=[]
     try:
         cursor.execute(sql)
@@ -996,7 +996,7 @@ def viewConvenioMan(request):
     if request.method=='POST' and 'borrar' in request.POST:
         tipo2=request.POST['tipo2']
 
-        sql="DELETE FROM A_COBROS WHERE ID="+tipo2
+        sql="DELETE FROM GLO_COBRO WHERE CORRELATIVO="+tipo2
 
         try:
             cursor.execute(sql)
@@ -1010,7 +1010,7 @@ def viewConvenioMan(request):
         correlativo=0
         desc=request.POST['desc']
 
-        sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_cobros"
+        sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM GLO_COBRO"
         try:
             cursor.execute(sql)
             for i in cursor.fetchall():
@@ -1022,7 +1022,7 @@ def viewConvenioMan(request):
         if correlativo==5 or correlativo==3 or correlativo==2:
             correlativo=correlativo+1
 
-        sql="INSERT INTO A_COBROS(ID,DESCRIPCION) VALUES("+str(correlativo)+",'"+desc+"')"
+        sql="INSERT INTO GLO_COBRO(CORRELATIVO,DESCRIPCION) VALUES("+str(correlativo)+",'"+desc+"')"
 
         try:
             cursor.execute(sql)

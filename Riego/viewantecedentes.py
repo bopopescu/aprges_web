@@ -68,7 +68,7 @@ def buscarTipos():
 
 def Id0000(nombre):
 
-    sqlexiste="SELECT RUT FROM A_SOCIOS WHERE ID="+nombre+";"
+    sqlexiste="SELECT RUT FROM OPER_CLIENTE WHERE CORRELATIVO="+nombre+";"
 
     try:
         cursor.execute(sqlexiste)
@@ -197,7 +197,7 @@ def correlativoSocio():
     correlativo=0
 
     #sql="SELECT MAX(ID) FROM A_SOCIOS"
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_socios"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_CLIENTE"
     
     try:
         cursor.execute(sql)
@@ -219,7 +219,7 @@ def viewSocios(request):
 
         nombre=request.POST['identi1'].replace(' ','')
 
-        sql="DELETE FROM A_SOCIOS WHERE ID="+nombre
+        sql="DELETE FROM OPER_CLIENTE WHERE CORRELATIVO="+nombre
         try:
             cursor.execute(sql)
             cursor.commit()
@@ -419,7 +419,7 @@ def orden(request):
     
 def correlativoOrden():
 
-    sql="SELECT IIf(IsNull(MAX(id)), 0, Max(id)) FROM a_ordentrabajo"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_ORDENTRABAJO"
     correlativo=0
 
     try:

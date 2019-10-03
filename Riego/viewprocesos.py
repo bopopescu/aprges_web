@@ -153,7 +153,7 @@ def viewID(request):
 def buscarlista(mes,ano):
 
     lista=[]
-    sql="SELECT OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, A_CONSUMO_DIARIO.CONSUMO, A_CONSUMO_DIARIO.VALOR_CONSUMO, A_CONSUMO_DIARIO.ID FROM OPER_CLIENTE INNER JOIN A_CONSUMO_DIARIO ON OPER_CLIENTE.RUT = A_CONSUMO_DIARIO.ID_PARCELERO WHERE (((A_CONSUMO_DIARIO.MES)='"+mes+"') AND ((A_CONSUMO_DIARIO.ANO)="+ano+"));"
+    sql="SELECT A_CLIENTE.NOMBRES, A_CLIENTE.APELLIDOS, A_CONSUMO_DIARIO.CONSUMO, A_CONSUMO_DIARIO.VALOR_CONSUMO, A_CONSUMO_DIARIO.ID FROM A_CLIENTE INNER JOIN A_CONSUMO_DIARIO ON A_CLIENTE.RUT = A_CONSUMO_DIARIO.ID_PARCELERO WHERE (((A_CONSUMO_DIARIO.MES)='"+mes+"') AND ((A_CONSUMO_DIARIO.ANO)="+ano+"));"
 
     try:
         cursor.execute(sql)
@@ -359,7 +359,7 @@ def viewConsumo(request):
             except Exception as a:
                     print(a)
             
-            sql="SELECT OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CLIENTE.TOTAL_HEC FROM OPER_CLIENTE WHERE (((OPER_CLIENTE.RUT)="+id_+"));"
+            sql="SELECT A_CLIENTE.NOMBRES, A_CLIENTE.APELLIDOS, A_CLIENTE.TOTAL_HEC FROM A_CLIENTE WHERE (((A_CLIENTE.RUT)="+id_+"));"
 
             try:
                 cursor.execute(sql)
@@ -683,7 +683,7 @@ def viewConvenio(request):
         nombres=""
         mensaje=""
 
-        sql="SELECT A_DET_BOLETA.CODIGO, A_DET_BOLETA.DESCRIPCION, A_DET_BOLETA.VALOR, A_DET_BOLETA.PAGADO, A_SOCIOS.ID, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_DET_BOLETA.ID FROM A_SOCIOS INNER JOIN (A_BOLETA INNER JOIN A_DET_BOLETA ON A_BOLETA.IDBOLETA = A_DET_BOLETA.IDBOLETA) ON A_SOCIOS.ID = A_BOLETA.ID_PARCELERO WHERE (((A_BOLETA.VIGENTE)=0) AND ((A_BOLETA.ID_PARCELERO)="+str(id_)+"));"
+        sql="SELECT A_DET_BOLETA.CODIGO, A_DET_BOLETA.DESCRIPCION, A_DET_BOLETA.VALOR, A_DET_BOLETA.PAGADO, A_CLIENTE.RUT, A_CLIENTE.NOMBRES, A_CLIENTE.APELLIDOS, A_DET_BOLETA.ID FROM A_CLIENTE INNER JOIN (A_BOLETA INNER JOIN A_DET_BOLETA ON A_BOLETA.IDBOLETA = A_DET_BOLETA.CORRELLATIVO) ON A_CLIENTE.RUT = A_BOLETA.ID_PARCELERO WHERE (((A_BOLETA.VIGENTE)=0) AND ((A_BOLETA.CLIENTE)="+str(id_)+"));"
 
         try:
             cursor.execute(sql)
@@ -693,7 +693,7 @@ def viewConvenio(request):
 
                 if int(i[2])-int(i[3])!=0:
                     if i[0]==5:
-                        sql="SELECT A_DET_BOLETA.VALOR, A_DET_BOLETA.PAGADO FROM A_DET_BOLETA INNER JOIN A_BOLETA ON A_DET_BOLETA.IDBOLETA = A_BOLETA.IDBOLETA WHERE (((A_DET_BOLETA.CODIGO)<>5) AND ((A_BOLETA.ID_PARCELERO)="+str(id_)+") AND ((A_BOLETA.VIGENTE)<>0));"
+                        sql="SELECT A.VALOR, A.PAGADO FROM A_DET_BOLETA INNER JOIN A_BOLETA ON A_DET_BOLETA.IDBOLETA = A_BOLETA.IDBOLETA WHERE (((A_DET_BOLETA.CODIGO)<>5) AND ((A_BOLETA.ID_PARCELERO)="+str(id_)+") AND ((A_BOLETA.VIGENTE)<>0));"
                         try:
                             cursor.execute(sql)
                             for row in cursor.fetchall():
@@ -892,7 +892,7 @@ def viewConvenio(request):
         lista=[]
         lista2=[]
 
-        sql="SELECT OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CLIENTE.DIRECCION, A_COBROS.DESCRIPCION, OPER_CONVENIO.TOTAL_CUOTAS, OPER_CONVENIO.MONTO_PACTADO, OPER_CONVENIO.INTERES, OPER_CONVENIO.FECHA,OPER_CONVENIO.CORRELATIVO FROM (OPER_CONVENIO INNER JOIN OPER_CLIENTE ON OPER_CONVENIO.CLIENTE_RUT = OPER_CLIENTE.RUT) INNER JOIN A_COBROS ON OPER_CONVENIO.TIPO_CONVENIO = A_COBROS.ID WHERE (((OPER_CONVENIO.CORRELATIVO)="+convenio+"));"
+        sql="SELECT A_CLIENTE.RUT, A_CLIENTE.NOMBRES, A_CLIENTE.APELLIDOS, A_CLIENTE.DIRECCION, A_COBROS.DESCRIPCION, A_CONVENIO.TOTAL_CUOTAS, A_CONVENIO.MONTO_PACTADO,A_CONVENIO.INTERES, A_CONVENIO.FECHA, A_CONVENIO.CORRELATIVO FROM (A_CONVENIO INNER JOIN A_CLIENTE ON A_CONVENIO.CLIENTE_RUT = A_CLIENTE.RUT) INNER JOIN A_COBROS ON A_CONVENIO.TIPO_CONVENIO = A_COBROS.ID WHERE (((A_CONVENIO.CORRELATIVO)="+convenio+"));"
 
         try:
             cursor.execute(sql)
@@ -1304,7 +1304,7 @@ def buscarCorrelativoBoleta():
 
 def buscarBoleta(id_,year,month):
 
-    sql="SELECT * FROM OPER_BOLETA WHERE ANO="+str(year)+" AND PERIODO='"+str(month)+"' AND ID_PARCELERO="+str(id_)
+    sql="SELECT * FROM OPER_BOLETA WHERE ANO="+str(year)+" AND PERIODO='"+str(month)+"' AND CLIENTE="+str(id_)
     print(sql)
     existe=0
 
@@ -1607,7 +1607,7 @@ def viewGeneracion(request):
                                             print("Insertar detalle de convenio...")
 
                                             #ACTUALIZAR BOLETA EN CONVENIO
-                                            sql="UPDATE A_DET_CONVENIO SET CORRELATIVO="+str(correlativo)+" WHERE ID="+str(idconvenio)
+                                            sql="UPDATE OPER_DET_CONVENIO SET CORRELATIVO="+str(correlativo)+" WHERE CONVENIO_CORRELATIVO="+str(idconvenio)
                                             print(sql)
                                             try:
                                                 cursor.execute(sql)
@@ -2101,7 +2101,7 @@ def viewGeneracion(request):
                         for i in cursor.fetchall():
                             nroboleta=i[0]
 
-                            sql="DELETE FROM A_DET_BOLETA WHERE IDBOLETA="+str(nroboleta)
+                            sql="DELETE FROM OPER_DET_BOLETA WHERE BOLETA_CORRELATIVO="+str(nroboleta)
                             print(sql)
 
                             try:
@@ -2169,7 +2169,7 @@ def viewGeneracion(request):
                     except Exception as a:
                         print(a)
                                 
-                    sql="DELETE FROM A_BOLETA WHERE VIGENTE=0"
+                    sql="DELETE FROM OPER_BOLETA WHERE VIGENTE=0"
 
                     try:
                         cursor.execute(sql)
@@ -2324,7 +2324,7 @@ def viewFactura(request):
 
         if nrofactura != None :
 
-            sql="UPDATE OPER_FACTURA SET FECHA_CANC='"+now.date().strftime('%d-%m-%Y')+"' WHERE CORRELATIVO="+nrofactura
+            sql="UPDATE OPER_FACTURA SET FECHA_PAGO='"+now.date().strftime('%d-%m-%Y')+"' WHERE CORRELATIVO="+nrofactura
             print(sql)
 
             try:

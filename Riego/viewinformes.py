@@ -136,7 +136,7 @@ def viewInformesSinModel(request,id_):
     
     if tipo=='4':
         nombre="Nomina de parceleros activos"
-        sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=0"
+        sql="SELECT * FROM OPER_CLIENTE WHERE VIGENTE=0"
 
         try:
             cursor.execute(sql)
@@ -189,7 +189,7 @@ def viewInformesSinModel(request,id_):
         
     if tipo=='11':
         nombre="Nomina de parceleros para asamblea"
-        sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=0"
+        sql="SELECT * FROM OPER_CLIENTE WHERE VIGENTE=0"
 
         try:
             cursor.execute(sql)
@@ -203,7 +203,7 @@ def viewInformesSinModel(request,id_):
         
     if tipo=='12':
         nombre="Nomina de parceleros eliminados"
-        sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=1"
+        sql="SELECT * FROM OPER_CLIENTE WHERE VIGENTE=1"
 
         try:
             cursor.execute(sql)
@@ -251,7 +251,7 @@ def viewInformesSinModel(request,id_):
     #PARCELEROS ELIMINADOS
     if tipo=='18':
         nombre="Nomina de parceleros inactivos"
-        sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=1"
+        sql="SELECT * FROM OPER_CLIENTE WHERE VIGENTE=1"
 
         try:
             cursor.execute(sql)
@@ -497,7 +497,7 @@ def viewInformes(request):
             desde= datetime.datetime.strptime(request.POST['desde'],'%Y-%m-%d').date().strftime('%d-%m-%Y')
             hasta=datetime.datetime.strptime(request.POST['hasta'],'%Y-%m-%d').date().strftime('%d-%m-%Y')
 
-            sql="SELECT FECHA FROM A_COMPROBANTE WHERE FECHA BETWEEN '"+desde+"' AND '"+hasta+"' ;"
+            sql="SELECT FECHA FROM COMPROBANTE WHERE FECHA BETWEEN '"+desde+"' AND '"+hasta+"' ;"
             print(sql)
             try:
                 cursor.execute(sql)
@@ -507,7 +507,7 @@ def viewInformes(request):
                 print(a)
             print(fechas)
             
-            sql="SELECT A_COMPROBANTE.NROCOM, A_COMPROBANTE.FECHA, A_COMPROBANTE.TOTAL FROM A_COMPROBANTE WHERE (((A_COMPROBANTE.NIVEL)='1') AND ((A_COMPROBANTE.FECHA) Between '"+desde+"' And '"+hasta+"'));"
+            sql="SELECT COMPROBANTE.NROCOM, COMPROBANTE.FECHA, COMPROBANTE.TOTAL FROM COMPROBANTE WHERE (((COMPROBANTE.NIVEL)='1') AND ((COMPROBANTE.FECHA) Between '"+desde+"' And '"+hasta+"'));"
             
             try:
                 cursor.execute(sql)
@@ -649,7 +649,7 @@ def viewInformes(request):
         
         if tipo=='15':
             nombre="Nomina de parceleros con pagos al dia"
-            sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=1"
+            sql="SELECT * FROM OPER_CLIENTE WHERE VIGENTE=1"
 
             try:
                 cursor.execute(sql)
@@ -663,7 +663,7 @@ def viewInformes(request):
         
         if tipo=='16':
             nombre="Listado de parceleros por año de ingreso"
-            sql="SELECT * FROM A_SOCIOS WHERE VIGENTE=1"
+            sql="SELECT * FROM OPEr_CLIENTE WHERE VIGENTE=1"
 
             try:
                 cursor.execute(sql)
@@ -716,7 +716,7 @@ def viewInformes(request):
             desde= datetime.datetime.strptime(request.POST['desde'],'%Y-%m-%d').date().strftime('%d-%m-%Y')
             hasta=datetime.datetime.strptime(request.POST['hasta'],'%Y-%m-%d').date().strftime('%d-%m-%Y')
 
-            sql="SELECT FECHA FROM A_COMPROBANTE WHERE FECHA BETWEEN '"+desde+"' AND '"+hasta+"' ;"
+            sql="SELECT FECHA FROM COMPROBANTE WHERE FECHA BETWEEN '"+desde+"' AND '"+hasta+"' ;"
             print(sql)
             try:
                 cursor.execute(sql)
@@ -726,7 +726,7 @@ def viewInformes(request):
                 print(a)
             print(fechas)
             
-            sql="SELECT A_COMPROBANTE.NROCOM, A_COMPROBANTE.FECHA, A_COMPROBANTE.TOTAL FROM A_COMPROBANTE WHERE (((A_COMPROBANTE.NIVEL)='2') AND ((A_COMPROBANTE.FECHA) Between '"+desde+"' And '"+hasta+"'));"
+            sql="SELECT COMPROBANTE.NROCOM, COMPROBANTE.FECHA, COMPROBANTE.TOTAL FROM COMPROBANTE WHERE (((COMPROBANTE.NIVEL)='2') AND ((COMPROBANTE.FECHA) Between '"+desde+"' And '"+hasta+"'));"
             
             try:
                 cursor.execute(sql)

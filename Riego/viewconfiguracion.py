@@ -84,7 +84,7 @@ def buscarSector():
 
 def buscarUsuario(user):
 
-    sql="SELECT * FROM A_USUARIO WHERE USUARIO='"+user+"';"
+    sql="SELECT * FROM USUARIO WHERE USUARIO='"+user+"';"
     usuario=""
 
     try:
@@ -104,7 +104,7 @@ def historialCondonacion(request):
     if request.method=='POST' and 'buscar' in request.POST:
 
         id_=request.POST['id_'].replace(' ','')
-        sql="SELECT A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_CONDONACION.FECHA, A_CONDONACION.MONTO, A_CONDONACION.ID FROM A_CONDONACION INNER JOIN A_SOCIOS ON A_CONDONACION.ID_PARCELERO = A_SOCIOS.ID WHERE (((A_SOCIOS.ID)="+id_+"));"
+        sql="SELECT OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CONDONACION.FECHA, OPER_CONDONACION.MONTO, OPER_CONDONACION.CORRELATIVO FROM OPER_CONDONACION INNER JOIN OPER_CLIENTE ON OPER_CONDONACION.RUT = OPER_CLIENTE.RUT WHERE (((OPER_CLIENTE.RUT)="+id_+"));"
 
         try:
             cursor.execute(sql)
@@ -119,7 +119,7 @@ def historialCondonacion(request):
         id_=request.POST['nro']
         lista=[]
 
-        sql="SELECT A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS, A_CONDONACION.FECHA, A_CONDONACION.MONTO, A_CONDONACION.ID,A_CONDONACION.MOTIVO,A_SOCIOS.DIRECCION FROM A_CONDONACION INNER JOIN A_SOCIOS ON A_CONDONACION.ID_PARCELERO = A_SOCIOS.ID WHERE (((A_CONDONACION.ID)="+id_+"));"
+        sql="SELECT OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS, OPER_CONDONACION.FECHA, OPER_CONDONACION.MONTO, OPER_CONDONACION.CORRELATIVO,OPER_CONDONACION.MOTIVO,OPER_CLIENTE.SITIO FROM OPER_CONDONACION INNER JOIN OPER_CLIENTE ON OPER_CONDONACION.RUT = OPER_CLIENTE.ID WHERE (((OPER_CONDONACION.CORRELATIVO)="+id_+"));"
 
         try:
             cursor.execute(sql)
@@ -157,7 +157,7 @@ def correlativocondonacion():
     return correlativo
 
 def correlativocondonaciondet():
-    sql="SELECT IIf(IsNull(MAX(correlativo)), 0, Max(correlativo)) FROM OPER_DET_CONDONACION"
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) FROM OPER_DET_CONDONACION"
     print(sql)
     correlativo=0
 
@@ -182,7 +182,7 @@ def viewCodonacion(request):
         valores=0
         id_=request.POST['id_'].replace(' ','')
 
-        sql="SELECT A_SOCIOS.RUT, A_SOCIOS.NOMBRES, A_SOCIOS.APELLIDOS FROM A_SOCIOS WHERE (((A_SOCIOS.ID)="+id_+"));"
+        sql="SELECT OPER_CLIENTE.RUT, OPER_CLIENTE.NOMBRES, OPER_CLIENTE.APELLIDOS FROM OPER_CLIENTE WHERE (((OPER_CLIENTE.RUT)="+id_+"));"
 
         try:
             cursor.execute(sql)
@@ -297,7 +297,7 @@ def viewCodonacion(request):
 
 def claveActual(user,actual):
 
-    sql="SELECT * FROM A_USUARIO WHERE CLAVE='"+actual+"' AND USUARIO='"+user+"';"
+    sql="SELECT * FROM USUARIO WHERE CLAVE='"+actual+"' AND USUARIO='"+user+"';"
     estado=1
     
     try:
@@ -326,7 +326,7 @@ def viewContraseña(request):
 
             if nueva==repetir:
 
-                sql="UPDATE A_USUARIO SET CLAVE='"+nueva+"' WHERE USUARIO="";"
+                sql="UPDATE USUARIO SET CLAVE='"+nueva+"' WHERE USUARIO="";"
 
                 try:
                     cursor.execute(sql)
@@ -366,7 +366,7 @@ def viewEliminar_abono(request):
 
         if existe==1:
 
-            sql="SELECT IDBOLETA, CODIGO FROM A_DET_ABONO WHERE ABONO_ID="+numero
+            sql="SELECT BOLETA_CORRELATIVO, CODIGO FROM OPER_DET_ABONO WHERE CORRELATIVO="+numero
 
             try:
                 cursor.execute(sql)
@@ -388,7 +388,7 @@ def viewEliminar_abono(request):
                 except Exception as a:
                     print(a)
 
-                sql="DELETE FROM A_DET_ABONO WHERE ABONO_ID="+numero
+                sql="DELETE FROM OPER_DET_ABONO WHERE CORRELATIVO="+numero
 
                 try:
                     cursor.execute(sql)
@@ -515,10 +515,10 @@ def viewBoletas_vigentes(request):
         else:
             if modoopcion=='1':
 
-                sql="UPDATE A_BOLETA SET VIGENTE=1 WHERE IDBOLETA="+numero
+                sql="UPDATE OPER_BOLETA SET VIGENTE=1 WHERE IDBOLETA="+numero
             
             else:
-                sql="UPDATE A_BOLETA SET VIGENTE=0 WHERE IDBOLETA="+numero
+                sql="UPDATE OPER_BOLETA SET VIGENTE=0 WHERE IDBOLETA="+numero
             
             try:
                 cursor.execute(sql)
