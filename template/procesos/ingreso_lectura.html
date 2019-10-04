@@ -24,6 +24,75 @@
       a {
         color: #000;
       }
+      .tabla_info{
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;        
+      }        
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
+      .div_corte, .carta{
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 5px;
+        padding: 1rem;
+      }
+      .der{
+        overflow: auto;
+        height: 20rem;
+        border: 1px solid rgba(236, 238, 239, 0.7);
+      }
+
+      .lu_fecha, .mes, .año, .fecha, .down, .fcorte,.frepo, .observacion, .lu_etiquetas, .corte{
+        display: flex;
+        margin-bottom: .5rem;
+      }
+      
+      .lu_fecha{
+        flex-wrap: wrap;
+      }
+      .mes{
+        margin-right: 1rem;
+        width: 60%;
+        align-items: center;
+      }
+      .año{
+        width: 34%;
+        align-items: center;
+      }
+      .mes_label, .año_label{
+        width: 3rem;
+      }
+      .fecha{
+        align-items: center;
+      }
+      .fecha_label{
+        width: 14rem;
+      }
+
+      .lu_etiquetas, .down{
+        align-items: flex-end;
+        text-align: center;
+      }
+
+      .fcorte_label, .frepo_label{
+        width: 7rem;
+      }
+      .frepo_input, .fcorte_input{
+        width: 13rem;
+      }
+      .observacion{
+        width: 100%;
+      }
+      .observacion_label{
+        width: 10rem;
+      }
+      .carta{
+        height: 5rem;
+      }
+
+        
       .iconos{
         display: flex;
         justify-content: space-around;
@@ -36,11 +105,104 @@
         color: black;
         margin-top: 1rem;
       }
-      @media (min-width: 48em) { 
+
+        
+      @media (min-width: 48em) {
+        .contenido{
+          margin: 0 1.5rem;
+        } 
+        .up, .ru, .arriba, .tramo, .valor, .mts, .promedio, .dr, .ruta, .abajo,  .div_corte{
+          display: flex;
+          margin-bottom: .5rem;
+        }
+        .lu_etiquetas{
+          display: block;
+        }
+        .lu, .ru, .izq, .der{
+          width: 50%;
+        }
+        .lu, .izq{
+          margin-right: 3rem;
+        }
+        .ru{
+          flex-wrap: wrap;
+          align-items: flex-end;
+        }
+        .arriba{
+          align-items: flex-end;
+        }
+        .lu_fecha{
+          width: 60%;
+          margin-right: 3rem;
+        }
+        .mes_label, .año_label,.fecha_label{
+          width: 5rem;
+        }
+        .mes_select, .fecha_label, .fecha_input{
+          width: 11rem;
+        }
+        .año_input{
+          width: 7rem;
+        }
+        .tramo_label, .valor_label, .mts_label, .promedio_label{
+          width: 10rem;
+          padding-right: 1rem;
+          text-align: right;
+        }
+        .medidor, .lect_anterior, .lect_actual, .estado{
+          width: 25%;
+          text-align: center;
+        }
+
+        .nombre,.direc_medidor, .dr{
+          width: 100%;
+          height: fit-content;
+        }
+        .dr{
+          align-items: flex-end;
+        }
+        .dest_aviso{
+          margin-right: 1rem;
+        }
+        .dest_aviso_input{
+          width: 40rem;
+        }
+        .ruta{
+          align-items: center;
+        }
+        .ruta_label{
+          width: 4rem;
+        }
         .iconos{
           justify-content: space-evenly;
           width: 100%;
         }
+        .año, .mes{
+          width: 100%;
+        }
+        .carta{
+          height: 12rem;
+        }
+
+        .div_corte{
+          flex-wrap: wrap;
+        }
+        .corte{
+          width: 16%;
+          display: flex;
+          align-items: center;
+        }
+        .fcorte, .frepo{
+          width: 42%;
+          align-items: center;
+        }
+        .fcorte_label{
+          width: 4rem;
+        }
+        .fcorte_input, .frepo_input{
+          width: 14rem;
+        }
+        
       }
     </style>
   </head>
@@ -337,10 +499,255 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
+                  <div class="row m-b-3 contenido">
 
-                
-            
+                    <div class="up form-group">
+
+                      <div class="lu">
+                        <div class="arriba form-group">
+                          <div class="lu_fecha">
+                            <div class="mes">
+                              <label class="mes_label col-form-label" for="">Mes</label>
+                              <select class="mes_select form-control" name="mes" id="mes">
+                                <option value="">Enero</option>
+                                <option value="">Fenrero</option>
+                                <option value="">Marzo</option>
+                                <option value="">Abril</option>
+                                <option value="">Mayo</option>
+                                <option value="">Junio</option>
+                                <option value="">Julio</option>
+                                <option value="">Agosto</option>
+                                <option value="">Septiembre</option>
+                                <option value="">Octubre</option>
+                                <option value="">Noviembre</option>
+                                <option value="">Diciembre</option>
+                              </select>
+                            </div>
+                            <div class="año"> 
+                              <label class="año_label col-form-label" for="">Año</label>
+                              <input class="año_input form-control" type="datetime" name="año" id="año" value="{{año}}">
+                            </div>
+                            <div class="fecha">
+                              <label class="fecha_label col-form-label" for="">Fecha de lectura</label>
+                              <input class="fecha_input form-control" type="datetime" name="hoy" id="hoy" value="{{hoy}}">
+                            </div>
+                          </div>
+                          <div class="lu_etiquetas">
+                            <div class="tramo">
+                              <label class="tramo_label col-form-label" for="">Tramo</label>
+                              <input class="tramo_input form-control" type="text" name="tramo" id="tramo" value="{{tramo}}" disabled>
+                            </div>
+                            <div class="valor">
+                              <label class="valor_label col-form-label" for="">Valor $</label>
+                              <input class="valor_input form-control" type="text" name="valor" id="valor" value="{{valor}}" disabled>
+                            </div>
+                            <div class="mts">
+                              <label class="mts_label col-form-label" for="">Mts3</label>
+                              <input class="mts_input form-control" type="text" name="mts" id="mts" value="{{mts}}" disabled>
+                            </div>
+                            <div class="promedio">
+                              <label class="promedio_label col-form-label" for="">Promedio</label>
+                              <input class="promedio_input form-control" type="text" name="promedio" id="promedio" value="{{promedio}}" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="down form-group">
+                          <div class="medidor">
+                            <label class="medidor_label col-form-label" for="">Medidor</label>
+                            <input class="medidor_input form-control" type="text" name="medidor" id="medidor" value="{{medidor}}">
+                          </div>
+                          <div class="lect_anterior">
+                            <label class="lect_anterior_label col-form-label" for="">Lect. Anterior</label>
+                            <input class="lect_anterior_input form-control" type="text" name="lect_anterior" id="lect_anterior" value="{{lect_anterior}}" disabled>
+                          </div>
+                          <div class="lect_actual">
+                            <label class="lect_actual_label col-form-label" for="">Lect. Actual</label>
+                            <input class="lect_actual_input form-control" type="text" name="lect_actual" id="lect_actual" value="{{lect_actual}}">
+                          </div>
+                          <div class="estado">
+                            <label class="estado_label col-form-label" for="">Estado</label>
+                            <input class="estado_input form-control" type="text" name="estado" id="estado" value="{{estado}}" disabled>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ru">
+                        <div class="nombre">
+                          <label class="nombre_label col-form-label" for="">Nombre del Usuario</label>
+                          <input class="nombre_input form-control" type="text" name="nombre" id="nombre" value="{{nombre}}">
+                        </div>
+                        <div class="direc_medidor">
+                          <label class="direc_medidor_label col-form-label" for="">Dirección del Medidor</label>
+                          <input class="direc_medidor_input form-control" type="text" name="direc_medidor" id="direc_medidor" value="{{direc_medidor}}">
+                        </div>
+                        <div class="dr m-b-0">
+                          <div class="dest_aviso">
+                            <label class="dest_aviso_label col-form-label" for="">Destino del Aviso</label>
+                            <input class="dest_aviso_input form-control" type="text" name="dest_aviso" id="dest_aviso" value="{{dest_aviso}}">
+                          </div>
+                          <div class="ruta m-b-0">
+                            <label class="ruta_label col-form-label" for="ruta">Ruta</label>
+                            <input class="ruta_input form-control" type="text" name="ruta" id="ruta" value="{{ruta}}">
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="abajo">
+                      <div class="izq">
+                        <div class="div_corte form-group">
+                          <div class="corte form-check">
+                            <input class="corte_check form-check-input" type="checkbox" name="corte" id="corte">
+                            <label class="corte_label form-check-label m-b-0" for="corte">Corte</label>
+                          </div>
+                          <div class="fcorte">
+                            <label class="fcorte_label col-form-label" for="">FCorte</label>
+                            <input class="fcorte_input form-control" type="text" name="fcorte" id="fcorte" value="{{fcorte}}">
+                          </div>
+                          <div class="frepo">
+                            <label class="frepo_label col-form-label" for="">FReposición</label>
+                            <input class="frepo_input form-control" type="text" name="frepo" id="frepo" value="{{frepo}}">
+                          </div>
+                          <div class="observacion">
+                            <label class="observacion_label col-form-label" for="">Observación</label>
+                            <select class="observacion_select form-control" name="observacion" id="observacion"></select>
+                          </div>
+                        </div>
+
+                        <div class="carta form-group"></div>
+                      </div>
+
+                      <div class="der form-group">
+                        <table class="table table-bordered m-b-0">
+                          <thead>
+                            <tr class="tabla_info">
+                              <th width="10rem">Código</th>
+                              <th>Descripción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+
+                    </div>
+
+                    <section class="container iconos">
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      </button>
+                    </section>
+                    
                   </div>
                 </div>
               </div>
