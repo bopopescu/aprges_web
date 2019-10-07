@@ -3375,7 +3375,32 @@ def viewFacturaLibre(request):
     return render(request, 'procesos/factura_libre.html', data)
 
 def viewIngresoLectura(request):
-    return render(request, 'procesos/ingreso_lectura.html', {})
+    now = datetime.datetime.now()
+
+    if request.method=='POST' and 'guardar' in request.POST:
+        mes=request.POST['mes']
+        año=request.POST['año']
+        hoy=request.POST['hoy']
+        tramo=request.POST['tramo']
+        valor=request.POST['valor']
+        mts=request.POST['mts']
+        promedio=request.POST['promedio']
+        medidor=request.POST['medidor']
+        lect_anterior=request.POST['lect_anterior']
+        lect_actual=request.POST['lect_actual']
+        estado=request.POST['estado']
+        nombre=request.POST['nombre']
+        direc_medidor=request.POST['direc_medidor']
+        dest_aviso=request.POST['dest_aviso']
+        ruta=request.POST['ruta']
+        fcorte=request.POST['fcorte']
+        frepo=request.POST['frepo']
+        observacion=request.POST['observacion']
+
+    data={
+        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+    }
+    return render(request, 'procesos/ingreso_lectura.html', data)
     
 def viewLectura_rapida(request):
 

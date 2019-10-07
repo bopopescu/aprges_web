@@ -28,12 +28,110 @@
         color: #fff;
         background-color: #17a2b8;
         border-color: #17a2b8;        
-      } 
-      .iconos{
+      }   
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+        width: 100%;
+      }  
+      .libro, .libro_check, .iconos, .fecha, .periodo, .año, .desde, .hasta, .filtrar, .rango_fechas, .factura, .credito, .debito, .documentos, .tfacturas, .tcredito, .tdebido, .datos, .exento, .neto, .iva, .total, .tgeneral{
         display: flex;
+      }
+
+      .criterios, .rango, .libro_check, .resumen, .tgeneral{
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        padding: 1rem;
+      }
+      .libro, .periodo, .año, .desde, .hasta, .filtrar, .factura,.credito, .debito, .documentos, .tfacturas, .tcredito, .tdebido{
+        align-items: center;
+      }
+      .libro{
+        justify-content: center;
+      }
+      .libro_titulo{
+        margin-right: 1rem;
+      }
+      .libro_check{
         justify-content: space-around;
+        width: 50%;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        padding: .5rem;
+      }
+      .fecha, .datos,.tgeneral{
+        justify-content: space-between;
+      }
+      .periodo{
+        width: 65%;
+      }
+      .periodo_label{
+        width: 33%;
+      }
+      .año{
+        width: 30%;
+      }
+      .año_label{
+        width: 30%;
+      }
+      .año_input{
+        width: 70%;
+      }
+
+      .rango_fechas{
+        justify-content: space-around;
+      }
+      .desde, .hasta{
+        width: 40%;
+      }
+      .desde_label, .hasta_label{
+        width: 5rem;
+      }
+
+      .tabla_div{
+        overflow: auto;
+        border: 1px solid rgba(0,0,0,.125);
+      }
+      .tabla{
+        width: 75rem;
+      }
+      .mes{
+        width: 9rem;
+      }
+      .largo{
+        width: 15rem;
+      }
+
+      .datos{
         flex-wrap: wrap;
-        width: 16rem;
+        margin-bottom: .5rem;
+      }
+      .factura, .credito, .debito, .documentos{
+        width: 45%
+      }
+      .factura_label, .credito_label, .debito_label, .documentos_label{
+        width: 18rem;
+      }
+      .tfacturas_label, .tcredito_label, .tdebido_label{
+        width: 10rem;
+      }
+
+      .tgeneral{
+        flex-wrap: wrap;
+      }
+      .tgeneral_titulo{
+        width: 100%;
+      }
+      .tg1{
+        width: 47%;
+        margin-bottom: 1rem;
+      }
+      .exento_label, .neto_label, .iva_label, .total_label{
+        width: 6rem;
+      }
+
+      .iconos{
+        text-align: center;
         margin-top: 2rem;
         margin-bottom: 1rem;
       }
@@ -42,9 +140,69 @@
         margin-top: 1rem;
       }
       @media (min-width: 48em) { 
+        .criterios, .rg, .resumen{
+          display: flex;
+        }
+        .criterios{
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .criterios_titulo{
+          width: 100%;
+        }
+        .tabla_div{
+          margin: 0 3rem 1rem;
+        }
+        .mes{
+          width: 9rem;
+        }
+        .largo{
+          width: 20rem;
+        }
+        .tabla{
+          width: 100%;
+        }
+
+        .rg{
+          justify-content: space-evenly;
+          align-items: center;
+          margin: 0 5rem;
+        }
+        .resumen{
+          height: fit-content;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .resumen_titulo{
+          width: 100%;
+        }
+        .datos{
+          display: block;
+        } 
+        .datos, .totales{
+          width: 47%;
+        }
+        .factura, .credito, .debito, .documentos{
+          width: 100%
+        }        
+        .factura_label, .credito_label, .debito_label, .documentos_label, .tfacturas_label, .tcredito_label, .tdebido_label{
+          width: 12rem;
+        }
+
+        .tgeneral{
+          display: block;
+        }
+        .tg1{
+          width: 100%;
+          margin: 0;
+        }
+
         .iconos{
           justify-content: space-evenly;
-          width: 100%;
+        }
+        .boton_iconos{
+          width: auto;
         }
       }
     </style>
@@ -342,7 +500,317 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3"></div>
+                  <div class="row m-b-3">
+                    <div class="criterios container form-group">
+                      <h3 class="criterios_titulo">Criterios</h3>
+                      <div class="df">
+                        <div class="libro form-group">
+                          <p class="libro_titulo m-b-0">Tipo de Libro</p>
+                          <div class="libro_check">   
+                            <div class="exenta">                              
+                              <input class="exenta_check" type="radio" name="exenta" id="exenta">
+                              <label class="exenta_label m-b-0">Exenta</label>
+                            </div>                         
+                            <div class="afecta">                              
+                              <input class="afecta_check" type="radio" name="afecta" id="afecta">
+                              <label class="afecta_label m-b-0">Afecta</label>
+                            </div>                         
+                          </div>
+                        </div>
+                        <div class="fecha form-group">
+                          <div class="periodo">
+                            <label class="periodo_label col-form-label m-b-0">Periodo</label>
+                            <select class="periodo_input form-control" name="periodo" id="periodo">
+                              <option value="">Enero</option>
+                              <option value="">Febrero</option>
+                              <option value="">Marzo</option>
+                              <option value="">Abril</option>
+                              <option value="">Mayo</option>
+                              <option value="">Junio</option>
+                              <option value="">Julio</option>
+                              <option value="">Agosto</option>
+                              <option value="">Septiembre</option>
+                              <option value="">Octubre</option>
+                              <option value="">Noviembre</option>
+                              <option value="">Diciembre</option>
+                            </select>
+                          </div>
+                          <div class="año">
+                            <label class="año_label col-form-label m-b-0" for="">Año</label>
+                            <input class="año_input form-control" type="text" name="año" id="año">
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="rango">
+                        <h5 class="rango_titulo">Rango de Fechas</h5>
+                        <div class="filtrar">
+                          <input type="checkbox" name="" id="">
+                          <label class="m-b-0" for="">Filtrar por rango de fechas</label>
+                        </div>
+                        <div class="rango_fechas">
+                          <div class="desde">
+                            <label class="desde_label col-form-label m-b-0" for="">Desde</label>
+                            <input class="desde_input form-control" type="text" name="desde" id="desde">
+                          </div>
+                          <div class="hasta">
+                            <label class="hasta_label col-form-label m-b-0" for="">Hasta</label>
+                            <input class="hasta_input form-control" type="text" name="hasta" id="hasta">
+                          </div>                        
+                        </div>
+                      </div>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-search fa-4x icono"></i></a>
+                      </button>
+                    </div>
+
+                    <div class="tabla_div form-group">
+                      <table class="table table-bordered tabla m-b-0">
+                        <thead>
+                          <tr class="tabla_info">
+                            <th class="mes"></th>
+                            <th></th>
+                            <th></th>
+                            <th class="largo"></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th class="tabla_info">Enero</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Febrero</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Marzo</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Abril</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Mayo</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Junio</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Julio</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Agosto</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Septiembre</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Octubre</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Noviembre</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th class="tabla_info">Diciembre</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="rg">
+                      <div class="resumen form-group">
+                        <h3 class="resumen_titulo">Resumen</h3>
+                        <div class="datos">                          
+                          <div class="factura">
+                            <label class="factura_label col-form-label m-b-0" for="">N° Facturas</label>
+                            <input class="factura_input form-control" type="text" name="factura" id="factura">
+                          </div>
+                          <div class="credito">
+                            <label class="credito_label col-form-label m-b-0" for="">N° Crédito</label>
+                            <input class="credito_input form-control" type="text" name="credito" id="credito">
+                          </div>
+                          <div class="debito">
+                            <label class="debito_label col-form-label m-b-0" for="">N° Débito</label>
+                            <input class="debito_input form-control" type="text" name="debito" id="debito">
+                          </div>
+                          <div class="documentos">
+                            <label class="documentos_label col-form-label m-b-0" for="">N° Documentos</label>
+                            <input class="documentos_input form-control" type="text" name="documentos" id="documentos">
+                          </div>
+                        </div>
+                        <div class="totales">                          
+                          <div class="tfacturas">
+                            <label class="tfacturas_label col-form-label m-b-0" for="">Total Facturas</label>
+                            <input class="_input form-control" type="text" name="tfacturas" id="tfacturas">
+                          </div>
+                          <div class="tcredito">
+                            <label class="tcredito_label col-form-label m-b-0" for="">Total N. Crédito</label>
+                            <input class="tcredito_input form-control" type="text" name="tcredito" id="tcredito">
+                          </div>
+                          <div class="tdebido">
+                            <label class="tdebido_label col-form-label m-b-0" for="">Total N. Débito</label>
+                            <input class="tdebido_input form-control" type="text" name="tdebido" id="tdebido">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tgeneral form-group">  
+                        <h3 class="tgeneral_titulo">Total General</h3>
+                        <div class="tg1">                          
+                          <div class="exento">
+                            <label class="exento_label col-form-label m-b-0" for="">Exento</label>
+                            <input class="exento_input form-control" type="text" name="exento" id="exento">
+                          </div>                     
+                          <div class="neto">
+                            <label class="neto_label col-form-label m-b-0" for="">Neto</label>
+                            <input class="neto_input form-control" type="text" name="neto" id="neto">
+                          </div>                     
+                        </div> 
+                        <div class="tg1">                          
+                          <div class="iva">
+                            <label class="iva_label col-form-label m-b-0" for="">I.V.A.</label>
+                            <input class="iva_input form-control" type="text" name="iva" id="iva">
+                          </div>                     
+                          <div class="total">
+                            <label class="total_label col-form-label m-b-0" for="">Total</label>
+                            <input class="total_input form-control" type="text" name="total" id="total">
+                          </div>
+                        </div>
+                      </div>                     
+                      <!-- iconos -->
+                      <section class="iconos">
+                        <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                          <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                        </button>
+                      </section>
+                    </div>                      
+                  </div>
+                  </div>
                 </div>
               </div>
             </form>
