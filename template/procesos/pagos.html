@@ -614,7 +614,7 @@
                         <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -801,8 +801,7 @@
 
                 <div class="container-fluid">
                     <div class="row js-grid-wrapper panel-wrapper">
-                        <!-- #SELECT2-->
-                        
+                        <!-- #SELECT2-->                        
                         <div class="panel panel-default">
                             <div class="panel-heading"></div>
                             <div class="panel-body">
@@ -908,155 +907,145 @@
                                         </div>
                                         <!-- MODAL  -->
                                         <div id="openModal" class="modalDialog">
-                                                    <div>
-                                                        <!-- cerrar -->
-                                                        <a href="#close" title="Close" class="close">X</a>
-                                                        <!-- titulo -->
-                                                        <h2>Ingreso de Abono por Concepto</h2>
-
-                                                        <!-- Aviso y nro de boleta -->
-                                                        <div class="col-md-11">
-                                                            <div class="modal_id">
-                                                                <div class="">
-                                                                    <label class="modal_id_label col-form-label" for="">Aviso</label>
-                                                                    <input class="modal_id_input" type="text" value="{{boleta}}">
-                                                                </div>
-                                                                <div class="">
-                                                                    <label class="modal_id_label col-form-label" for="">Nro Boleta</label>
-                                                                    <input class="modal_id_input" type="text" value="{{boleta}}" name="nroboleta" id="nroboleta">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal_rut">
-                                                                <label class="modal_rut_1 col-form-label" for="">Rut Cliente</label>
-                                                                <input class="modal_rut_2 " type="text" value="{{rut}}">
-                                                                <input class="modal_rut_3" type="text" value="{{nombres}}">
-                                                            </div>
+                                            <div>
+                                                <!-- cerrar -->
+                                                <a href="#close" title="Close" class="close">X</a>
+                                                <!-- titulo -->
+                                                <h2>Ingreso de Abono por Concepto</h2>
+                                                <!-- Aviso y nro de boleta -->
+                                                <div class="col-md-11">
+                                                    <div class="modal_id">
+                                                        <div class="">
+                                                            <label class="modal_id_label col-form-label" for="">Aviso</label>
+                                                            <input class="modal_id_input" type="text" value="{{boleta}}">
                                                         </div>
-
-                                                        <!-- icono para guardar -->
-                                                        <div class="modal_div_guardar col-md-1">
-                                                            <button class="modal_boton_guardar" type="submit" id="abonar" name="abonar">
-                                                                <i class="far fa-save fa-4x modal_icono"></i>
-                                                            </button>
-                                                        </div>
-                                                            
-                                                        <!-- nro parcelero -->
-                                                        <div class="col-md-12  modal_medidor">
-                                                            <label class="modal_medidor_label col-form-label" for="">Nro Parcelero</label>
-                                                            <input class="modal_medidor_input" type="text" value="{{numero}}" id="id_" name="id_">
-                                                        </div>
-
-                                                        <!-- fecha ctual y nro de abono -->
-                                                        <div class="col-md-12  modal_fecha">
-                                                            <div class="modal_fecha_div">
-                                                                <label for="" class="col-form-label modal_fecha_label">Fecha Actual</label>
-                                                                <input class="modal_fecha_input" type="datetime" name="fechaabono" id="fechaabono" value="{{fecha_actual}}">
-                                                                
-                                                            </div>
-                                                            <div class="modal_fecha_div">
-                                                                <button class="btn modal_fecha_button" type="button">Nro Abono</button>
-                                                                <input class="modal_fecha_input" type="text" value="{{abono}}">
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- tabla e input derechos -->
-                                                        <div>
-                                                            <!-- tabla -->
-                                                            <div class="col-md-8">
-                                                                <div class="card modal_tabla">
-                                                                    <div class="card-body">
-                                                                        <table class="table table-bordered">
-                                                                            <thead>
-                                                                                <tr class="tabla_titulos">
-                                                                                    <th scope="col">Aviso</th>
-                                                                                    <th scope="col">Código</th>
-                                                                                    <th scope="col">Descripción</th>
-                                                                                    <th scope="col">Valor</th>
-                                                                                    <th scope="col">Abono</th>
-                                                                                    <th scope="col">Mes/Año</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                {% for i in listadetalle %}
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        {{i.id}}
-                                                                                        <input type="hidden" id="idaviso" name="idaviso" value="{{i.id}}" type="text">
-                                                                                        <input type="hidden" id="idboleta" name="idboleta" value="{{i.idboleta}}" type="text">
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        {{i.codigo}}
-                                                                                        <input type="hidden" id="codigo" name="codigo" value="{{i.codigo}}" type="text">  
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        {{i.desc}}
-                                                                                        <input type="hidden" id="desc" name="desc" value="{{i.desc}}" type="text">  
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        {{i.valor}}
-                                                                                        <input type="hidden" id="valor" name="valor" value="{{i.valor}}" type="text">    
-                                                                                    </td>
-                                                                                    <td><input input onchange="habilitar(this.value,'{{i.valor}}')" onblur="findTotal()" id="abono" name="abono" type="text"></td>
-                                                                                    <td>
-                                                                                        {{i.fecha}}
-                                                                                        <input type="hidden" id="fecha" name="fecha" value="{{i.fecha}}" type="text"> 
-                                                                                    </td>
-                                                                                </tr>
-                                                                                {% endfor %}
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <input type="hidden" id="totalboleta" name="totalboleta" value="{{pagado}}">
-
-                                                            <!-- etiquetas -->
-                                                            <div class="col-md-4 modal_total">
-                                                                <div class="modal_total_divs">
-                                                                    <label class="modal_total_label" for="">Total Abono</label>
-                                                                    <input class="modal_total_input" name="total" id="total" value="0" type="text">
-                                                                </div>
-                                                                <div class="modal_total_divs">   
-                                                                    <label class="modal_total_label" for="">
-                                                                        <input style="margin-right: .5rem;" type="checkbox">IVA
-                                                                    </label>
-                                                                    <input class="modal_total_input"  type="text" value="0">
-                                                                </div>
-                                                                <div class="modal_total_divs">  
-                                                                    <label class="modal_total_label" for="">Total $</label>
-                                                                    <input class="modal_total_input"  type="text" value="0">
-                                                                </div>
-                                                                <div class="modal_total_divs">   
-                                                                    <label class="modal_total_label" for="">Adicional</label>
-                                                                    <input class="modal_total_input"  type="text" value="0">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- forma de pago -->
-                                                        <div class="col-md-12 modal_primera_parte">
-                                                            <section class="modal_forma_de_pago">
-                                                                <label class="toggle-switch another-toggle-switch">
-                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
-                                                                    <label for="another-toggle-switch-input"></label>
-                                                                    <p class="modal_pago"> EFECTIVO</p>
-                                                                </label><br>
-                                                                <label class="toggle-switch another-toggle-switch">
-                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1"/>
-                                                                    <label for="another-toggle-switch-input2"></label>
-                                                                    <p class="modal_pago">CHEQUE</p>
-                                                                </label><br>
-                                                                <label class="toggle-switch another-toggle-switch3">
-                                                                    <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2"/>
-                                                                    <label for="another-toggle-switch-input3"></label>
-                                                                    <p class="modal_pago">TRANSFERENCIA</p>
-                                                                </label>
-                                                            </section>
+                                                        <div class="">
+                                                            <label class="modal_id_label col-form-label" for="">Nro Boleta</label>
+                                                            <input class="modal_id_input" type="text" value="{{boleta}}" name="nroboleta" id="nroboleta">
                                                         </div>
                                                     </div>
+                                                    <div class="modal_rut">
+                                                        <label class="modal_rut_1 col-form-label" for="">Rut Cliente</label>
+                                                        <input class="modal_rut_2 " type="text" value="{{rut}}">
+                                                        <input class="modal_rut_3" type="text" value="{{nombres}}">
+                                                    </div>
+                                                </div>
+                                                <!-- icono para guardar -->
+                                                <div class="modal_div_guardar col-md-1">
+                                                    <button class="modal_boton_guardar" type="submit" id="abonar" name="abonar">
+                                                        <i class="far fa-save fa-4x modal_icono"></i>
+                                                    </button>
+                                                </div>                                                    
+                                                <!-- nro parcelero -->
+                                                <div class="col-md-12  modal_medidor">
+                                                    <label class="modal_medidor_label col-form-label" for="">Nro Parcelero</label>
+                                                    <input class="modal_medidor_input" type="text" value="{{numero}}" id="id_" name="id_">
+                                                </div>
+                                                <!-- fecha ctual y nro de abono -->
+                                                <div class="col-md-12  modal_fecha">
+                                                    <div class="modal_fecha_div">
+                                                        <label for="" class="col-form-label modal_fecha_label">Fecha Actual</label>
+                                                        <input class="modal_fecha_input" type="datetime" name="fechaabono" id="fechaabono" value="{{fecha_actual}}">                                                                
+                                                    </div>
+                                                    <div class="modal_fecha_div">
+                                                        <button class="btn modal_fecha_button" type="button">Nro Abono</button>
+                                                        <input class="modal_fecha_input" type="text" value="{{abono}}">
+                                                    </div>
+                                                </div>
+                                                <!-- tabla e input derechos -->
+                                                <div>
+                                                    <!-- tabla -->
+                                                    <div class="col-md-8">
+                                                        <div class="card modal_tabla">
+                                                            <div class="card-body">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr class="tabla_titulos">
+                                                                            <th scope="col">Aviso</th>
+                                                                            <th scope="col">Código</th>
+                                                                            <th scope="col">Descripción</th>
+                                                                            <th scope="col">Valor</th>
+                                                                            <th scope="col">Abono</th>
+                                                                            <th scope="col">Mes/Año</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        {% for i in listadetalle %}
+                                                                        <tr>
+                                                                            <td>
+                                                                                {{i.id}}
+                                                                                <input type="hidden" id="idaviso" name="idaviso" value="{{i.id}}" type="text">
+                                                                                <input type="hidden" id="idboleta" name="idboleta" value="{{i.idboleta}}" type="text">
+                                                                            </td>
+                                                                            <td>
+                                                                                {{i.codigo}}
+                                                                                <input type="hidden" id="codigo" name="codigo" value="{{i.codigo}}" type="text">  
+                                                                            </td>
+                                                                            <td>
+                                                                                {{i.desc}}
+                                                                                <input type="hidden" id="desc" name="desc" value="{{i.desc}}" type="text">  
+                                                                            </td>
+                                                                            <td>
+                                                                                {{i.valor}}
+                                                                                <input type="hidden" id="valor" name="valor" value="{{i.valor}}" type="text">    
+                                                                            </td>
+                                                                            <td><input input onchange="habilitar(this.value,'{{i.valor}}')" onblur="findTotal()" id="abono" name="abono" type="text"></td>
+                                                                            <td>
+                                                                                {{i.fecha}}
+                                                                                <input type="hidden" id="fecha" name="fecha" value="{{i.fecha}}" type="text"> 
+                                                                            </td>
+                                                                        </tr>
+                                                                        {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" id="totalboleta" name="totalboleta" value="{{pagado}}">
+                                                    <!-- etiquetas -->
+                                                    <div class="col-md-4 modal_total">
+                                                        <div class="modal_total_divs">
+                                                            <label class="modal_total_label" for="">Total Abono</label>
+                                                            <input class="modal_total_input" name="total" id="total" value="0" type="text">
+                                                        </div>
+                                                        <div class="modal_total_divs">   
+                                                            <label class="modal_total_label" for="">
+                                                                <input style="margin-right: .5rem;" type="checkbox">IVA
+                                                            </label>
+                                                            <input class="modal_total_input"  type="text" value="0">
+                                                        </div>
+                                                        <div class="modal_total_divs">  
+                                                            <label class="modal_total_label" for="">Total $</label>
+                                                            <input class="modal_total_input"  type="text" value="0">
+                                                        </div>
+                                                        <div class="modal_total_divs">   
+                                                            <label class="modal_total_label" for="">Adicional</label>
+                                                            <input class="modal_total_input"  type="text" value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- forma de pago -->
+                                                <div class="col-md-12 modal_primera_parte">
+                                                    <section class="modal_forma_de_pago">
+                                                        <label class="toggle-switch another-toggle-switch">
+                                                            <input type="radio" name="toggle-switch" id="another-toggle-switch-input" value="0" checked/>
+                                                            <label for="another-toggle-switch-input"></label>
+                                                            <p class="modal_pago"> EFECTIVO</p>
+                                                        </label><br>
+                                                        <label class="toggle-switch another-toggle-switch">
+                                                            <input type="radio" name="toggle-switch" id="another-toggle-switch-input2" value="1"/>
+                                                            <label for="another-toggle-switch-input2"></label>
+                                                            <p class="modal_pago">CHEQUE</p>
+                                                        </label><br>
+                                                        <label class="toggle-switch another-toggle-switch3">
+                                                            <input type="radio" name="toggle-switch" id="another-toggle-switch-input3" value="2"/>
+                                                            <label for="another-toggle-switch-input3"></label>
+                                                            <p class="modal_pago">TRANSFERENCIA</p>
+                                                        </label>
+                                                    </section>
+                                                </div>
+                                            </div>
                                         </div>
-
                                     </form>
                                     {% endblock %}
                                 </div>
@@ -1075,14 +1064,14 @@
         <!-- END MAIN WRAPPER-->
         
                     
-            <!-- WEB PERLOAD-->
-            <div id="preload">
-                <ul class="loading">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
+        <!-- WEB PERLOAD-->
+        <div id="preload">
+            <ul class="loading">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
 
 
         <script type="text/javascript">

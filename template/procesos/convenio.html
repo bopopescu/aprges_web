@@ -16,29 +16,27 @@
     <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
     <style>
       .text-capitalize{
         margin-bottom: .5rem;
       }
-    </style> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-    <style>
-        .div_boton{
-          display: flex;
-          justify-content: center;
-        }
-        .boton{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 15rem;
-          padding: 1rem 3rem;
-        }
-        .botones_arriba{
-          width: fit-content;
-          padding: 1rem 2rem;
-        }
-  </style>
+      .div_boton{
+        display: flex;
+        justify-content: center;
+      }
+      .boton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15rem;
+        padding: 1rem 3rem;
+      }
+      .botones_arriba{
+        width: fit-content;
+        padding: 1rem 2rem;
+      }
+    </style>
   </head>
 
   <body class="orchid">
@@ -128,7 +126,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -307,7 +305,6 @@
 
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
-
             <!-- #SELECT2-->
             <div class="panel panel-default col-sm-12">
               <div class="panel-heading ">
@@ -331,89 +328,83 @@
               </div>
               
               {% block content %}	
-                <form action="/procesos/convenios/" method="POST">
-                  {% csrf_token %}  
+              <form action="/procesos/convenios/" method="POST">
+                {% csrf_token %}  
                 <div class="panel-body">
                   <div class="row m-b-3">
-                      <div class="form-group col-sm-6">
-                          <label>Año</label>
-                          <input type="number" id="ano" name="ano" value="{{ano}}" class="form-control">
-                        </div>
                     <div class="form-group col-sm-6">
-                        <label>Mes</label>
-                        <select class="form-control" id="mes" name="mes" required>
-                          <option value="{{mes}}">{{mes}}</option>
-                          <option value="Enero">Enero</option>
-                          <option value="Febrero">Febrero</option>
-                          <option value="Marzo">Marzo</option>
-                          <option value="Abril">Abril</option>
-                          <option value="Mayo">Mayo</option>
-                          <option value="Junio">Junio</option>
-                          <option value="Julio">Julio</option>
-                          <option value="Agosto">Agosto</option>
-                          <option value="Septiembre">Septiembre</option>
-                          <option value="Octubre">Octubre</option>
-                          <option value="Noviembre">Noviembre</option>
-                          <option value="Diciembre">Diciembre</option>
-                        </select>
+                      <label>Año</label>
+                      <input type="number" id="ano" name="ano" value="{{ano}}" class="form-control">
                     </div>
-
-                      <div class="form-group col-sm-12">
-                          <label>Tipo de Convenio</label>
-                          <select class="form-control" id="tipo" name="tipo" required>
-                              {% for tipo in tipos %}
-                              <option value="{{tipo.id}}">{{tipo.nombre}}</option>
-                              {% endfor %}
-                            </select>
-                        </div>
-
-                        <div class="form-group col-sm-6">
-                              <label>Identificador</label>
-                              <input type="text" id="identificador" name="identificador" value="{{identificador}}" class="form-control" disabled>
-                              <input type="hidden" id="identi" name="identi" class="form-control">
-                            </div>
-    
-                            <div class="form-group col-sm-6">
-                                <label>Nombre Parcelero</label>
-                                <input type="text" id="buscarsocio" name="buscarsocio" class="form-control" required>
-                              </div>
-
+                    <div class="form-group col-sm-6">
+                      <label>Mes</label>
+                      <select class="form-control" id="mes" name="mes" required>
+                        <option value="{{mes}}">{{mes}}</option>
+                        <option value="Enero">Enero</option>
+                        <option value="Febrero">Febrero</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Mayo">Mayo</option>
+                        <option value="Junio">Junio</option>
+                        <option value="Julio">Julio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Septiembre">Septiembre</option>
+                        <option value="Octubre">Octubre</option>
+                        <option value="Noviembre">Noviembre</option>
+                        <option value="Diciembre">Diciembre</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <label>Tipo de Convenio</label>
+                      <select class="form-control" id="tipo" name="tipo" required>
+                        {% for tipo in tipos %}
+                        <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label>Identificador</label>
+                      <input type="text" id="identificador" name="identificador" value="{{identificador}}" class="form-control" disabled>
+                      <input type="hidden" id="identi" name="identi" class="form-control">
+                    </div>    
+                    <div class="form-group col-sm-6">
+                      <label>Nombre Parcelero</label>
+                      <input type="text" id="buscarsocio" name="buscarsocio" class="form-control" required>
+                    </div>
                     <div class="form-group col-sm-4">
-                        <label>Monto Total</label>
-                        <input type="text" id="total" name="total" value="0" class="form-control" required>
+                      <label>Monto Total</label>
+                      <input type="text" id="total" name="total" value="0" class="form-control" required>
                     </div>
-
-                      <div class="form-group col-sm-4">
-                          <label>Numero de Cuotas</label>
-                          <input type="number" id="cuota" name="cuota" class="form-control" required>
-                        </div>
-                        <div class="form-group col-sm-4">
-                              <label>% Interés</label>
-                              <input type="text" id="interes" name="interes" value="0" class="form-control" required>
-                            </div>
-                            
-                      <div class="form-group col-sm-2">
-                              <label><b>Valor de Cuota</b></label>
-                        </div>
-                          <div class="form-group col-sm-2">
-                              <input type="text" id="valor" name="valor" value="0" class="form-control" required>
-                          </div>
+                    <div class="form-group col-sm-4">
+                      <label>Numero de Cuotas</label>
+                      <input type="number" id="cuota" name="cuota" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label>% Interés</label>
+                      <input type="text" id="interes" name="interes" value="0" class="form-control" required>
+                    </div>                            
+                    <div class="form-group col-sm-2">
+                      <label><b>Valor de Cuota</b></label>
+                    </div>
+                    <div class="form-group col-sm-2">
+                      <input type="text" id="valor" name="valor" value="0" class="form-control" required>
+                    </div>
                   </div>
                   <div class="row m-b-3">
-                      <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                          <button class="btn btn-block active m-b-5 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
-                        </div>
-                        <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize div_boton">
-                          <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button> 
-                        </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
                     </div>
-                    <label>{{mensaje}}</label>
+                    <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button> 
+                    </div>
+                  </div>
+                  <label>{{mensaje}}</label>
                 </div>
               </form>
               {% endblock %}       
-              </div>     
+            </div>     
             <!-- #SELECT2-->       
-        </div>     
+          </div>     
           <!-- ROW-->         
         </div>
         <!-- END CONTAINER FIUID-->

@@ -41,24 +41,24 @@
           }
         });
       });
-  </script>
-  <style>
-    .div_boton{
-      display: flex;
-      justify-content: center;
-    }
-    .boton{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 15rem;
-      padding: 1rem 3rem;
-    }
-    .botones_arriba{
-      width: fit-content;
-      padding: 1rem 2rem;
-    }
-  </style>
+    </script>
+    <style>
+      .div_boton{
+        display: flex;
+        justify-content: center;
+      }
+      .boton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15rem;
+        padding: 1rem 3rem;
+      }
+      .botones_arriba{
+        width: fit-content;
+        padding: 1rem 2rem;
+      }
+    </style>
   </head>
 
   <body class="orchid">
@@ -140,7 +140,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/condonacion/">Condonación de Deuda</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje/">Mensaje de Avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -317,99 +317,95 @@
 
         <div class="container-fluid">
           <div class=" js-grid-wrapper panel-wrapper">
-
             <!-- #SELECT2-->
-              <div class="panel panel-default col-sm-12">
-                  <div class="panel-heading ">
-                        {% block content1 %}	
-                        <form action="/procesos/convenios/" method="POST">
-                          {% csrf_token %}  
-                        <div class="row m-b-3">
-                                  <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                    <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="individual" id="individual">Convenio Individual</button>
-                                  </div>
-                                  <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="repactacion" id="repactacion">Repactación</button>
-                                    </div>
-                                  <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="historial" id="historial">Historial de Convenio</button>
-                                    </div>
-                            </div>
-                            {% endblock %}
-                        </form>
-                    <h6 class="panel-title">Convenios Masivos<a class="small" href="#" target="_blank">ingreso de convenio o repactacion de deuda</a></h6>
+            <div class="panel panel-default col-sm-12">
+              <div class="panel-heading ">
+                {% block content1 %}	
+                <form action="/procesos/convenios/" method="POST">
+                  {% csrf_token %}  
+                  <div class="row m-b-3">
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="individual" id="individual">Convenio Individual</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="repactacion" id="repactacion">Repactación</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="historial" id="historial">Historial de Convenio</button>
+                    </div>
                   </div>
-                  {% block content %}	
-                  <form action="/procesos/convenios/" method="POST">
-                    {% csrf_token %}  
-                    <div class="panel-body">
-                      <div class="row m-b-3">
-                          <div class="form-group col-sm-6">
-                              <label>Año</label>
-                              <input type="number" id="ano" name="ano" value="{{ano}}" class="form-control">
-                            </div>
-                        <div class="form-group col-sm-6">
-                            <label>Mes</label>
-                            <select class="form-control" id="mes" name="mes" required>
-                              <option value="{{mes}}">{{mes}}</option>
-                              <option value="Enero">Enero</option>
-                              <option value="Febrero">Febrero</option>
-                              <option value="Marzo">Marzo</option>
-                              <option value="Abril">Abril</option>
-                              <option value="Mayo">Mayo</option>
-                              <option value="Junio">Junio</option>
-                              <option value="Julio">Julio</option>
-                              <option value="Agosto">Agosto</option>
-                              <option value="Septiembre">Septiembre</option>
-                              <option value="Octubre">Octubre</option>
-                              <option value="Noviembre">Noviembre</option>
-                              <option value="Diciembre">Diciembre</option>
-                            </select>
-                        </div>
-
-                          <div class="form-group col-sm-12">
-                              <label>Tipo de Convenio</label>
-                              <select class="form-control" id="tipo" name="tipo" required>
-                                  {% for tipo in tipos %}
-                                  <option value="{{tipo.id}}">{{tipo.nombre}}</option>
-                                  {% endfor %}
-                                </select>
-                            </div>
-
-                        <div class="form-group col-sm-4">
-                            <label>Monto Total</label>
-                            <input type="number" id="total" name="total" value="0" class="form-control" required>
-                        </div>
-
-                        <div class="form-group col-sm-4">
-                          <label>Numero de Cuotas</label>
-                          <input type="number" id="cuota" name="cuota" class="form-control" required>
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label>% Interés</label>
-                          <input type="text" id="interes" name="interes" value="0" class="form-control" required>
-                        </div>
-                                
-                        <div class="form-group col-sm-2">
-                          <label><b>Valor de Cuota</b></label>
-                        </div>
-                        <div class="form-group col-sm-2">
-                          <input type="text" id="valor" name="valor" value="0" class="form-control" required>
-                        </div>
-                      </div>
-                      <div class="row m-b-3">
-                        <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                          <button class="btn btn-block active m-b-5 btn-primary boton" type="submit" name="guardarmasivo" id="guardarmasivo"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
-                        </div>
-                        <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize div_boton">
-                          <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button> 
-                        </div>
-                        <label>{{mensaje}}</label>
-                      </div>
-                    </div>  
-                </div>     
-              <!-- #SELECT2--> 
-                    
+                  {% endblock %}
+                </form>
+                <h6 class="panel-title">Convenios Masivos<a class="small" href="#" target="_blank">ingreso de convenio o repactacion de deuda</a></h6>
+              </div>
+              {% block content %}	
+              <form action="/procesos/convenios/" method="POST">
+                {% csrf_token %}  
+                <div class="panel-body">
+                  <div class="row m-b-3">
+                    <div class="form-group col-sm-6">
+                      <label>Año</label>
+                      <input type="number" id="ano" name="ano" value="{{ano}}" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label>Mes</label>
+                      <select class="form-control" id="mes" name="mes" required>
+                        <option value="{{mes}}">{{mes}}</option>
+                        <option value="Enero">Enero</option>
+                        <option value="Febrero">Febrero</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Mayo">Mayo</option>
+                        <option value="Junio">Junio</option>
+                        <option value="Julio">Julio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Septiembre">Septiembre</option>
+                        <option value="Octubre">Octubre</option>
+                        <option value="Noviembre">Noviembre</option>
+                        <option value="Diciembre">Diciembre</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <label>Tipo de Convenio</label>
+                      <select class="form-control" id="tipo" name="tipo" required>
+                        {% for tipo in tipos %}
+                        <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label>Monto Total</label>
+                      <input type="number" id="total" name="total" value="0" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label>Numero de Cuotas</label>
+                      <input type="number" id="cuota" name="cuota" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label>% Interés</label>
+                      <input type="text" id="interes" name="interes" value="0" class="form-control" required>
+                    </div>                                
+                    <div class="form-group col-sm-2">
+                      <label><b>Valor de Cuota</b></label>
+                    </div>
+                    <div class="form-group col-sm-2">
+                      <input type="text" id="valor" name="valor" value="0" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row m-b-3">
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-primary boton" type="submit" name="guardarmasivo" id="guardarmasivo"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-default boton" type="submit" name="limpiar" id="limpiar"><i class="fas fa-broom fa-3x m-r-1"></i> Limpiar </button> 
+                    </div>
+                    <label>{{mensaje}}</label>
+                  </div>
+                </div>  
+              </form>
+              {% endblock %}  
+            </div>     
+            <!-- #SELECT2-->                     
           </div>
           <!-- ROW-->         
         </div>
@@ -422,24 +418,26 @@
                 <table class="table">
                   <thead>
                     <tr>
-                        <th>
-                            <span class="custom-checkbox">
-                              <input type="checkbox" id="selectAll">
-                              <label for="selectAll"></label>
-                            </span>
-                          </th>
+                      <th>
+                        <span class="custom-checkbox">
+                          <input type="checkbox" id="selectAll">
+                         <label for="selectAll"></label>
+                        </span>
+                      </th>
                       <th>Identificación</th>
                       <th>R.u.t</th>
                       <th>Nombre Completo</th>
                     </tr>
                   </thead>
                   <tbody>
-                      {% for medidor in lista_s %}
+                    {% for medidor in lista_s %}
                     <tr>
-                      <td><span class="custom-checkbox">
+                      <td>
+                        <span class="custom-checkbox">
                           <input type="checkbox" id="options" name="options[]" value="{{ medidor.id }}">
                           <label for="checkbox3"></label>
-                        </span></td>
+                        </span>
+                      </td>
                       <td>{{medidor.id|escape }}</td>
                       <td>{{medidor.rut|escape}}</td>
                       <td>{{medidor.nombre|escape}}</td>
@@ -449,16 +447,13 @@
                 </table>
               </div>
             </div>
-          </div>
-          
+          </div>          
         </div>
       </div>
       <!-- END VIEW WAPPER-->
     </div>
     <!-- END MAIN WRAPPER-->
-
-  </form>
-  {% endblock %}  
+  
     <!-- WEB PERLOAD-->
     <div id="preload">
       <ul class="loading">

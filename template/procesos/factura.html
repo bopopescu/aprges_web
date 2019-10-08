@@ -308,7 +308,7 @@
                         <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -493,123 +493,123 @@
                 </div>
                 <!-- END PAGE HEADER-->
                 <div class="panel panel-default cuerpo">
-                <div class="container-fluid">
-                    <div class="row js-grid-wrapper panel-wrapper">
-                        <div class="panel panel-default">
-                            <!-- #SELECT2-->
-                            {% block content3 %}	
-                            <form class="col-sm-12" action="/antecedentes/orden_trabajo/" method="POST">
-                                {% csrf_token %}                    
-                                <div class="panel-heading div_boton">
-                                    <a class="btn btn-block active m-b-2 boton_info boton_historial" type="button" name="historial" href="/procesos/factura/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
-                                </div>
-                            </form>
-                            {% endblock %}    
-                            <!-- #SELECT2 -->
-
-                            <!-- #SELECT2-->
-                            {% block content1 %}	
-                            <form class="col-sm-12" action="/procesos/factura/" method="POST">
-                                {% csrf_token %}
-                                
-                                <div class="panel-body">
-                                    <div class="id_factura_numero">
-                                        <label for="" class="id_factura_label col-form-label">NRO FACTURA</label>
-                                        <input type="text" class="id_factura_input form-control" id="nrofactura" name="nrofactura" value="{{nrofactura}}">
-                                        <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
-                                        <p></p>
-                                        <button type="submit" style="margin-left: 10px" class="id_button_btn btn btn-warning" name="anular" id="anular">Anular Factura</button>
-                                        <input type="hidden" name="nro" id="nro" value="{{nrofactura}}">
+                    <div class="container-fluid">
+                        <div class="row js-grid-wrapper panel-wrapper">
+                            <div class="panel panel-default">
+                                <!-- #SELECT2-->
+                                {% block content3 %}	
+                                <form class="col-sm-12" action="/antecedentes/orden_trabajo/" method="POST">
+                                    {% csrf_token %}                    
+                                    <div class="panel-heading div_boton">
+                                        <a class="btn btn-block active m-b-2 boton_info boton_historial" type="button" name="historial" href="/procesos/factura/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
                                     </div>
-                                    <label>{{mensajeanular}}</label>
-                                </div> 
-                            </form>
-                            {% endblock %}
-                                    
-                            {% block content %}	
-                            <form id="f1" name="f1" class="col-sm-12" action="/procesos/factura/" method="POST">
-                                {% csrf_token %}  
-                                <div class="panel-body p-t-0">
-                                    <input type="hidden" name="numero" id="numero">
-                                    <input type="hidden" name="nro2" id="nro2" value="{{nrofactura}}">
-                                    <div class=" m-b-3">                        
-                                        <div class="id form-group">
-                                            <div class="id_factura">
-                                                <div class="id_factura_fecha">
-                                                    <label for="" class="id_factura_label col-form-label m-b-0">FECHA EMISIÓN</label>
-                                                    <input type="text" class="id_factura_input form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}">                                
+                                </form>
+                                {% endblock %}    
+                                <!-- #SELECT2 -->
+
+                                <!-- #SELECT2-->
+                                {% block content1 %}	
+                                <form class="col-sm-12" action="/procesos/factura/" method="POST">
+                                    {% csrf_token %}                                    
+                                    <div class="panel-body">
+                                        <div class="id_factura_numero">
+                                            <label for="" class="id_factura_label col-form-label">NRO FACTURA</label>
+                                            <input type="text" class="id_factura_input form-control" id="nrofactura" name="nrofactura" value="{{nrofactura}}">
+                                            <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                                            <p></p>
+                                            <button type="submit" style="margin-left: 10px" class="id_button_btn btn btn-warning" name="anular" id="anular">Anular Factura</button>
+                                            <input type="hidden" name="nro" id="nro" value="{{nrofactura}}">
+                                        </div>
+                                        <label>{{mensajeanular}}</label>
+                                    </div> 
+                                </form>
+                                {% endblock %}
+                                        
+                                {% block content %}	
+                                <form id="f1" name="f1" class="col-sm-12" action="/procesos/factura/" method="POST">
+                                    {% csrf_token %}  
+                                    <div class="panel-body p-t-0">
+                                        <input type="hidden" name="numero" id="numero">
+                                        <input type="hidden" name="nro2" id="nro2" value="{{nrofactura}}">
+                                        <div class=" m-b-3">                        
+                                            <div class="id form-group">
+                                                <div class="id_factura">
+                                                    <div class="id_factura_fecha">
+                                                        <label for="" class="id_factura_label col-form-label m-b-0">FECHA EMISIÓN</label>
+                                                        <input type="text" class="id_factura_input form-control" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}">                                
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>    
+                                            </div>    
 
-                                        <div class="cliente form-group">
-                                            <label for="" class="cliente_label">Seleccionar Cliente</label>
-                                            <input type="text" class="cliente_input form-control" id="identi" name="identi" value="{{id_}}" disabled>
-                                            <input type="hidden" class="cliente_input form-control" id="id_" name="id_" value="{{id_}}" required>
-                                            <input type="text" class="cliente_select form-control" placeholder="Buscar por nombre...." id="buscarsocio" name="buscarsocio" value="{{nombres}}" required>
-                                        </div>
-                                                
-                                        <div class="ubicacion form-group">
-                                            <div class="direccion">
-                                                <label for="" class="direccion_label">Dirección</label>
-                                                <input type="text" class="direccion_input form-control" id="direccion" name="direccion" value="{{direccion}}">
-                                            </div>        
-                                        </div>
-                
-                                        <div class="contacto form-group">
-                                            <div class="telefono">
-                                                <label for="" class="telefono_label">Teléfono</label>
-                                                <input type="text" class="telefono_input form-control" name="telefono" id="telefono" value="{{telefono}}">
+                                            <div class="cliente form-group">
+                                                <label for="" class="cliente_label">Seleccionar Cliente</label>
+                                                <input type="text" class="cliente_input form-control" id="identi" name="identi" value="{{id_}}" disabled>
+                                                <input type="hidden" class="cliente_input form-control" id="id_" name="id_" value="{{id_}}" required>
+                                                <input type="text" class="cliente_select form-control" placeholder="Buscar por nombre...." id="buscarsocio" name="buscarsocio" value="{{nombres}}" required>
                                             </div>
-                                            <div class="giro">
-                                                <label for="" class="giro_label">Giro</label>
-                                                <input type="text" class="giro_input form-control" name="giro" id="giro" value="{{giro}}">
-                                            </div>  
-                                        </div>    
-
-                                        <div class=" form-group">
-                                            <label for="">Detalle</label>
-                                            <textarea class="form-control" cols="30" rows="5" required name="detalle" id="detalle">{{detalle}}</textarea>
-                                        </div>
                                                     
-                                        <div class="cancelacion form-group">
-                                            <div class="cancelacion_fecha">
-                                                <b class="cancelacion_fecha_label">FECHA CANCELACIÓN</b>
-                                                <input type="text" class="cancelacion_fecha_input form-control" name="fechapago" id="fechapago" value="{{fechapago}}" placeholder="dd-mm-yyyy" onkeyup="
-                                                    var date = this.value;
-                                                    if (date.match(/^\d{2}$/) !== null) {
-                                                    this.value = date + '/';
-                                                    } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                                                    this.value = date + '/';
-                                                    }" maxlength="10" required>
-                                                <button class="btn btn-outline-success boton_info search_boton" type="submit" name="pagar" id="pagar">Pagar</button>
+                                            <div class="ubicacion form-group">
+                                                <div class="direccion">
+                                                    <label for="" class="direccion_label">Dirección</label>
+                                                    <input type="text" class="direccion_input form-control" id="direccion" name="direccion" value="{{direccion}}">
+                                                </div>        
                                             </div>
-                                            <div class="cancelacion_total">
-                                                <p class="cancelacion_total_label">Total a Pagar</p>
-                                                <input type="number" class="cancelacion_total_input form-control" name="total" id="total" value="{{monto}}" required>
-                                            </div>           
+                    
+                                            <div class="contacto form-group">
+                                                <div class="telefono">
+                                                    <label for="" class="telefono_label">Teléfono</label>
+                                                    <input type="text" class="telefono_input form-control" name="telefono" id="telefono" value="{{telefono}}">
+                                                </div>
+                                                <div class="giro">
+                                                    <label for="" class="giro_label">Giro</label>
+                                                    <input type="text" class="giro_input form-control" name="giro" id="giro" value="{{giro}}">
+                                                </div>  
+                                            </div>    
+
+                                            <div class=" form-group">
+                                                <label for="">Detalle</label>
+                                                <textarea class="form-control" cols="30" rows="5" required name="detalle" id="detalle">{{detalle}}</textarea>
+                                            </div>
+                                                        
+                                            <div class="cancelacion form-group">
+                                                <div class="cancelacion_fecha">
+                                                    <b class="cancelacion_fecha_label">FECHA CANCELACIÓN</b>
+                                                    <input type="text" class="cancelacion_fecha_input form-control" name="fechapago" id="fechapago" value="{{fechapago}}" placeholder="dd-mm-yyyy" onkeyup="
+                                                        var date = this.value;
+                                                        if (date.match(/^\d{2}$/) !== null) {
+                                                        this.value = date + '/';
+                                                        } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                                                        this.value = date + '/';
+                                                        }" maxlength="10" required>
+                                                    <button class="btn btn-outline-success boton_info search_boton" type="submit" name="pagar" id="pagar">Pagar</button>
+                                                </div>
+                                                <div class="cancelacion_total">
+                                                    <p class="cancelacion_total_label">Total a Pagar</p>
+                                                    <input type="number" class="cancelacion_total_input form-control" name="total" id="total" value="{{monto}}" required>
+                                                </div>           
+                                            </div>
+                    
+                                            <div class="iconos">
+                                                <label>{{mensaje}}</label>
+                                            </div>
+                    
+                                            <div class="iconos form-group">
+                                                <button class="boton_iconos" type="submit" id="guardar" name="guardar">                                            
+                                                    <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                                                </button>
+                                                <button class="boton_iconos" type="submit" id="abonar" name="abonar">                                            
+                                                    <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                                                </button>
+                                                <button class="boton_iconos" type="submit" id="eliminar" name="eliminar">                                            
+                                                    <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                                                </button>
+                                            </div>                                
                                         </div>
-                
-                                        <div class="iconos">
-                                            <label>{{mensaje}}</label>
-                                        </div>
-                
-                                        <div class="iconos form-group">
-                                            <button class="boton_iconos" type="submit" id="guardar" name="guardar">                                            
-                                                <a href="#"><i class="far fa-save fa-4x icono"></i></a>
-                                            </button>
-                                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">                                            
-                                                <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
-                                            </button>
-                                            <button class="boton_iconos" type="submit" id="eliminar" name="eliminar">                                            
-                                                <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
-                                            </button>
-                                        </div>                                
                                     </div>
-                                </div>
-                            </form>
-                            {% endblock %}            
-                            <!-- SELECT2 -->
+                                </form>
+                                {% endblock %}            
+                                <!-- SELECT2 -->
+                            </div>
                         </div>
                         <!-- ROW -->
                     </div>
@@ -619,7 +619,6 @@
             <!-- END VIEW-WRAPER -->
         </div>
         <!-- END MAIN-WRAPER -->
-        </div>
                 
         <!-- WEB PERLOAD-->
         <div id="preload">

@@ -2132,7 +2132,7 @@ def viewGeneracion(request):
                 ANO=request.POST['ano']
                 existe=0
 
-                #BUSCAR SOCIOS CON BOLETAS VIGENTES
+                #BUSCAR SOCIOS CON Avisos Vigentes
                 sql="SELECT A_BOLETA.ID_PARCELERO, A_BOLETA.VIGENTE, A_BOLETA.MES, A_BOLETA.ANO FROM A_BOLETA WHERE (((A_BOLETA.VIGENTE)=0) AND ((A_BOLETA.MES)='"+mes+"') AND ((A_BOLETA.ANO)="+ano+"));"
                 print(sql)
                 
@@ -3393,6 +3393,7 @@ def viewIngresoLectura(request):
         direc_medidor=request.POST['direc_medidor']
         dest_aviso=request.POST['dest_aviso']
         ruta=request.POST['ruta']
+        corte=request.POST['corte']
         fcorte=request.POST['fcorte']
         frepo=request.POST['frepo']
         observacion=request.POST['observacion']

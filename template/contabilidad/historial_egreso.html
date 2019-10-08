@@ -117,7 +117,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -391,54 +391,48 @@
 
       $("#buscarsocio").change(function () {
         var countryId = $(this).val();
-
           $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
+            url: '/procesos/consumo/id/',
+            data: {
               'socio': countryId
-              },
-              success: function (data) {
+            },
+            success: function (data) {
               $("#identificador").val(
-                  data
+                data
               );
               $("#numero").val(
-                  data
+                data
               );
               $("#identi").val(
-                  data
+                data
               );
               $("#id_").val(
-                  data
+                data
               );
-
               $("#id_1").val(
-                  data
+                data
               );
               $("#nro").val(
-                  data
+                data
               );
-              }
-              
+            }              
           });
-        });
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-
+      });
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
           $.ajax({
-              url: '/procesos/consumo/id3/',
-              data: {
+            url: '/procesos/consumo/id3/',
+            data: {
               'socio': countryId
-              },
-              success: function (data) {
+            },
+            success: function (data) {
               $("#tipo").val(
-                  data
-              );
-              
-              }
-              
+                data
+              );              
+            }              
           });
-        });
-      </script>
+      });
+    </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>

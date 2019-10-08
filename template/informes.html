@@ -100,89 +100,86 @@
         margin: 0;
       }
     </style>
-        <script>
-    
-          function printId(datos)
-          {
-            if(datos==1){
-              document.f1.nro.value=datos;
-              window.location.href = '#openModal1';
-            }
-            if(datos==2){
-              document.f1.nro.value=datos;
-              window.location.href = '#openModal1';
-            }
-            if(datos==3){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==4){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==5){
-              document.f1.nro.value=datos;
-              window.location.href = '#openModal1';
-            }
-            if(datos==6){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==20){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==7){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==8){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==21){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==9){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==10){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==11){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==12){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==13){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==14){
-              document.f2.nro.value=datos;
-              window.location.href = '#openModal2';
-            }
-            if(datos==15){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==16){
-              document.f3.nro.value=datos;
-              window.location.href = '#openModal3';
-            }
-            if(datos==17){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==18){
-              window.location.href = '/informes/'+datos+'/';
-            }
-            if(datos==19){
-              document.f5.nro.value=datos;
-              window.location.href = '#openModal5';
-            }
-          }
-    
-        </script>
+    <script>    
+      function printId(datos){
+        if(datos==1){
+          document.f1.nro.value=datos;
+          window.location.href = '#openModal1';
+        }
+        if(datos==2){
+          document.f1.nro.value=datos;
+          window.location.href = '#openModal1';
+        }
+        if(datos==3){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==4){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==5){
+          document.f1.nro.value=datos;
+          window.location.href = '#openModal1';
+        }
+        if(datos==6){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==20){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==7){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==8){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==21){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==9){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==10){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==11){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==12){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==13){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==14){
+          document.f2.nro.value=datos;
+          window.location.href = '#openModal2';
+        }
+        if(datos==15){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==16){
+          document.f3.nro.value=datos;
+          window.location.href = '#openModal3';
+        }
+        if(datos==17){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==18){
+          window.location.href = '/informes/'+datos+'/';
+        }
+        if(datos==19){
+          document.f5.nro.value=datos;
+          window.location.href = '#openModal5';
+        }
+      }
+    </script>
   </head>
 
   <body class="orchid  ">
@@ -274,7 +271,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -545,177 +542,160 @@
                 <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
               </div>
             </div>
-
           </div>
         </div>
 
         <div class="container-fluid">
-              <div class="row js-grid-wrapper panel-wrapper">
-                <!-- #SELECT2-->
-                <div class="col-sm-12">
-                    <div class="panel panel-default">
-
-                      <div class="panel-heading">
-                        <h6 class="panel-title">Listado de Informes<a class="small" href="#" target="_blank"></a></h6>
-                      </div>
-                      <div class="panel-body">
-
-                          <div class="form-group col-sm-12">
-                          </div> 
-                          
-                          <table class="table" data-plugin="DataTable">
-                            <thead>
-                              <tr>
-                                <th>Número</th>
-                                <th>Nombre de Informe</th>
-                                <th>Acción</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {% for medidor in lista %}
-                              <tr>
-                                <td>{{medidor.id}}</td>
-                                <td>{{medidor.nombre}}</td>
-                                <td>
-                                  {% block content1 %}	
-                                  <form action="/informes/" method="POST">{% csrf_token %}  
-                                    <input type="hidden" value="{{medidor.nombre}}" id="nombres" name="nombres">
-                                    <a class="btn btn-info" onclick="printId('{{medidor.id}}')"> Imprimir</a>
-                                  </form>
-                                  {% endblock %}
-                                </td>
-                              </tr>
-                              {% endfor %}
-                            </tbody>
-                          </table>
-                          <!-- #TABLE-->
-                      </div>
-
-                    </div>
+          <div class="row js-grid-wrapper panel-wrapper">
+            <!-- #SELECT2-->
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h6 class="panel-title">Listado de Informes<a class="small" href="#" target="_blank"></a></h6>
                 </div>
-
-                <div id="openModal1" class="modalDialog">
-                    {% block content2 %}	
-                    <form class="modal1" id="f1" name="f1" action="/informes/" method="POST">{% csrf_token %} 
-                  <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                    <h2>Seleccione mes y año</h2>
-                    <input type="hidden" id="nro" name="nro">
-                    <div class="row">
-
-                      <div class="col-md-6">
-                        <p class="modal_p">Mes</p>
-                        <select style="width: 9rem;height: 2rem;" class="" id="mes" name="mes" required>
-                            <option value="{{mes}}">{{mes}}</option>
-                            <option value="Enero">Enero</option>
-                            <option value="Febrero">Febrero</option>
-                            <option value="Marzo">Marzo</option>
-                            <option value="Abril">Abril</option>
-                            <option value="Mayo">Mayo</option>
-                            <option value="Junio">Junio</option>
-                            <option value="Julio">Julio</option>
-                            <option value="Agosto">Agosto</option>
-                            <option value="Septiembre">Septiembre</option>
-                            <option value="Octubre">Octubre</option>
-                            <option value="Noviembre">Noviembre</option>
-                            <option value="Diciembre">Diciembre</option>
-                          </select>
-                      </div>
-
-                      <div class="col-md-6">
-                        <p class="modal_p">Año</p>
-                        <input style="width: 9rem" type="number" name="ano" id="ano" value="{{ano}}" required>
-                      </div>
-
-                    </div>
-
-                    <div class="boton">
-                      <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
-                    </div>
-                  </div>
-                    </form>
-                  {% endblock %}
-                </div>
-        
-
-                <div id="openModal2" class="modalDialog">
-                    {% block content3 %}	
-                    <form class="modal1" id="f2" name="f2" action="/informes/" method="POST">{% csrf_token %} 
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>Seleccione desde y hasta</h2>
-                    <input type="hidden" id="nro" name="nro">
-                    <div class="row">
-
-                      <div class="col-md-6">
-                        <p class="modal_p">Fecha Desde</p>
-                        <input type="date" name="desde" id="desde" value="{{desde}}" required>
-                      </div>
-
-                      <div class="col-md-6">
-                        <p class="modal_p">Fecha Hasta</p>
-                        <input type="date" name="hasta" id="hasta" value="{{hoy}}" required>
-                      </div>
-
-                    </div>
-
-                    <div class="boton">
-                      <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
-                    </div>
-                  </div>
-                </form>
-                {% endblock %}
-                </div>
-        
-                <div id="openModal3" class="modalDialog">
-                    {% block content4 %}	
-                    <form class="modal1" id="f3" name="f3" action="/informes/" method="POST">{% csrf_token %} 
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>Año a imprimir</h2>
-                    <input type="datetime" name="año"  value="{{año}}">
-                    <input type="hidden" id="nro" name="nro">
-                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
-                  </div>
-                </form>
-                {% endblock %}
-                </div>
-
-                <div id="openModal4" class="modalDialog">
-                    {% block content5 %}	
-                    <form class="modal1" id="f4" name="f4" action="/informes/" method="POST">{% csrf_token %} 
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>Número de Parcelero</h2>
-                    <input type="number" name="parcelero"  value="{{parcelero}}">
-                    <input type="hidden" id="nro" name="nro">
-                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
-                  </div>
-                </form>
-                {% endblock %}
-                </div>
-
-                <div id="openModal5" class="modalDialog">
-                    {% block content6 %}	
-                    <form class="modal1" id="f5" name="f5" action="/informes/" method="POST">{% csrf_token %} 
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>Número de Abono</h2>
-                    <input type="number" name="abono" id="abono" value="{{abono}}">
-                    <input type="hidden" id="nro" name="nro">
-                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
-                  </div>
-                </form>
-                {% endblock %}
+                <div class="panel-body">
+                  <div class="form-group col-sm-12"></div>                           
+                  <table class="table" data-plugin="DataTable">
+                    <thead>
+                      <tr>
+                        <th>Número</th>
+                        <th>Nombre de Informe</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for medidor in lista %}
+                      <tr>
+                        <td>{{medidor.id}}</td>
+                        <td>{{medidor.nombre}}</td>
+                        <td>
+                          {% block content1 %}	
+                          <form action="/informes/" method="POST">{% csrf_token %}  
+                            <input type="hidden" value="{{medidor.nombre}}" id="nombres" name="nombres">
+                            <a class="btn btn-info" onclick="printId('{{medidor.id}}')"> Imprimir</a>
+                          </form>
+                          {% endblock %}
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <!-- #TABLE-->
                 </div>
               </div>
-              <!-- ROW-->         
+            </div>
+
+            <div id="openModal1" class="modalDialog">
+              {% block content2 %}	
+              <form class="modal1" id="f1" name="f1" action="/informes/" method="POST">{% csrf_token %} 
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Seleccione mes y año</h2>
+                  <input type="hidden" id="nro" name="nro">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="modal_p">Mes</p>
+                      <select style="width: 9rem;height: 2rem;" class="" id="mes" name="mes" required>
+                        <option value="{{mes}}">{{mes}}</option>
+                        <option value="Enero">Enero</option>
+                        <option value="Febrero">Febrero</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Mayo">Mayo</option>
+                        <option value="Junio">Junio</option>
+                        <option value="Julio">Julio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Septiembre">Septiembre</option>
+                        <option value="Octubre">Octubre</option>
+                        <option value="Noviembre">Noviembre</option>
+                        <option value="Diciembre">Diciembre</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="modal_p">Año</p>
+                      <input style="width: 9rem" type="number" name="ano" id="ano" value="{{ano}}" required>
+                    </div>
+                  </div>
+                  <div class="boton">
+                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                  </div>
+                </div>
+              </form>
+              {% endblock %}
+            </div> 
+
+            <div id="openModal2" class="modalDialog">
+              {% block content3 %}	
+              <form class="modal1" id="f2" name="f2" action="/informes/" method="POST">{% csrf_token %} 
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Seleccione desde y hasta</h2>
+                  <input type="hidden" id="nro" name="nro">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="modal_p">Fecha Desde</p>
+                      <input type="date" name="desde" id="desde" value="{{desde}}" required>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="modal_p">Fecha Hasta</p>
+                      <input type="date" name="hasta" id="hasta" value="{{hoy}}" required>
+                    </div>
+                  </div>
+
+                  <div class="boton">
+                    <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                  </div>
+                </div>
+              </form>
+              {% endblock %}
+            </div>
+        
+            <div id="openModal3" class="modalDialog">
+              {% block content4 %}	
+              <form class="modal1" id="f3" name="f3" action="/informes/" method="POST">{% csrf_token %} 
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Año a imprimir</h2>
+                  <input type="datetime" name="año"  value="{{año}}">
+                  <input type="hidden" id="nro" name="nro">
+                  <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                </div>
+              </form>
+              {% endblock %}
+            </div>
+                
+            <div id="openModal4" class="modalDialog">
+              {% block content5 %}	
+              <form class="modal1" id="f4" name="f4" action="/informes/" method="POST">{% csrf_token %} 
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Número de Parcelero</h2>
+                  <input type="number" name="parcelero"  value="{{parcelero}}">
+                  <input type="hidden" id="nro" name="nro">
+                  <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                </div>
+              </form>
+              {% endblock %}
+            </div>
+            <div id="openModal5" class="modalDialog">
+              {% block content6 %}	
+              <form class="modal1" id="f5" name="f5" action="/informes/" method="POST">{% csrf_token %} 
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Número de Abono</h2>
+                  <input type="number" name="abono" id="abono" value="{{abono}}">
+                  <input type="hidden" id="nro" name="nro">
+                  <button type="submit" class="btn btn-primary" name="imprimir" id="imprimir">Imprimir</button>
+                </div>
+              </form>
+              {% endblock %}
+            </div>
+          </div>
+          <!-- ROW-->         
         </div>
         <!-- END CONTAINER FIUID-->
-
       </div>
-      <!-- END VIEW WAPPER-->
-                  
+      <!-- END VIEW WAPPER-->                  
     </div>
     <!-- END MAIN WRAPPER-->
 

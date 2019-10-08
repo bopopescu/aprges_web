@@ -171,7 +171,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -346,7 +346,7 @@
           </div>
         </div>
         <!-- END PAGE HEADER-->
-        <div class="panel  panel-default">
+        <!-- <div class="panel  panel-default"> -->
           <div class="container-fluid">
             <div class="row js-grid-wrapper panel-wrapper">
               <!-- #SELECT2-->
@@ -354,7 +354,8 @@
                 <div class="panel panel-default">                    
                   <div class="panel-body">
                     {% block content %}	
-                    <form action="/mantenedor/cargo/" method="POST">{% csrf_token %}  
+                    <form action="/mantenedor/cargo/" method="POST">
+                      {% csrf_token %}  
                       <div class="form-group col-sm-12">
                         <label>Cargo</label>
                         <input class="form-control"  type="hidden" id="correlativo" value="{{correlativo}}" name="correlativo" required>
@@ -404,7 +405,7 @@
         <!-- cuerpo -->
       </div>
       <!-- END VIEW WAPPER-->
-    </div>
+    <!-- </div> -->
     <!-- END MAIN WRAPPER-->
 
 

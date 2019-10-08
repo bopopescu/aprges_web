@@ -318,7 +318,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -817,40 +817,38 @@
             
     <!-- WEB PERLOAD-->
     <div id="preload">
-        <ul class="loading">
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+      <ul class="loading">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
 
     <script type="text/javascript">
       $(document).ready(function () {
         var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
-            $("#buscarsocio").autocomplete({
+          $("#buscarsocio").autocomplete({
             source: availableTags,
             minLength: 2,
-            });
-        });
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-          $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
-              'socio': countryId
-              },
-              success: function (data) {
-              $("#numero").val(
-                  data
-              );
-              
-              }
-              
           });
-        });
-        $(':checkbox').checkboxpicker();
-      </script>
+      });
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
+          $.ajax({
+            url: '/procesos/consumo/id/',
+            data: {
+              'socio': countryId
+            },
+            success: function (data) {
+              $("#numero").val(
+                data
+              );              
+            }              
+          });
+      });
+      $(':checkbox').checkboxpicker();
+    </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>

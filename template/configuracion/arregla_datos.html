@@ -205,7 +205,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -411,13 +411,11 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                   <div class="row m-b-2">
-                    <div class="contenido">
-                
+                    <div class="contenido">                
                       <div class="form-group medidor">
                         <label class="medidor_label">Nro Medidor</label>
                         <input class="medidor_input form-control" type="text" name="medidor" id="medidor">
-                      </div>
-                
+                      </div>                
                       <div class="form-group consumo">
                         <h5 class="consumo_titulo">CONSUMO DE AGUA</h5>
                         <div class="te">
@@ -540,29 +538,27 @@
     <script type="text/javascript">
       $(document).ready(function () {
         var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
-            $("#buscarsocio").autocomplete({
+          $("#buscarsocio").autocomplete({
             source: availableTags,
             minLength: 2,
-            });
-        });
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-          $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
-              'socio': countryId
-              },
-              success: function (data) {
-              $("#numero").val(
-                  data
-              );
-              
-              }
-              
           });
-        });
-        $(':checkbox').checkboxpicker();
-      </script>
+      });
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
+          $.ajax({
+            url: '/procesos/consumo/id/',
+            data: {
+              'socio': countryId
+            },
+            success: function (data) {
+              $("#numero").val(
+                data
+              );       
+            }              
+          });
+      });
+      $(':checkbox').checkboxpicker();
+    </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>

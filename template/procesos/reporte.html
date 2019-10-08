@@ -1,124 +1,124 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        @media print{
-            @page {
-                size: legal landscape;
-                margin: 30;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            @media print{
+                @page {
+                    size: legal landscape;
+                    margin: 30;
+                }
+                h1{
+                    font-size: 20px;
+                    text-align: center;
+                }
+                .tabla{
+                    border: 1px solid black;
+                }
+                th, td{
+                    height: 25px;
+                    padding: 0 2px; 
+                }
+                .beneficiario{
+                    margin-top: 30px;
+                }
+                th{
+                    text-align: left;
+                    background-color: silver;
+                }
             }
-            h1{
-                font-size: 20px;
-                text-align: center;
-            }
-            .tabla{
-                border: 1px solid black;
-            }
-            th, td{
-                height: 25px;
-                padding: 0 2px; 
-            }
-            .beneficiario{
-                margin-top: 30px;
-            }
-            th{
-                text-align: left;
-                background-color: silver;
-            }
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <tr>
-            <td width=100px>Nombre del Sistema</td>
-            <td><input type="text">xxx</td>
-            <td rowspan="2" style="text-align: right; height: 70px;">
-                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
-            </td>
-        </tr>
-        <tr>
-            <td width=100px>Fecha de informacion</td>
-            <td><input type="text">xxx</td>
-        </tr>
-    </table>
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td width=100px>Nombre del Sistema</td>
+                <td><input type="text">xxx</td>
+                <td rowspan="2" style="text-align: right; height: 70px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td width=100px>Fecha de informacion</td>
+                <td><input type="text">xxx</td>
+            </tr>
+        </table>
 
-    <h1>{{Titulo}}</h1>
+        <h1>{{Titulo}}</h1>
 
-    <table class="tabla">
-            <thead>
-        <tr class="tabla_titulos">
-            <th>COMUNA</th>
-            <th width=100px>RUT</th>
-            <th width=60px>DVRUT</th>
-            <th width=250px>NOMBRE</th>
-            <th width=250px>DIRECCION</th>
-            <th>NUMDEC</th>
-            <th>FECDEC</th>
-            <th>PUNTAJE</th>
-            <th>FECENC</th>
-            <th>NUMSOCIO</th>
-            <th>DVNUM</th>
-            <th>NUMVIV</th>
-            <th>CONS</th>
-            <th>SUBS</th>
-            <th>BEN</th>
-            <th>DEUD</th>
-            <th>MON</th>
-            <th>OBS</th>
-        </tr>
-    </thead>
-        <tbody>
-                {% for i in lista %}
+        <table class="tabla">
+                <thead>
+            <tr class="tabla_titulos">
+                <th>COMUNA</th>
+                <th width=100px>RUT</th>
+                <th width=60px>DVRUT</th>
+                <th width=250px>NOMBRE</th>
+                <th width=250px>DIRECCION</th>
+                <th>NUMDEC</th>
+                <th>FECDEC</th>
+                <th>PUNTAJE</th>
+                <th>FECENC</th>
+                <th>NUMSOCIO</th>
+                <th>DVNUM</th>
+                <th>NUMVIV</th>
+                <th>CONS</th>
+                <th>SUBS</th>
+                <th>BEN</th>
+                <th>DEUD</th>
+                <th>MON</th>
+                <th>OBS</th>
+            </tr>
+        </thead>
+            <tbody>
+                    {% for i in lista %}
 
-        <tr>
-            <td>{{comuna}}</td>
-            <td>{{i.rut}}</td>
-            <td>{{i.dv}}</td>
-            <td>{{i.nombre}}</td>
-            <td>{{i.direccion}}</td>
-            <td>{{i.num}}</td>
-            <td>{{i.fec}}</td>
-            <td>{{i.puntaje}}</td>
-            <td>{{i.fecen}}</td>
-            <td>{{i.cod}}</td>
-            <td>{{i.dvnum}}</td>
-            <td>{{i.numdiv}}</td>
-            <td>{{i.consumo}}</td>
-            <td>{{i.sub}}</td>
-            <td>{{i.ben}}</td>
-            <td>{{i.deu}}</td>
-            <td>{{i.mon}}</td>
-            <td>10</td>
-        </tr>
-        {% endfor %}
+            <tr>
+                <td>{{comuna}}</td>
+                <td>{{i.rut}}</td>
+                <td>{{i.dv}}</td>
+                <td>{{i.nombre}}</td>
+                <td>{{i.direccion}}</td>
+                <td>{{i.num}}</td>
+                <td>{{i.fec}}</td>
+                <td>{{i.puntaje}}</td>
+                <td>{{i.fecen}}</td>
+                <td>{{i.cod}}</td>
+                <td>{{i.dvnum}}</td>
+                <td>{{i.numdiv}}</td>
+                <td>{{i.consumo}}</td>
+                <td>{{i.sub}}</td>
+                <td>{{i.ben}}</td>
+                <td>{{i.deu}}</td>
+                <td>{{i.mon}}</td>
+                <td>10</td>
+            </tr>
+            {% endfor %}
 
-    </tbody>
-    </table>
-    <table>
-        <tr>
-            <td colspan="8">Total </td>
-            <td width=660px></td>
-            <td><input type="text" name="" id="" placeholder="suma CONS"><b>{{totalcon}}</b></td>
-            <td><input type="text" placeholder="suma SUBS"><b>{{totalsub}}</b></td>
-            <td><input type="text" placeholder="suma BEN"><b>{{totalben}}</b></td>
-            <td><input type="text" placeholder="suma DEUD"><b>{{totaldeud}}</b></td>
-            <td><input type="text" placeholder="suma MON"><b>{{totalmon}}</b></td>
-            <td colspan="1"></td>
-        </tr>
-    </table>
+        </tbody>
+        </table>
+        <table>
+            <tr>
+                <td colspan="8">Total </td>
+                <td width=660px></td>
+                <td><input type="text" name="" id="" placeholder="suma CONS"><b>{{totalcon}}</b></td>
+                <td><input type="text" placeholder="suma SUBS"><b>{{totalsub}}</b></td>
+                <td><input type="text" placeholder="suma BEN"><b>{{totalben}}</b></td>
+                <td><input type="text" placeholder="suma DEUD"><b>{{totaldeud}}</b></td>
+                <td><input type="text" placeholder="suma MON"><b>{{totalmon}}</b></td>
+                <td colspan="1"></td>
+            </tr>
+        </table>
 
-    <table class="beneficiario">
-        <tr>
-            <td>Numero de beneficiarios</td>
-            <td><input type="text">{{total}}</td>
-        </tr>
-    </table>
-    
-</body>
+        <table class="beneficiario">
+            <tr>
+                <td>Numero de beneficiarios</td>
+                <td><input type="text">{{total}}</td>
+            </tr>
+        </table>
+        
+    </body>
 </html>

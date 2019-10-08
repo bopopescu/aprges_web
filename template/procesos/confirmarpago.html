@@ -141,7 +141,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -322,34 +322,28 @@
             <div class="row js-grid-wrapper panel-wrapper">
               {% block content %}	
               <form class="col-sm-12" action="/procesos/consumo/" method="POST">
-                
                 {% csrf_token %}  
-                  <div class="panel-body">    
-                    <div class="col-sm-12 m-b-3 div_boton">
-                        <input type="hidden" id="numero" name="numero" value="{{numero}}">
-                        <a class="btn btn-block active m-b-5 btn-info boton" type="button" href="/imprimiendo/abono/{{numero}}/" name="guardar" id="guardar"><i class="far fa-clock fa-3x m-r-1"></i> Ver Comprobante </a>
-                        <a class="btn btn-block active m-b-5 btn-default boton" type="button" href="/procesos/pagos/" name="limpiar" id="limpiar"> Volver </a>
-                    </div>
-                    <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize">
-                      <h6 class="panel-title">{{mensaje}}</h6>
-                      <p></p>
-                    </div>
-                    </div>
-
-                  
-                </div>
+                <div class="panel-body">    
+                  <div class="col-sm-12 m-b-3 div_boton">
+                    <input type="hidden" id="numero" name="numero" value="{{numero}}">
+                    <a class="btn btn-block active m-b-5 btn-info boton" type="button" href="/imprimiendo/abono/{{numero}}/" name="guardar" id="guardar"><i class="far fa-clock fa-3x m-r-1"></i> Ver Comprobante </a>
+                    <a class="btn btn-block active m-b-5 btn-default boton" type="button" href="/procesos/pagos/" name="limpiar" id="limpiar"> Volver </a>
+                  </div>
+                  <div class="col-xs-6 col-sm-8 col-md-8 text-capitalize">
+                    <h6 class="panel-title">{{mensaje}}</h6>
+                    <p></p>
+                  </div>
+                </div>                  
               </form>
               {% endblock %}  
-          </div>
+            </div>
             <!-- ROW-->         
           </div>
           <!-- END CONTAINER FIUID-->
-
         </div>
         <!-- cuerpo -->
       </div>
       <!-- END VIEW WAPPER-->
-
     </div>
     <!-- END MAIN WRAPPER-->
 

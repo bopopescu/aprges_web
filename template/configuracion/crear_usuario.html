@@ -23,18 +23,32 @@
     <style>
       a {
         color: #000;
-      }
+      }    
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+        padding: 1rem;
+      }  
       .iconos{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        width: 16rem;
         margin-top: 2rem;
         margin-bottom: 1rem;
       }
       .icono{
         color: black;
         margin-top: 1rem;
+      }
+
+      .nombre, .correo, .usuario, .contraseña, .confirmar{
+        display: flex;
+        align-items: center;
+      }
+      .nombre_label, .correo_label, .usuario_label, .contraseña_label, .confirmar_label{
+        width: 13rem;
+        padding-right: 1rem;
+        text-align: right;
       }
       @media (min-width: 48em) { 
         .iconos{
@@ -132,7 +146,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -328,8 +342,7 @@
 
         
         <div class="container-fluid">
-          <div class="row js-grid-wrapper panel-wrapper">
-            
+          <div class="row js-grid-wrapper panel-wrapper">            
             <!-- #SELECT2-->
             {% block content %}	
             <form class="col-sm-12">  
@@ -337,41 +350,38 @@
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
-                    <a href="/reportes/1/">1</a>
-                    <a href="/reportes/2/">2</a>
-                    <a href="/reportes/3/">3</a>
-                    <a href="/reportes/4/">4</a>
-                    <a href="/reportes/5/">5</a>
-                    <a href="/reportes/6/">6</a>
-                    <a href="/reportes/7/">7</a>
-                    <a href="/reportes/8/">8</a>
-                    <a href="/reportes/9/">9</a>
-                    <a href="/reportes/10/">10</a>
-                    <a href="/reportes/11/">11</a>
-                    <a href="/reportes/12/">12</a>
-                    <a href="/reportes/13/">13</a>
-                    <a href="/reportes/14/">14</a>
-                    <a href="/reportes/15/">15</a>
-                    <a href="/reportes/16/">16</a>
-                    <a href="/reportes/17/">17</a>
-                    <a href="/reportes/18/">18</a>
-                    <a href="/reportes/19/">19</a>
-                    <a href="/reportes/20/">20</a>
-                    <a href="/reportes/21/">21</a>
-                    <a href="/reportes/43/">43</a>
-                    <a href="/reportes/aviso/">Aviso</a>
-                    <a href="/reportes/convenio/">Convenio</a>
-                    <a href="/reportes/cuenta_individual/">Cta Individual</a>
-                    <a href="/reportes/egreso/">Egreso</a>
-                    <a href="/reportes/factura/">Factura</a>
-                    <a href="/reportes/ingreso/">Ingreso</a>
-                    <a href="/reportes/orden/">Orden</a>
-                    <a href="/reportes/plan/">Plan</a>
-                    <a href="/configuracion/condonacionrpt/">Condonación</a>
-                    <a href="/contabilidad/saldo/">Saldo</a>
-                    <a href="/procesos/reporte/">Reporte</a>
-                    
+                  <div class="row m-b-3">                    
+                    <div class="container">                      
+                      <div class="nombre form-group">
+                        <label class="nombre_label col-form-label m-b-0" for="">Nombre</label>
+                        <input class="nombre_input form-control" type="text" name="nombre" id="nombre">
+                      </div>
+                      <div class="correo form-group">
+                        <label class="correo_label col-form-label m-b-0" for="">Correo</label>
+                        <input class="correo_input form-control" type="email" name="correo" id="correo">
+                      </div>
+                      <div class="usuario form-group">
+                        <label class="usuario_label col-form-label m-b-0" for="">Usuario</label>
+                        <input class="usuario_input form-control" type="text" name="usuario" id="usuario">
+                      </div>
+                      <div class="contraseña form-group">
+                        <label class="contraseña_label col-form-label m-b-0" for="">Contraseña</label>
+                        <input class="contraseña_input form-control" type="password" name="contraseña" id="contraseña">
+                      </div>
+                      <div class="confirmar form-group">
+                        <label class="confirmar_label col-form-label m-b-0" for="">Confirmar Contraseña</label>
+                        <input class="confirmar_input form-control" type="password" name="confirmar" id="confirmar">
+                      </div>
+                    </div>
+                    <!-- iconos -->
+                    <section class="container iconos">
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                      </button>
+                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                      </button>
+                    </section>      
                   </div>
                 </div>
               </div>
@@ -400,29 +410,27 @@
     <script type="text/javascript">
       $(document).ready(function () {
         var availableTags =['{% for n in all_socios %}{{n.id}}  {{n.nombre}}','{% endfor %}'];
-            $("#buscarsocio").autocomplete({
+          $("#buscarsocio").autocomplete({
             source: availableTags,
             minLength: 2,
-            });
-        });
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
+          });
+      });
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
           $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
+            url: '/procesos/consumo/id/',
+            data: {
               'socio': countryId
-              },
-              success: function (data) {
+            },
+            success: function (data) {
               $("#numero").val(
                   data
-              );
-              
-              }
-              
+              );              
+            }              
           });
-        });
-        $(':checkbox').checkboxpicker();
-      </script>
+      });
+      $(':checkbox').checkboxpicker();
+    </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>

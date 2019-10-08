@@ -128,7 +128,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -399,7 +399,6 @@
 
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
-
             <!-- #SELECT2-->
             {% block content %}	
             <form class="col-sm-12" action="/mantenedor/tipoagua/" method="POST">
@@ -430,14 +429,13 @@
                     </div>
                     <div class="text-capitalize col-sm-12 div_boton">
                       <button class="btn btn-block active btn-primary boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x m-r-1"></i> Guardar </button>
-                    </div>
-                        
+                    </div>                        
                   </div>
                 </div>
               </div>
             </form>
             {% endblock %}
-              <!-- #SELECT2-->       
+            <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
         </div>
@@ -496,10 +494,8 @@
           </div>
         </div>
         <!-- END PAGE CONTENT-->
-
       </div>
       <!-- END VIEW WAPPER-->
-
     </div>
     <!-- END MAIN WRAPPER-->
 

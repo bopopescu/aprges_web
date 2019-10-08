@@ -132,7 +132,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -310,114 +310,102 @@
         <!-- END PAGE HEADER-->
 
         <div class="container-fluid">
-            <div class="row js-grid-wrapper panel-wrapper">
-  
-              <!-- #SELECT2-->
-              {% block conten5t %}	
-              <form class="col-sm-12" action="/procesos/convenios/" method="POST">
-                {% csrf_token %}  
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row m-b-3">
-                            <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                <a  class="btn btn-block active m-b-5 btn-info botones_arriba" href="/procesos/convenios/">Convenios Masivos</a>
-                              </div>
-                              <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                  <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="individual" id="individual">Convenio Individual</button>
-                                </div>
-                                <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
-                                  <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="repactacion" id="repactacion">Repactación</button>
-                                </div>
-                        </div>
-                        <h6 class="panel-title">Historial de Convenios<a class="small" href="#" target="_blank">ingreso de convenio o repactacion de deuda</a></h6>
-
+          <div class="row js-grid-wrapper panel-wrapper">  
+            <!-- #SELECT2-->
+            {% block conten5t %}	
+            <form class="col-sm-12" action="/procesos/convenios/" method="POST">
+              {% csrf_token %}  
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="row m-b-3">
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <a  class="btn btn-block active m-b-5 btn-info botones_arriba" href="/procesos/convenios/">Convenios Masivos</a>
                     </div>
-                    <div class="panel-body">
-
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="individual" id="individual">Convenio Individual</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 text-capitalize div_boton">
+                      <button class="btn btn-block active m-b-5 btn-info botones_arriba" type="submit" name="repactacion" id="repactacion">Repactación</button>
                     </div>
                   </div>
-              </form>
-              {% endblock %}
-                <!-- #SELECT2-->       
-            </div>
-            <!-- ROW-->         
+                  <h6 class="panel-title">Historial de Convenios<a class="small" href="#" target="_blank">ingreso de convenio o repactacion de deuda</a></h6>
+                </div>
+                <div class="panel-body"></div>
+              </div>
+            </form>
+            {% endblock %}
+            <!-- #SELECT2-->       
           </div>
-
-          <!-- END PAGE CONTENT-->
-
+        <!-- ROW-->         
+        </div>
+        <!-- END PAGE CONTENT-->
         <div class="container-fluid">
           <div class="row js-grid-wrapper panel-wrapper">
             <!-- #SELECT2-->
-
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                        <div class="row m-b-3 col-sm-3">
-
-                            <input type="hidden" id="identificador" name="identificador" value="{{identificador}}" class="form-control">
-                          </div>
-  
-                          <div class="form-group col-sm-12">
-                              {% block content1 %}	
-                              <form action="/procesos/convenios/" method="POST">
-                                {% csrf_token %} 
-                              <div class="search">
-                                  <input type="hidden" name="numero" id="numero">
-                                  <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
-                                  <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
-                                  <input type="hidden" id="identi" name="identi" class="form-control">
-                              </div>                                            
-                          </form>
-                          {% endblock %}
-                                  <div class="form-group col-sm-12">
-                                  <table class="table" data-plugin="DataTable">
-                                      <thead class="thead-inverse">
-                                        <tr>
-                                          <th>Acciones</th>
-                                          <th>Nro Boleta</th>
-                                          <th>Descripción</th>
-                                          <th>Valor</th>
-                                          <th>Nro Cuota</th>
-                                          <th>Pagado</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                              {% for medidor in all_convenio %}
-                                        <tr>
-                                          <td>
-                                              {% block content2 %}	
-                                              <form action="/procesos/convenios/" method="POST">
-                                                {% csrf_token %} 
-                                                  <input type="hidden" id="nro" name="nro" value="{{medidor.id}}">
-                                                  <input type="hidden" id="boleta" name="boleta" value="{{medidor.boleta}}">
-                                                  <input type="hidden" id="idconvenio" name="idconvenio" value="{{medidor.idconvenio}}">
-                                                    <button class="btn btn-secondary btn-info" type="submit" name="ver" id="ver">Ver</button>
-                                                    <button class="btn btn-secondary btn-danger" type="submit" name="eliminar" id="eliminar">Eliminar</button>
-                                              </form>
-                                              {% endblock %}
-                                                </td>
-                                                <td>{{medidor.boleta}}</td>
-                                                <td>{{medidor.des}}</td>
-                                                <td>${{medidor.valor}}</td>
-                                                <td>{{medidor.cuota}}</td>
-                                                <td>{{medidor.total}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                  <label>{{mensaje}}</label>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="row m-b-3 col-sm-3">
+                  <input type="hidden" id="identificador" name="identificador" value="{{identificador}}" class="form-control">
+                </div>  
+                <div class="form-group col-sm-12">
+                  {% block content1 %}	
+                  <form action="/procesos/convenios/" method="POST">
+                    {% csrf_token %} 
+                    <div class="search">
+                      <input type="hidden" name="numero" id="numero">
+                      <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por rut o nombre de parcelero..." aria-label="Search">
+                      <button class="btn btn-outline-success btn-primary search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
+                      <input type="hidden" id="identi" name="identi" class="form-control">
+                    </div>                                            
+                  </form>
+                  {% endblock %}
+                  <div class="form-group col-sm-12">
+                    <table class="table" data-plugin="DataTable">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>Acciones</th>
+                          <th>Nro Boleta</th>
+                          <th>Descripción</th>
+                          <th>Valor</th>
+                          <th>Nro Cuota</th>
+                          <th>Pagado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for medidor in all_convenio %}
+                        <tr>
+                          <td>
+                            {% block content2 %}	
+                            <form action="/procesos/convenios/" method="POST">
+                              {% csrf_token %} 
+                              <input type="hidden" id="nro" name="nro" value="{{medidor.id}}">
+                              <input type="hidden" id="boleta" name="boleta" value="{{medidor.boleta}}">
+                              <input type="hidden" id="idconvenio" name="idconvenio" value="{{medidor.idconvenio}}">
+                              <button class="btn btn-secondary btn-info" type="submit" name="ver" id="ver">Ver</button>
+                              <button class="btn btn-secondary btn-danger" type="submit" name="eliminar" id="eliminar">Eliminar</button>
+                            </form>
+                            {% endblock %}
+                          </td>
+                          <td>{{medidor.boleta}}</td>
+                          <td>{{medidor.des}}</td>
+                          <td>${{medidor.valor}}</td>
+                          <td>{{medidor.cuota}}</td>
+                          <td>{{medidor.total}}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
                   </div>
-
-                  <div class="panel-body">
-                                  
-                    </div>
-                    <!-- #SELECT2-->        
-                  </div>
+                  <label>{{mensaje}}</label>
+                </div>
+                <div class="panel-body"></div>
+              <!-- #SELECT2-->        
+              </div>
+            </div>
           </div>
           <!-- ROW-->         
         </div> 
         <!-- END CONTAINER FIUID-->
-
       </div>
       <!-- END VIEW WAPPER-->
     </div>

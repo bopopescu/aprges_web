@@ -187,7 +187,7 @@
               <li class="nav-item"><a class="nav-link" href="/configuracion/mensaje_cobro/">Mensaje y cobro avisos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/respaldar_info/">Respaldar Información de Base de Datos</a></li>
               <li class="nav-item"><a class="nav-link" href="/configuracion/crear_usuario/">Crear Usuarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Boletas Vigentes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/configuracion/boletas_vigentes/">Avisos Vigentes</a></li>
             </ul>
           </li>
         </ul>
@@ -455,11 +455,10 @@
             </div>
 
             <div class="col-md-8">
-                <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
-                  <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
-                </div>
+              <div class="pull-xs-right" role="toolbar"><a class="btn btn-icon icon-only"><i class="fa fa-rss"></i></a><a class="btn btn-icon icon-only"><i class="fa fa-star text-warning"></i></a>
+                <button class="btn btn-secondary" type="button" data-toggle="collapse" href="#qmenu" aria-expanded="false" aria-controls="qmenu">Menu Principal</button>
               </div>
-
+            </div>
           </div>
         </div>
         <!-- END PAGE HEADER-->
@@ -582,68 +581,60 @@
     <script type="text/javascript">
       $(document).ready(function () {
         var availableTags =['{% for n in all_socios %}{{n.id}} {{n.tipo}}  {{n.nombre}}','{% endfor %}'];
-            $("#buscarsocio").autocomplete({
+          $("#buscarsocio").autocomplete({
             source: availableTags,
             minLength: 2,
-            });
-        });
+          });
+      });
 
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
           $.ajax({
-              url: '/procesos/consumo/id/',
-              data: {
+            url: '/procesos/consumo/id/',
+            data: {
               'socio': countryId
-              },
-              success: function (data) {
+            },
+            success: function (data) {
               $("#id_").val(
-                  data
+                data
               );
-
               $("#id_1").val(
-                  data
-              );
-              
-              }
-              
+                data
+              );              
+            }              
           });
-        });
+      });
 
-        $("#buscarsocio").change(function () {
-          var countryId = $(this).val();
-
+      $("#buscarsocio").change(function () {
+        var countryId = $(this).val();
           $.ajax({
-              url: '/procesos/consumo/id3/',
-              data: {
+            url: '/procesos/consumo/id3/',
+            data: {
               'socio': countryId
-              },
-              success: function (data) {
+            },
+            success: function (data) {
               $("#tipo").val(
-                  data
-              );
-              
-              }
-              
+                data
+              );              
+            }              
           });
-        });
+      });
 
-        $("#concepto").change(function () {
-            var countryId = $(this).val();
-
-            $.ajax({
-                url: '/egresos/lista/',
-                data: {
-                'concepto': countryId
-                },
-                success: function (data) {
-                $("#detalle").html(
-                    data
-                );
-                }
-            });
-        });
-      </script>
+      $("#concepto").change(function () {
+        var countryId = $(this).val();
+          $.ajax({
+            url: '/egresos/lista/',
+            data: {
+              'concepto': countryId
+            },
+            success: function (data) {
+              $("#detalle").html(
+                data
+              );
+            }
+          });
+      });
+    </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/jquery-ui.js' %}"></script>

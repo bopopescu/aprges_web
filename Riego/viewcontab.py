@@ -1043,6 +1043,28 @@ def plan_de_cuenta(request):
     return HttpResponse(pdf, content_type='application/pdf')
 
 def viewLibroVenta(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+        exenta=request.POST['exenta']
+        afecta=request.POST['afecta']
+        periodo=request.POST['periodo']
+        año=request.POST['año']
+        filtrar=request.POST['filtrar']
+        desde=request.POST['desde']
+        hasta=request.POST['hasta']
+        abonar=request.POST['abonar']
+        factura=request.POST['factura']
+        credito=request.POST['credito']
+        debito=request.POST['debito']
+        documentos=request.POST['documentos']
+        tfacturas=request.POST['tfacturas']
+        tcredito=request.POST['tcredito']
+        tdebido=request.POST['tdebido']
+        exento=request.POST['exento']
+        neto=request.POST['neto']
+        iva=request.POST['iva']
+        total=request.POST['total']
+
     return render(request, 'contabilidad/libro_venta.html', {})
 
 def viewArqueoCaja(request):
