@@ -24,9 +24,21 @@ import subprocess
 from Riego.utils import render_to_pdf
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
-
+"""
 try:
     conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\RiegoWeb\\Riego\\RIEGO.mdb')
+    cursor = conn.cursor()
+except pyodbc.Error as ex:
+    sqlstate = ex.args[0]
+    print(sqlstate)
+    if sqlstate == '08001':
+        pass
+"""
+try:
+    conn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=JMC-HP\APRGES;'
+                      'Database=APRGESMALLARA;'
+                      'Trusted_Connection=yes;')
     cursor = conn.cursor()
 except pyodbc.Error as ex:
     sqlstate = ex.args[0]
@@ -37,7 +49,7 @@ except pyodbc.Error as ex:
 def viewName():
 
     nombre=""
-    sql="SELECT NOMBRE FROM DATO_COMITE"
+    sql="SELECT NOMBRE FROM DATOS_COMITE"
 
     try:
         cursor.execute(sql)
@@ -98,7 +110,7 @@ def buscarTenencia():
 def buscarSector():
 
     try:
-        cursor.execute('select * from A_SECTOR')
+        cursor.execute('select * from GLO_SECTOR')
 
         lista=[]
         
@@ -116,7 +128,7 @@ def buscarpor():
     lista=[]
 
     try:
-        cursor.execute('select A_SOCIOS.TIPO , A_SOCIOS.* from A_SOCIOS')
+        cursor.execute('select OPER_CLIENTE.TIPO , OPER_CLIENTE.* from OPER_CLIENTE')
         
         for row in cursor.fetchall():
             lista.append({'tipo':row[0],'id':row[1],'nombre':row[3]})        
@@ -132,7 +144,7 @@ def buscarporNombre():
     lista=[]
 
     try:
-        cursor.execute('select A_SOCIOS.TIPO , A_SOCIOS.* from A_SOCIOS')
+        cursor.execute('select OPER_CLIENTE.TIPO , OPER_CLIENTE.* from OPER_CLIENTE')
         
         for row in cursor.fetchall():
             lista.append({'tipo':row[0],'id':row[1],'nombre':row[3]})        
@@ -313,16 +325,23 @@ def viewSocios(request):
         nombres=request.POST['nombres']
         apellidos=request.POST['apellidos']
         direccion=request.POST['direccion']
-        fecha=request.POST['fecha']
-        hec=request.POST['hec'].replace(",", ".")
+        sitio=request.POST['sitio']
+        telefono=request.POST['telefono']
         ruta=request.POST['ruta']
+        fecha=request.POST['fecha']
+        socio=request.POST['socio']
         correo=request.POST['correo']
-        n_rol=request.POST['rol']
-        tenencia=request.POST['idtenencia']
-        agricultor=request.POST['agricultor']
-        sector=request.POST['sector']
-        estado=request.POST.getlist('radio')
-        nopago=request.POST.getlist('radio1')
+        dia_pago=request.POST['dia_pago']
+        nro_contable=request.POST['nro_contable']
+        sexo=request.POST['sexo']
+        glosa=request.POST['glosa']
+        # hec=request.POST['hec'].replace(",", ".")
+        # n_rol=request.POST['rol']
+        # tenencia=request.POST['idtenencia']
+        # agricultor=request.POST['agricultor']
+        # sector=request.POST['sector']
+        # estado=request.POST.getlist('radio')
+        # nopago=request.POST.getlist('radio1')
 
         for i in estado:
             vigente=i[0]

@@ -53,6 +53,12 @@
     
     </script>
     <style>
+      a{
+        color: black;
+      }
+      .eliminado{
+        font-size: 20px!important;
+      }
       .boton_info{
         background-color: #17a2b8;
         border-color: #17a2b8; 
@@ -159,6 +165,15 @@
         width: 15rem;
         padding: 1rem 3rem;
       }
+
+      .em{
+        display: flex;
+        align-items: flex-end;
+      }   
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
     </style>
   </head>
 
@@ -546,12 +561,12 @@
                     {% block content %}	
                     <form action="/antecedentes/socios/" method="POST">{% csrf_token %}  
                       <div class="row m-b-3">
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-1">
                           <label>Identificador</label>
                           <input type="text" id="id_" name="id_" value="{{correlativo}}" class="form-control" disabled>
                           <input type="hidden" id="identi1" name="identi1" value="{{correlativo}}" class="form-control">
                         </div>
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-1 p-l-0 p-r-0">
                           <label>R.u.t.</label>
                           <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
                             var date = this.value;
@@ -564,32 +579,87 @@
                             }" maxlength="12" required>
                         </div>
     
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-5">
                           <label>Nombres</label>
                           <input type="text" id="nombres" name="nombres" value="{{nombres}}" class="form-control" required>
                         </div>
     
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-5">
                           <label>Apellidos</label>
                           <input type="text" id="apellidos" name="apellidos" value="{{apellidos}}" class="form-control" required>
                         </div>
     
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-8 flex">
                           <label>Dirección</label>
                           <input type="text" id="direccion" name="direccion" value="{{direccion}}" class="form-control" required>
                         </div>
-    
-                        <div class="form-group col-sm-4">
-                          <label>Fecha de Ingreso</label>
-                          <input type="text" class="form-control" name="fecha" id="fecha" value="{{fecha}}" placeholder="dd-mm-yyyy" onkeyup="
-                            var date = this.value;
-                            if (date.match(/^\d{2}$/) !== null) {
-                            this.value = date + '/';
-                            } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                            this.value = date + '/';
-                            }" maxlength="10" required>
+
+                        <div class="form-group col-sm-4 flex">
+                          <label>Sitio</label>
+                          <input type="text" id="sitio" name="sitio" value="{{sitio}}" class="form-control" required>
                         </div>
-                        <div class="form-group col-sm-8">
+
+                        <div class="form-group col-sm-8 flex">
+                          <label>Teléfono</label>
+                          <input type="text" id="telefono" name="telefono" value="{{telefono}}" class="form-control" required>
+                        </div>
+
+                        <div class="form-group col-sm-4 flex">
+                          <label>Ruta</label>
+                          <input type="number" id="ruta" name="ruta" class="form-control" value="{{ruta}}" required>
+                        </div>
+    
+                        <div class="col-sm-12 row p-l-1 p-r-1 em">
+                          <div class="col-sm-8">
+                            <div class="form-group col-sm-6 p-l-0 flex">
+                              <label>Fecha de Ingreso</label>
+                              <input type="text" class="form-control" name="fecha" id="fecha" value="{{fecha}}" placeholder="dd-mm-yyyy" onkeyup="
+                                var date = this.value;
+                                if (date.match(/^\d{2}$/) !== null) {
+                                this.value = date + '/';
+                                } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                                this.value = date + '/';
+                                }" maxlength="10" required>
+                            </div>
+                            <div class="form-group col-sm-6 p-r-0 flex">
+                              <label>Nº Registro Socio</label>
+                              <input type="number" id="socio" name="socio" class="form-control" value="{{socio}}" required>
+                            </div>
+                            <div class="form-group col-sm-12 p-l-0 p-r-0 flex">
+                              <label>Correo</label>
+                              <input type="text" class="form-control" id="correo" name="correo" value="{{correo}}">
+                            </div>                                                
+                            <div class="form-group col-sm-4 p-l-0 flex">
+                              <label>Día de Pago</label>
+                              <input type="text" class="form-control" id="dia_pago" name="dia_pago" value="{{dia_pago}}">
+                            </div>                        
+                            <div class="form-group col-sm-8 p-r-0 flex">
+                              <label>Número Contable</label>
+                              <input type="text" class="form-control" id="nro_contable" name="nro_contable" value="{{nro_contable}}">
+                            </div>                            
+                          
+                            <div class="form-group col-sm-3 p-l-0 flex ">
+                              <label>Sexo</label>
+                              <select class="form-control" name="sexo" id="sexo">
+                                <option value="">Femenino</option>
+                                <option value="">Masculino</option>
+                                <option value="">Empresa</option>
+                              </select>
+                            </div>
+                            
+                          </div>
+                          <div class="col-sm-4">
+                            <label class="container eliminado">Eliminado<input type="radio" checked="checked" name="radio1" id="eliminado" value="1"><span class="checkmark"></span></label>
+                            <label class="container eliminado">Socio<input type="radio" name="radio1" id="socio" value="0"><span class="checkmark"></span></label>
+                          </div>
+                        </div>
+
+                        <div class="col-12 p-l-1 p-r-1 flex">
+                          <label for="">Glosa</label>
+                          <textarea class="form-control" name="glosa" id="glosa" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <!-- <div class="form-group col-sm-8">
                           <label>Sector</label>
                           <select class="form-control" id="sector" name="sector" required>
                             <option value="{{idsector}}">{{nombresector}}</option>
@@ -601,52 +671,42 @@
                         <div class="form-group col-sm-4">
                           <label>Nro Rol</label>
                           <input type="text" class="form-control" id="rol" name="rol" value="{{rol}}" required>
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label>Superficie</label>
-                          <input type="text" class="form-control" id="hec" name="hec" value="{{hec}}" required>
-                        </div>
-                        <div class="form-group col-sm-8">
-                          <label>Ruta</label>
-                          <input type="number" id="ruta" name="ruta" class="form-control" value="{{ruta}}" required>
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label>Tenencia</label>
-                          <select class="form-control" id="idtenencia" name="idtenencia" required>
-                            <option value="{{tenenciaid}}">{{nombretenencia}}</option>
-                            {% for tipo in tenencia %}
-                            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
-                            {% endfor %}
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-8">
-                          <label>Correo</label>
-                          <input type="text" class="form-control" id="correo" name="correo" value="{{correo}}">
-                        </div>
-                        <div class="form-group col-sm-6 col-md-6">
-                          <label>Nombre Agricultor</label>
-                          <input type="text" class="form-control" id="agricultor" name="agricultor" value="{{agricultor}}" required>
-                        </div>
-                        <div class="form-group col-sm-6 col-md-6">
+                        </div> -->
+                        <!-- <div class="form-group col-sm-6 col-md-6">
                           <p></p>
                           <h5>Seleccione Opción de Vigencia</h5>
                           <p></p>
                           <label class="container">Vigente<input type="radio" checked="checked" name="radio" id="vig0" value="0"><span class="checkmark"></span></label>
                           <label class="container">No Vigente<input type="radio" name="radio" id="vig1" value="1"><span class="checkmark"></span></label>
-                        </div>
-                        <div class="form-group col-sm-6 col-md-6">
+                        </div> -->
+                        <!-- <div class="form-group col-sm-6 col-md-6">
                           <p></p>
                           <h5>Multa por no pago</h5>
                           <p></p>
                           <label class="container">Aplicar<input type="radio" checked="checked" name="radio1" id="mul0" value="1"><span class="checkmark"></span></label>
                           <label class="container">No aplicar<input type="radio" name="radio1" id="mul1" value="0"><span class="checkmark"></span></label>
-                        </div>
+                        </div> -->
                         <div class="form-group col-sm-12">
                           <h5>{{mensaje}}</h5>
                         </div>
                         <div class="form-group col-sm-12 div_boton">
-                          <button class="btn btn-block active m-b-5 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
-                          <button class="btn btn-block active m-b-5 btn-danger boton" type="submit" name="eliminar" id="eliminar"><i class="fas fa-trash-alt fa-3x m-r-1"></i> Eliminar </button>
+                          <!-- <button class="btn btn-block active m-b-5 boton_info boton" type="submit" name="guardar" id="guardar"><i class="far fa-save fa-3x  m-r-1"></i> Guardar </button>
+                          <button class="btn btn-block active m-b-5 btn-danger boton" type="submit" name="eliminar" id="eliminar"><i class="fas fa-trash-alt fa-3x m-r-1"></i> Eliminar </button> -->
+                          <button class="boton_iconos" type="submit" id="guardar" name="guardar">
+                              <a href="#"><i class="far fa-save fa-4x icono"></i></a>
+                            </button>
+                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                              <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
+                            </button>
+                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                              <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                            </button>
+                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                              <a href="#"><i class="fas fa-search fa-4x icono"></i></a>
+                            </button>
+                            <button class="boton_iconos" type="submit" id="eliminar" name="eliminar">
+                              <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                            </button>
                         </div>
                       </div>
                     </form>
