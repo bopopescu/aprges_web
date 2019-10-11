@@ -645,7 +645,7 @@ def viewCargo(request):
             print(sql)
 
     data={
-        'correlativo':buscarCorrelativoCargo(),
+        # 'correlativo':buscarCorrelativoCargo(),
         'lista':listarOcupacion()
     }
 

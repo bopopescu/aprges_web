@@ -139,7 +139,7 @@
                 margin-right: 1.2rem;
             }
             .modal_fecha_input{
-                width: 40%;
+                width: 35%;
             }
             .modal_fecha_button{
                 background-color: transparent;
@@ -204,7 +204,10 @@
                 display: flex;
                 margin-bottom: 1rem;
             }
-            .div__identificacion{
+
+
+
+            .identificacion{
                 margin-bottom: 1rem;
             }
             .div__button{
@@ -248,7 +251,26 @@
                 margin-bottom: .5rem;
             }
 
-
+            .boleta, .fecha, .lecturas{
+                display: flex;
+                align-items: center;
+            }
+            .boleta_numero{
+                width: 10rem;
+            }
+            .fecha__etiquetas{
+                text-align: center;
+            }
+            .lecturas{
+                width: 100%;
+            }
+            .lectura{
+                width: 14.28%;
+                text-align: center;
+            }
+            .clave{
+                text-align: center;
+            }
 
             @media (min-width: 768px){
         /* inicio search */
@@ -261,30 +283,25 @@
             .search_boton{
                 padding: .5rem 3rem;
             }
-        /* fin search */        
-        /* inicio div__identificacion */
-            .div__identificacion{
+        /* fin search */   
+
+            .if, .st{
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
             }
-            .identificacion__boleta{
-                display: flex;
-                margin-bottom: .5rem;
+            .if{
+                justify-content: space-between;
             }
-            .boleta__numero{
-                width: 40%;
+            .ident{
+                width: 20%;
             }
-            .boleta__input{
-                text-align: right;
+            .fecha{
                 width: 60%;
-            }
-            .fecha__flex{
-                display: flex;
-                width: 50%;
                 align-items: flex-end;
-                margin-bottom: 1.5rem;
             }
+
+
+        /* inicio div__identificacion */
             .fecha__etiquetas{
                 flex-grow: 1;
                 margin-right: .5rem;
@@ -303,9 +320,16 @@
             }
         /* fin cliente */
         /* inicio saldo */
-            .saldo__etiquetas{
+            .saldo{
+                width: 20%;
+                margin-right: 1rem;
+            }
+            .saldo_etiquetas{
                 display: flex;
                 margin-top: .5rem;
+            }
+            .saldo_label{
+                width: 50%;
             }
             .div__button{
                 text-align: center;
@@ -317,8 +341,11 @@
             }
         /* fin saldo */
         /* inicio tabla */
+            .tabla{
+                width: 79%;
+            }
             .tabla_normal{
-                height: 21rem;
+                height: 26rem;
             }
         /* fin tabla */
         /* inicio iconos */
@@ -333,6 +360,15 @@
                 color: black;
             }
         /* fin iconos */
+
+
+
+
+
+
+
+
+        
         /* inicio modal */
             .modalDialog {
                 position: fixed;
@@ -815,34 +851,45 @@
                                             <input class="col-md-12 form-control" type="search" id="buscarsocio" name="buscarsocio" placeholder="Buscar por parcelero" aria-label="Search">
                                             <button class="btn btn-outline-success boton_info search_boton" type="submit" name="buscar" id="buscar">Buscar</button>
                                         </div>
-                                        <div class="div__identificacion">
-                                            <div class="form-group col-sm-3">
-                                                <div class="identificacion__boleta">
-                                                    <label for="" class="boleta__numero col-form-label">Número Boleta</label>
-                                                    <input type="text" class="boleta__input form-control" value="{{boleta}}">
+                                        <div class="if">
+                                            <div class="ident form-group">
+                                                <div class="boleta">
+                                                    <label class="boleta_numero col-form-label m-b-0">Nro Boleta</label>
+                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
+                                                </div>
+                                                <div class="boleta">
+                                                    <label class="boleta_numero col-form-label m-b-0">Nro Aviso</label>
+                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
+                                                </div>
+                                                <div class="boleta">
+                                                    <label class="boleta_numero col-form-label m-b-0">Id Boleta</label>
+                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
                                                 </div>
                                             </div> 
-                                            <div class="col-md-9 fecha__flex">
+                                            <div class="fecha form-group">
                                                             
                                                 <div class="fecha__etiquetas">                                    
+                                                    <label for="" class="col-form-label">F. Prorroga</label>
+                                                    <input class="form-control" type="text" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                                                </div>        
+                                                <div class="fecha__etiquetas">                                    
                                                     <label for="" class="col-form-label">Fecha Actual</label>
-                                                    <input type="text" class="col-sm-12 form-control" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                                                    <input class="form-control" type="text" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
                                                 </div>
-                    
-                                                <div class="fecha__etiquetas">
-                                                    <label class="col-form-label">Fecha Emisión</label>
-                                                    <input type="text" id="" name="" class="form-control" value="{{emision}}" disabled>
-                                                </div>
-                    
                                                 <div class="fecha__etiquetas">
                                                     <label class="col-form-label">Fecha Vencimiento</label>
-                                                    <input type="text" id="" name="" class="form-control" value="{{vencimiento}}" disabled>
+                                                    <input class="form-control" type="text" id="" name="" value="{{vencimiento}}" disabled>
                                                 </div>
+                                                <div class="fecha__etiquetas">
+                                                    <label class="col-form-label">Fecha de Pago</label>
+                                                    <input class="form-control" type="text" id="" name="" value="{{emision}}" disabled>
+                                                </div>                    
                                             </div>                                                    
                                         </div>    
 
+                                        
                                         <h5>{{fechafactu}}</h5>
-
+                                        
                                         <div class="col-sm-12">
                                             <div class="form-group cliente__identificacion">
                                                 <label class="cliente__nombre">Nombre Cliente</label>
@@ -850,55 +897,91 @@
                                                 <input type="text" id="" name="" class="cliente__input2 form-control" value="{{nombres}}" disabled>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 saldo">
-                                            <div class="saldo__etiquetas">
-                                                <label class="col-sm-6 col-form-label">Total por Pagar</label>
-                                                <input type="text" id="" name="" class="form-control" value="{{pagado}}" disabled>
+                                        <div class="form-group lecturas">
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Fecha Lectura</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
                                             </div>
-                                            <div class="saldo__etiquetas">
-                                                <label class="col-sm-6 col-form-label">Total Boleta</label>
-                                                <input type="text" id="" name="" class="form-control" value="{{totalpagar}}"  disabled>
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Nro Medidor</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="">
                                             </div>
-                                            <div class="saldo__etiquetas">
-                                                <label class="col-sm-6 col-form-label">Multa</label>
-                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Lect. Actual</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
                                             </div>
-                                            <div class="saldo__etiquetas">
-                                                <label class="col-sm-6 col-form-label">Multa Corte</label>
-                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Lect. Anterior</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
                                             </div>
-                                            <div class="saldo__etiquetas">
-                                                <label class="col-sm-6 col-form-label">T. con Multas</label>
-                                                <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Saldo Conv.</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
                                             </div>
-                                            <div class="div__button">
-                                                <a class="consulta_historial" href="/procesos/historial_cliente/{{numero}}/{{ano}}/">Consulta Historial Cliente</a>
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Cargo Fijo</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
                                             </div>
-
+                                            <div class="lectura">
+                                                <label class="lectura_label col-form-label">Fec. Emisión</label>
+                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <div class="card tabla_normal">
-                                                <div class="card-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr class="tabla_info">
-                                                                <th class="tabla__titulos1" scope="col">Items</th>
-                                                                <th class="tabla__titulos2" scope="col">Descripción</th>
-                                                                <th class="tabla__titulos1" scope="col">Cantidad</th>
-                                                                <th class="tabla__titulos3" scope="col">Valor</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for i in lista %}
-                                                            <tr>
-                                                                <td>{{i.codigo}}</td>
-                                                                <td>{{i.desc}}</td>
-                                                                <td>{{i.can}}</td>
-                                                                <td>{{i.valor}}</td>
-                                                            </tr>
-                                                            {% endfor %}
-                                                        </tbody>
-                                                    </table>
+                                        
+                                        <div class="st">
+                                            <div class="saldo">
+                                                <div class="clave">
+                                                    <label>Clave de Lectura</label>
+                                                    <input class="form-control" type="text" name="" id="" disabled>
+                                                </div>
+                                                <div class="saldo_etiquetas">
+                                                    <label class="saldo_label col-form-label">Total por Pagar</label>
+                                                    <input type="text" id="" name="" class="form-control" value="{{pagado}}" disabled>
+                                                </div>
+                                                <div class="saldo_etiquetas">
+                                                    <label class="saldo_label col-form-label">Total Boleta</label>
+                                                    <input type="text" id="" name="" class="form-control" value="{{totalpagar}}"  disabled>
+                                                </div>
+                                                <div class="saldo_etiquetas">
+                                                    <label class="saldo_label col-form-label">Multa</label>
+                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                </div>
+                                                <div class="saldo_etiquetas">
+                                                    <label class="saldo_label col-form-label">Multa Corte</label>
+                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                </div>
+                                                <div class="saldo_etiquetas">
+                                                    <label class="saldo_label col-form-label">T. con Multas</label>
+                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                </div>
+                                                <div class="div__button">
+                                                    <a class="consulta_historial" href="/procesos/historial_cliente/{{numero}}/{{ano}}/">Consulta Historial Cliente</a>
+                                                </div>    
+                                            </div>
+                                            <div class="tabla">
+                                                <div class="card tabla_normal">
+                                                    <div class="card-body">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr class="tabla_info">
+                                                                    <th class="tabla__titulos1" scope="col">Items</th>
+                                                                    <th class="tabla__titulos2" scope="col">Descripción</th>
+                                                                    <th class="tabla__titulos1" scope="col">Cantidad</th>
+                                                                    <th class="tabla__titulos3" scope="col">Valor</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for i in lista %}
+                                                                <tr>
+                                                                    <td>{{i.codigo}}</td>
+                                                                    <td>{{i.desc}}</td>
+                                                                    <td>{{i.can}}</td>
+                                                                    <td>{{i.valor}}</td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

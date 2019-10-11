@@ -36,7 +36,8 @@
             .search{
                 display: flex;
             }
-            .identificacion,.identificacion_rut, .razon_social, .direccion, .telefono{
+            .telefono{
+                display: flex;
                 margin-bottom: 1rem;
             }
             .vendedor{
@@ -55,35 +56,29 @@
                 margin-bottom: .5rem;
             }
             @media (min-width: 765px){
-                .identificacion{
-                    display: flex;
-                    justify-content: space-between
-                }
-                .identificacion_rut{
+                .general, .general_fg, .fg{
                     display: flex;
                 }
-                .identificacion_sitio{
-                    display: flex;
+                .general_fg{
+                    justify-content: space-between;
                 }
-                .razon_social, .direccion, .telefono, .vendedor{
-                    display: flex;
-                    margin-top: 1rem;
-                }
-                .identificacion_rut_label, .telefono_label{
-                    width: 11rem;
+                .general_label-rut {
+                    width: 17rem;
+                    padding-right: 1rem;
                     text-align: right;
-                    padding-right: 1rem;
                 }
-                .identificacion_rut_input, .identificacion_sitio_input{
-                    width: 15rem;
+                .giro{
+                    width: 60%;
                 }
-                .identificacion_sitio_label{
-                    padding-right: 1rem;
-                }
-                .razon_social_label, .direccion_label, .vendedor_label{
+                .general_label{
                     width: 12rem;
                     padding-right: 1rem;
                     text-align: right;
+                }
+                .telefono_label{
+                    width: 11rem;
+                    text-align: right;
+                    padding-right: 1rem;
                 }
                 .telefono_input{
                     width: 20rem;
@@ -398,40 +393,42 @@
                                         <form class="col-sm-12" action="/mantenedor/proveedor/" method="POST">
                                             {% csrf_token %} 
                                             <div class=" m-b-3">
-                                                <div class="razon_social">
-                                                    <input type="hidden" id="numero" name="numero" value="{{numero}}">
-                                                    <label for="" class="razon_social_label col-form-label">Rut</label>
-                                                    <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
-                                                        var date = this.value;
-                                                        if (date.match(/^\d{2}$/) !== null) {
-                                                        this.value = date + '.';
-                                                        } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
-                                                        this.value = date + '.';
-                                                        }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
-                                                        this.value = date + '-';
-                                                        }" maxlength="12" required>
+                                                <div class="general_fg form-group">
+                                                    <div class="fg">
+                                                        <input type="hidden" id="numero" name="numero" value="{{numero}}">
+                                                        <label for="" class="general_label-rut col-form-label">Rut</label>
+                                                        <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
+                                                            var date = this.value;
+                                                            if (date.match(/^\d{2}$/) !== null) {
+                                                            this.value = date + '.';
+                                                            } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
+                                                            this.value = date + '.';
+                                                            }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
+                                                            this.value = date + '-';
+                                                            }" maxlength="12" required>
+                                                    </div>
+                                                    <div class="fg giro">
+                                                        <label for="" class="general_label col-form-label">Giro</label>
+                                                        <input type="text" class="general_input form-control" id="giro" name="giro" value="{{giro}}" required>
+                                                    </div>
                                                 </div>
-                                                <div class="razon_social">
-                                                    <label for="" class="razon_social_label col-form-label">Giro</label>
-                                                    <input type="text" class="direccion_input form-control" id="giro" name="giro" value="{{giro}}" required>
+                                                <div class="general  form-group">
+                                                    <label for="" class="general_label col-form-label">Razón Social</label>
+                                                    <input type="text" class="general_input form-control" value="{{razon}}" id="razon" name="razon" required>
                                                 </div>
-                                                <div class="razon_social">
-                                                    <label for="" class="razon_social_label col-form-label">Razón Social</label>
-                                                    <input type="text" class="direccion_input form-control" value="{{razon}}" id="razon" name="razon" required>
+                                                <div class="general  form-group">
+                                                    <label for="" class="general_label col-form-label">Dirección</label>
+                                                    <input type="text" class="general_input form-control" value="{{direccion}}" name="direccion" id="direccion" required>
                                                 </div>
-                                                <div class="direccion">
-                                                    <label for="" class="direccion_label col-form-label">Dirección</label>
-                                                    <input type="text" class="direccion_input form-control" value="{{direccion}}" name="direccion" id="direccion" required>
-                                                </div>
-                                                <div class="telefono">
+                                                <div class="telefono  form-group">
                                                     <label for="" class="telefono_label col-form-label">Teléfono</label>
                                                     <input type="number" class="telefono_input form-control" id="telefono" name="telefono" value="{{telefono}}" required>
                                                 </div>
-                                                <div class="vendedor">
-                                                    <label for="" class="vendedor_label colo-form-label">Contacto o Vendedor</label>
-                                                    <input type="text" class="vendedor_input form-control" id="contacto" name="contacto" value="{{contacto}}" required>
+                                                <div class="general  form-group">
+                                                    <label for="" class="general_label col-form-label">Contacto o Vendedor</label>
+                                                    <input type="text" class="general_input form-control" id="contacto" name="contacto" value="{{contacto}}" required>
                                                 </div>
-                                                <div class="vendedor">
+                                                <div class="general form-group">
                                                     <label>{{mensaje}}</label>
                                                 </div>
                                                 <div class="iconos">

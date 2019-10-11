@@ -21,6 +21,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
         <link rel="stylesheet" href="{% static 'src/toggle-switch.css' %}" />
         <style>
+            a {
+              color: #000;
+            }
             .boton_info{
                 background-color: #17a2b8;
                 border-color: #17a2b8; 
@@ -46,138 +49,76 @@
                 width: 15rem;
                 padding: 1rem 3rem;
             }   
-            .usuario, .funcionario, .proveedor, .direccion, .descrip_trabajo, .operacion, .observacion, .desde, .hasta, .inicio, .termino, .responsable, .card{
-                margin-top: 1rem;
-            }
-            .observacion{
-                margin-bottom: 2rem;
-            }
-            .card{
-                margin-bottom: 2rem;
-            }
-            .flex{
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .boton{
-                width: 100%;
-                margin-bottom: .5rem;
-            }
-            .nro{
-                width: 40%;
-            }
-            .fecha_emision{
-                width: 60%;
-            }
-            .periodos{
-                margin-top: 3rem;
-            }
-            .periodos_titulo{
-                text-align: center;
-            }
-            .tabla_titulos{
-                background-color: #4183D7;
-                color: white;
-            }
-            .iconos1{
-                display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
-                margin: 0 auto;
-            }
-            .iconos2{
-                display: flex;
-                justify-content: space-around;
-            }
+            .tabla_info{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;        
+            }                  
             .boton_iconos{
                 border: none;
                 background-color: transparent;
-            }
-            .icono{
-                color: black;
-                margin-bottom: .5rem;
-            }
-            @media (min-width: 765px){
-                .flex{
-                    display: flex;
-                    justify-content: space-evenly;
-                    margin-bottom: 1rem;
-                }
-                .boton{
-                    padding: .5rem 2rem;
-                    width: fit-content;
-                }
-                .nro, .fecha_emision{
-                    display: flex;
-                    width: fit-content;
-                }
-                .nro_label, .fecha_emision_label{
-                    padding: 0 1rem;
-                }
-                .nro_input, .fecha_emision_input{
-                    width: 10rem;
-                }
+            }  
 
-                .usuario, .funcionario, .proveedor{
+            .nf{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .periodos_titulo{
+                margin-top: 2rem;
+                text-align: center;
+            }
+            .periodos_etiquetas, .responsable{
+                display: flex;
+                align-items: center;
+            }
+            .etiqueta_label{
+                width: 13rem;
+            }
+            .responsable_label{
+                width: 8rem;
+            }
+
+            .cantidad{
+                width: 15%;
+            }
+            .div_tabla{
+                overflow: auto;
+                height: 11rem;
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: .25rem;
+                padding: 0;
+                margin-right: 1rem;
+                margin-left: 1rem;
+            }
+            .iconos{
+                display: flex;
+                justify-content: space-evenly;
+                margin-top: 2rem;
+            }
+            @media(min-width:768px){
+                .general, .usuario{
                     display: flex;
-                    margin-top: 1rem;
+                    align-items: center;
                 }
-                .usuario_label{
-                    width: 13rem;
+                .usuario{
+                    align-items: flex-end;
                 }
-                .funcionario_label, .proveedor_label{
-                    width: 13rem;
+                .nombre, .rut{
+                    width: 8rem;
+                }
+                .nombre-dif{
+                    width: 10rem;
                 }
                 .medidor{
-                    width: 23rem;
-                }
-                .usuario_input, .funcioanrio_input, .proveedor_input{
-                    width: 10rem;
-                }
-                .segunda_parte{
-                    margin-top: 2rem;
-                }
-                .periodos{
+                    width: 17rem;
                     text-align: center;
                 }
-                .tiempo{
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 1rem;
+                .descripciones{
+                    margin-top: 3rem;
                 }
-                .desde, .hasta, .inicio, .termino{
-                    width: 40%;
-                    display: flex;
-                    justify-content: space-between;
-                }
-                .desde_input, .hasta_input, .inicio_input, .termino_input{
-                    width: 60%;
-                }
-                .responsable{
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 1rem;
-                }
-                .responsable_input{
-                    width: 80%;
-                }
-                .card{
-                    margin: 1rem 0;
-                    height: 10rem;
-                }
-                .table{
-                    margin: 0;
-                }
-                .cantidad{
-                    width: 30%;
-                }
-                .iconos1, .iconos2{
-                    display: flex;
-                    justify-content: space-evenly;
-                    margin-top: 1rem;
-                }
-                .icono{
-                    color: black;
+                .responsable_label{
+                    width: 10.3rem;
                 }
             }
         </style>
@@ -456,18 +397,17 @@
                 </div>
                 <!-- END PAGE HEADER-->
 
-                <div class="container-fluid">
+                <div class="container-fluid" style="height: 11rem;">
                     <div class="row js-grid-wrapper panel-wrapper">
                         <!-- #SELECT2-->
                         {% block content1 %}	
                         <form class="col-sm-12" action="/antecedentes/orden_trabajo/" method="POST">
                             {% csrf_token %}  
                             <div class="panel panel-default">
-                                <div class="panel-heading"></div>
                                 <div class="panel-body">
-                                    <div class="row m-b-3">
+                                    <div class="row">
                                         <div class="div_boton">
-                                            <a class="btn btn-block active m-b-2 boton_info boton_historial" type="button" name="historial" href="/antecedentes/orden_trabajo/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
+                                            <a class="btn btn-block active boton_info boton_historial" type="button" name="historial" href="/antecedentes/orden_trabajo/historial/" id="historial"><i class="fas fa-book fa-3x m-r-1"></i>Historial</a>
                                         </div>
                                     </div>
                                 </div>
@@ -488,105 +428,150 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading"></div>
                                 <div class="panel-body">
-                                    <div class="row m-b-3">
-                                        <div class="flex">
-                                            <div class="nro">
-                                                <label for="" class="nro_label">Nro</label>
-                                                <input type="text" class="nro_input form-control" name="nro" id="nro" value="{{nroorden}}" required>
+                                    <div class="row p-l-1 p-r-1">
+                                        <div class="nf">
+                                            <div class="form-group">
+                                                <label class="m-b-0">Nro</label>
+                                                <input class="form-control" type="text" name="nro" id="nro" value="{{nroorden}}" required>
                                             </div>
-                                            <div class="fecha_emision">
-                                                <label for="" class="fecha_emision_label">Fecha de Emisión</label>
-                                                <input type="datetime" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}" class="fecha_emision_input form-control" required>
+                                            <div class="form-group">
+                                                <label class="m-b-0">Fecha de Emisión</label>
+                                                <input class=" form-control" type="datetime" name="fecha_actual" id="fecha_actual" value="{{fecha_actual}}" required>
                                             </div>
                                         </div>
-                                        <div>
-                                            <div class="col-md-12">
-                                                <div class="usuario">
-                                                    <label for="" class="usuario_label">Socio</label>
-                                                    <input type="text" class="usuario_input form-control" name="id_" id="id_" disabled>
-                                                    <input type="hidden" class="usuario_input form-control" name="id_1" id="id_1">
-                                                    <input type="hidden" class="usuario_input form-control" name="tipo" id="tipo">
-                                                    <input type="text" class="usuario_select form-control" name="buscarsocio" id="buscarsocio">
+                                        <div class="col-md-8">
+                                            <div class="usuario form-group">
+                                                <label class="nombre-dif m-b-0">Usuario</label>
+                                                <input class="rut form-control" type="text" name="id_" id="id_" disabled>
+                                                <input class="form-control" type="hidden" name="id_1" id="id_1">
+                                                <input class="form-control" type="hidden" name="tipo" id="tipo">
+                                                <input class="form-control" type="text" name="buscarsocio" id="buscarsocio">
+                                                <div class="medidor">
+                                                    <label class="m-b-0">Nro Medidor</label>
+                                                    <select class="form-control" name="" id=""></select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="direccion">
-                                                    <label for="">Dirección, Teléfono, Otros</label>
-                                                    <textarea rows="5"  class="form-control" placeholder="(Ninguno)" id="otros" name="otros"></textarea>
-                                                </div>
-                                            </div>                                        
+                                            <div class="general form-group">
+                                                <label class="nombre">Funcionario</label>
+                                                <input class="rut form-control"type="text" name="id_" id="id_" disabled>
+                                                <!-- <input class="form-control" type="hidden" name="id_1" id="id_1">
+                                                    <input class="usuario_input form-control" type="hidden" name="tipo" id="tipo"> -->
+                                                <input class="form-control" type="text" name="buscarsocio" id="buscarsocio">
+                                            </div>
+                                            <div class="general form-group">
+                                                <label class="nombre">Proveedor</label>
+                                                <input class="rut form-control" type="text" name="id_" id="id_" disabled>
+                                                <!-- <input class="form-control" type="hidden" name="id_1" id="id_1">
+                                                    <input class="usuario_input form-control" type="hidden" name="tipo" id="tipo"> -->
+                                                <input class="form-control" type="text" name="buscarsocio" id="buscarsocio">
+                                            </div>
+                                        </div>
+                                        <div class="direccion col-md-4 form-group">
+                                            <label class="m-b-0">Dirección, Teléfono, Otros</label>
+                                            <textarea rows="5"  class="form-control" placeholder="(Ninguno)" id="otros" name="otros"></textarea>  
                                         </div> 
-                                        <div class="col-md-6 segunda_parte">
-                                            <div class="descrip_trabajo">
-                                                <label for=""class="label_descripcion">Descripción del Trabajo</label>
-                                                <textarea rows="3" placeholder="(Ninguno)" class="form-control" id="desc" name="desc" required></textarea>
+
+
+                                        <div class="col-md-5 descripciones">
+                                            <div class="form-group">
+                                                <label class="m-b-0">Descripción del Trabajo</label>
+                                                <textarea class="form-control" rows="3" placeholder="(Ninguno)" id="desc" name="desc" required></textarea>
                                             </div>
-                                            <div class="operacion">
-                                                <label for=""class="label_operacion">Operación Realizada</label>
-                                                <textarea rows="3" placeholder="(Ninguno)" class="form-control" id="operacion" name="operacion" required></textarea>
+                                            <div class="form-group">
+                                                <label class="m-b-0">Operación Realizada</label>
+                                                <textarea class="form-control" rows="3" placeholder="(Ninguno)" id="operacion" name="operacion" required></textarea>
                                             </div>
-                                            <div class="observacion">
-                                                <label for=""class="label_observacion">Observaciones</label>
-                                                <textarea rows="3" placeholder="(Ninguno)" class="form-control" id="observacion" name="observacion" required></textarea>
+                                            <div class="form-group">
+                                                <label class="m-b-0">Observaciones</label>
+                                                <textarea class="form-control" rows="3" placeholder="(Ninguno)" id="observacion" name="observacion" required></textarea>
                                             </div>                                            
                                         </div>
-
-                                        <div class="col-md-6 periodos">
+                                        <div class="col-md-7">
                                             <h4 class="periodos_titulo">Periodos</h4>
-                                            <div class="tiempo">
-                                                <div class="desde">
-                                                    <label for="">Fecha Desde</label>
-                                                    <input type="text" class="form-control desde_input" name="fecha_desde" id="fecha_desde" placeholder="dd-mm-yyyy" onkeyup="
+                                            <div class="periodos_etiquetas form-group col-xs-6">
+                                                <label class="etiqueta_label m-b-0">Fecha Desde</label>
+                                                <input class="form-control" type="text" name="fecha_desde" id="fecha_desde" placeholder="dd-mm-yyyy" onkeyup="
                                                     var date = this.value;
                                                     if (date.match(/^\d{2}$/) !== null) {
                                                     this.value = date + '/';
                                                     } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
                                                     this.value = date + '/';
                                                     }" maxlength="10" required>
-                                                </div>
-                                                <div class="hasta">
-                                                    <label for="">Fecha Hasta</label>
-                                                    <input type="text" class="form-control hasta_input" name="fecha_hasta" id="fecha_hasta" placeholder="dd-mm-yyyy" onkeyup="
-                                                    var date = this.value;
-                                                    if (date.match(/^\d{2}$/) !== null) {
-                                                    this.value = date + '/';
-                                                    } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
-                                                    this.value = date + '/';
-                                                    }" maxlength="10" required>
-                                                </div>
                                             </div>
-                                            <div class="tiempo">
-                                                <div class="inicio">
-                                                    <label for="">Hora Inicio</label>
-                                                    <input type="text" class="form-control inicio_input" id="hora_inicio" name="hora_inicio" placeholder="HH:MM" onkeyup="
+                                            <div class="periodos_etiquetas form-group col-xs-6">
+                                                <label class="etiqueta_label m-b-0">Fecha Hasta</label>
+                                                <input class="form-control" type="text" name="fecha_hasta" id="fecha_hasta" placeholder="dd-mm-yyyy" onkeyup="
+                                                    var date = this.value;
+                                                    if (date.match(/^\d{2}$/) !== null) {
+                                                    this.value = date + '/';
+                                                    } else if (date.match(/^\d{2}\/\d{2}$/) !== null) {
+                                                    this.value = date + '/';
+                                                    }" maxlength="10" required>
+                                            </div>
+                                            <div class="periodos_etiquetas form-group col-xs-6">
+                                                <label class="etiqueta_label m-b-0">Hora Inicio</label>
+                                                <input class="form-control" type="text" id="hora_inicio" name="hora_inicio" placeholder="HH:MM" onkeyup="
                                                     var date = this.value;
                                                     if (date.match(/^\d{2}$/) !== null) {
                                                     this.value = date + ':';
                                                     } else {
                                                     }" maxlength="5" required>
-                                                </div>
-                                                <div class="termino">
-                                                    <label for="">Hora Termino</label>
-                                                    <input type="text" class="form-control termino_input" id="hora_termino" name="hora_termino" placeholder="HH:MM" onkeyup="
+                                            </div>
+                                            <div class="periodos_etiquetas form-group col-xs-6">
+                                                <label class="etiqueta_label m-b-0">Hora Termino</label>
+                                                <input class="form-control" type="text" id="hora_termino" name="hora_termino" placeholder="HH:MM" onkeyup="
                                                     var date = this.value;
                                                     if (date.match(/^\d{2}$/) !== null) {
                                                     this.value = date + ':';
                                                     } else {
                                                     }" maxlength="5" required>
-                                                </div>
                                             </div>
 
-                                            <div class="responsable">
-                                                <label for="" class="responsable_label">Responsable</label>
-                                                <input type="text" class="responsable_input form-control" placeholder="(Ninguno)" name="responsable" id="responsable" required>
-                                            </div>                                                                        
+                                            <div class="col-xs-12 responsable form-group">
+                                                <label class="responsable_label m-b-0">Responsable</label>
+                                                <input class="form-control" type="text" placeholder="(Ninguno)" name="responsable" id="responsable" required>
+                                            </div>  
+                                            
+                                            <div class="col-xs-12 form-group div_tabla">
+                                                <table class="table table-bordered m-b-0">
+                                                    <thead>
+                                                        <tr class="tabla_info">
+                                                            <th class="cantidad">Cantidad</th>
+                                                            <th>Materiales</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                         
-                                        <div class="col-sm-12 iconos1">
+                                        <section class="col-sm-12 iconos form-group">
                                             <button class="boton_iconos" type="submit" id="guardar" name="guardar">
                                                 <a href="#"><i class="far fa-save fa-4x icono"></i></a>
                                             </button>
-                                        </div>
+                                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                                                <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
+                                            </button>
+                                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                                                <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
+                                            </button>
+                                            <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                                                <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                                            </button>
+                                        </section>  
 
                                     </div>
                                 </div>

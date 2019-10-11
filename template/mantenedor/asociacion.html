@@ -15,6 +15,9 @@
     <script src="{% static 'assets/scripts/lib/modernizr-custom.js' %}"></script>
     <script src="{% static 'assets/scripts/lib/respond.js' %}"></script>
     <style>
+      a {
+        color: #000;
+      }
       .boton_info{
         background-color: #17a2b8;
         border-color: #17a2b8; 
@@ -28,16 +31,77 @@
         background-color: #0a8a9e;
         border-color: #0a8a9e;               
       } 
-      .div_boton{
-        display: flex;
-        justify-content: center;
+      .boton_danger{
+        color: #fff;
+        background-color: #d2362c;
+        border-color: #d2362c;
       }
+
+
+      .general, .general_medio, .etiquetas{
+        display: flex;
+        align-items: center;
+      }      
+      .subsidio{
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        padding: 1rem;
+      }    
+      .ident_label, .general_label, .media_label{
+        width: 7rem;
+      }      
+      .etiquetas_label{
+        width: 12rem;
+      }
+
+      .iconos{
+        display: flex;
+        justify-content: space-evenly;
+        width: 60%;
+      }
+      
+      
+      .boton_iconos{
+        border: none;
+        background-color: transparent;
+      }  
       .boton{
         display: flex;
         align-items: center;
         justify-content: center;
         width: 15rem;
         padding: 1rem 3rem;
+      }
+      @media(min-width:768px){        
+        .ident, .general, .general_medio, .medio, .etiquetas, .si{
+          display: flex;
+          align-items: center;
+        }    
+        .si{
+          justify-content: space-between;
+        }
+        .ident, .medio{
+          justify-content: space-between;
+        }
+        .giro{
+          width: 60%;
+        }
+        .ident_label{
+          width: 4rem;
+        }
+        .general_label{
+          width: 6.5rem;
+        }
+        .general_medio{
+          width: 48%;
+        }
+
+        .subsidio{
+          width: 30%;
+        }
+        .etiquetas{
+          margin-bottom: .5rem;
+        }
       }
     </style>
   </head>
@@ -409,55 +473,98 @@
                   <h6 class="panel-title">Asociación<a class="small" href="#" target="_blank">para datos de la asociación</a></h6>
                 </div>
                 <div class="panel-body">
-                  <div class="row m-b-3">
-                    <div class="form-group col-sm-4">
-                      <label>Rut</label>
-                      <input type="text" class="form-control" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
-                        var date = this.value;
-                        if (date.match(/^\d{2}$/) !== null) {
-                        this.value = date + '.';
-                        } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
-                        this.value = date + '.';
-                        }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
-                        this.value = date + '-';
-                        }" maxlength="12" required>
+                  <div class="m-b-3">
+
+                    <div class="ident">
+                      <div class="general rut form-group">
+                        <label class=ident_label m-b-0">Rut</label>
+                        <input class="ident_input form-control" type="text" name="rut" id="rut" value="{{rut}}" placeholder="11.111.111-1" onkeyup="
+                          var date = this.value;
+                          if (date.match(/^\d{2}$/) !== null) {
+                          this.value = date + '.';
+                          } else if (date.match(/^\d{2}\.\d{3}$/) !== null) {
+                          this.value = date + '.';
+                          }else if (date.match(/^\d{2}\.\d{3}\.\d{3}$/) !== null) {
+                          this.value = date + '-';
+                          }" maxlength="12" required>
+                      </div>
+                      <div class="general giro form-group">
+                        <label class="ident_label m-b-0">Giro</label>
+                        <input class="ident_input form-control" type="text" name="giro" id="giro" value="{{giro}}" required>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Giro</label>
-                      <input type="text" class="form-control" name="giro" id="giro" value="{{giro}}" required>
+                    <div class="general form-group">
+                      <label class="general_label m-b-0">Nombre</label>
+                      <input class="form-control" type="text" name="nombre" id="nombre" value="{{nombre}}" required>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Nombre</label>
-                      <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" required>
+                    <div class="general form-group">
+                      <label class="general_label m-b-0">Dirección</label>
+                      <input class="form-control" type="text" name="direccion" id="direccion" value="{{direccion}}" required>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Dirección</label>
-                      <input type="text" class="form-control" name="direccion" id="direccion" value="{{direccion}}" required>
+                    <div class="medio">
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">Fono/Fax</label>
+                        <input class="media_input form-control" type="number" name="fono" id="fono" value="{{fono}}" required>
+                      </div>
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">Región</label>
+                        <input class="media_input form-control" type="text" name="region" id="region" value="{{region}}" required>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Fono/Fax</label>
-                      <input type="number" class="form-control" name="fono" id="fono" value="{{fono}}" required>
+                    <div class="medio">
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">Comuna</label>
+                        <input class="media_input form-control" type="text" name="comuna" id="comuna" value="{{comuna}}" required>
+                      </div>
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">Provincia</label>
+                        <input class="media_input form-control" type="text" name="provincia" id="provincia" value="{{provincia}}" required>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Región</label>
-                      <input type="text" class="form-control" name="region" id="region" value="{{region}}" required>
+                    <div class="medio">
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">Casilla</label>
+                        <input class="media_input form-control" type="text" name="casilla" id="casilla" value="{{casilla}}" required>
+                      </div>
+                      <div class="general_medio form-group">
+                        <label class="media_label m-b-0">E-mail</label>
+                        <input class="media_input form-control" type="email" name="email" id="email" value="{{email}}" required>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Comuna</label>
-                      <input type="text" class="form-control" name="comuna" id="comuna" value="{{comuna}}" required>
+
+                    <div class="si">
+                      <div class="subsidio">
+                        <h5>Datos Subsidio</h5>
+                        <div class="check form-group">
+                          <label class="m-b-0">Subsidio Incluye cargo Fijo</label>
+                          <input type="checkbox">
+                        </div>
+                        <div class="etiquetas">
+                          <label class="etiquetas_label m-b-0">Código Región</label>
+                          <input class="etiquetas_input form-control" type="text" name="" id="">
+                        </div>
+                        <div class="etiquetas">
+                          <label class="etiquetas_label m-b-0">Código Comuna</label>
+                          <input class="etiquetas_input form-control" type="text" name="" id="">
+                        </div>
+                        <div class="etiquetas">
+                          <label class="etiquetas_label m-b-0">Código Servicio</label>
+                          <input class="etiquetas_input form-control" type="text" name="" id="">
+                        </div>
+                      </div>
+                      <div class="iconos">
+                        <button class="btn btn-block active m-b-2 boton_info boton" type="submit" id="abonar" name="abonar">
+                          <i class="far fa-save fa-3x m-r-1"></i>Guardar
+                        </button>
+                        <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar">
+                          <i class="fas fa-edit fa-3x m-r-1"></i> Modificar 
+                        </button>                        
+                        <button class="btn btn-block active m-b-2 btn-danger boton" type="submit" id="eliminar" name="eliminar">
+                          <i class="fas fa-trash-alt fa-3x m-r-1"></i>Eliminar
+                        </button>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                      <label>Provincia</label>
-                      <input type="text" class="form-control" name="provincia" id="provincia" value="{{provincia}}" required>
-                    </div>
-                    <div class="form-group col-sm-4">
-                      <label>E-mail</label>
-                      <input type="email" class="form-control" name="email" id="email" value="{{email}}" required>
-                    </div>
-                        
-                    <div class="col-xs-6 col-sm-12 col-md-12 text-capitalize div_boton">
-                      <button class="btn btn-block active m-b-2 boton_info boton" type="submit" name="guardar" id="guardar"><i class="fas fa-edit fa-3x m-r-1"></i> Modificar </button>
-                    </div>
+
                   </div>
                 </div>
               </div>
