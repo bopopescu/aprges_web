@@ -1,4 +1,4 @@
-from Riego.utils import render_to_pdf
+from AprGes.utils import render_to_pdf
 from django.shortcuts import render
 from django.http import HttpResponse
 import time

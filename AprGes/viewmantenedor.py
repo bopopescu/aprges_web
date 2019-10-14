@@ -21,12 +21,24 @@ import os.path as path
 
 import os
 import subprocess
-from Riego.utils import render_to_pdf
+from AprGes.utils import render_to_pdf
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
-
+"""
 try:
     conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\RiegoWeb\\Riego\\RIEGO.mdb')
+    cursor = conn.cursor()
+except pyodbc.Error as ex:
+    sqlstate = ex.args[0]
+    print(sqlstate)
+    if sqlstate == '08001':
+        pass
+"""
+try:
+    conn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=DESKTOP-VRSDL3N;'
+                      'Database=APRGESMALLARA;'
+                      'Trusted_Connection=yes;')
     cursor = conn.cursor()
 except pyodbc.Error as ex:
     sqlstate = ex.args[0]
@@ -418,15 +430,32 @@ def viewReportes(request):
     }
     return render(request,'reporte.html', data)
 
-def buscarTiposSector():
+def buscarTarifas():
 
     try:
-        cursor.execute('SELECT * FROM A_SECTOR')
+        cursor.execute('SELECT distinct(isnull(TIPO,-1)) FROM GLO_TARIFA')
 
         lista=[]
         
         for row in cursor.fetchall():
-            lista.append({'id':row[0],'nombre':row[1]})
+            if row[0]!=-1:
+                lista.append({'TIPO':row[0]})
+        
+        return lista
+
+    except Exception as e:
+        pass
+        print(e)
+
+def buscarTiposSector():
+
+    try:
+        cursor.execute('SELECT * FROM GLO_SECTOR')
+
+        lista=[]
+        
+        for row in cursor.fetchall():
+            lista.append({'id':row[0],'nombre':row[1],'tipotar':row[5],'tratamiento':row[7],'multatrat':row[8],'porcentaje':row[9],'alcantarillado':row[10]})
         
         return lista
 
@@ -450,6 +479,12 @@ def existeSector(id):
 def viewSectores(request):
 
     id_=None
+    tratamiento=0
+    multa=0
+    consumo=0
+    alcantarillado=0
+    sin_consumo=0
+    nombre=""
 
     if request.method=='POST' and 'borrar' in request.POST:
 
@@ -476,15 +511,6 @@ def viewSectores(request):
             for i in cursor.fetchall():
                 id_=i[0]
                 nombre=i[1]
-
-            data={
-                'asociacion':viewName(),
-                'lista':buscarTiposSector,
-                'nombre':nombre,
-                'id':id_
-            }
-                
-            return render(request,'mantenedor/SECTOR.html', data)
         
         except Exception as e:
             print("Consulta Error" +str(e) )
@@ -572,6 +598,14 @@ def viewSectores(request):
     data={
         'lista':buscarTiposSector,
         'asociacion':viewName(),
+        'tratamiento':tratamiento,
+        'multa':multa,
+        'consumo':consumo,
+        'alcantarillado':alcantarillado,
+        'sin_consumo':sin_consumo,
+        'nombre':nombre,
+        'id':id_,
+        'tipoTARIFA':buscarTarifas
     }
     return render(request,'mantenedor/SECTOR.html', data)
 

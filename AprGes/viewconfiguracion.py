@@ -22,7 +22,7 @@ import os.path as path
 
 import os
 import subprocess
-from Riego.utils import render_to_pdf
+from AprGes.utils import render_to_pdf
 
 try:
     conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\RiegoWeb\\Riego\\RIEGO.mdb')

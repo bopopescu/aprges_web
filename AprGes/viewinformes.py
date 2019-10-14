@@ -22,9 +22,9 @@ import pandas as pd
 import math
 import os
 import subprocess
-from Riego.utils import render_to_pdf
+from AprGes.utils import render_to_pdf
 
-from Riego.viewconexion import nombreConexion
+from AprGes.viewconexion import nombreConexion
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
 

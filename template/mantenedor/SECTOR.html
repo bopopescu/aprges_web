@@ -472,8 +472,12 @@
                       <!-- etiquetas -->
                       <div class="etiquetas">
                         <div class="etiqueta form-group">
-                          <label class="etiqueta_label col-form-label ">Estanque</label>
-                          <select class="form-control" name="estanque" id="estanque"></select>
+                          <label class="etiqueta_label col-form-label ">Tipo Tarifa</label>
+                          <select class="form-control" name="tarifa" id="tarifa">
+                            {% for i in tipoTARIFA %}
+                            <option value="{{i.TIPO}}"select>{{i.TIPO}}</option>
+                            {% endfor %}
+                          </select>
                         </div>
                     
                         <div class="etiqueta form-group">
@@ -545,6 +549,11 @@
                         <form method="POST" action="/mantenedor/sector/">
                           {% csrf_token %}      
                           <input value="{{medidor.id}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.tipotar}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.tratamiento}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.multatrat}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.porcentaje}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.alcantarillado}}" type="hidden" name="nombreid"> 
                           <button class="btn btn-info" type="submit" name="editar" id="editar"> Editar </button>
                           <button class="btn btn-danger" type="submit" name="borrar" id="borrar"> Borrar </button>
                         </form>

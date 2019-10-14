@@ -21,7 +21,7 @@ import os.path as path
 
 import os
 import subprocess
-from Riego.utils import render_to_pdf
+from AprGes.utils import render_to_pdf
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
 """

@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django.urls import path
 
-from Riego.viewsubsidio import *
-from Riego.viewhome import *
-from Riego.viewmantenedor import *
-from Riego.viewprocesos  import *
-from Riego.viewantecedentes  import *
-from Riego.viewcontab import * 
-from Riego.viewinformes import * 
-from Riego.viewconfiguracion import *
+from AprGes.viewsubsidio import *
+from AprGes.viewhome import *
+from AprGes.viewmantenedor import *
+from AprGes.viewprocesos  import *
+from AprGes.viewantecedentes  import *
+from AprGes.viewcontab import * 
+from AprGes.viewinformes import * 
+from AprGes.viewconfiguracion import *
 
 from django.urls import path
 from django.conf.urls import url, include
