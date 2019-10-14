@@ -855,34 +855,34 @@
                                             <div class="ident form-group">
                                                 <div class="boleta">
                                                     <label class="boleta_numero col-form-label m-b-0">Nro Boleta</label>
-                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
+                                                    <input class="boleta_input form-control" type="text" name="nr_boleta" id="nr_boleta"  value="{{boleta}}">
                                                 </div>
                                                 <div class="boleta">
                                                     <label class="boleta_numero col-form-label m-b-0">Nro Aviso</label>
-                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
+                                                    <input class="boleta_input form-control" type="text" name="nro_aviso" id="nro_aviso"  value="{{boleta}}">
                                                 </div>
                                                 <div class="boleta">
                                                     <label class="boleta_numero col-form-label m-b-0">Id Boleta</label>
-                                                    <input class="boleta_input form-control" type="text" value="{{boleta}}">
+                                                    <input class="boleta_input form-control" type="text" name="id_boleta" id="id_boleta"  value="{{boleta}}">
                                                 </div>
                                             </div> 
                                             <div class="fecha form-group">
                                                             
                                                 <div class="fecha__etiquetas">                                    
                                                     <label for="" class="col-form-label">F. Prorroga</label>
-                                                    <input class="form-control" type="text" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                                                    <input class="form-control" type="text" name="fprorroga" id="fprorroga" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
                                                 </div>        
                                                 <div class="fecha__etiquetas">                                    
                                                     <label for="" class="col-form-label">Fecha Actual</label>
-                                                    <input class="form-control" type="text" name="emision" id="emision" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
+                                                    <input class="form-control" type="text" name="factual" id="factual" value="{{fecha_actual}}" placeholder="dd-mm-yyyy" onkeyup=" var date =this.value;if (date.match(/^\d{2}$/) !== null) {this.value = date + '/';} else if (date.match(/^\d{2}\/\d{2}$/) !== null) {this.value = date + '/';}" maxlength="10" required>
                                                 </div>
                                                 <div class="fecha__etiquetas">
                                                     <label class="col-form-label">Fecha Vencimiento</label>
-                                                    <input class="form-control" type="text" id="" name="" value="{{vencimiento}}" disabled>
+                                                    <input class="form-control" type="text" id="fvencimiento" name="fvencimiento" value="{{vencimiento}}" disabled>
                                                 </div>
                                                 <div class="fecha__etiquetas">
                                                     <label class="col-form-label">Fecha de Pago</label>
-                                                    <input class="form-control" type="text" id="" name="" value="{{emision}}" disabled>
+                                                    <input class="form-control" type="text" id="fpago" name="fpago" value="{{emision}}" disabled>
                                                 </div>                    
                                             </div>                                                    
                                         </div>    
@@ -893,38 +893,38 @@
                                         <div class="col-sm-12">
                                             <div class="form-group cliente__identificacion">
                                                 <label class="cliente__nombre">Nombre Cliente</label>
-                                                <input type="text" id="" name="" class="cliente__input1 form-control" value="{{rut}}" disabled>
-                                                <input type="text" id="" name="" class="cliente__input2 form-control" value="{{nombres}}" disabled>
+                                                <input type="text" id="rut" name="rut" class="cliente__input1 form-control" value="{{rut}}" disabled>
+                                                <input type="text" id="nombre" name="nombre" class="cliente__input2 form-control" value="{{nombres}}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group lecturas">
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Fecha Lectura</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="fecha_lect" id="fecha_lect" disabled>
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Nro Medidor</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="">
+                                                <input class="lectura_input form-control" type="text" name="nro_medidor" id="nro_medidor">
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Lect. Actual</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="lect_actual" id="lect_actual" disabled>
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Lect. Anterior</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="lect_anterior" id="lect_anterior" disabled>
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Saldo Conv.</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="saldo_conv" id="saldo_conv" disabled>
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Cargo Fijo</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="cargo_fijo" id="cargo_fijo" disabled>
                                             </div>
                                             <div class="lectura">
                                                 <label class="lectura_label col-form-label">Fec. Emisión</label>
-                                                <input class="lectura_input form-control" type="text" name="" id="" disabled>
+                                                <input class="lectura_input form-control" type="text" name="fec_emision" id="fec_emision" disabled>
                                             </div>
                                         </div>
                                         
@@ -932,27 +932,27 @@
                                             <div class="saldo">
                                                 <div class="clave">
                                                     <label>Clave de Lectura</label>
-                                                    <input class="form-control" type="text" name="" id="" disabled>
+                                                    <input class="form-control" type="text" name="clave_lectura" id="clave_lectura" disabled>
                                                 </div>
                                                 <div class="saldo_etiquetas">
                                                     <label class="saldo_label col-form-label">Total por Pagar</label>
-                                                    <input type="text" id="" name="" class="form-control" value="{{pagado}}" disabled>
+                                                    <input type="text" id="tpagar" name="tpagar" class="form-control" value="{{pagado}}" disabled>
                                                 </div>
                                                 <div class="saldo_etiquetas">
                                                     <label class="saldo_label col-form-label">Total Boleta</label>
-                                                    <input type="text" id="" name="" class="form-control" value="{{totalpagar}}"  disabled>
+                                                    <input type="text" id="tboleta" name="tboleta" class="form-control" value="{{totalpagar}}"  disabled>
                                                 </div>
                                                 <div class="saldo_etiquetas">
                                                     <label class="saldo_label col-form-label">Multa</label>
-                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                    <input type="text" id="multa" name="multa" class="form-control" value="0"  disabled>
                                                 </div>
                                                 <div class="saldo_etiquetas">
                                                     <label class="saldo_label col-form-label">Multa Corte</label>
-                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                    <input type="text" id="mcorte" name="mcorte" class="form-control" value="0"  disabled>
                                                 </div>
                                                 <div class="saldo_etiquetas">
                                                     <label class="saldo_label col-form-label">T. con Multas</label>
-                                                    <input type="text" id="" name="" class="form-control" value="0"  disabled>
+                                                    <input type="text" id="tmulta" name="tmulta" class="form-control" value="0"  disabled>
                                                 </div>
                                                 <div class="div__button">
                                                     <a class="consulta_historial" href="/procesos/historial_cliente/{{numero}}/{{ano}}/">Consulta Historial Cliente</a>

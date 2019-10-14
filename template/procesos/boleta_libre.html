@@ -60,8 +60,11 @@
         .cliente_label, .medidor_label, .fecha_label{
           width: 12rem;
         }
-        .medidor_label, .fecha_label{
+        .medidor_label, .fecha_label, .total_label{
           width: 9.7rem;
+        }
+        .total_input{
+          width: 13rem;
         }
         .boleta_label, .cliente_input, .medidor_input, .fecha_input{
           width: 10rem
@@ -418,7 +421,7 @@
                       <!-- total a pagar -->
                       <div class="form-group total">
                         <label class="total_label col-form-label">Total a Pagar</label>
-                        <input type="text" class="form-control" name="total_pagar" id="total_pagar" value="{{total_pagar}}">
+                        <input type="text" class="form-control total_input" name="total_pagar" id="total_pagar" value="{{total_pagar}}">
                       </div>
             
                       <!-- nivel2 -->

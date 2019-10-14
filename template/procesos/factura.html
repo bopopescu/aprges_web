@@ -34,6 +34,11 @@
                 background-color: #0a8a9e;
                 border-color: #0a8a9e;               
             } 
+            .tabla_info{
+                color: #fff;
+                background-color: #17a2b8;
+                border-color: #17a2b8;        
+            }            
             .panel-body {
                 padding: 1.6rem 1.875rem;
                 padding-bottom: 0;
@@ -83,7 +88,21 @@
             }
             .cancelacion_fecha_input{
                 width: 10rem;
-            }      
+            }
+            .div_tabla{
+                border: 1px solid rgba(0,0,0,.125);
+                overflow: auto;
+                height: 10rem;
+            }
+            .tabla{
+                width: 60rem;
+            }
+            .tabla_codigo{
+                width: 5rem;
+            }
+            .tabla_descripcion{
+                width: 20rem;
+            }
             .iconos{
                 display: flex;
                 justify-content: space-evenly;
@@ -156,7 +175,7 @@
                     width: 30%;
                 }
                 .telefono_label{
-                    width: 17.3rem; 
+                    width: 17.8rem; 
                 }
                 .giro{
                     width: 70%;
@@ -200,6 +219,13 @@
                 }
                 .cancelacion_total_label{
                     width: 10rem;
+                }
+                
+                .tabla_descripcion{
+                    width: 40rem;
+                }
+                .tabla{
+                    width: 100%;;
                 }
 
                 .iconos{
@@ -552,7 +578,11 @@
                                                 <div class="direccion">
                                                     <label for="" class="direccion_label">Dirección</label>
                                                     <input type="text" class="direccion_input form-control" id="direccion" name="direccion" value="{{direccion}}">
-                                                </div>        
+                                                </div>
+                                                <div class="comuna">
+                                                    <label class="comuna_label col-form-label" for="">Comuna</label>
+                                                    <input class="comuna_input form-control" type="text" name="comuna" id="comuna">
+                                                </div>     
                                             </div>
                     
                                             <div class="contacto form-group">
@@ -564,11 +594,60 @@
                                                     <label for="" class="giro_label">Giro</label>
                                                     <input type="text" class="giro_input form-control" name="giro" id="giro" value="{{giro}}">
                                                 </div>  
-                                            </div>    
+                                            </div>  
+                    
+                                            <div class="venta form-group">
+                                                <label for="" class="venta_label">Cond. de Venta</label>
+                                                <input type="text" class="venta_input form-control" name="cond_venta" id="cond_venta" value="{{cond_venta}}">
+                                            </div> 
 
-                                            <div class=" form-group">
+                                            <div class="medidor form-group">
+                                                <label for="" class="medidor_label">Nro Medidor</label>
+                                                <input type="text" class="medidor_input form-control" name="medidor" id="medidor" value="{{medidor}}">
+                                            </div>  
+
+                                            <!-- <div class=" form-group">
                                                 <label for="">Detalle</label>
                                                 <textarea class="form-control" cols="30" rows="5" required name="detalle" id="detalle">{{detalle}}</textarea>
+                                            </div> -->
+
+                                            <div class="div_tabla">
+                                                <table class="table table-bordered tabla m-b-0">
+                                                    <thead>
+                                                      <tr class="tabla_info">
+                                                          <th>Aviso</th>
+                                                          <th class="tabla_codigo">Código</th>
+                                                          <th class="tabla_descripcion">Descripción</th>
+                                                          <th>Valor</th>
+                                                          <th>Abono</th>
+                                                          <th>Medidor</th>
+                                                          <th>Nro Factura</th>
+                                                          <th>Mes/Año</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
                                             </div>
                                                         
                                             <div class="cancelacion form-group">
