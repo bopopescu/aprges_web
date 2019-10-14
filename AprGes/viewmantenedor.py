@@ -463,9 +463,9 @@ def buscarTiposSector():
         pass
         print(e)
 
-def existeSector(id):
+def existeSector(id_):
 
-    sqlexiste="SELECT * FROM GLO_SECTOR WHERE GLOSA='"+id+"';"
+    sqlexiste="SELECT * FROM GLO_SECTOR WHERE GLOSA='"+id_+"';"
     print(sqlexiste)
     try:
         cursor.execute(sqlexiste)
@@ -473,6 +473,7 @@ def existeSector(id):
             return 1
     except:
         pass
+        print("Error " + str(sqlexiste))
 
     return 0
 
@@ -485,6 +486,8 @@ def viewSectores(request):
     alcantarillado=0
     sin_consumo=0
     nombre=""
+    tipotar=''
+    mensaje=""
 
     if request.method=='POST' and 'borrar' in request.POST:
 
@@ -501,7 +504,6 @@ def viewSectores(request):
     if request.method=='POST' and 'editar' in request.POST:
 
         nombre=request.POST['nombreid']
-        id_=""
 
         sql="SELECT * FROM GLO_SECTOR WHERE SECTOR="+nombre+""
         print(sql)
@@ -511,6 +513,11 @@ def viewSectores(request):
             for i in cursor.fetchall():
                 id_=i[0]
                 nombre=i[1]
+                tipotar=i[5]
+                tratamiento=i[7]
+                multa=i[8]
+                consumo=i[9]
+                alcantarillado=i[10]
         
         except Exception as e:
             print("Consulta Error" +str(e) )
@@ -522,15 +529,14 @@ def viewSectores(request):
         correlativo=""
         nombre=request.POST['nombre']
         mensaje=""
-        estanque=request.POST['estanque']
+        tipotar=request.POST['tipotar']
         tratamiento=request.POST['tratamiento']
         multa=request.POST['multa']
         consumo=request.POST['consumo']
         alcantarillado=request.POST['alcantarillado']
-        sin_consumo=request.POST['sin_consumo']
 
         #sql="SELECT COUNT(ID) FROM A_SECTOR"
-        sql="SELECT IIf(IsNull(MAX(SECTOR)), 0, Max(SECTOR)) AS ValorMaximo FROM GLO_SECTOR"
+        sql="SELECT IsNull(MAX(SECTOR),0) FROM GLO_SECTOR"
     
         try:
             cursor.execute(sql)
@@ -541,60 +547,44 @@ def viewSectores(request):
         except Exception as e:
             pass
             print(e)
-
-        if id_=='0' or id_==None or id_=='' or id_==' ':
-
+        
+        if id_=='0' or id_==None or id_=='' or id_==' ' or id_=='None':
+            print("NUMERO IDENTIFIADOR " + str(id_))
             existe=existeSector(nombre)
 
             #Inertar
             if(existe==0):
             
-                sql1="INSERT INTO GLO_SECTOR(SECTOR, GLOSA) VALUES ("+str(correlativo)+",'"+nombre+"')"
+                sql1="INSERT INTO GLO_SECTOR(SECTOR, GLOSA,VENCIMIENTO,FLAG,ARRANQUE,COMITE,TIPOTAR,TRATAMIENTO,MULTATRAT,PORCENTAJE,ALCANTARILLADO) VALUES ("+str(correlativo)+",'"+nombre+"',26,0,1000,58,"+tipotar+","+tratamiento+","+multa+","+consumo+","+alcantarillado+")"
                 
                 try:
                     
                     cursor.execute(sql1)
                     conn.commit()
+                    id_='0'
                     print('Guardado correctamente.')
                                 
                 except Exception as e:
                     pass
-                    print(e)
+                    print("Error " + str(sql1))
             
             else:
                 mensaje="No se guardo, existe valor hora en bomba"
-            
-            data={
-                'asociacion':viewName(),
-                #'tipos':buscarTipos(),
-                'lista':buscarTiposSector,
-                'mensaje':mensaje,
-                'id':'0'
-            }  
-            return render(request,'mantenedor/SECTOR.html', data)
 
         else:
-            sql="UPDATE GLO_SECTOR SET GLOSA='"+nombre+"' WHERE SECTOR="+id_
+            sql="UPDATE GLO_SECTOR SET GLOSA='"+nombre+"',TIPOTAR="+tipotar+" WHERE SECTOR="+id_
 
             try:
                 cursor.execute(sql)
                 conn.commit()
                 mensaje="Se modifico correctamente."
+                id_='0'
                 print("Se debe modificar")
 
             except Exception as e:
                 pass
-                print(e)
+                print("Error " + str(sql))
 
-            data={
-                'asociacion':viewName(),
-                #'tipos':buscarTipos(),
-                'lista':buscarTiposSector,
-                'mensaje':mensaje,
-                'id':'0'
-            }
-                
-            return render(request,'mantenedor/SECTOR.html', data)
     data={
         'lista':buscarTiposSector,
         'asociacion':viewName(),
@@ -605,7 +595,9 @@ def viewSectores(request):
         'sin_consumo':sin_consumo,
         'nombre':nombre,
         'id':id_,
-        'tipoTARIFA':buscarTarifas
+        'tipoTARIFA':buscarTarifas,
+        'tipotar':tipotar,
+        'mensaje':mensaje
     }
     return render(request,'mantenedor/SECTOR.html', data)
 
@@ -1075,6 +1067,9 @@ def viewConvenioMan(request):
 def viewTramo1(request):
     
     now = datetime.datetime.now()
+    cargofijo=0
+    fondosolidario=0
+
  
     if request.method=='POST' and 'guardar' in request.POST:        
         fijo=request.POST['fijo']      
@@ -1086,6 +1081,8 @@ def viewTramo1(request):
         valor=request.POST['valor']      
     
     data={
+        'fijo':cargofijo,
+        'solidario':fondosolidario,
         'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
     }
 

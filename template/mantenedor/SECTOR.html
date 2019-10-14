@@ -473,40 +473,37 @@
                       <div class="etiquetas">
                         <div class="etiqueta form-group">
                           <label class="etiqueta_label col-form-label ">Tipo Tarifa</label>
-                          <select class="form-control" name="tarifa" id="tarifa">
+                          <select class="form-control" name="tipotar" id="tipotar" required>
+                            <option value="{{tipotar}}">{{tipotar}}</option>
                             {% for i in tipoTARIFA %}
-                            <option value="{{i.TIPO}}"select>{{i.TIPO}}</option>
+                            <option value="{{i.TIPO}}">{{i.TIPO}}</option>
                             {% endfor %}
                           </select>
                         </div>
                     
                         <div class="etiqueta form-group">
                           <label class="etiqueta_label col-form-labe">Tratamiento de Agua</label>
-                          <input type="text" class="form-control" name="tratamiento" id="tratamiento" value="{{tratamiento}}">
+                          <input type="text" class="form-control" name="tratamiento" id="tratamiento" value="{{tratamiento}}" required>
                         </div>
                     
                         <div class="etiqueta form-group">
                           <label class="etiqueta_label col-form-label">Multa por Tratamiento</label>
-                          <input type="text" class="form-control" name="multa" id="multa" value="{{multa}}">
+                          <input type="text" class="form-control" name="multa" id="multa" value="{{multa}}" required>
                         </div>
                   
                         <div class="etiqueta form-group">
                           <label class="etiqueta_label col-form-label">% Consumo de Agua</label>
-                          <input type="text" class="form-control" name="consumo" id="consumo" value="{{consumo}}">
+                          <input type="text" class="form-control" name="consumo" id="consumo" value="{{consumo}}" required>
                         </div>
                     
                         <div class="etiqueta form-group">
                           <label class="etiqueta_label col-form-label">Alcantarillado</label>
-                          <input type="text" class="form-control" name="alcantarillado" id="alcantarillado" value="{{alcantarillado}}">
-                        </div>
-                  
-                        <div class="etiqueta form-group">
-                          <label class="etiqueta_label col-form-label">Alcantarillado S/Consumo</label>
-                          <input type="text" class="form-control" name="sin_consumo" id="sin_consumo" value="{{sin_consumo}}">
+                          <input type="text" class="form-control" name="alcantarillado" id="alcantarillado" value="{{alcantarillado}}" required>
                         </div>
                       </div>
                     </div>
-                      
+                  </form>
+                  {% endblock %}
                     <div class="form-check form-check-inline marcar">
                       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                       <label class="form-check-label m-b-0 m-l-1">Marque aquí para cerrar todos los sectores</label>
@@ -516,11 +513,10 @@
                         <a href="#"><i class="fas fa-recycle fa-4x icono"></i></a>   
                       </button>
                     </div>
+                    <label>{{mensaje}}</label>
                   </div>
                 </div>
               </div>
-            </form>
-            {% endblock %}
             <!-- #SELECT2-->       
           </div>
           <!-- ROW-->         
@@ -549,11 +545,11 @@
                         <form method="POST" action="/mantenedor/sector/">
                           {% csrf_token %}      
                           <input value="{{medidor.id}}" type="hidden" name="nombreid"> 
-                          <input value="{{medidor.tipotar}}" type="hidden" name="nombreid"> 
-                          <input value="{{medidor.tratamiento}}" type="hidden" name="nombreid"> 
-                          <input value="{{medidor.multatrat}}" type="hidden" name="nombreid"> 
-                          <input value="{{medidor.porcentaje}}" type="hidden" name="nombreid"> 
-                          <input value="{{medidor.alcantarillado}}" type="hidden" name="nombreid"> 
+                          <input value="{{medidor.tipotar}}" type="hidden" name="tipotar"> 
+                          <input value="{{medidor.tratamiento}}" type="hidden" name="tratamiento"> 
+                          <input value="{{medidor.multatrat}}" type="hidden" name="multatrat"> 
+                          <input value="{{medidor.porcentaje}}" type="hidden" name="porcentaje"> 
+                          <input value="{{medidor.alcantarillado}}" type="hidden" name="alcantarillado"> 
                           <button class="btn btn-info" type="submit" name="editar" id="editar"> Editar </button>
                           <button class="btn btn-danger" type="submit" name="borrar" id="borrar"> Borrar </button>
                         </form>
