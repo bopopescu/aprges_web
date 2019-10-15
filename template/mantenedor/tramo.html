@@ -171,9 +171,20 @@
     </style>
     <script>
     function agregarConcepto(){
-        var select = document.getElementById("detalle"), //El <select>
-        value = select.value, //El valor seleccionado
-        text = select.options[select.selectedIndex].innerText; //El texto de la opción seleccionada
+        var tramo = document.getElementById("tramo")
+        var fecha = document.getElementById("fecha")
+        var desde = document.getElementById("desde")
+        var hasta = document.getElementById("hasta")
+        var valor = document.getElementById("valor")
+
+        value = tramo.value
+        value2 = fecha.value
+        value3 = desde.value
+        value4 = hasta.value
+        value5 = valor.value
+
+        alert(value)
+
         var fila="<tr><td><input type='hidden' value="+value+" id='ide' name='ide'><input type='hidden' id='detalle1' name='detalle1' value='"+text+"'>"+text+"</td><td><input onblur='findTotal()' class='form-control' type='number' id='valor' name='valor' value='0'></td></tr>";
   
         var btn = document.createElement("TR");
@@ -541,7 +552,7 @@
                                   <th>Fecha</th>
                                 </tr>
                               </thead>
-                              <tbody >
+                              <tbody id="tablita">
                                 {% for i in lista %}
                                 <tr>
                                   <!-- <td>{{{{}</td> -->
@@ -563,7 +574,8 @@
                     <section class="container etiquetas">
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Tramo</label>
-                        <input type="text" class="form-control" name="tramo" id="tramo" value="{{tramo}}">
+                        <input type="text" class="form-control" name="tramo1" id="tramo1" value="{{tramo}}" disabled>
+                        <input type="hidden" class="form-control" name="tramo" id="tramo" value="{{tramo}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Fecha</label>

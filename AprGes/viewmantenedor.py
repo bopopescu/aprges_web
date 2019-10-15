@@ -1097,6 +1097,9 @@ def viewTramo(request,id_):
     fechaexcel = date(1900,1,1)
     fechatextD=0
     existe=1
+    tramo=0
+    desde=0
+    valor=0
     
     sql="SELECT * FROM GLO_TARIFA where tipo="+str(id_)+" ORDER BY 3"
 
@@ -1106,6 +1109,7 @@ def viewTramo(request,id_):
             cargofijo=i[11]
             fondosolidario=i[12]
             lista.append({'tramo':i[1],'desde':i[2],'hasta':i[3],'fecha':i[7],'mt3':i[4],'valormt3':i[5],'valor':i[4]})
+            tramo=i[1]
     except Exception as a:
         print(a)
 
@@ -1168,6 +1172,9 @@ def viewTramo(request,id_):
         valor=request.POST['valor']      
     
     data={
+        'tramo':tramo,
+        'desde':desde,
+        'valor':valor,
         'existe':existe,
         'inicio':inicio,
         'hasta':hasta,
