@@ -169,6 +169,18 @@
         }
       }
     </style>
+    <script>
+    function agregarConcepto(){
+        var select = document.getElementById("detalle"), //El <select>
+        value = select.value, //El valor seleccionado
+        text = select.options[select.selectedIndex].innerText; //El texto de la opción seleccionada
+        var fila="<tr><td><input type='hidden' value="+value+" id='ide' name='ide'><input type='hidden' id='detalle1' name='detalle1' value='"+text+"'>"+text+"</td><td><input onblur='findTotal()' class='form-control' type='number' id='valor' name='valor' value='0'></td></tr>";
+  
+        var btn = document.createElement("TR");
+        btn.innerHTML=fila;
+        document.getElementById("tablita").appendChild(btn);
+      }
+    </script>
   </head>
 
   <body class="orchid">
@@ -466,11 +478,12 @@
 
                     <!-- botones -->
                     <section class="container botones">
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo1/">Tarifa x Tramo (1)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo2/">Tarifa x Tramo (2)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo3/" >Tarifa x Tramo (3)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button>
-                    </section>
+                        <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/0/">Tarifa x Tramo (1)</a></button>
+                        <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/1/">Tarifa x Tramo (2)</a></button>
+                        <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/2/" >Tarifa x Tramo (3)</a></button>
+                        <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/3/">Tarifa x Mt3</a></button> 
+                      </section>
+    
   
                     <!-- cargos -->
                     <section class="container cargos">
@@ -529,90 +542,16 @@
                                 </tr>
                               </thead>
                               <tbody >
+                                {% for i in lista %}
                                 <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                  <!-- <td>{{{{}</td> -->
+                                  <td>{{i.tramo}}</td>
+                                  <td>{{i.desde}}</td>
+                                  <td>{{i.hasta}}</td>
+                                  <td>{{i.valor}}</td>
+                                  <td>{{i.fecha}}</td>
                                 </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
+                                {% endfor %}
                               </tbody>
                             </table>
                           </div>
@@ -645,7 +584,10 @@
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Valor</label>
                         <input type="text" class="form-control" name="valor" id="valor" value="{{valor}}">
-                      </div>                    
+                      </div>   
+                      <div class="etiqueta form-group">
+                          <button type="button" class="btn btn-primary" type="button" onclick="agregarConcepto()" name="guardar" id="guardar">Ingresar</button>
+                        </div>                  
                     </section>
   
                     <!-- iconos -->
@@ -659,10 +601,7 @@
                       <button class="boton_iconos" type="submit" id="abonar" name="abonar">
                         <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
                       </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
-                        <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
-                      </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="eliminar" name="eliminar">
                         <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
                       </button>
                     </section>            

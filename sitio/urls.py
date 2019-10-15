@@ -22,10 +22,7 @@ urlpatterns = [
     #Mantenedor
     path('mantenedor/tipoagua/',viewTipo),
     path('mantenedor/valor/',viewTarifa),
-    path('mantenedor/tramo1/', viewTramo1),
-    path('mantenedor/tramo2/', viewTramo2),
-    path('mantenedor/tramo3/', viewTramo3),
-    path('mantenedor/tramo4/', viewTramo4),
+    path('mantenedor/tarifas/<id_>/', viewTramo),
     path('mantenedor/sector/',viewSectores),
     path('mantenedor/calle_area/', viewCallesArea),
     path('mantenedor/cargo/', viewCargo),

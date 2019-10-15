@@ -22,6 +22,7 @@ import os.path as path
 import os
 import subprocess
 from AprGes.utils import render_to_pdf
+from datetime import date
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
 """
@@ -45,6 +46,9 @@ except pyodbc.Error as ex:
     print(sqlstate)
     if sqlstate == '08001':
         pass
+
+def days_between(d1, d2):
+    return abs(d2 - d1).days
 
 def buscarporNombre():
 
@@ -1064,13 +1068,96 @@ def viewConvenioMan(request):
     }
     return render(request,'mantenedor/convenio.html', data)
 
-def viewTramo1(request):
+def correlativotarifa():
+    
+    correlativo=0
+    sql="SELECT IsNull(MAX(CORRELATIVO),0) FROM GLO_TARIFA"
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            correlativo=i[0]+1
+    except Exception as a:
+        print(a)
+    
+    return correlativo
+
+def viewTramo(request,id_):
+
+    print("tarifa seleccionada  " + str(id_))
     
     now = datetime.datetime.now()
     cargofijo=0
     fondosolidario=0
+    lista=[]
+    inicio=0
+    hasta=0
+    valor_inicial=0
+    intervalo=0
+    fechaexcel = date(1900,1,1)
+    fechatextD=0
+    existe=1
+    
+    sql="SELECT * FROM GLO_TARIFA where tipo="+str(id_)+" ORDER BY 3"
 
- 
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            cargofijo=i[11]
+            fondosolidario=i[12]
+            lista.append({'tramo':i[1],'desde':i[2],'hasta':i[3],'fecha':i[7],'mt3':i[4],'valormt3':i[5],'valor':i[4]})
+    except Exception as a:
+        print(a)
+
+    if request.method=='POST' and 'guardartarifa' in request.POST:
+        sql="INSERT INTO GLO_TARIFA"
+    
+    if request.method=='POST' and 'eliminartarifa' in request.POST:
+
+        tipo=request.POST['tipo']
+
+        sql="DELETE FROM GLO_TARIFA WHERE TIPO="+tipo+" AND VIGENTE=0"
+
+        try:
+            cursor.execute(sql)
+            cursor.commit()
+        except Exception as a:
+            print(a)
+
+    if request.method=='POST' and 'imprimirtarifa' in request.POST:
+
+        pdf = render_to_pdf('reportes/rpt_tipo_agua.html', data)
+        return HttpResponse(pdf, content_type='application/pdf')
+
+    if request.method=='POST' and 'generart' in request.POST:
+
+        inicio=request.POST['inicio']
+        hasta=request.POST['hasta']
+        valor_inicial=request.POST['valor_inicial']
+        intervalo=request.POST['intervalo']
+        existe=request.POST['existe']
+
+        fechaac=str(now.day)+"-"+str(now.month)+"-"+str(now.year)
+        bjDate1 = datetime.strptime(fechaac, '%d-%m-%Y')
+        d22=date(bjDate1.year,bjDate1.month,bjDate1.day)
+        fechatextD=days_between(d22, fechaexcel)
+
+        if existe=='0':
+            while inicio<=hasta:
+                valor=str(int(valor_inicial)+int(intervalo))
+                sql="INSERT INTO GLO_TARIFA(correlativo,tramo,desde,hasta,valor,valormt3,fecha,fechastr,vigente,tipo,comite,fijo,fondo) values("+str(correlativotarifa())+","+inicio+","+inicio+","+inicio+","+valor+","+valor+","+fechatextD+","+fechaac+",0,3,64,"+valor_inicial+",0)"
+
+                try:
+                    cursor.execute(sql)
+                    cursor.commit()
+                except Exception as a:
+                    print(a)
+
+                inicio=inicio+1
+            mensaje="Se genero correctamente"
+        else:
+            mensaje="Se debe eliminar tabla tarifaria antes de ingresar una nueva."
+
     if request.method=='POST' and 'guardar' in request.POST:        
         fijo=request.POST['fijo']      
         solidario=request.POST['solidario']      
@@ -1081,59 +1168,22 @@ def viewTramo1(request):
         valor=request.POST['valor']      
     
     data={
+        'existe':existe,
+        'inicio':inicio,
+        'hasta':hasta,
+        'valor_inicial':valor_inicial,
+        'intervalo':intervalo,
+        'fijo':cargofijo,
+        'lista':lista,
         'fijo':cargofijo,
         'solidario':fondosolidario,
         'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
     }
 
-    return render(request, 'mantenedor/tramo1.html', data)
-
-def viewTramo2(request):
-    
-    now = datetime.datetime.now()
-
-    if request.method=='POST' and 'guardar' in request.POST:        
-        fijo=request.POST['fijo']      
-        solidario=request.POST['solidario']      
-        tramo=request.POST['tramo']      
-        hoy=request.POST['hoy']
-        desde=request.POST['desde']      
-        hasta=request.POST['hasta']      
-        valor=request.POST['valor']      
-
-    data={
-        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
-    }
-    return render(request, 'mantenedor/tramo2.html', data)
-
-def viewTramo3(request):
-    
-    now = datetime.datetime.now()
-
-    if request.method=='POST' and 'guardar' in request.POST:        
-        fijo=request.POST['fijo']      
-        solidario=request.POST['solidario']      
-        tramo=request.POST['tramo']      
-        hoy=request.POST['hoy']
-        desde=request.POST['desde']      
-        hasta=request.POST['hasta']      
-        valor=request.POST['valor']      
-
-    data={
-        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
-    }
-    return render(request, 'mantenedor/tramo3.html', data)
-
-def viewTramo4(request):
-    if request.method=='POST' and 'guardar' in request.POST:        
-        fijo=request.POST['fijo']      
-        solidario=request.POST['solidario']      
-        inicio=request.POST['inicio']      
-        hasta=request.POST['hasta']
-        valor_inicial=request.POST['valor_inicial']      
-        intervalo=request.POST['intervalo']
-    
-    return render(request, 'mantenedor/tramo4.html', {})
+    if id_=='3':
+        return render(request, 'mantenedor/tramoespecial.html', data)
+    else:
+        return render(request, 'mantenedor/tramo.html', data)
 
 def viewMedidor(request):
 

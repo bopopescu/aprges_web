@@ -489,10 +489,10 @@
 
                     <!-- botones -->
                     <section class="container botones">
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo1/">Tarifa x Tramo (1)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo2/">Tarifa x Tramo (2)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo3/" >Tarifa x Tramo (3)</a></button>
-                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tramo4/">Tarifa x Mt3</a></button> 
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/1/">Tarifa x Tramo (1)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/2/">Tarifa x Tramo (2)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/3/" >Tarifa x Tramo (3)</a></button>
+                      <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/4/">Tarifa x Mt3</a></button> 
                     </section>
   
                     <!-- cargos -->
@@ -540,9 +540,12 @@
                     <section class="container">
                       <div class="card et">
                         <div class="etiquetas_tablas card-body">
+                            {% block content3 %}	
+                          <form action="/mantenedor/tarifas/4/" method="POST">{% csrf_token %}  
                           <!-- etiquetas -->
                           <section class="etiquetass">
                             <p class="etiquetas_titulo">Ingreso de Tarifas:</p>
+                            <input type="hidden" name="existe" id="existe">
                             <div class="etiqueta form-group">
                               <label>Inicio Mts3:</label>
                               <input type="text" class="etiqueta_input form-control" name="inicio" id="inicio" value="{{inicio}}">
@@ -560,10 +563,11 @@
                               <input type="text" class="etiqueta_input form-control" name="intervalo" id="intervalo" value="{{intervalo}}">
                             </div>
                             <div class="boton2_div">                      
-                              <button type="button" class="btn boton-outline-info boton2">Generar Tarifa</button>
+                              <button type="submit" class="btn boton-outline-info boton2" name="generart" id="generart" >Generar Tarifa</button>
                             </div>
                           </section>
-
+                          </form>
+                          {% endblock %}    
                           <!-- tabla -->
                           <section class="tabla">
                             <div class="cuerpo_tabla">
@@ -577,90 +581,14 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  {% for i in lista %}
                                   <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
+                                    <td>{{i.tramo}}</td>
+                                    <td>{{i.mt3}}</td>
+                                    <td>{{i.valormt3}}</td>
+                                    <td>{{i.valor}}</td>
                                   </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td></td>
-                                  </tr>
+                                  {% endfor %}
                                 </tbody>
                               </table>
                             </div>
@@ -672,16 +600,16 @@
   
                     <!-- iconos -->
                     <section class="container iconos">
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="guardar" name="guardar">
                         <a href="#"><i class="far fa-save fa-4x icono"></i></a>
                       </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="" name="">
                         <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
                       </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="imprimir" name="imprimir">
                         <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
                       </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="eliminar" name="eliminar">
                         <a href="#"><i class="fas fa-times fa-4x icono"></i></a>
                       </button>
                       <button class="boton_iconos" type="submit" id="abonar" name="abonar">
