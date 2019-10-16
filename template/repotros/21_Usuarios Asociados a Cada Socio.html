@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de usuarios con pagos pendientes</title>
+        
+        <style rel="stylesheet" type="text/css" media="print">
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+                margin-top: 10px;
+            }
+            h2{
+                margin-left: 38;
+            }
+            .table{
+                height: 35px;
+                margin: 2;
+                border: 1px solid black;
+                font-size: 4;
+            }
+            th{
+                background-color: silver;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h1>Usuarios Asociados a Cada Socio</h1>
+        <br>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rut Cliente</th>
+                    <th width="40%">Nombre Cliente</th>
+                    <th>Medidor</th>
+                    <th>Sector</th>
+                    <th>Ruta</th>
+                    <th>Rut Socio</th>
+                    <th width="40%">Nombre Socio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="Cliente"></td>
+                    <td><input type="text" placeholder="Nombre cliente"></td>
+                    <td><input type="text" placeholder="Correlativo"></td>
+                    <td><input type="text" placeholder="Sector"></td>
+                    <td><input type="text" placeholder="Sitio"></td>
+                    <td><input type="text" placeholder="Socio"></td>
+                    <td><input type="text" placeholder="Nombre socio"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

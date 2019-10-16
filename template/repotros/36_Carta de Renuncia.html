@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de usuarios con pagos pendientes</title>
+        
+        <style rel="stylesheet" type="text/css" media="print">
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+                margin-top: 10px;
+            }
+            p{
+                font-size: 5;
+            }
+            .firmas{
+                padding-bottom: 10;
+                margin-left: 50;
+            }
+            .firma1{
+                border-top: 1px solid black;
+                padding-left: 7;
+                padding-top: 1;
+            }
+            .firma2{
+                border-top: 1px solid black;
+                padding-left: 50px;
+                padding-top: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h1>Carta Renuncia</h1>
+        <br>
+
+        <div class="parrafo">
+            <p>En <label>?Lugar</label> a <label for="">Fecha</label></p>
+            <p>Yo <label>?Nombre</label> Carnet de Identidad Nro <label for="">?Rut</label> vengo a solicitar mi renuncia de derecho de socio en los registros de:</p>
+            <p>Nombre: <input type="text" placeholder="Nombre"></p>
+            <p>por<input type="text" placeholder="Motivo"></p>
+            <p>haciendo validos los derechos cancelados por este.</p>
+        </div>
+
+        <div class="firmas">
+            <p class="firma1">Firma del Solicitante</p>
+        </div>
+        <div class="firmas">
+            <p class="firma2">VB Presidente</p>
+        </div>
+    
+    </body>
+</html>

@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de socio por medidor</title>
+        <style>
+            @page {
+                margin: 30;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+                margin-top: 30px;
+            }
+            h2{
+                text-align: center;
+                margin-top: -10;
+            }
+            .sector{
+                margin-top: 5;
+                font-size: 5;
+            }
+            .ident{
+                margin-top: 6;
+                font-size: 4;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td>Fecha de Impresion</td>
+            <td colspan="5"><input type="text" placeholder="print date"></td>
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1>Nomina de Abonos </h1>
+        <h2><input type="text" placeholder="?meses"></h2>
+
+        <div class="sector">        
+            <label for="">Fecha</label>
+            <input type="text" placeholder="fecha">
+        </div>
+
+        <table class="ident">
+            <tbody>
+                <tr>
+                    <th width="30%">Nro Abono</th>
+                    <th width="30%">Boleta</th>
+                    <th width="30%">Medidor</th>
+                    <th width="100%">Nombre</th>
+                    <th width="30%">Total</th>
+                </tr>
+                <tr >
+                    <td><input type="text" placeholder="abono_correlativo">qqqq</td>
+                    <td><input type="text" placeholder="idboleta">qqqq</td>
+                    <td><input type="text" placeholder="medidor_correlativo">qqqq</td>
+                    <td><input type="text" placeholder="nombre">qqqq</td>
+                    <td><input type="text" placeholder="monto">qqqq</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="total">
+            <tbody>
+                <tr>
+                    <td rowspan="2" colspan="4"></td>
+                    <th>SUB TOTAL</th>
+                    <th><input type="text" placeholder="sum abono.monto"></th>
+                </tr>
+                <tr>
+                    <th>TOTAL GENERAL</th>
+                    <th><input type="text" placeholder="sum abono.monto"></th>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script src="C:\Users\Kleinht\Desktop\TAREA 1\boots\jquery-3.4.1.min.js"></script>
+        <script src="C:\Users\Kleinht\Desktop\TAREA 1\js\bootstrap.min.js"></script>
+    </body>
+</html>

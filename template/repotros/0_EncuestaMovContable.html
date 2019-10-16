@@ -1,0 +1,283 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Encuesta del Movimiento Contable Bimestral de los Servicios Rurales de Agua Potable</title>
+        <style>
+            @page{
+                size: letter portrait;
+                margin: 30 50;
+            }              
+            /* body{
+                text-align: center;
+            } */
+            h1 {
+                font-size: 25px;
+                margin-top: 10px;
+                margin-bottom: 0;
+                text-align: center;
+            }       
+            h5{
+                margin-top: 0;
+            }
+            .ingresos_tabla{
+                height: 20px;
+                padding-left: 4;
+            } 
+            .egresos{                
+                padding-top: 4;
+            }
+            .egresos_item{
+                padding-left: 7;
+            }
+            .egresos_tabla{
+                padding-left: 7;
+                height: 20px;
+            }
+            th{
+                text-align: left !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table class="servicios">
+            <tbody>                
+                <tr>
+                    <td>Servicio</td>
+                    <td colspan="6"><input type="text" placeholder="?servicio"></td>
+                    <td rowspan="3" style="text-align: right; height: 70px;">
+                        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td><input type="text" placeholder="?region"></td>
+                </tr>
+                <tr>
+                    <td>Meses</td>
+                    <td><input type="text" placeholder="?meses"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>Encuesta del Movimiento Contable Bimestral de los Servicios Rurales de Agua Potable</h1>
+            
+        <h5>A. Ingresos del Bimestre por:</h5>
+        <table class="ingresos_tabla">
+            <thead>
+                <tr>
+                    <td>1. Consumo de Agua Potable</td>
+                    <td width="30%">$<input type="text" placeholder="ing01"></td>
+                </tr> 
+                <tr>                                    
+                    <td>2. Cuotas de Incorporacion</td>
+                    <td>$<input type="text" placeholder="ing02"></td>
+                </tr>
+                <tr>                                    
+                    <td>3. Reajustes e Intereses</td>
+                    <td>$<input type="text" placeholder="ing03"></td>
+                </tr>
+                <tr>                                    
+                    <td>4. Otros (especifique) Devolucion Caja, Devolucion PRestamos</td>
+                    <td>$<input type="text" placeholder="ing04"></td>
+                </tr>
+                <tr>                                    
+                    <th>SubTotal</th>
+                    <td>$<input type="text" placeholder="@subtotaling1"></td>
+                </tr>
+                <tr>                                    
+                    <td>Giros</td>
+                    <td>$<input type="text" placeholder="gir01"></td>
+                </tr>
+                <tr>                                    
+                    <th>Total</th>
+                    <td>$<input type="text" placeholder="@totalingresos"></td>
+                </tr>
+            </thead> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+        
+        <h5 class="egresos">B. Egresos del Bimestre por:</h5>
+        <p class="egresos_item">1. Gastos de Operacion</p>
+        <table class="egresos_tabla">
+            <tbody>
+                <tr>
+                    <td>1.1 Pagos de Energia Electrica</td>
+                    <td width="34%">$<input type="text" placeholder="gasoper01"></td>
+                </tr> 
+                <tr>                                    
+                    <td>1.2 Sueldos - recaudador - gerente - leyes sociales</td>
+                    <td>$<input type="text" placeholder="gasoper02"></td>
+                </tr>
+                <tr>                                    
+                    <td>1.3 Compra de Cloro u otro elemento de desinfeccion</td>
+                    <td>$<input type="text" placeholder="gasoper03"></td>
+                </tr>
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        <p class="egresos_item">2. Gastos de Administracion</p>
+        <table class="egresos_tabla">
+            <tbody>
+                <tr>
+                    <td>2.1 Tramites, viaticos, utiles de oficina</td>
+                    <td width="34%">$<input type="text" placeholder="gasadm"></td>
+                </tr>
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        <p class="egresos_item">3. Gastos de Mantenimiento</p>
+        <table class="egresos_tabla">
+            <tbody>
+                <tr>
+                    <td>3.1 Reparaciones menores, motobomba, materiales</td>
+                    <td width="34%">$<input type="text" placeholder="gasman"></td>
+                </tr>
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        <p class="egresos_item">4. Gastos de Mejoramiento</p>
+        <table class="egresos_tabla">
+            <tbody>
+                <tr>
+                    <td>4.1 Adquision de bienes muebles e inmuebles, equipos, materiales construccion de oficina</td>
+                    <td width="34%">$<input type="text" placeholder="mej02"></td>
+                </tr>
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        <p class="egresos_item">5. Por Otros Conceptos</p>
+        <table class="egresos_tabla">
+            <tbody>
+                <tr>
+                    <td>5.1 Donaciones</td>
+                    <td width="34%">$<input type="text" placeholder="otros01"></td>
+                </tr> 
+                <tr>                                    
+                    <td>5.2 Balances, estados de situacion u otros de su especialidad</td>
+                    <td>$<input type="text" placeholder="otros02"></td>
+                </tr>
+                <tr>                                    
+                    <td>5.3 Otros gastos (especifique) Seguros, Funeral, Corona, Coop. B.</td>
+                    <td>$<input type="text" placeholder="otros03"></td>
+                </tr>
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+        
+        <br>
+        <table class="ingresos_tabla">
+            <tbody>
+                <tr>
+                    <th>SUB-TOTAL</th>
+                    <th width="30%">$<input type="text" placeholder="@subtotalegr"></th>
+                </tr> 
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        <br>
+        <table class="ingresos_tabla">
+            <tbody>
+                <tr>
+                    <td>6. Depositos (cta. ahorro - dep. a plazo)</td>
+                    <td width="30%">$<input type="text" placeholder="@dep01"></td>
+                </tr> 
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+        
+        <br>
+        <table class="ingresos_tabla">
+            <tbody>
+                <tr>
+                    <th>TOTAL</th>
+                    <th width="30%">$<input type="text" placeholder="@totalegresos"></th>
+                </tr> 
+            </tbody> 
+            <!-- <tbody>
+                {% for i in lista2 %}    
+                <tr>
+                    <td>{{i.sector}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody> -->
+        </table>
+
+        
+    </body>
+</html>
+

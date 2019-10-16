@@ -1,0 +1,123 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de usuarios con pagos pendientes</title>
+        
+        <style rel="stylesheet" type="text/css" media="print">
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+                margin-top: 10px;
+            }
+            h2{
+                margin-left: 38;
+            }
+            .table{
+                height: 35px;
+                margin: 2;
+                border: 1px solid black;
+                font-size: 4;
+            }
+            th{
+                background-color: silver;
+            }
+            .medidores{
+                margin-top: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td><input type="text" placeholder="Nombre comite"></td>
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h1>Registro Lectura de Medidores Mes</h1>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Sector</td>
+                    <td colspan="3"><input type="text" placeholder="sector"></td>
+                    <td>Sitio</td>
+                    <td colspan="3"><input type="text" placeholder="sitio2"></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td colspan="7"><input type="text" placeholder="nombre"></td>
+                </tr>
+                <tr>
+                    <td>Direccion</td>
+                    <td colspan="7"<input type="text" placeholder="direccion"></td>
+                </tr>
+                <tr>
+                    <td>Rut</td>
+                    <td colspan="7"><input type="text" placeholder="rut"></td>
+                </tr>
+                <tr>
+                    <td>Nro Medidor</td>
+                    <td colspan="3"><input type="text" placeholder="correlativo"></td>
+                    <td>Nro Serie Medidor</td>
+                    <td colspan="3"><input type="text" placeholder="serie"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mes</th>
+                    <th>Lectura</th>
+                    <th>Consumo</th>
+                    <th>Valor $</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="mes"></td>
+                    <td><input type="text" placeholder="lectura"></td>
+                    <td><input type="text" placeholder="consumo"></td>
+                    <td><input type="text" placeholder="valor"></td>
+                    <td><input type="text" placeholder="MaxDeCorrelativo"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <table class="medidores">
+            <tbody>
+                <tr>
+                    <td>1. Medidores Detenidos</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>2. Medidores Empañados</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>3. Medidor Malo</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>4. Casa Cerrada</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>5. Sin Medidor</td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

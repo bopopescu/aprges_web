@@ -154,4 +154,63 @@ urlpatterns = [
     path('configuracion/condonacionrpt/', informeCondonacionrpt),
     path('contabilidad/saldo/', informeSaldo),
     path('procesos/reporte/', informeReporte),
+    
+
+
+
+
+
+
+    
+
+
+    path('repotros/0/', view0_EncuestaMovContable),
+    path('repotros/1.1/', view1_1LibroCajaIngreso),
+    path('repotros/1.2/', view1_2LibroCajaEgreso),
+    path('repotros/2/', view2_NominaUsuarioPagosPendientes),
+    path('repotros/3/', view3_NominaUsuariosPagoDia),
+    path('repotros/4/', view4_RegistroMedidoresSinLectura),
+    path('repotros/5/', view5_ListBoletasIngresados),
+    path('repotros/6/', view6_ListAbonosIngresados),
+    path('repotros/7/', view7_ListComprobantesIngresados),
+    path('repotros/8/', view8_ListComprobantesEgresados),
+    path('repotros/9/', view9_ListFacturasEmitidas),
+    path('repotros/10/', view10_ListFacturasPendientes),
+    path('repotros/12/', view12_ListMedidoresCorte),
+    path('repotros/13/', view13_ListMedidoresSuspender),
+    path('repotros/14/', view14_ListMedidoresRetiro),
+    path('repotros/15/', view15_ListadoFacturacion),
+    path('repotros/16/', view16_RangoConsumoAño),
+    path('repotros/17/', view17_FormatoPlantillaControl),
+    path('repotros/18/', view18_EstadisticasMedidores),
+    path('repotros/19/', view19_ListadoLecturaMedidoresMes),
+    # path('repotros/20/', ),
+    path('repotros/21/', view21_UsuariosAsociadoSocio),
+    # path('repotros/20/', ),
+    path('repotros/24/', view24_ControlArranquesSector),
+    # path('repotros/25/', ),
+    # path('repotros/26/', ),
+    # path('repotros/27/', ),
+    # path('repotros/28/', ),
+    # path('repotros/29/', ),
+    # path('repotros/30/', ),
+    # path('repotros/31/', ),
+    # path('repotros/32/', ),
+    # path('repotros/33/', ),
+    # path('repotros/34/', ),
+    # path('repotros/35/', ),
+    path('repotros/36/', view36_CartaRenuncia),
+    # path('repotros/37/', ),
+    path('repotros/38/', view38_ListadoSocioOrdenGeografico),
+    # path('repotros/39/', ),
+    # path('repotros/40/', ),
+    # path('repotros/41/', ),
+    # path('repotros/42/', ),
+    # path('repotros/43/', ),
+    path('repotros/44/', view44_ListadoMedidoresNoDisponibles),
+    # path('repotros/45/', ),
+    # path('repotros/46/', ),
+    # path('repotros/47/', ),
+    # path('repotros/48/', ),
+    # path('repotros/49/', ),
 ]

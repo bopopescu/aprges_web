@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de usuarios con pagos pendientes</title>
+        
+        <style rel="stylesheet" type="text/css" media="print">
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            body{
+                text-align: center
+            }
+            .table{
+                height: 40px;
+                border: 2px solid black;
+            }
+            th{
+                background-color: silver;
+            }
+            h1 {
+                font-size: 3em;
+                margin: 0;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h1>Nomina de Usuarios con Pagos Pendientes</h1>
+        <h3>{{asociacion}}</h3>
+        <h3>Fecha actual {{hoy}}</h3>
+        <br>
+        
+        <table class="table">
+            <thead>
+                <tr class="tablaitulos">
+                    <th width="100%">NOMBRE DE PARCELERO</th>
+                    <th>DIRECCION</th>
+                    <th>DEUDA ($)</th>
+                </tr>
+            </thead>
+            <tbody>  
+                {% for i in lista2 %}       
+                <tr>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                    <td class="deuda">{{i.deuda}}</td>  
+                </tr>  
+                {% endfor %} 
+            </tbody>
+        </table> 
+    </body>
+</html>
