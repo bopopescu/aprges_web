@@ -58,6 +58,92 @@
         width: fit-content;
         padding: 1rem 2rem;
       }
+
+      
+      /* inicio modal */         
+      .modalDialog {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.3);
+        z-index: 99999;
+        opacity:0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+      }
+      .modalDialog:target {
+        opacity:1;
+        pointer-events: auto;
+        }
+      .modalDialog > div {
+        width: 80%;
+        height: fit-content;
+        position: relative;
+        margin: 25rem auto;
+        padding: 2rem;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -webkit-linear-gradient(#F5FCFF, #B7E9F7);
+        background: -o-linear-gradient(#F5FCFF, #B7E9F7);
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+      }
+    /* inicio cerrar */
+      .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: #17a2b8;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -15px;
+        top: -20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        box-shadow: 1px 1px 3px #000;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+      }
+      .close:hover { background: #17a2b8; }
+    /* fin cerrar */
+      .modal_div_btn{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 3rem;
+      }      
+      
+      .boton_info_modal{
+        background-color: #17a2b8;
+        border-color: #17a2b8; 
+        color: white;
+        width: 7rem;
+      }
+      .boton_info_modal:hover{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;              
+      }   
+      .boton_info_modal:focus{
+        background-color: #0a8a9e;
+        border-color: #0a8a9e;               
+      }  
+    /* fin modal */
+      @media(min-width:768px){    
+        .modalDialog > div {
+          width: 25%;
+        }
+      }
     </style>
   </head>
 
@@ -401,6 +487,37 @@
                     </div>
                     <label>{{mensaje}}</label>
                   </div>
+                  
+                  <a href="#modalEliminado">Eliminado</a>
+                  <a href="#modalGuardado">guardado</a>
+
+                  <!-- MODAL eliminar -->
+                  <div id="modalEliminado" class="modalDialog">
+                    <div>
+                      <!-- cerrar -->
+                      <a href="#close" title="Close" class="close">X</a>
+                      <!-- titulo -->
+                      <h2>¿Seguro que desea eliminar la información?</h2>
+                      <div class="modal_div_btn">                          
+                        <button type="button" class="btn boton_info_modal">Sí</button>
+                        <button type="button" class="btn boton_info_modal">No</button>
+                      </div>
+                    </div>
+                  </div>  
+                  
+                  <!-- MODAL guardar -->
+                  <div id="modalGuardado" class="modalDialog">
+                    <div>
+                      <!-- cerrar -->
+                      <a href="#close" title="Close" class="close">X</a>
+                      <!-- titulo -->
+                      <h2>La información fue guardada</h2>
+                      <div class="modal_div_btn">                          
+                        <button type="button" class="btn boton_info_modal"><a href="" style="color: white;">Aceptar</a></button>
+                      </div>
+                    </div>
+                  </div> 
+
                 </div>  
               </form>
               {% endblock %}  

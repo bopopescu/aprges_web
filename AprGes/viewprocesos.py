@@ -1034,7 +1034,7 @@ def viewConvenio(request):
     if request.method=='POST' and 'individual' in request.POST:
 
         data={
-            'lista_s':buscarSocios(),
+            # 'lista_s':buscarSocios(),
             'tipos':buscarConvenios(),
             'asociacion':viewName(),
             'ano':str(now.year),
@@ -1275,7 +1275,7 @@ def viewConvenio(request):
         'mes':mes,
         'fecha':str(now.day)+"/"+str(now.month)+"/"+str(now.year),
         'all_socios':buscarporNombre,
-        'lista_s':buscarSocios(),
+        # 'lista_s':buscarSocios(),
         'mensaje':mensaje
     }
         
@@ -2190,7 +2190,7 @@ def viewGeneracion(request):
             'mensaje':mensaje,
             'cierre':botoncierre
         }
-    return render(request, 'procesos/boletas.html', data)
+    return render(request, 'procesos/boletas.html', {})
 
 def correlativoFactura():
 
