@@ -1171,6 +1171,7 @@ def viewTramo(request,id_):
     desde=0
     valor=0
     mensaje=""
+    resultado=""
 
     if request.method=='POST' and 'guardartarifa' in request.POST:
 
@@ -1222,10 +1223,11 @@ def viewTramo(request,id_):
                 try:
                     cursor.execute(sql)
                     cursor.commit()
-                    mensaje="OK"
+                    mensaje="quedo guardado correctamente"
+                    resultado="OK"
                 except Exception as a:
                     print(a)    
-                    mensaje="ERROR"
+                    resultado="ERROR"
 
                 inicial=inicial+1
 
@@ -1312,7 +1314,9 @@ def viewTramo(request,id_):
         'id_':id_,
         'desdeultimo':desde,
         'hastaultimo':hasta,
-        'valorultimo':valor
+        'valorultimo':valor,
+        'resultado':resultado,
+        'mensaje':mensaje
     }
 
     if id_=='3':
