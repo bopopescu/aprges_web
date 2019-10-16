@@ -34,24 +34,28 @@
 </head>
 
 <body>
-        <h2>LISTA DE TIPO DE RIEGO</h2>
-        <p>{{asociacion}}</p>
+        <h2>VALORES DE TABLA TARIFARIA</h2>
+        <p>{{comite}}</p>
+        <p><b>Cargo fijo $ {{fijo}}</b></p>
+        <p><b>Fondo solidario $ {{solidario}}</b></p>
         <table class="table">
                 <thead>
                         <tr>
-                        <th style="padding-top:5px;padding-left: 1px;padding-right: 1px;">Identificador</th>
-                        <th style="padding-top:5px;">Nombre</th>
-                        <th style="padding-top:5px;">Tipo</th>
-                        <th style="padding-top:5px;">Nro de Turnos</th>
+                        <th style="padding-top:5px;padding-left: 1px;padding-right: 1px;">Tramos</th>
+                        <th style="padding-top:5px;">Desde</th>
+                        <th style="padding-top:5px;">Hasta</th>
+                        <th style="padding-top:5px;">Valor</th>
+                        <th style="padding-top:5px;">Fecha</th>
                         </tr>
                 </thead>
                 <tbody>
                 {% for i in lista %}
                 <tr>
-                        <td>{{i.id}}</td>
-                        <td>{{i.nombre}}</td>
-                        <td>{{i.tipo}}</td>
-                        <td>{{i.fecha}}</td>                        
+                        <td>{{i.tramo}}</td>
+                        <td>{{i.desde}}</td>
+                        <td>{{i.hasta}}</td>
+                        <td>{{i.valor}}</td>         
+                        <td>{{i.fecha}}</td>                   
                 </tr>   
                 {% endfor %}        
                 </tbody>          

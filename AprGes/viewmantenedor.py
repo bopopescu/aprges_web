@@ -22,7 +22,7 @@ import os.path as path
 import os
 import subprocess
 from AprGes.utils import render_to_pdf
-from datetime import date
+from datetime import date,datetime
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
 """
@@ -80,6 +80,22 @@ def buscarporNombreProveedores():
     except Exception as e:
         pass
         print(e)
+
+def datosComite():
+
+    lista=[]
+    sql="SELECT * FROM DATOS_COMITE"
+
+    try:
+        cursor.execute(sql)
+
+        for i in cursor.fetchall():
+            lista.append({'comite':i[2]})
+            
+    except Exception as e:
+        print(e)
+
+    return lista
 
 def viewName():
 
@@ -1082,11 +1098,65 @@ def correlativotarifa():
     
     return correlativo
 
+def buscardatosTarifa(id_):
+
+    sql="SELECT * FROM GLO_TARIFA where tipo="+str(id_)+" ORDER BY 3"
+    lista=[]
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            lista.append({'tramo':i[1],'desde':i[2],'hasta':i[3],'fecha':i[7],'mt3':i[4],'valormt3':i[5],'valor':i[4],'fijo':i[11],'solidario':i[12]})
+    except Exception as a:
+        print(a)
+
+    return lista
+
+def buscarcargofijo(id_):
+    sql="SELECT DISTINCT(FIJO) FROM GLO_TARIFA where tipo="+str(id_)
+    fijo=0
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            fijo=i[0]
+    except Exception as a:
+        print(a)
+
+    return fijo
+
+def buscartramo(id_):
+    sql="SELECT MAX(TRAMO) FROM GLO_TARIFA where tipo="+str(id_)
+    fijo=0
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            fijo=i[0]+1
+    except Exception as a:
+        print(a)
+
+    return fijo
+
+def buscarSolidario(id_):
+    sql="SELECT DISTINCT(FONDO) FROM GLO_TARIFA where tipo="+str(id_)
+    fijo=0
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            fijo=i[0]
+    except Exception as a:
+        print(a)
+
+    return fijo
+
+
 def viewTramo(request,id_):
 
     print("tarifa seleccionada  " + str(id_))
     
-    now = datetime.datetime.now()
+    now =time.strftime("%d-%m-%Y")
     cargofijo=0
     fondosolidario=0
     lista=[]
@@ -1100,22 +1170,65 @@ def viewTramo(request,id_):
     tramo=0
     desde=0
     valor=0
-    
-    sql="SELECT * FROM GLO_TARIFA where tipo="+str(id_)+" ORDER BY 3"
-
-    try:
-        cursor.execute(sql)
-        for i in cursor.fetchall():
-            cargofijo=i[11]
-            fondosolidario=i[12]
-            lista.append({'tramo':i[1],'desde':i[2],'hasta':i[3],'fecha':i[7],'mt3':i[4],'valormt3':i[5],'valor':i[4]})
-            tramo=i[1]
-    except Exception as a:
-        print(a)
+    mensaje=""
 
     if request.method=='POST' and 'guardartarifa' in request.POST:
-        sql="INSERT INTO GLO_TARIFA"
-    
+
+        existe=buscardatosTarifa(id_)
+        if len(existe)>0:
+            mensaje="ERROR"
+        else:
+
+            inicial=0
+            mensaje=""
+            tramotabla=request.POST.getlist('tramotabla')
+            desdetabla=request.POST.getlist('desdetabla')
+            hastatabla=request.POST.getlist('hastatabla')
+            valortabla=request.POST.getlist('valortabla')
+            fechatabla=request.POST.getlist('fechatabla')
+            fijo=request.POST['fijo']
+            solidario=request.POST['solidario']
+
+            listatramo=[]
+            listafecha=[]
+            listadesde=[]
+            listahasta=[]
+            listavalor=[]
+
+            for i in tramotabla:
+                listatramo.append(i)
+
+            for i in desdetabla:
+                listadesde.append(i)
+            
+            for i in hastatabla:
+                listahasta.append(i)
+            
+            for i in valortabla:
+                listavalor.append(i)
+            
+            for i in fechatabla:
+                listafecha.append(i)
+            
+            while inicial<len(listatramo):
+
+                fechaac=listafecha[inicial]
+                bjDate1 = datetime.strptime(fechaac, '%d-%m-%Y')
+                d22=date(bjDate1.year,bjDate1.month,bjDate1.day)
+                fechatextD=days_between(d22, fechaexcel)
+
+                sql="INSERT INTO GLO_TARIFA(correlativo,tramo,desde,hasta,valor,valormt3,fecha,fechastr,vigente,tipo,comite,fijo,fondo) values("+str(correlativotarifa())+","+str(listatramo[inicial])+","+str(listadesde[inicial])+","+str(listahasta[inicial])+","+str(listavalor[inicial])+","+str(listavalor[inicial])+","+str(fechatextD)+","+str(listafecha[inicial])+",0,"+str(id_)+",64,"+str(fijo)+","+solidario+")"
+
+                try:
+                    cursor.execute(sql)
+                    cursor.commit()
+                    mensaje="OK"
+                except Exception as a:
+                    print(a)    
+                    mensaje="ERROR"
+
+                inicial=inicial+1
+
     if request.method=='POST' and 'eliminartarifa' in request.POST:
 
         tipo=request.POST['tipo']
@@ -1125,12 +1238,22 @@ def viewTramo(request,id_):
         try:
             cursor.execute(sql)
             cursor.commit()
+            desde=0
+            hasta=0
+            ultimo=0
         except Exception as a:
             print(a)
 
     if request.method=='POST' and 'imprimirtarifa' in request.POST:
+        
+        data={
+            'lista':buscardatosTarifa(id_),
+            'comite':viewName(),
+            'fijo':buscarcargofijo(id_),
+            'solidario':buscarSolidario(id_)
+        }
 
-        pdf = render_to_pdf('reportes/rpt_tipo_agua.html', data)
+        pdf = render_to_pdf('reportes/tarifa.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
 
     if request.method=='POST' and 'generart' in request.POST:
@@ -1169,10 +1292,12 @@ def viewTramo(request,id_):
         hoy=request.POST['hoy']
         desde=request.POST['desde']      
         hasta=request.POST['hasta']      
-        valor=request.POST['valor']      
-    
+        valor=request.POST['valor']   
+
+    print(mensaje)
     data={
-        'tramo':tramo,
+        'comite':viewName(),
+        'tramo':buscartramo(id_),
         'desde':desde,
         'valor':valor,
         'existe':existe,
@@ -1180,11 +1305,14 @@ def viewTramo(request,id_):
         'hasta':hasta,
         'valor_inicial':valor_inicial,
         'intervalo':intervalo,
-        'fijo':cargofijo,
-        'lista':lista,
-        'fijo':cargofijo,
-        'solidario':fondosolidario,
-        'hoy': str(now.day)+"/"+str(now.month)+"/"+str(now.year)
+        'fijo':buscarcargofijo(id_),
+        'lista':buscardatosTarifa(id_),
+        'solidario':buscarSolidario(id_),
+        'hoy': time.strftime("%d-%m-%Y"),
+        'id_':id_,
+        'desdeultimo':desde,
+        'hastaultimo':hasta,
+        'valorultimo':valor
     }
 
     if id_=='3':

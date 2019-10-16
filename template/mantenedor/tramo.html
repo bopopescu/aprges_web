@@ -111,87 +111,6 @@
         display: flex;
         align-items: center;
       }
-
-
-      /* inicio modal */         
-      .modalDialog {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0,0,0,0.3);
-        z-index: 99999;
-        opacity:0;
-        -webkit-transition: opacity 400ms ease-in;
-        -moz-transition: opacity 400ms ease-in;
-        transition: opacity 400ms ease-in;
-        pointer-events: none;
-      }
-      .modalDialog:target {
-        opacity:1;
-        pointer-events: auto;
-        }
-      .modalDialog > div {
-        width: 80%;
-        height: fit-content;
-        position: relative;
-        margin: 25rem auto;
-        padding: 2rem;
-        border-radius: 10px;
-        background: #fff;
-        background: -moz-linear-gradient(#F5FCFF, #B7E9F7);
-        background: -webkit-linear-gradient(#F5FCFF, #B7E9F7);
-        background: -o-linear-gradient(#F5FCFF, #B7E9F7);
-        -webkit-transition: opacity 400ms ease-in;
-        -moz-transition: opacity 400ms ease-in;
-        transition: opacity 400ms ease-in;
-      }
-    /* inicio cerrar */
-      .close {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        background: #17a2b8;
-        color: #FFFFFF;
-        line-height: 25px;
-        position: absolute;
-        right: -15px;
-        top: -20px;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        box-shadow: 1px 1px 3px #000;
-        -moz-box-shadow: 1px 1px 3px #000;
-        -webkit-box-shadow: 1px 1px 3px #000;
-      }
-      .close:hover { background: #17a2b8; }
-    /* fin cerrar */
-      .modal_div_btn{
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 3rem;
-      }      
-      
-      .boton_info_modal{
-        background-color: #17a2b8;
-        border-color: #17a2b8; 
-        color: white;
-        width: 7rem;
-      }
-      .boton_info_modal:hover{
-        background-color: #0a8a9e;
-        border-color: #0a8a9e;              
-      }   
-      .boton_info_modal:focus{
-        background-color: #0a8a9e;
-        border-color: #0a8a9e;               
-      }  
-    /* fin modal */
       @media (min-width: 48em) {           
         .boton{
           width: 25%;
@@ -248,36 +167,72 @@
           justify-content: space-evenly;
           width: 100%;
         }
-
-              
-        .modalDialog > div {
-          width: 25%;
-        }
       }
     </style>
     <script>
     function agregarConcepto(){
-        var tramo = document.getElementById("tramo")
+        var tramo = document.getElementById("tramo1")
         var fecha = document.getElementById("fecha")
         var desde = document.getElementById("desde")
         var hasta = document.getElementById("hasta")
         var valor = document.getElementById("valor")
+        var desdeultimo=document.getElementById("desdeultimo")
+        var hastaultimo=document.getElementById("hastaultimo")
+        var valorultimo=document.getElementById("valorultimo")
 
-        value = tramo.value
-        value2 = fecha.value
-        value3 = desde.value
-        value4 = hasta.value
-        value5 = valor.value
+        t1= tramo.value;
+        t2 = fecha.value;
+        t3 = desde.value;
+        t4 = hasta.value;
+        t5 = valor.value;
+        ultimod=desdeultimo.value;
+        ultimo=hastaultimo.value;
+        valord=valorultimo.value;
 
-        alert(value)
+        text=tramo.innerText;
 
-        var fila="<tr><td><input type='hidden' value="+value+" id='ide' name='ide'><input type='hidden' id='detalle1' name='detalle1' value='"+text+"'>"+text+"</td><td><input onblur='findTotal()' class='form-control' type='number' id='valor' name='valor' value='0'></td></tr>";
-  
-        var btn = document.createElement("TR");
-        btn.innerHTML=fila;
-        document.getElementById("tablita").appendChild(btn);
+        if(parseInt(t3)>parseInt(ultimo)){
+          if(parseInt(t5)>parseInt(valord)){
+            if(parseInt(t4)>parseInt(t3))
+            {
+              var fila="<tr><td><input type='hidden' value="+t1+" id='tramotabla' name='tramotabla'>"+t1+"</td>"+
+              "<td><input type='hidden' value="+t3+" id='desdetabla' name='desdetabla'>"+t3+"</td>"+
+              "<td><input type='hidden' value="+t4+" id='hastatabla' name='hastatabla'>"+t4+"</td>"+
+              "<td><input type='hidden' value="+t5+" id='valortabla' name='valortabla'>"+t5+"</td>"+
+              "<td><input type='hidden' value="+t2+" id='fechatabla' name='fechatabla'>"+t2+"</td></tr>";
+      
+              var btn = document.createElement("TR");
+              btn.innerHTML=fila;
+
+              document.getElementById("tablita").appendChild(btn);
+
+              var suma= parseInt(tramo.value)+1
+              document.getElementById("tramo1").value=suma;
+              document.getElementById("hastaultimo").value=t4
+            }else{
+              alert("El valor hasta debe ser mayor al desde ingresado.")
+            }
+
+          }else{
+            alert("El valor debe ser mayor al ultimo ingresado.")
+          }
+        }else{
+          alert("El valor desde debe ser mayor al ultimo hasta ingresado.")
+        }
       }
     </script>
+    <script type="text/javascript">
+      function habilitar(abono,valor)
+      {
+          var arr = document.getElementsByName('abono');
+
+          if( parseInt(valor) < parseInt(abono) ){
+              for(var i=0;i<arr.length;i++){
+                  arr[i].value="";
+              }
+          }
+      }
+  </script>
   </head>
 
   <body class="orchid">
@@ -566,7 +521,7 @@
           <div class="row js-grid-wrapper panel-wrapper">            
             <!-- #SELECT2-->
             {% block content %}	
-            <form class="col-sm-12">  
+            <form class="col-sm-12" action="/mantenedor/tarifas/{{id_}}/" method="POST">  
               {% csrf_token %}  
               <div class="panel panel-default">
                 <div class="panel-heading"></div>
@@ -580,7 +535,7 @@
                         <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/2/" >Tarifa x Tramo (3)</a></button>
                         <button type="button" class="btn boton-outline-info boton"><a href="/mantenedor/tarifas/3/">Tarifa x Mt3</a></button> 
                       </section>
-    
+                    <input type="hidden" id="tipo" name="tipo" value="{{id_}}">
   
                     <!-- cargos -->
                     <section class="container cargos">
@@ -665,74 +620,43 @@
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Fecha</label>
-                        <input type="datetime" class="form-control" name="hoy" value="{{hoy}}">
+                        <input type="datetime" class="form-control" name="fecha" id="fecha" value="{{hoy}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Desde</label>
-                        <input type="text" class="form-control" name="desde" id="desde" value="{{desde}}">
+                        <input type="number" class="form-control" name="desde" id="desde" value="{{desde}}">
+                        <input type="hidden" class="form-control" name="desdeultimo" id="desdeultimo" value="{{desdeultimo}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Hasta</label>
-                        <input type="text" class="form-control" name="hasta" id="hasta" value="{{hasta}}">
-                      </div>
-                      <div class="etiqueta2 form-group oculto">
-                        <label class="etiqueta_label">Valor</label>
-                        <input type="text" class="form-control">
+                        <input type="hidden" class="form-control" name="hastaultimo" id="hastaultimo" value="{{hastaultimo}}">
+                        <input type="number" class="form-control" name="hasta" id="hasta" value="{{hasta}}">
                       </div>
                       <div class="etiqueta form-group">
                         <label class="etiqueta_label">Valor</label>
-                        <input type="text" class="form-control" name="valor" id="valor" value="{{valor}}">
+                        <input type="number" class="form-control" name="valor" id="valor" value="{{valor}}">
+                        <input type="hidden" class="form-control" name="valorultimo" id="valorultimo" value="{{valorultimo}}">
                       </div>   
                       <div class="etiqueta form-group">
-                          <button type="button" class="btn btn-primary" type="button" onclick="agregarConcepto()" name="guardar" id="guardar">Ingresar</button>
+                          <button type="button" class="btn btn-primary" onclick="agregarConcepto()" name="guardar" id="guardar">Ingresar</button>
                         </div>                  
                     </section>
   
                     <!-- iconos -->
                     <section class="container iconos">
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="guardartarifa" name="guardartarifa">
                         <a href="#"><i class="far fa-save fa-4x icono"></i></a>
                       </button>
                       <button class="boton_iconos" type="submit" id="abonar" name="abonar">
                         <a href="#"><i class="fas fa-archive fa-4x icono"></i></a>
                       </button>
-                      <button class="boton_iconos" type="submit" id="abonar" name="abonar">
+                      <button class="boton_iconos" type="submit" id="imprimirtarifa" name="imprimirtarifa">
                         <a href="#"><i class="fas fa-print fa-4x icono"></i></a>
                       </button>
-                      <!-- <button class="boton_iconos" type="submit" id="eliminar" name="eliminar"> -->
-                        <a href="#modalEliminado"><i class="fas fa-trash-alt fa-4x icono"></i></a>
-                      <!-- </button> -->
-                    </section>   
-                    
-                    <a href="#modalGuardado">guardado</a>
-
-                    <!-- MODAL eliminar -->
-                    <div id="modalEliminado" class="modalDialog">
-                      <div>
-                        <!-- cerrar -->
-                        <a href="#close" title="Close" class="close">X</a>
-                        <!-- titulo -->
-                        <h2>¿Seguro que desea eliminar la información?</h2>
-                        <div class="modal_div_btn">                          
-                          <button type="button" class="btn boton_info_modal">Sí</button>
-                          <button type="button" class="btn boton_info_modal">No</button>
-                        </div>
-                      </div>
-                    </div>  
-                    
-                    <!-- MODAL guardar -->
-                    <div id="modalGuardado" class="modalDialog">
-                      <div>
-                        <!-- cerrar -->
-                        <a href="#close" title="Close" class="close">X</a>
-                        <!-- titulo -->
-                        <h2>La información fue guardada</h2>
-                        <div class="modal_div_btn">                          
-                          <button type="button" class="btn boton_info_modal"><a href="" style="color: white;">Aceptar</a></button>
-                        </div>
-                      </div>
-                    </div> 
-
+                      <button class="boton_iconos" type="submit" id="eliminartarifa" name="eliminartarifa">
+                        <a href="#"><i class="fas fa-trash-alt fa-4x icono"></i></a>
+                      </button>
+                    </section>            
                   </div>
                 </div>
               </div>
@@ -782,7 +706,6 @@
               
           });
         });
-        $(':checkbox').checkboxpicker();
       </script>
 
     <script src="{% static 'assets/scripts/lib/jquery-1.11.3.min.js' %}"></script>
