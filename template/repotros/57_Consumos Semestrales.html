@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Nomina de usuarios con pagos pendientes</title>
+        
+        <style rel="stylesheet" type="text/css" media="print">
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+                margin-top: 10px;
+            }
+            h2{
+                margin-left: 38;
+            }
+            .table{
+                height: 35px;
+                margin: 2;
+                border: 1px solid black;
+                font-size: 4;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h1>Control de Consumos Semestrales</h1>
+        <br>
+        
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td rowspan="2" colspan="7"></td>
+                    <td colspan="4"><input type="text" placeholder="Column #1 Name"></td>
+                    <th rowspan="2" colspan="2">Total</th>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="text" placeholder="Column #2 Name"></td>
+                    <th colspan="2">Total</th>
+                </tr>
+                <tr>
+                    <td rowspan="3"><input type="text" placeholder="Row #1 Name"></td>
+                    <td rowspan="2" colspan="2"><input type="text" placeholder="Row #2 Name"></td>
+                    <td colspan="4"><input type="text" placeholder="Row #3 Name"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">Total</td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                </tr>
+                <tr>
+                    <td colspan="6">Total</td>
+                    <th colspan="2"><input type="text" placeholder="Row #3 Name"></th>
+                    <th colspan="2"><input type="text" placeholder="Sum of @Comsumo"></th>
+                    <th colspan="2"><input type="text" placeholder="Sum of @Comsumo"></th>
+                </tr>
+                <tr>
+                    <td colspan="7">Total</td>
+                    <hd colspan="2"><input type="text" placeholder="Row #3 Name"></th>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                    <td colspan="2"><input type="text" placeholder="Sum of @Comsumo"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <input type="text" placeholder="Group #1 Name">
+        </div>
+        <div>
+            <input type="text" placeholder="medidor">
+            <input type="text" placeholder="año">
+            <input type="text" placeholder="mes">
+            <input type="text" placeholder="correlativo">
+            <input type="text" placeholder="maximo">
+            <input type="text" placeholder="SECTOR">
+            <input type="text" placeholder="Consumo">
+            <input type="text" placeholder="SITIO2">
+            <input type="text" placeholder="Nombre">
+        </div>
+    </body>
+</html>

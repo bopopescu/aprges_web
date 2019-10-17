@@ -1,89 +1,86 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-    <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Convenio de Pago</title>
-            <style>
-                @page{
-                    size: letter portrait;
-                    margin: 30 50;
-                }
-                h2{
-                    font-size: 30px;
-                    margin-top: 0;
-                }
-                .subtitulo{
-                    font-size: 15px;
-                    padding-top: -40px;
-                    padding-bottom: 20px;
-                    border-bottom: 1px solid black;
-                }
-                .table{
-                    margin-top: 50px;
-                }
-                .detalles{
-                  padding-top: 5px;
-                }
-            </style>
-        </head>
-        <body>
-            <table style="margin-top: 0;margin-bottom: 0;">
-                <td style="text-align: right; height: 70px;">
-                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
-                </td>
-            </table>
-            
-            <h2>Convenios <input type="text" placeholder="año"></h2>
-            <p class="subtitulo"></p>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Convenio de Pago</title>
+    <style>
+      @page{
+        size: letter portrait;
+        margin: 30 50;
+      }
+      h2{
+        font-size: 30px;
+        margin-top: 0;
+      }
+      .subtitulo{
+        font-size: 15px;
+        padding-top: -40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid black;
+      }
+      .table{
+        margin-top: 50px;
+      }
+      .detalles{
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="margin-top: 0;margin-bottom: 0;">
+      <td style="text-align: right; height: 70px;">
+        <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+      </td>
+    </table>
 
+    <h2>Convenios <input type="text" placeholder="año"></h2>
+    <p class="subtitulo"></p>
 
-            {% for i in lista2 %}
-            
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <td><b><input type="text" placeholder="rut">{{i.rut}}</b></td>
-                    <td colspan="9"><b><input type="text" placeholder="Nombre">{{i.nombre}}</b></td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Sector:</td>
-                    <td colspan="3"><input type="text" placeholder="sector">{{i.sector}}</td>
-                    <td>Calle:</td>
-                    <td colspan="2"><input type="text" placeholder="Direccion">{{i.direccion}}</td>
-                    <td colspan="2">Nro Parcelero:</td>
-                    <td colspan="2"><input type="text" placeholder="medidor">{{i.id}}</td>
-                  </tr>
-                  <tr class="detalles">
-                    <td colspan="4"></td>
-                    <td>Nro Cuotas</td>
-                    <td>Valor Cuota</td>
-                    <!-- <td><input type="text" placeholder="año"></td>
-                    <td><input type="text" placeholder="mes"></td>
-                    <td><input type="text" placeholder="nro de cuota"></td>
-                    <td><input type="text" placeholder="valor"></td> -->
-                    <td><input type="text" placeholder="aviso correlativo"></td>
-                    <td><input type="text" placeholder="estado"></td>
-                  </tr>
-                  {% for j in lista %}
-                  {% if i.idconvenio == j.idc %}
-                  <tr>
-                    <td colspan="4"></td>
-                    <td style="text-align: center;">{{j.nrocuotas}}</td>
-                    <td style="text-align: center;">{{j.valor}}</td>
-                    <td style="text-align: center;">{{j.aviso}}</td>
-                    <td style="text-align: center;">{{j.estado}}</td>
-                    <td style="text-align: center;" colspan="3">{{i.desc}}</td>
-                  </tr>
-                  {% endif %}
-                  {% endfor %}
-                </tbody>
-              </table>
-              {% endfor %}
-            
-        </body>
-    </html>
+    {% for i in lista2 %}      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td><b><input type="text" placeholder="rut">{{i.rut}}</b></td>
+          <td colspan="9"><b><input type="text" placeholder="Nombre">{{i.nombre}}</b></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sector:</td>
+          <td colspan="3"><input type="text" placeholder="sector">{{i.sector}}</td>
+          <td>Calle:</td>
+          <td colspan="2"><input type="text" placeholder="Direccion">{{i.direccion}}</td>
+          <td colspan="2">Nro Parcelero:</td>
+          <td colspan="2"><input type="text" placeholder="medidor">{{i.id}}</td>
+        </tr>
+        <tr class="detalles">
+          <td colspan="4"></td>
+          <td>Nro Cuotas</td>
+          <td>Valor Cuota</td>
+          <!-- <td><input type="text" placeholder="año"></td>
+          <td><input type="text" placeholder="mes"></td>
+          <td><input type="text" placeholder="nro de cuota"></td>
+          <td><input type="text" placeholder="valor"></td> -->
+          <td><input type="text" placeholder="aviso correlativo"></td>
+          <td><input type="text" placeholder="estado"></td>
+        </tr>
+        {% for j in lista %}
+        {% if i.idconvenio == j.idc %}
+        <tr>
+          <td colspan="4"></td>
+          <td style="text-align: center;">{{j.nrocuotas}}</td>
+          <td style="text-align: center;">{{j.valor}}</td>
+          <td style="text-align: center;">{{j.aviso}}</td>
+          <td style="text-align: center;">{{j.estado}}</td>
+          <td style="text-align: center;" colspan="3">{{i.desc}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}            
+  </body>
+</html>

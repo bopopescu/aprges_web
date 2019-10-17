@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Listado de socio alfabético</title>
+        <style>
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+            }        
+            .table{
+                height: 40px;
+                border: 1px solid black;
+                padding-left: 5px;
+            }
+            th{
+                background-color: silver;
+            }
+        </style>
+    </head>
+
+    <body>        
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 60px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1>Estadistica de Medidores y Usuarios Activos</h1>
+        <!-- <h3>{{asociacion}}</h3> -->
+        <table class="table">
+           <tbody>  
+                <tr>
+                    <td>Cantidad Medidores Disponibles</td>
+                    <td width="30%"><input type="text" placeholder="MedDisp"></td>
+                </tr>
+                <tr>
+                    <td>Cantidad Medidores No Disponibles</td>
+                    <td><input type="text" placeholder="MedNoDisp"></td>
+                </tr>
+                <tr>
+                    <td>Cantidad Medidores Disponibles/No Disponibles</td>
+                    <td><input type="text" placeholder="Arranques"></td>
+                </tr>
+                <tr>
+                    <td>Cantidad Socios</td>
+                    <td><input type="text" placeholder="Socios"></td>
+                </tr>
+                <tr>
+                    <td>Cantidad Usuarios</td>
+                    <td><input type="text" placeholder="Usuarios"></td>
+                </tr>
+            </tbody>   
+        </table>
+    </body>
+</html>

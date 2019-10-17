@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Listado de socio alfabético</title>
+        <style>
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            body{
+                text-align: center;
+            }
+            h1{
+                font-size: 3em;
+                margin: 0;
+            }        
+            .table{
+                height: 40px;
+                border: 1px solid black;
+            }
+            th{
+                background-color: silver;
+            }
+        </style>
+    </head>
+
+    <body>        
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <tr>
+                <td>Fecha de Impresion:</td>
+                <td colspan="5"><input type="text" placeholder="print date"></td>
+                <td rowspan="2" style="text-align: right; height: 60px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>Hora de Impresion:</td>
+                <td colspan="5"><input type="text" placeholder="hora de impresion"></td>
+            </tr>
+        </table>
+        <h1>Listado de Diametro de Medidores</h1>
+        <!-- <h3>{{asociacion}}</h3> -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="3">Nombre Usuario</th>
+                    <th>Medidore</th>
+                    <th colspan="2">Sector</th>
+                    <th>Fecha de Instalacion</th>
+                </tr>  
+           </thead> 
+           <tbody>  
+                <!-- {% for i in lista2 %}  
+                <tr>
+                    <td>{{i.rut}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.id}}</td>
+                   <td>{{i.fecha}}</td>
+                    <td>{{i.direccion}}</td>
+               </tr>
+                {% endfor %}  -->
+                <tr>
+                    <td>Diametro</td>
+                    <td colspan="7"><input type="text" placeholder="DIAMETRO"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="record number"></td>
+                    <td colspan="3"><input type="text" placeholder="@nombre"></td>
+                    <td><input type="text" placeholder="correlativo"></td>
+                    <td><input type="text" placeholder="sector/glosa"></td>
+                    <td><input type="text" placeholder="fec_inst_"></td>
+                </tr>
+            </tbody>   
+        </table>
+    </body>
+</html>
