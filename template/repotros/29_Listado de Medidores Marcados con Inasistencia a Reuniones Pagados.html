@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <title>Usuarios Asociados a Cada Socio</title>
+        <title>Listado de Medidores Marcados con Inasistencia a Reuniones Pagados</title>
         
         <style rel="stylesheet" type="text/css" media="print">
             @page {
@@ -18,15 +18,16 @@
                 margin-top: 10px;
             }
             h2{
-                margin-left: 38;
+                text-align: center;
             }
             .table{
-                height: 35px;
-                margin: 2;
                 border: 1px solid black;
-                font-size: 4;
+                font-size: 12px;
+                margin: 1;
+                padding-top: 1;
             }
             th{
+                text-align: left;
                 background-color: silver;
             }
         </style>
@@ -38,32 +39,24 @@
             </td>
         </table>
         
-        <h1>Usuarios Asociados a Cada Socio</h1>
+        <h1>Listado de Medidores Marcadon con Inasistencia Pagados y/o Abonados</h1>
+        <h2>@Periodo</h2>
         <br>
-        
+
         <table class="table">
             <thead>
-                <tr>
-                    <th>Rut Cliente</th>
-                    <th width="40%">Nombre Cliente</th>
-                    <th>Medidor</th>
-                    <th>Sector</th>
-                    <th>Ruta</th>
-                    <th>Rut Socio</th>
-                    <th width="40%">Nombre Socio</th>
-                </tr>
+                <th>Medidor</th>
+                <th width="80%">Nombre</th>
+                <th width="80%">Direccion</th>
+                <th>Saldo</th>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="text" placeholder="Cliente"></td>
-                    <td><input type="text" placeholder="Nombre cliente"></td>
-                    <td><input type="text" placeholder="Correlativo"></td>
-                    <td><input type="text" placeholder="Sector"></td>
-                    <td><input type="text" placeholder="Sitio"></td>
-                    <td><input type="text" placeholder="Socio"></td>
-                    <td><input type="text" placeholder="Nombre socio"></td>
-                </tr>
+                <td><input type="text" placeholder="correlativo"></td>
+                <td><input type="text" placeholder="@name"></td>
+                <td><input type="text" placeholder="Direccion"></td>
+                <td><input type="text" placeholder="Saldo"></td>
             </tbody>
         </table>
+    
     </body>
 </html>

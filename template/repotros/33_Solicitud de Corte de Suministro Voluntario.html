@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Solicitud de Corte de Suministro Voluntario</title>
+        <style>
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 2;
+            }
+            p{
+                font-size: 5;
+            } 
+            .parrafo{
+                padding-bottom: 100px;
+            }           
+            .firma_div{
+                margin-left: 40;
+                padding-bottom: 100px;
+            }
+            .firma{
+                text-align: center;
+                border-top: 1px solid black;
+                padding-top: 10px;
+            }
+            .firma2_div{
+                margin-left: 40;
+            }
+            .firma2{
+                text-align: center;
+                border-top: 1px solid black;
+                padding-top: 5px;
+            }
+        </style>
+    </head>
+
+    <body>           
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 60px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1>Solicitud de Transferencia</h1>
+        
+        <p>En <label for="">?Lugar</label> a <label for="">?Print Date</label></p>
+
+
+        <p>Yo <b>?Nombre</b> carnet de identidad nro <b>?Rut</b> socio de: <b>Nombre</b> solicito al directorio tenga bien suspender el suministro de agua potable en mi propiedad,</p>
+        <p>Ubicada en: <b>?Calle</b></p>
+        <p>Por el siguiente motivo <b>?Motivo</b></p>
+        <p>Por el periodo de: <b>?Fecha</b></p>
+
+        <p class="parrafo">Declaro estar en conocimiento de que durante el tiempo de suspension voluntaria del servicio de mi domcilio, debo cancelar el equivalente al 100% de la tarifa minima mensual vigente.</p>
+
+        <div class="firma_div">
+            <p class="firma">Firma Interesado</p>
+        </div>
+
+        <div class="firma2_div">
+            <p class="firma2">VB Presidente</p>
+        </div>
+
+        <p>Fecha: </p>
+    </body>
+</html>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <title>Planilla Control de Consumo y Pagos</title>
+        <title>Rango de Consumo por Año</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <style>
@@ -14,6 +14,7 @@
             }
             .tabla{                
                 border: 2px solid black;
+                margin-bottom: 40px;
             }
             h1{
                 text-align: center;
@@ -41,62 +42,43 @@
                 <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
             </td>
         </table>
-        <h1 class="titulo">Planilla Control de Consumo y Pagos</h1>
+        <h1 class="titulo">Rangos de Consumo por Ano</h1>
 
-        <div>
-            <label>Localidad:</label>
-            <input type="text">
-        </div>
-        <div>
-            <label>Ano:</label>
-            <input type="text">
-        </div>
-        <br>
         <table class="tabla">
             <thead>
                 <tr>
-                    <th rowspan="2" colspan="3">Socio</th>
-                    <th rowspan="2">Serie</th>
-                    <th colspan="4">Enero</th>
-                    <th colspan="4">Febrero</th>
-                    <th colspan="4">Marzo</th>
-                    <th colspan="4">Abril</th>
+                    <th colspan="3" rowspan="2">Tramos</th>
+                    <th colspan="3">Enero</th>
+                    <th colspan="3">Febrero</th>
+                    <th colspan="3">Marzo</th>
+                    <th colspan="3">Abril</th>
+                    <th colspan="3">Mayo</th>
+                    <th colspan="3">Junio</th>
                 </tr> 
                 <tr>
+                    <th>Usuario</th>
                     <th>M3</th>
                     <th>Valor</th>
-                    <th>Boleta</th>
-                    <th>Abono</th>
+                    <th>Usuario</th>
                     <th>M3</th>
                     <th>Valor</th>
-                    <th>Boleta</th>
-                    <th>Abono</th>
+                    <th>Usuario</th>
                     <th>M3</th>
                     <th>Valor</th>
-                    <th>Boleta</th>
-                    <th>Abono</th>
+                    <th>Usuario</th>
                     <th>M3</th>
                     <th>Valor</th>
-                    <th>Boleta</th>
-                    <th>Abono</th>
+                    <th>Usuario</th>
+                    <th>M3</th>
+                    <th>Valor</th>
+                    <th>Usuario</th>
+                    <th>M3</th>
+                    <th>Valor</th>
                 </tr> 
             </thead>
             <tbody>
-                <!-- {% for i in lista2 %}
                 <tr>
-                    <td>{{i.fecha}}</td>
-                    <td>{{i.doc}}</td>
-                    <td>{{i.operacion}}</td>
-                    <td>{{i.administracion}}</td>
-                    <td>{{i.mantenimiento}}</td>
-                    <td>{{i.mejoramiento}}</td>
-                    <td>{{i.deposito}}</td>
-                    <td>{{i.otros}}</td>
-                    <td>{{i.total}}</td>  
-                </tr>  
-                {% endfor %} -->
-                <tr>
-                    <td colspan="3">Sector <input type="text"></td>
+                    <td colspan="3"></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -114,28 +96,14 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td colspan="4"><input type="text" placeholder="cliente"></td>
-                    <td><input type="text" placeholder="M01 "></td>
-                    <td><input type="text" placeholder="V01"></td>
-                    <td><input type="text" placeholder="B01"></td>
-                    <td><input type="text" placeholder="A01"></td>
-                    <td><input type="text" placeholder="M02"></td>
-                    <td><input type="text" placeholder="V02"></td>
-                    <td><input type="text" placeholder="B02"></td>
-                    <td><input type="text" placeholder="A02"></td>
-                    <td><input type="text" placeholder="M03"></td>
-                    <td><input type="text" placeholder="V03"></td>
-                    <td><input type="text" placeholder="B03"></td>
-                    <td><input type="text" placeholder="A03"></td>
-                    <td><input type="text" placeholder="M04"></td>
-                    <td><input type="text" placeholder="V04"></td>
-                    <td><input type="text" placeholder="B04"></td>
-                    <td><input type="text" placeholder="A04"></td>
                 </tr>
             </tbody> 
         </table>
+
+        <p>(1): Indicar el numero de usuario cuyo consumo se encuentre entre los rangos indicados</p>
+        <p>(2): Indicar el numero de usuario cuyo consumo ha sido medido</p>
+        <p>(3): Indicar el numero de usuario sin medidor</p>
+        <p>(4): Indicar el numero de m3 facturados en el mes</p>
 
 
 
