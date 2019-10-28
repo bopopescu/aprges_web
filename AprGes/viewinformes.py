@@ -1080,9 +1080,9 @@ def view6_ListadoAbonosIngresados(request):
 #     pdf= render_to_pdf('repotros/.html', {})
 #     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view10_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view10_ListadoFacturasPendientes(request):
+    pdf= render_to_pdf('repotros/10_Listado de Facturas Pendientes.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 # def view12_(request):
 #     pdf= render_to_pdf('repotros/.html', {})
@@ -1148,9 +1148,10 @@ def view27_EstadisticaFacturacionMensual(request):
     pdf= render_to_pdf('repotros/27_Estadistica de Facturacion Mensual.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view28_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+
+def view28_MedidoresMarcadosInasistenciaReuniones(request):
+    pdf= render_to_pdf('repotros/28_Medidores Marcados con Inasistencia a Reuniones.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 def view29_ListadoMedidoresInasistenciaReunionesPagados(request):
     pdf= render_to_pdf('repotros/29_Listado de Medidores Marcados con Inasistencia a Reuniones Pagados.html', {})
@@ -1192,9 +1193,9 @@ def view38_ListadoSocioOrdenGeografico(request):
     pdf= render_to_pdf('repotros/38_Listado de Socio Orden Geografico.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view39_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view39_ListadoMedidoresMarcadosFactura(request):
+    pdf= render_to_pdf('repotros/39_Listado de Medidores Marcados con Factura.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 # def view40_(request):
 #     pdf= render_to_pdf('repotros/.html', {})
@@ -1260,9 +1261,9 @@ def view44_ListadoMedidoresNoDisponibles(request):
 #     pdf= render_to_pdf('repotros/.html', {})
 #     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view56_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view56_RendicionAlcantarillado(request):
+    pdf= render_to_pdf('repotros/56_Rendicion Alcantarillado.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 def view57_ConsumosSemestrales(request):
     pdf= render_to_pdf('repotros/57_Consumos Semestrales.html', {})
@@ -1284,29 +1285,17 @@ def view57_ConsumosSemestrales(request):
 #     pdf= render_to_pdf('repotros/.html', {})
 #     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view62_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view62_LibroVentasDiarias(request):
+    pdf= render_to_pdf('repotros/62_Libro de Ventas Diarias.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
-# def view63_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view63_ListadoSociosAnoIngreso(request):
+    pdf= render_to_pdf('repotros/63_Listado de Socios por Ano de Ingreso.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
-# def view64_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
-
-# def view65_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
-
-# def view66_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
-
-# def view67_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view67_RegistroLecturaAnual(request):
+    pdf= render_to_pdf('repotros/67_Registro de Lectura Anual.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 def view68_ListadoConvenioAnual(request):
     pdf= render_to_pdf('repotros/68_Listado de Convenio Anual.html', {})

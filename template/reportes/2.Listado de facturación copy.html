@@ -1,105 +1,101 @@
 
-        <!DOCTYPE html>
-        <html lang="en">
-                <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-                        <title>Listado de facturación</title>
-                        <style>
-                @media print{
-                        @page {
-                                size: legal landscape;
-                                margin: 50;
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                <title>Listado de facturación</title>
+                <style>
+                        @media print{
+                                @page {
+                                        size: legal landscape;
+                                        margin: 50;
+                                }
+                                h1{
+                                        font-size: 3em;
+                                        text-align: center;
+                                }
+                                table{
+                                        height: 40px;                      
+                                }                
+                                th{
+                                        margin: 3;
+                                }
+                                h3{
+                                        margin-top: 50px;
+                                }
+                                h2, h3 {
+                                        text-align: left;
+                                        margin-left: 50px;
+                                }
+                                .sss{
+                                        font-size: 2em;
+                                }
                         }
-                        h1{
-                                font-size: 3em;
-                                text-align: center;
-                        }
-                        table{
-                                height: 40px;                      
-                        }                
-                        th{
-                                margin: 3;
-                        }
-                        h3{
-                                margin-top: 50px;
-                        }
-                        h2, h3 {
-                                text-align: left;
-                                margin-left: 50px;
-                        }
-                        .sss{
-                                font-size: 2em;
-                                
-                        }
-                }
-        </style>
+                </style>
         </head>
         <body>
                 <h1>Listado de facturación</h1>
                 <h2>{{fecha}}</h2>
-                        <div>
-                                <table >
-                                        <thead>
-                                                <tr>
-                                                        <th>DOCTO</th>
-                                                        <th style="text-align: left" colspan="6">Nombre Cliente</th>
-                                                        <th>Medidor</th>
-                                                        <th>L.Ant.</th>
-                                                        <th>L.Act.</th>
-                                                        <th>MT</th>
-                                                        <th>Consumo</th>
-                                                        <th>Cargo Fijo</th>
-                                                        <th>Subsidio</th>
-                                                        <th>Aporte</th>
-                                                        <th>Descuento</th>
-                                                        <th>Convenio</th>
-                                                        <th>Saldo</th>
-                                                        <th>Multa Inasistencia</th>
-                                                        <th>A favor</th>
-                                                        <th>Ajuste Anterior</th>
-                                                        <th>Ajuste Actual</th>
-                                                        <th>Multa por no Pago</th>
-                                                        <th>Total</th>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-                                                {% for i in lista %}  
-                                                <tr>
-                                                        <td>{{i.aviso}}</td>
-                                                        <td colspan="">{{i.nombres}}</td>
-                                                        <td>{{i.sector}}</td>
-                                                        <td>{{i.sitio}}</td>
-                                                        <td>{{i.tipo}}</td>
-                                                        <td>{{i.medidor}}</td>
-                                                        <td>{{i.lant}}</td>
-                                                        <td>{{i.lact}}</td>
-                                                        <td>{{i.mt}}</td>
-                                                        <td>{{i.consumo}}ff</td>
-                                                        <td>{{i.fijo}}</td>
-                                                        <td>{{i.subsidio}}</td>
-                                                        <td>{{i.aporte}}</td>
-                                                        <td>{{i.descuento}}</td>
-                                                        <td>{{i.convenio}}</td>
-                                                        <td>{{i.santerior}}</td>
-                                                        <td>{{i.inasistencia}}</td>
-                                                        <td>{{i.afavor}}</td>
-                                                        <td>{{i.aant}}</td>
-                                                        <td>{{i.aact}}</td>
-                                                        <td>{{i.interes}}</td>
-                                                        <td>{{i.total}}</td>
-                                                </tr>
-                                                {% endfor %} 
-                                        </tbody>
-                                </table>
-                        </div>
-                        <h3 >SUB-TOTAL</h3>
-                        <h2>TOTAL GENERAL</h2>
+                <div>
+                        <table >
+                                <thead>
+                                        <tr>
+                                                <th>DOCTO</th>
+                                                <th style="text-align: left" colspan="6">Nombre Cliente</th>
+                                                <th>Medidor</th>
+                                                <th>L.Ant.</th>
+                                                <th>L.Act.</th>
+                                                <th>MT</th>
+                                                <th>Consumo</th>
+                                                <th>Cargo Fijo</th>
+                                                <th>Subsidio</th>
+                                                <th>Aporte</th>
+                                                <th>Descuento</th>
+                                                <th>Convenio</th>
+                                                <th>Saldo</th>
+                                                <th>Multa Inasistencia</th>
+                                                <th>A favor</th>
+                                                <th>Ajuste Anterior</th>
+                                                <th>Ajuste Actual</th>
+                                                <th>Multa por no Pago</th>
+                                                <th>Total</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for i in lista %}  
+                                        <tr>
+                                                <td>{{i.aviso}}</td>
+                                                <td colspan="">{{i.nombres}}</td>
+                                                <td>{{i.sector}}</td>
+                                                <td>{{i.sitio}}</td>
+                                                <td>{{i.tipo}}</td>
+                                                <td>{{i.medidor}}</td>
+                                                <td>{{i.lant}}</td>
+                                                <td>{{i.lact}}</td>
+                                                <td>{{i.mt}}</td>
+                                                <td>{{i.consumo}}ff</td>
+                                                <td>{{i.fijo}}</td>
+                                                <td>{{i.subsidio}}</td>
+                                                <td>{{i.aporte}}</td>
+                                                <td>{{i.descuento}}</td>
+                                                <td>{{i.convenio}}</td>
+                                                <td>{{i.santerior}}</td>
+                                                <td>{{i.inasistencia}}</td>
+                                                <td>{{i.afavor}}</td>
+                                                <td>{{i.aant}}</td>
+                                                <td>{{i.aact}}</td>
+                                                <td>{{i.interes}}</td>
+                                                <td>{{i.total}}</td>
+                                        </tr>
+                                        {% endfor %} 
+                                </tbody>
+                        </table>
+                </div>
+                <h3 >SUB-TOTAL</h3>
+                <h2>TOTAL GENERAL</h2>
+        
                 <script src="C:\Users\Kleinht\Desktop\TAREA 1\boots\jquery-3.4.1.min.js"></script>
                 <script src="C:\Users\Kleinht\Desktop\TAREA 1\js\bootstrap.min.js"></script>
-
         </body>
-
-
-
-        </html>
+</html>

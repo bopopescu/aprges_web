@@ -1,0 +1,116 @@
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Libro de Ventas Diarias</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <style>
+            @page{
+                margin: 30;
+            }
+            .tabla{                
+                margin-bottom: 40px;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin:0;
+                font-weight: bold;
+            }
+            th{
+                border: 2px solid black;
+                background-color:silver;
+                height: 30px;
+                text-align: left;
+                margin-left: 1;
+                
+            }
+            h5{
+                text-align: left;
+            }
+            .td_ident{
+                height: 15px;
+            }
+            td{
+                margin-left: 1;
+                height: 25px;
+            }
+        </style>
+    </head>
+
+    <body>     
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <tr>
+                <td class="td_ident">Fecha de Impresion:</td>
+                <td class="td_ident" colspan="4"><input type="text" placeholder="print date"></td>
+                <td class="td_ident" rowspan="4" style="text-align: right; height: 60px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td class="td_ident">Nombre</td>
+                <td class="td_ident" colspan="4"><input type="text" placeholder="nombre"></td>
+            </tr>
+            <tr>
+                <td class="td_ident">Direccion</td>
+                <td class="td_ident" colspan="4"><input type="text" placeholder="direccion"></td>
+            </tr>
+            <tr>
+                <td class="td_ident">Rut</td>
+                <td class="td_ident" colspan="4"><input type="text" placeholder="rut"></td>
+            </tr>
+        </table>
+        <h1 class="titulo">Libro de Ventas Diarias</h1>
+
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th colspan="7"><input type="text" placeholder="@TipoCliente"></th>
+                </tr>
+                <tr>
+                    <th>Fecha</th>
+                    <th>@TipoDocto</th>
+                    <th width="70%">Nombre del Cliente</th>
+                    <th>Rut</th>
+                    <th>Neto</th>
+                    <th>Iva</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="fecha"></td>
+                    <td><input type="text" placeholder="aviso"></td>
+                    <td><input type="text" placeholder="nombre"></td>
+                    <td><input type="text" placeholder="rut"></td>
+                    <td><input type="text" placeholder="consumo"></td>
+                    <td><input type="text" placeholder="calle"></td>
+                    <td><input type="text" placeholder="aviso_correlativo"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td><b>Total</b></td>
+                    <td><b><input type="text" placeholder="facturacion.consumo"></b></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td><b>Total</b></td>
+                    <td><b><input type="text" placeholder="facturacion.consumo"></b></td>
+                    <td></td>
+                </tr>
+            </tbody> 
+        </table>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+</html>

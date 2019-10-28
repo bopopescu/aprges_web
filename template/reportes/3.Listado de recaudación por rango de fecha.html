@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Listado de boletas ingresadas</title>
-    <style>
-        @page {
-            margin: 30;
-            margin-bottom: 100px;
-        }
-        body{
-                text-align: center;      
-        }
-        h1{
-                font-size: 3em;
-                margin: 0;
-        }
-        .tabla{
-                height: 40px;
-                border: 2px solid black;
-        }
-        th{
-                background-color: silver;
-        }
-    </style>
-</head>
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                <title>Listado de boletas ingresadas</title>
+                <style>
+                        @page {
+                                margin: 30;
+                                margin-bottom: 100px;
+                        }
+                        body{
+                                text-align: center;      
+                        }
+                        h1{
+                                font-size: 3em;
+                                margin: 0;
+                        }
+                        .tabla{
+                                height: 40px;
+                                border: 2px solid black;
+                        }
+                        th{
+                                background-color: silver;
+                        }
+                </style>
+        </head>
 
-<body>
-
-        <table>
-            <td style="text-align: right; height: 70px;">
-                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
-            </td>
-        </table>
-        <h1>Nomina de Pagos por Boletas</h1>
-        <h3>{{asociacion}}</h3>
-        <table class="tabla">
-                <thead>
-                        <tr>
-                                <th>NRO ABONO</th>
-                                <th>NRO BOLETA</th>
-                                <th>RUT</th>
-                                <th width="60%">NOMBRE</th>
-                                <th>TOTAL</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        {% for i in lista2 %}  
-                        <tr>
-                                <td>{{i.abono}}</td>
-                                <td>{{i.boleta}}</td>
-                                <td>{{i.rut}}</td>
-                                <td>{{i.nombres}}</td>
-                                <td>{{i.total}}</td>   
-                        </tr>  
-                        {% endfor %}
-                </tbody>  
-                total {{total}}
-        </table>
-</body>
+        <body>
+                <table>
+                        <td style="text-align: right; height: 70px;">
+                                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                        </td>
+                </table>
+                <h1>Nomina de Pagos por Boletas</h1>
+                <h3>{{asociacion}}</h3>
+                <table class="tabla">
+                        <thead>
+                                <tr>
+                                        <th>NRO ABONO</th>
+                                        <th>NRO BOLETA</th>
+                                        <th>RUT</th>
+                                        <th width="60%">NOMBRE</th>
+                                        <th>TOTAL</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for i in lista2 %}  
+                                <tr>
+                                        <td>{{i.abono}}</td>
+                                        <td>{{i.boleta}}</td>
+                                        <td>{{i.rut}}</td>
+                                        <td>{{i.nombres}}</td>
+                                        <td>{{i.total}}</td>   
+                                </tr>  
+                                {% endfor %}
+                        </tbody>  
+                        total {{total}}
+                </table>
+        </body>
 </html>

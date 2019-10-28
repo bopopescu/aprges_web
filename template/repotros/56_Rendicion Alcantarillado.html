@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Rendicion Diaria por Concepto de Alcantarillado y Multas</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <style>
+            @page{
+                margin: 30;
+            }
+            .tabla{                
+                border: 2px solid black;
+                margin-bottom: 40px;
+            }
+            h1{
+                padding-top: 40px;
+                text-align: center;
+                font-size: 3em;
+                margin:0;
+                font-weight: bold;
+            }
+            th{
+                background-color:silver;
+                height: 30px;
+                
+            }
+            h5{
+                text-align: left;
+            }
+            td{
+                margin-left: 1;
+                height: 35px;
+            }
+            input{
+                text-align: right;
+            }
+            .alcantarillado{
+                border-bottom: 1px solid black;
+            }
+            .tmensual{
+                text-align: right;
+            }
+        </style>
+    </head>
+
+    <body>     
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td>Fecha de Impresion:</td>
+            <td colspan="4"><input type="text" placeholder="print date"></td>
+            <td style="text-align: right; height: 60px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1 class="titulo">Rendicion Diaria por Concepto de Alcantarillado y Multas</h1>
+
+        <table>
+                <tr>
+                    <td>Total Facturado en Mts3</td>
+                    <td><input type="text" placeholder="reembolso"></td>
+                    <td width="40%">Total Facturado en Pesos(Alcantarillado)</td>
+                    <td><input type="text" placeholder="cuotas"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Total Facturado en Pesos(Multa)</td>
+                    <td><input type="text" placeholder="girobancos"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Total Pendiente Acumulado</td>
+                    <td><input type="text" placeholder="boleta"></td>
+                </tr>
+            </tbody> 
+        </table>
+        
+        <table>
+            <tr class="alcantarillado">
+                <td>Fecha</td>
+                <td width="70%">Alcantarillado Nro Desde - Hasta</td>
+                <td>Alcantarillado</td>
+                <td>Multas</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="fecha1"></td>
+                <td><input type="text" placeholder="detalle"></td>
+                <td><input type="text" placeholder="consumos"></td>
+                <td><input type="text" placeholder="otrosing"></td>
+                <td><input type="text" placeholder="todo"></td>
+            </tr>
+            <tr class="tmensual">
+                <td colspan="2">Total Mensual</td>
+                <td><input type="text" placeholder="libro.consumo"></td>
+                <td><input type="text" placeholder="libro.otrosing"></td>
+                <td><input type="text" placeholder="@todo"></td>
+            </tr>
+        </table>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+</html>

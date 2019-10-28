@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Listado de Facturas Pendientes</title>
+        <style>
+            @page {
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin: 0;
+            } 
+            .table{
+                height: 40px;
+                border: 2px solid black;
+            }
+            th{
+                background-color:silver;
+                font-size: 15px;
+                text-align: left;
+                margin-left: 1;
+            }
+            .td_ident{
+                height: 15px;
+            }
+            td{
+                margin-left: 1;
+            }
+            .div_totales{
+                font-size: 12px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <tr>
+                <td>Fecha de Impresion</td>
+                <td colspan="5"><input type="text" placeholder="print date"></td>
+                <td rowspan="2" style="text-align: right; height: 70px;">
+                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>Hora de Impresion</td>
+                <td><input type="text" placeholder="print time"></td>
+            </tr>
+        </table>
+        <h1>Listado de Facturas Pendientes</h1>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="40%">Nombre</th>
+                    <th>Rut</th>
+                    <th>Medidor</th>
+                    <th>Deuda</th>
+                    <th>Pagado</th>
+                    <th>Saldo</th>
+                    <th width="60%">Mensaje</th>
+                </tr>      
+            </thead> 
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="nombre"></td>
+                    <td><input type="text" placeholder="rut"></td>
+                    <td><input type="text" placeholder="medidor.correlativo"></td>
+                    <td><input type="text" placeholder="total a pagar"></td>
+                    <td><input type="text" placeholder="pagado"></td>
+                    <td><input type="text" placeholder="saldo"></td>
+                    <td><input type="text" placeholder="descripcion"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="div_totales">
+            <label>Total General</label>
+            <input type="text" placeholder="total a pagar">
+            <input type="text" placeholder="pagado">
+            <input type="text" placeholder="saldo">
+        </div>
+    </body>   
+</html>            

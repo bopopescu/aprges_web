@@ -1,51 +1,53 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Listado de Facturas pendientes</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Listado de Facturas pendientes</title>
+        <style>
             @page {
-            margin: 30;
-            margin-bottom: 100px;
-        }
-        body{text-align: center;}
-        h1{
-            font-size: 3em;
-            margin: 0;
-        } 
-        .table{
-            height: 40px;
-            border: 2px solid black;
-        }
-        th{
-            background-color:silver;
-        }
-    </style>
-</head>
+                margin: 30;
+                margin-bottom: 100px;
+            }
+            body{
+                text-align: center;
+            }
+            h1{
+                font-size: 3em;
+                margin: 0;
+            } 
+            .table{
+                height: 40px;
+                border: 2px solid black;
+            }
+            th{
+                background-color:silver;
+            }
+        </style>
+    </head>
 
-<body>
-    <table>
+    <body>
+        <table>
             <td style="text-align: right; height: 70px;">
                 <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
             </td>
         </table>
-    <h1>Listado de facturas pendientes</h1>
-    <p>Fecha desde {{desde}} - hasta {{hasta}}</p>
-    <br>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>FECHA</th>
-                <th width="60%">CLIENTES</th>
-                <th>NRO FACTURA</th>
-                <th>RUT</th>
-                <th>TOTAL FACTURA</th>
-                <th>ESTADO</th>
-            </tr>      
-        </thead> 
-        <tbody>
+        <h1>Listado de facturas pendientes</h1>
+        <p>Fecha desde {{desde}} - hasta {{hasta}}</p>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>FECHA</th>
+                    <th width="60%">CLIENTES</th>
+                    <th>NRO FACTURA</th>
+                    <th>RUT</th>
+                    <th>TOTAL FACTURA</th>
+                    <th>ESTADO</th>
+                </tr>      
+            </thead> 
+            <tbody>
                 {% for i in lista2 %}  
                 <tr>
                         <td>{{i.emision}}</td>
@@ -56,7 +58,7 @@
                         <td>{{i.estado}}</td>
                 </tr>
                 {% endfor %}  
-        </tbody>
-    </table>
-</body>   
+            </tbody>
+        </table>
+    </body>   
 </html>            

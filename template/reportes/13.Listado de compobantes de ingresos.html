@@ -1,59 +1,59 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Nomina de socio por medidor</title>
-    <style>
-                @page {
-                margin: 30;
-                margin-bottom: 100px;
-            }
-        body{
-               text-align: center;
-        }
-        h1{
-                font-size: 3em;
-                margin: 0;
-        }
-        table{
-                height: 40px;
-                border: 2px solid black;
-        }
-        th{
-                background-color: silver;
-        }
-        h4{
-                text-align: left;
-                padding-top: 7;
-        }
-    </style>
-</head>
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                <title>Nomina de socio por medidor</title>
+                <style>
+                        @page {
+                                margin: 30;
+                                margin-bottom: 100px;
+                        }
+                        body{
+                                text-align: center;
+                        }
+                        h1{
+                                font-size: 3em;
+                                margin: 0;
+                        }
+                        table{
+                                height: 40px;
+                                border: 2px solid black;
+                        }
+                        th{
+                                background-color: silver;
+                        }
+                        h4{
+                                text-align: left;
+                                padding-top: 7;
+                        }
+                </style>
+        </head>
 
-<body>
-        <h1>Listado de Comprobantes de Ingreso</h1>
-        <h5>{{asociacion}}</h5>
-        <table class="table">
-                <thead>
-                        <tr>
-                                <th>COMPROBANTE</th>
-                                <th>RUT</th>
-                                <th width="60%">NOMBRE</th>
-                                <th>TOTAL</th>
-                        </tr> 
-                </thead>
-                <tbody>
-                        {% for i in lista2 %}  
-                        <tr>
-                                <td>{{i.id}}</td>
-                                <td>{{i.rut}}</td>
-                                <td>{{i.nombre}}</td>
-                                <td>{{i.total}}</td>
-                        </tr>
-                        {% endfor %} 
-                </tbody>
-        </table>
-        <h4>SUB TOTAL</h4>
-</body>
+        <body>
+                <h1>Listado de Comprobantes de Ingreso</h1>
+                <h5>{{asociacion}}</h5>
+                <table class="table">
+                        <thead>
+                                <tr>
+                                        <th>COMPROBANTE</th>
+                                        <th>RUT</th>
+                                        <th width="60%">NOMBRE</th>
+                                        <th>TOTAL</th>
+                                </tr> 
+                        </thead>
+                        <tbody>
+                                {% for i in lista2 %}  
+                                <tr>
+                                        <td>{{i.id}}</td>
+                                        <td>{{i.rut}}</td>
+                                        <td>{{i.nombre}}</td>
+                                        <td>{{i.total}}</td>
+                                </tr>
+                                {% endfor %} 
+                        </tbody>
+                </table>
+                <h4>SUB TOTAL</h4>
+        </body>
 </html>

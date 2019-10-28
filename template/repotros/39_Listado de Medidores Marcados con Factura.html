@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Medidores Marcados para Generar Factura</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <style>
+            @page{
+                margin: 30;
+            }
+            .tabla{                
+                /* border: 2px solid black; */
+                margin-bottom: 40px;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
+                margin:0;
+                font-weight: bold;
+            }
+            th{
+                background-color:silver;
+                height: 30px;
+                
+            }
+            h5{
+                text-align: left;
+            }
+            td{
+                margin-left: 1;
+                height: 25px;
+            }
+        </style>
+    </head>
+
+    <body>     
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td>Fecha de Impresion:</td>
+            <td colspan="4"><input type="text" placeholder="print date"></td>
+            <td style="text-align: right; height: 60px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <h1 class="titulo">Medidores Marcados para Generar Factura</h1>
+
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th width="100%">Nombre</th>
+                    <th>Medidor</th>
+                    <th width="100%">Direccion</th>
+                    <th>Aviso</th>
+                    <th>Total a Pagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="nombre"></td>
+                    <td><input type="text" placeholder="correlativo"></td>
+                    <td><input type="text" placeholder="calle"></td>
+                    <td><input type="text" placeholder="aviso_correlativo"></td>
+                    <td><input type="text" placeholder="total a pagar"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>Total Cliente</td>
+                    <td><input type="text" placeholder="total a pagar"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>Total General</td>
+                    <td><input type="text" placeholder="total a pagar"></td>
+                </tr>
+            </tbody> 
+        </table>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+</html>

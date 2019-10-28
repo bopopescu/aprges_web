@@ -1,81 +1,72 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-    <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Convenio de Pago</title>
-            <style>
-                @page{
-                    size: letter portrait;
-                    margin: 30 50;
-                }
-                h2{
-                    font-size: 30px;
-                    text-align: center;
-                    margin-top: 0;
-                }
-                .tabla{
-            height: 40px;
-            border: 2px solid black;
-        }
-                th {
-                    background-color:silver;
-                }
-                td{
-                    padding: 5px;
-                }
-                .cant_clientes{
-                    margin-left: 400px;
-                }
-            </style>
-        </head>
-        <body>
-            <table style="margin-top: 0;margin-bottom: 0;">
-                <td style="text-align: right; height: 70px;">
-                    <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
-                </td>
-            </table>
-            
-            <h2>Nomina de Parceleros</h2>
-            <h5>{{asociacion}}</h5>
-
-            <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th width="20%">Nro Registro</th>
-                            <th width="30%">Rut</th>
-                            <th width="70%">Nombres</th>
-                            <th width="30%">Direccion</th>
-                            <th width="50%">Correo</th>
-                            <th>Firma</th>
-                        </tr>     
-                    </thead>  
-                    
-                    <tbody> 
-                        {% for i in lista2 %} 
-                        <tr>  
-                            <td>{{i.id}}</td>
-                            <td>{{i.rut}}</td>
-                            <td>{{i.nombre}}</td>
-                            <td>{{i.direccion}}</td>
-                            <td>{{i.correo}}</td>
-                            <td></td>   
-                        </tr>
-                        {% endfor %} 
-                    </tbody>
-                </table>
-
-            <div class="cant_clientes">
-                <label for="">Cantidad de Clientes Ingresados en el Periodo</label>
-                <input type="text">
-            </div>
-           
-            
-
-            
-            
-            
-        </body>
-    </html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Convenio de Pago</title>
+        <style>
+            @page{
+                size: letter portrait;
+                margin: 30 50;
+            }
+            h2{
+                font-size: 30px;
+                text-align: center;
+                margin-top: 0;
+            }
+            .tabla{
+                height: 40px;
+                border: 2px solid black;
+            }
+            th {
+                background-color:silver;
+            }
+            td{
+                padding: 5px;
+            }
+            .cant_clientes{
+                margin-left: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="margin-top: 0;margin-bottom: 0;">
+            <td style="text-align: right; height: 70px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        
+        <h2>Nomina de Parceleros</h2>
+        <h5>{{asociacion}}</h5>
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th width="20%">Nro Registro</th>
+                    <th width="30%">Rut</th>
+                    <th width="70%">Nombres</th>
+                    <th width="30%">Direccion</th>
+                    <th width="50%">Correo</th>
+                    <th>Firma</th>
+                </tr>     
+            </thead>          
+            <tbody> 
+                {% for i in lista2 %} 
+                <tr>  
+                    <td>{{i.id}}</td>
+                    <td>{{i.rut}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.direccion}}</td>
+                    <td>{{i.correo}}</td>
+                    <td></td>   
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+        <div class="cant_clientes">
+            <label for="">Cantidad de Clientes Ingresados en el Periodo</label>
+            <input type="text">
+        </div>
+    </body>
+</html>
