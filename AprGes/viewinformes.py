@@ -1068,17 +1068,17 @@ def view6_ListadoAbonosIngresados(request):
     pdf= render_to_pdf('repotros/6_Listado de Abonos Ingresados.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view7_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view7_ListadoComprobantesIngresados(request):
+    pdf= render_to_pdf('repotros/7_Listado de Comprobantes Ingresados.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
-# def view8_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view8_ListadoComprobantesEgresados(request):
+    pdf= render_to_pdf('repotros/8_Listado de Comprobantes Egresados.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
-# def view9_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view9_ListadoFacturasEmitidas(request):
+    pdf= render_to_pdf('repotros/9_Listado de Facturas Emitidas.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 def view10_ListadoFacturasPendientes(request):
     pdf= render_to_pdf('repotros/10_Listado de Facturas Pendientes.html', {})
@@ -1096,9 +1096,9 @@ def view10_ListadoFacturasPendientes(request):
 #     pdf= render_to_pdf('repotros/.html', {})
 #     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view15_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view15_ListadoFacturacion(request):
+    pdf= render_to_pdf('repotros/15_Listado de Facturacion.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 def view16_RangoConsumoAño(request):
     pdf= render_to_pdf('repotros/16_Rango de Consumo por Año.html', {})
@@ -1197,9 +1197,9 @@ def view39_ListadoMedidoresMarcadosFactura(request):
     pdf= render_to_pdf('repotros/39_Listado de Medidores Marcados con Factura.html', {})
     return HttpResponse(pdf, content_type='application/pdf')
 
-# def view40_(request):
-#     pdf= render_to_pdf('repotros/.html', {})
-#     return HttpResponse(pdf, content_type='application/pdf')
+def view40_ImprimirComprobanteAbonoNumero(request):
+    pdf= render_to_pdf('repotros/40_Imprimir Comprobante de Abono por Numero.html', {})
+    return HttpResponse(pdf, content_type='application/pdf')
 
 # def view41_(request):
 #     pdf= render_to_pdf('repotros/.html', {})

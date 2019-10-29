@@ -1,0 +1,112 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style rel="stylesheet" type="text/css" media="print">
+            @page{
+                size: 80mm 279mm;
+                margin: 25px;
+                margin-top: 15;            
+            }
+            .identificacion{
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .tabla-texto{
+                background-color: silver;
+                height: 25px;
+                text-align: center;
+            }
+            .tabla-texto2{
+                background-color: silver;
+                text-align: right;
+            }
+            .pagar{
+                margin-top: 50px;
+                text-align: right;
+                margin-left: 100px;
+            }
+            .body_tabla3{
+                padding-top: 5px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <td style="text-align: right; height: 50px;">
+                <img class="imagen" src="http://127.0.0.1:8000/static/assets/images/ico-2.png" alt="">
+            </td>
+        </table>
+        <table>
+            {% for i in datos %}
+            <tr>
+                <td width="120px">GIRO</td>
+                <td><input type="text">{{i.giro}}</td>
+            </tr>
+            <tr>
+                <td valign="top" width="120px" class="nombre">NOMBRE</td>
+                <td><input type="text">{{i.nombre}}</td>
+            </tr>
+            <tr>
+                <td width="120px">RUT</td>
+                <td><input type="text">{{i.rut}}</td>
+            </tr>
+            <tr>
+                <td width="120px">DIRECCION</td>
+                <td><input type="text">{{i.direccion}}</td>
+            </tr>
+            <tr>
+                <td width="120px">FONO</td>
+                <td><input type="text">{{i.fono}}</td>
+            </tr>
+            <tr>
+                <td width="120px">COMUNA</td>
+                <td><input type="text">{{i.comuna}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="identificacion">            
+            <tr>
+                <td width="150px">Nombre Cliente</td>
+                <td><input value="{{nombre}}">{{nombre}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Direccion Cliente</td>
+                <td><input value="{{direccion}}">{{direccion}}</td>
+            </tr>
+            <tr>
+                <td width="150px">Nro Parcelero</td>
+                <td><input value="{{numerosocio}}">{{numerosocio}}</td>
+            </tr>
+        </table>
+        <h2>Comprobante de Pago Nro {{numeroabono}}</h2>
+        <table class="tabla">
+            <thead>
+                <th width="200px" class="tabla-texto">FECHA</th>
+                <th width="200px" class="tabla-texto">MONTO</th>
+                <th class="tabla-texto2">OBSERVACION</th>
+            </thead>
+            <tbody>
+                <tr class="body_tabla3">
+                    <td valign="top"><input type="text" value="{{fechapago}}" placeholder="fecha">{{fechapago}}</td>
+                <td valign="top"><input type="text" value="{{montopagado}}" placeholder="MONTO">{{montopagado}}</td>
+                    <td valign="top"><input type="text" placeholder="MOTIVO">
+                        {% for i in lista %}
+                        {{i.des}}<p></p>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <table class="pagar">            
+            <tr>
+                <td>Saldo Pendiente $</td>
+                <td width="50px">{{deuda}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
