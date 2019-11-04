@@ -25,21 +25,20 @@ from AprGes.utils import render_to_pdf
 from datetime import date,datetime
 
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
-"""
 try:
-    conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\RiegoWeb\\Riego\\RIEGO.mdb')
+    conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\JMC\\Documents\\APR\\AguilaNorte\\29112015\\AguilaNorte.mdb')
     cursor = conn.cursor()
 except pyodbc.Error as ex:
     sqlstate = ex.args[0]
     print(sqlstate)
     if sqlstate == '08001':
         pass
-"""
+
 try:
     conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=DESKTOP-VRSDL3N;'
-                      'Database=APRGESMALLARA;'
-                      'Trusted_Connection=yes;')
+        'Server=DESKTOP-VRSDL3N;'
+        'Database=APRGESMALLARA;'
+        'Trusted_Connection=yes;')
     cursor = conn.cursor()
 except pyodbc.Error as ex:
     sqlstate = ex.args[0]
@@ -64,7 +63,6 @@ def buscarporNombre():
     except Exception as e:
         pass
         print(e)
-
 
 def buscarporNombreProveedores():
 
@@ -1151,7 +1149,6 @@ def buscarSolidario(id_):
 
     return fijo
 
-
 def viewTramo(request,id_):
 
     print("tarifa seleccionada  " + str(id_))
@@ -1324,11 +1321,77 @@ def viewTramo(request,id_):
     else:
         return render(request, 'mantenedor/tramo.html', data)
 
-def viewMedidor(request):
-
+def viewEe(request):
     
     if request.method=='POST' and 'guardar' in request.POST:                
-        codigo=request.POST['codigo']              
+        correlativo=request.POST['correlativo']              
         descripcion=request.POST['descripcion']     
 
-    return render(request, 'mantenedor/estado_medidor.html', {})
+    return render(request, 'mantenedor/ee.html', {})
+
+
+def listarEstado():
+    sql="SELECT * FROM GLO_ESTADO"
+    lista=[]
+
+    try:
+        cursor.execute(sql)
+
+        for i in cursor.fetchall():
+            lista.append({'id':i[0],'nombre':i[1]})
+    except Exception as a:
+        print(a)
+        print(sql)
+    
+    return lista
+
+def buscarCorrelativoEstado():
+
+    sql="SELECT IIf(IsNull(MAX(CORRELATIVO)), 0, Max(CORRELATIVO)) AS ValorMaximo FROM GLO_ESTADO"
+
+    try:
+        cursor.execute(sql)
+        for i in cursor.fetchall():
+            correlativo=i[0]+1
+        
+    except Exception as a:
+        print(a)
+        print(sql)
+    
+    return correlativo
+
+def viewMedidor(request):
+    
+    if request.method=='POST' and 'guardar' in request.POST:
+
+        correlativo=request.POST['correlativo']
+        descripcion=request.POST['descripcion']
+
+        sql="INSERT INTO GLO_ESTADO(CORRELATIVO,DESCRIPCION) VALUES("+correlativo+",'"+descripcion+"')"
+
+        try:
+            cursor.execute(sql)
+            cursor.commit()
+        except Exception as a:
+            print(a)
+            print(sql)
+    
+    if request.method=='POST' and 'borrar' in request.POST:
+
+        correlativo=request.POST['tipo2']
+
+        sql="DELETE FROM GLO_ESTADO WHERE CORRELATIVO="+correlativo
+
+        try:
+            cursor.execute(sql)
+            cursor.commit()
+        except Exception as a:
+            print(a)
+            print(sql)
+
+    data={
+        # 'correlativo':buscarCorrelativoEstado(),
+        'lista':listarEstado()
+    }
+
+    return render(request, 'mantenedor/estado_medidor.html', data)

@@ -29,6 +29,7 @@ urlpatterns = [
     path('mantenedor/cargo/', viewCargo),
     path('mantenedor/funcionarios/', viewFuncionarios),
     path('mantenedor/medidor/', viewMedidor),
+    path('mantenedor/ee/', viewEe),
     path('mantenedor/proveedor/', viewProveedor),
     path('mantenedor/convenio/',viewConvenioMan),
     path('mantenedor/asociacion/',viewDatos),

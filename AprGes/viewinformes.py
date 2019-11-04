@@ -29,13 +29,14 @@ from AprGes.viewconexion import nombreConexion
 #Instalar CONTROLADOR ODBC especifico según 64bits o 32bits del computador , en este caso es controlador en 64bits
 
 try:
-    conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\RiegoWeb\\Riego\\RIEGO.mdb')
+    conn = pyodbc.connect('DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\JMC\\Documents\\APR\\AguilaNorte\\29112015\\AguilaNorte.mdb')
     cursor = conn.cursor()
 except pyodbc.Error as ex:
     sqlstate = ex.args[0]
     print(sqlstate)
     if sqlstate == '08001':
         pass
+    
 def viewAsociacion():
 
     nombre=""
