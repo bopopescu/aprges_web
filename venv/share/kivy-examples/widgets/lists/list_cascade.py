@@ -7,13 +7,13 @@ from fixtures import fruit_categories, fruit_data_list_of_dicts
 
 from fruit_detail_view import FruitDetailView
 
-# This is an expansion on the "master-detail" example to illustrate
+# This is an expansion on the "main-detail" example to illustrate
 # cascading from the selection of one list view to another. In this
 # example the lists are restricted to single selection. The list on the
 # left is a simple list. The list in the middle is specialized for
 # observing the selection in the first, and using that item as the key
 # into a dict providing its own list items. The view on the right is
-# the same as the DetailView in the master-detail example.
+# the same as the DetailView in the main-detail example.
 
 # A custom adapter is needed here, because we must transform the selected
 # fruit category into the list of fruits for that category.
@@ -83,7 +83,7 @@ fruit_data_items = \
 
 
 class CascadingView(GridLayout):
-    '''Implementation of a master-detail style view, with a scrollable list
+    '''Implementation of a main-detail style view, with a scrollable list
     of fruit categories on the left, a list of fruits for the selected
     category in the middle, and a detail view on the right.
 

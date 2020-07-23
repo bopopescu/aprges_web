@@ -7,16 +7,16 @@ from fixtures import fruit_data
 from fruit_detail_view import FruitDetailView
 
 
-class MasterDetailView(GridLayout):
-    '''Implementation of an master-detail view with a vertical scrollable list
-    on the left (the master, or source list) and a detail view on the right.
-    When selection changes in the master list, the content of the detail view
+class MainDetailView(GridLayout):
+    '''Implementation of an main-detail view with a vertical scrollable list
+    on the left (the main, or source list) and a detail view on the right.
+    When selection changes in the main list, the content of the detail view
     is updated.
     '''
 
     def __init__(self, items, **kwargs):
         kwargs['cols'] = 2
-        super(MasterDetailView, self).__init__(**kwargs)
+        super(MainDetailView, self).__init__(**kwargs)
 
         list_item_args_converter = \
                 lambda row_index, rec: {'text': rec['name'],
@@ -30,10 +30,10 @@ class MasterDetailView(GridLayout):
                                    allow_empty_selection=False,
                                    cls=ListItemButton)
 
-        master_list_view = ListView(adapter=dict_adapter,
+        main_list_view = ListView(adapter=dict_adapter,
                                     size_hint=(.3, 1.0))
 
-        self.add_widget(master_list_view)
+        self.add_widget(main_list_view)
 
         detail_view = FruitDetailView(
                 fruit_name=dict_adapter.selection[0].text,
@@ -47,6 +47,6 @@ if __name__ == '__main__':
 
     from kivy.base import runTouchApp
 
-    master_detail = MasterDetailView(sorted(fruit_data.keys()), width=800)
+    main_detail = MainDetailView(sorted(fruit_data.keys()), width=800)
 
-    runTouchApp(master_detail)
+    runTouchApp(main_detail)
